@@ -29,8 +29,7 @@ class Admin extends CI_Controller
 
     public function pegawai()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/pegawai');
+        $this->loadAsset(["admin/pegawai/pegawai"]);
     }
 
 
@@ -68,15 +67,12 @@ class Admin extends CI_Controller
 
     public function rup()
     {
-        $this->loadAsset(["admin/rup"]);
+        
         $this->loadAsset(["admin/pengumuman/rup"]);
     }
     public function tambahrup()
     {
-        $this->load->view('admin/admin_header');
-        $this->load->view('admin/header');
-        $this->load->view('admin/tambahrup');
-        $this->load->view('admin/admin_footer');
+      
         $this->loadAsset(["admin/pengumuman/tambahrup"]);
     }
 
@@ -156,4 +152,10 @@ class Admin extends CI_Controller
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-sumur-bor');
     }
+
+    public function tambahpegawai()
+    {
+        $this->loadAsset(["admin/pegawai/tambahpegawai"]);
+    }
+
 }
