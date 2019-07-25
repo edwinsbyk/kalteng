@@ -59,7 +59,7 @@
                                                     <label for="hf-text" class=" form-control-label">Lokasi</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-text" name="lokasi" placeholder="Masukkan Kegiatan" class="form-control">
+                                                    <input type="text" id="hf-text" name="lokasi" placeholder="Masukkan Lokasi" class="form-control">
                                                    
                                                 </div>
                                                 <div class="row form-group">
