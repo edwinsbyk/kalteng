@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+application/config
+system
+assets
+third_party
+*.log
+.DS_Store
+*.DS_Store
+vendor
+composer.json
+composer.lock
+inc_.php
+index_.php
+.patch
+.local_query
+.local_stash
+=======
 .DS_Store
 
 application/config/database.php
@@ -30,3 +47,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+>>>>>>> b1d95ea7d3893b072643e65ea86e231d0a97bc70
