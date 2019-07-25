@@ -10,7 +10,16 @@ class Admin extends CI_Controller
 
     //     // is_logged_in();
     // }
-
+    public function loadAsset($func) 
+    { 
+        $this->load->view('admin/header');
+         $this->load->view('admin/admin_header');
+         foreach ($func as $key => $value) {
+             # code...
+            $this->load->view($value);
+         }
+          $this->load->view('admin/admin_footer');
+    }
     public function index()
     {
     	$this->load->view('admin/header');
@@ -33,8 +42,11 @@ class Admin extends CI_Controller
 
         public function berita()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/berita');
+        // $this->load->view('admin/header');
+        // $this->load->view('admin/admin_header');
+        // $this->load->view('admin/warta/tab');
+        $this->loadAsset(["admin/warta/tab"]);
+        // $this->load->view('admin/admin_footer');
     }
 
         public function artikel()
@@ -57,13 +69,15 @@ class Admin extends CI_Controller
 
         public function rup()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/rup');
+              $this->loadAsset(["admin/rup"]);
+
     }
            public function tambahrup()
     {
+         $this->load->view('admin/admin_header');
         $this->load->view('admin/header');
         $this->load->view('admin/tambahrup');
+        $this->load->view('admin/admin_footer');
     }
 
         public function pengumuman_lelang()
