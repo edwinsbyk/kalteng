@@ -10,29 +10,27 @@ class Admin extends CI_Controller
 
     //     // is_logged_in();
     // }
-    public function loadAsset($func)
-    {
-        $this->load->view('admin/header');
-        $this->load->view('admin/admin_header');
-        foreach ($func as $key => $value) {
-            # code...
-            $this->load->view($value);
-        }
-        $this->load->view('admin/admin_footer');
-    }
     public function index()
     {
         $this->load->view('admin/header');
         $this->load->view('admin/index');
     }
 
+    public function loadAsset($param)
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/admin_header');
+        foreach ($param as $key => $value) {
+            $this->load->view($value['path'], isset($value["data"]) ? $value["data"] : '');
+        }
+        $this->load->view('admin/admin_footer');
+    }
 
     public function pegawai()
     {
         $this->load->view('admin/header');
         $this->load->view('admin/pegawai');
     }
-
 
     public function bidang()
     {
@@ -42,11 +40,11 @@ class Admin extends CI_Controller
 
     public function berita()
     {
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/admin_header');
-        // $this->load->view('admin/warta/tab');
-        $this->loadAsset(["admin/warta/tab"]);
-        // $this->load->view('admin/admin_footer');
+        $data = "wlw";
+        $lp = [
+            ["path" => "admin/warta/tab.php"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function artikel()
@@ -68,92 +66,114 @@ class Admin extends CI_Controller
 
     public function rup()
     {
-        $this->loadAsset(["admin/rup"]);
-        $this->loadAsset(["admin/pengumuman/rup"]);
+        $lp = [
+            ["path" => "admin/pengumuman/rup"]
+        ];
+        $this->loadAsset($lp);
     }
     public function tambahrup()
     {
-        $this->load->view('admin/admin_header');
-        $this->load->view('admin/header');
-        $this->load->view('admin/tambahrup');
-        $this->load->view('admin/admin_footer');
-        $this->loadAsset(["admin/pengumuman/tambahrup"]);
+        $lp = [
+            ["path" => "admin/pengumuman/tambahrup"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function pengumuman_lelang()
     {
-        $this->loadAsset(["admin/pengumuman/pengumuman_lelang"]);
+        $lp = [
+            ["path" => "admin/pengumuman/lelang"]
+        ];
+        $this->loadAsset($lp);
     }
     public function tambahpengumuman()
     {
-        $this->loadAsset(["admin/pengumuman/tambahpengumuman"]);
+        $lp = [
+            ["path" => "admin/pengumuman/tambahpengumuman"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function pemenang_lelang()
     {
-        $this->loadAsset(["admin/pengumuman/pemenang_lelang"]);
+        $lp = [
+            ["path" => "admin/pengumuman/pememang_lelang"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function tambahpemenanglelang()
     {
-        $this->loadAsset(["admin/pengumuman/tambahpemenanglelang"]);
+        $lp = [
+            ["path" => "admin/pengumuman/tambahpemenanglelang"]
+        ];
+        $this->loadAsset($lp);
     }
 
     //
 
     public function datapuJalan()
     {
-        // $this->loadAsset(["admin/datapu/jalan"]);
-        $this->load->view('admin/header');
-        $this->load->view('admin/datapu/jalan');
+        $lp = [
+            ["path" => "admin/datapu/jalan"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuJembatan()
     {
-        // $this->loadAsset(["admin/datapu/jembatan"]);
-        $this->load->view('admin/header');
-        $this->load->view('admin/datapu/jembatan');
+        $lp = [
+            ["path" => "admin/datapu/jembatan"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuEmbung()
     {
-        // $this->loadAsset(["admin/datapu/embung"]);
-        $this->load->view('admin/header');
-        $this->load->view('admin/datapu/embung');
+        $lp = [
+            ["path" => "admin/datapu/embung"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuSumurBor()
     {
-        // $this->loadAsset(["admin/datapu/sumur-bor"]);
-        $this->load->view('admin/header');
-        $this->load->view('admin/datapu/sumur-bor');
+        $lp = [
+            ["path" => "admin/datapu/sumurbor"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuBlackSpot()
     {
-        // $this->loadAsset(["admin/datapu/black-spot"]);
-        $this->load->view('admin/header');
-        $this->load->view('admin/datapu/black-spot');
+        $lp = [
+            ["path" => "admin/datapu/black-spot"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function datapuSpam()
     {
-        // $this->loadAsset(["admin/datapu/spam"]);
-        $this->load->view('admin/header');
-        $this->load->view('admin/datapu/spam');
+        $lp = [
+            ["path" => "admin/datapu/spam"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuPotensiDanau()
     {
-        // $this->loadAsset(["admin/datapu/potensi-danau"]);
-        $this->load->view('admin/header');
-        $this->load->view('admin/datapu/potensi-danau');
+        $lp = [
+            ["path" => "admin/datapu/potensi-danau"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuPotensiRawa()
     {
-        // $this->loadAsset(["admin/datapu/potensi-rawa"]);
-        $this->load->view('admin/header');
-        $this->load->view('admin/datapu/potensi-rawa');
+        $lp = [
+            ["path" => "admin/datapu/potensi-rawa"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuPotensiSumurBor()
     {
-        // $this->loadAsset(["admin/datapu/potensi-sumur-bor"]);
-        $this->load->view('admin/header');
-        $this->load->view('admin/datapu/potensi-sumur-bor');
+        $lp = [
+            ["path" => "admin/datapu/potensi-sumur-bor"]
+        ];
+        $this->loadAsset($lp);
     }
 }
