@@ -69,7 +69,7 @@
                                 <i class="fas fa-edit"></i>Data PU</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="<?= base_url('admin/berita'); ?>">Jalan</a>
+                                    <a href="<?= base_url('admin/jalan'); ?>">Jalan</a>
                                 </li>
                                 <li>
                                     <a href="<?= base_url('admin/jembatan'); ?>">Jembatan</a>
@@ -111,9 +111,9 @@
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
-                <div class="section_content section_content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
+                <div class="section_content section_content--p30 h-100">
+                    <div class="container-fluid h-100">
+                        <div class="header-wrap h-100 align-items-center">
                             <form class="form-header" action="" method="POST">
                                 <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
