@@ -109,12 +109,12 @@ class Admin extends CI_Controller
         $this->load->view('admin/header');
         $this->load->view('admin/datapu-potensi-danau');
     }
-    public function dataPotensiRawa()
+    public function datapuPotensiRawa()
     {
         $this->load->view('admin/header');
         $this->load->view('admin/datapu-potensi-rawa');
     }
-    public function dataPotensiSumurBor()
+    public function datapuPotensiSumurBor()
     {
         $this->load->view('admin/header');
         $this->load->view('admin/datapu-potensi-sumur-bor');
