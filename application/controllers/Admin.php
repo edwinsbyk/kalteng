@@ -33,8 +33,10 @@ class Admin extends CI_Controller
 
     public function berita()
     {
+        $this->load->view('admin/admin_header');
         $this->load->view('admin/header');
-        $this->load->view('admin/berita');
+        $this->load->view('admin/warta/tab');
+        $this->load->view('admin/admin_footer');
     }
 
     public function artikel()
