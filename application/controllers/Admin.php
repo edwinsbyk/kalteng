@@ -21,7 +21,6 @@ class Admin extends CI_Controller
         $this->load->view('admin/header');
         $this->load->view('admin/admin_header');
         foreach ($param as $key => $value) {
-            var_dump($value);
             $this->load->view($value['path'], isset($value["data"]) ? $value["data"] : '');
         }
         $this->load->view('admin/admin_footer');
@@ -68,37 +67,47 @@ class Admin extends CI_Controller
     public function rup()
     {
         $lp = [
-            ["path" => "admin/rup"],
             ["path" => "admin/pengumuman/rup"]
         ];
         $this->loadAsset($lp);
     }
     public function tambahrup()
     {
-        $this->load->view('admin/admin_header');
-        $this->load->view('admin/header');
-        $this->load->view('admin/tambahrup');
-        $this->load->view('admin/admin_footer');
-        $this->loadAsset(["admin/pengumuman/tambahrup"]);
+        $lp = [
+            ["path" => "admin/pengumuman/tambahrup"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function pengumuman_lelang()
     {
-        $this->loadAsset(["admin/pengumuman/pengumuman_lelang"]);
+        $lp = [
+            ["path" => "admin/pengumuman/lelang"]
+        ];
+        $this->loadAsset($lp);
     }
     public function tambahpengumuman()
     {
-        $this->loadAsset(["admin/pengumuman/tambahpengumuman"]);
+        $lp = [
+            ["path" => "admin/pengumuman/tambahpengumuman"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function pemenang_lelang()
     {
-        $this->loadAsset(["admin/pengumuman/pemenang_lelang"]);
+        $lp = [
+            ["path" => "admin/pengumuman/pememang_lelang"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function tambahpemenanglelang()
     {
-        $this->loadAsset(["admin/pengumuman/tambahpemenanglelang"]);
+        $lp = [
+            ["path" => "admin/pengumuman/tambahpemenanglelang"]
+        ];
+        $this->loadAsset($lp);
     }
 
     //
