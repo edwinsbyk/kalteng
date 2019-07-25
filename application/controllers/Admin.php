@@ -103,57 +103,57 @@ class Admin extends CI_Controller
 
     public function datapuJalan()
     {
-        $this->loadAsset(["admin/datapu/jalan"]);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/datapu/jalan');
+        // $this->loadAsset(["admin/datapu/jalan"]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/datapu/jalan');
     }
     public function datapuJembatan()
     {
-        $this->loadAsset(["admin/datapu/jembatan"]);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/datapu/jembatan');
+        // $this->loadAsset(["admin/datapu/jembatan"]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/datapu/jembatan');
     }
     public function datapuEmbung()
     {
-        $this->loadAsset(["admin/datapu/embung"]);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/datapu/embung');
+        // $this->loadAsset(["admin/datapu/embung"]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/datapu/embung');
     }
     public function datapuSumurBor()
     {
-        $this->loadAsset(["admin/datapu/sumur-bor"]);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/datapu/sumur-bor');
+        // $this->loadAsset(["admin/datapu/sumur-bor"]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/datapu/sumur-bor');
     }
     public function datapuBlackSpot()
     {
-        $this->loadAsset(["admin/datapu/black-spot"]);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/datapu/black-spot');
+        // $this->loadAsset(["admin/datapu/black-spot"]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/datapu/black-spot');
     }
 
     public function datapuSpam()
     {
-        $this->loadAsset(["admin/datapu/spam"]);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/datapu/spam');
+        // $this->loadAsset(["admin/datapu/spam"]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/datapu/spam');
     }
-    public function dataPotensiDanau()
+    public function datapuPotensiDanau()
     {
-        $this->loadAsset(["admin/datapu/potensi-danau"]);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/datapu/potensi-danau');
+        // $this->loadAsset(["admin/datapu/potensi-danau"]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/datapu/potensi-danau');
     }
     public function datapuPotensiRawa()
     {
-        $this->loadAsset(["admin/datapu/potensi-rawa"]);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/datapu/potensi-rawa');
+        // $this->loadAsset(["admin/datapu/potensi-rawa"]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/datapu/potensi-rawa');
     }
     public function datapuPotensiSumurBor()
     {
-        $this->loadAsset(["admin/datapu/potensi-sumur-bor"]);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/datapu/potensi-sumur-bor');
+        // $this->loadAsset(["admin/datapu/potensi-sumur-bor"]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/datapu/potensi-sumur-bor');
     }
 }
