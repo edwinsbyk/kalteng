@@ -17,13 +17,21 @@ class Admin extends CI_Controller
         $this->load->view('admin/index');
     }
 
+    public function loadAsset($param)
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/admin_header');
+        foreach ($param as $key => $value) {
+            $this->load->view($value['path'], isset($value["data"]) ? $value["data"] : '');
+        }
+        $this->load->view('admin/admin_footer');
+    }
 
     public function pegawai()
     {
         $this->load->view('admin/header');
         $this->load->view('admin/pegawai');
     }
-
 
     public function bidang()
     {
@@ -33,10 +41,11 @@ class Admin extends CI_Controller
 
     public function berita()
     {
-        $this->load->view('admin/admin_header');
-        $this->load->view('admin/header');
-        $this->load->view('admin/warta/tab');
-        $this->load->view('admin/admin_footer');
+        $data = "wlw";
+        $lp = [
+            ["path" => "admin/warta/tab.php"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function artikel()

@@ -15,7 +15,6 @@ index_.php
 .local_stash
 .DS_Store
 
-application/config/database.php
 application/config/*
 application/cache/*
 !application/cache/index.html
