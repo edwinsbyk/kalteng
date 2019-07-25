@@ -40,7 +40,7 @@
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                <div class="section_content section_content--p30">
+                <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
@@ -333,7 +333,7 @@
                                             <p>Tasks for John Doe</p>
                                         </div>
                                         <div class="au-task-list js-scrollbar3">
-                                            <div class="au-task_item au-task_item--danger">
+                                            <div class="au-task__item au-task__item--danger">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Meeting about plan for Admin Template 2018</a>
@@ -341,7 +341,7 @@
                                                     <span class="time">10:00 AM</span>
                                                 </div>
                                             </div>
-                                            <div class="au-task_item au-task_item--warning">
+                                            <div class="au-task__item au-task__item--warning">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Create new task for Dashboard</a>
@@ -349,7 +349,7 @@
                                                     <span class="time">11:00 AM</span>
                                                 </div>
                                             </div>
-                                            <div class="au-task_item au-task_item--primary">
+                                            <div class="au-task__item au-task__item--primary">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Meeting about plan for Admin Template 2018</a>
@@ -357,7 +357,7 @@
                                                     <span class="time">02:00 PM</span>
                                                 </div>
                                             </div>
-                                            <div class="au-task_item au-task_item--success">
+                                            <div class="au-task__item au-task__item--success">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Create new task for Dashboard</a>
@@ -365,7 +365,7 @@
                                                     <span class="time">03:30 PM</span>
                                                 </div>
                                             </div>
-                                            <div class="au-task_item au-task_item--danger js-load-item">
+                                            <div class="au-task__item au-task__item--danger js-load-item">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Meeting about plan for Admin Template 2018</a>
@@ -373,7 +373,7 @@
                                                     <span class="time">10:00 AM</span>
                                                 </div>
                                             </div>
-                                            <div class="au-task_item au-task_item--warning js-load-item">
+                                            <div class="au-task__item au-task__item--warning js-load-item">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Create new task for Dashboard</a>
