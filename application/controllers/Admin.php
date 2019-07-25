@@ -63,13 +63,13 @@ class Admin extends CI_Controller
 
     public function testimoni()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/testimoni');
+        $this->loadAsset(["admin/testimoni"]);
     }
 
     public function rup()
     {
         $this->loadAsset(["admin/rup"]);
+        $this->loadAsset(["admin/pengumuman/rup"]);
     }
     public function tambahrup()
     {
@@ -77,29 +77,26 @@ class Admin extends CI_Controller
         $this->load->view('admin/header');
         $this->load->view('admin/tambahrup');
         $this->load->view('admin/admin_footer');
+        $this->loadAsset(["admin/pengumuman/tambahrup"]);
     }
 
     public function pengumuman_lelang()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/pengumuman_lelang');
+        $this->loadAsset(["admin/pengumuman/pengumuman_lelang"]);
     }
     public function tambahpengumuman()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/tambahpengumuman');
+        $this->loadAsset(["admin/pengumuman/tambahpengumuman"]);
     }
 
     public function pemenang_lelang()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/pemenang_lelang');
+        $this->loadAsset(["admin/pengumuman/pemenang_lelang"]);
     }
 
     public function tambahpemenanglelang()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/tambahpemenanglelang');
+        $this->loadAsset(["admin/pengumuman/tambahpemenanglelang   "]);
     }
 
     //
