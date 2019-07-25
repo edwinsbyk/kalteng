@@ -18,6 +18,7 @@ index_.php
 .DS_Store
 
 application/config/database.php
+application/config/*
 application/cache/*
 !application/cache/index.html
 
