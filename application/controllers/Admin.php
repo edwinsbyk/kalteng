@@ -12,8 +12,11 @@ class Admin extends CI_Controller
     // }
     public function index()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/index');
+        $data = "wlw";
+        $lp = [
+            ["path" => "admin/index"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function loadAsset($param)
