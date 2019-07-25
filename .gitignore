@@ -1,0 +1,15 @@
+application/config
+system
+assets
+third_party
+*.log
+.DS_Store
+*.DS_Store
+vendor
+composer.json
+composer.lock
+inc_.php
+index_.php
+.patch
+.local_query
+.local_stash
