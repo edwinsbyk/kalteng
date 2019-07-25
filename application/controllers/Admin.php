@@ -96,7 +96,7 @@ class Admin extends CI_Controller
 
     public function tambahpemenanglelang()
     {
-        $this->loadAsset(["admin/pengumuman/tambahpemenanglelang   "]);
+        $this->loadAsset(["admin/pengumuman/tambahpemenanglelang"]);
     }
 
     //
