@@ -1,6 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -42,7 +43,7 @@
                         <div class="col-md-2">
                             <div align="right">
                                      <div class="table-data-feature">
-                                                   <a href="#"  class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-plus-circle"></i></a>Tambah Data
+                                                   <a href="<?= base_url('admin/tambahrup'); ?>"  class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-plus-circle"></i></a>Tambah Data
 
                                                    
                                                </div>

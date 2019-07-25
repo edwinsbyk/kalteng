@@ -70,7 +70,12 @@ class Admin extends CI_Controller
         $this->load->view('admin/header');
         $this->load->view('admin/pemenang_lelang');
     }
-   
+
+           public function tambahrup()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/tambahrup');
+    }
 
 
 
