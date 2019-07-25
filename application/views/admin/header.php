@@ -29,7 +29,7 @@
                         </li>
 
 
-                        <li class="active has-sub">
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-calendar"></i>Warta</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -48,7 +48,7 @@
                             </ul>
                         </li>
 
-                        <li class="active has-sub">
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-file"></i>Pengumuman</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -64,7 +64,7 @@
 
                             </ul>
                         </li>
-                        <li class="active has-sub">
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-edit"></i>Data PU</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
