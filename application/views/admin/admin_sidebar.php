@@ -63,7 +63,7 @@
                         <i class="fas fa-edit"></i>Data PU</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="<?= base_url('admin/berita'); ?>">Jalan</a>
+                            <a href="<?= base_url('admin/jalan'); ?>">Jalan</a>
                         </li>
                         <li>
                             <a href="<?= base_url('admin/jembatan'); ?>">Jembatan</a>
