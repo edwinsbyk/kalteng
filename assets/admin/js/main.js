@@ -1258,8 +1258,8 @@
     $(".animsition").animsition({
       inClass: 'fade-in',
       outClass: 'fade-out',
-      inDuration: 900,
-      outDuration: 900,
+      inDuration: 100,
+      outDuration: 100,
       linkElement: 'a:not([target="_blank"]):not([href^="#"]):not([class^="chosen-single"])',
       loading: true,
       loadingParentElement: 'html',
