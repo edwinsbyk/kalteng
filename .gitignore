@@ -49,3 +49,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/tests/
 /tests/results/
 >>>>>>> b1d95ea7d3893b072643e65ea86e231d0a97bc70
+application/config/database.php
