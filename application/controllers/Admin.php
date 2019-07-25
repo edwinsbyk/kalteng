@@ -60,23 +60,36 @@ class Admin extends CI_Controller
         $this->load->view('admin/header');
         $this->load->view('admin/rup');
     }
-        public function pengumuman_lelang()
-    {
-        $this->load->view('admin/header');
-        $this->load->view('admin/pengumuman_lelang');
-    }
-        public function pemenang_lelang()
-    {
-        $this->load->view('admin/header');
-        $this->load->view('admin/pemenang_lelang');
-    }
-
            public function tambahrup()
     {
         $this->load->view('admin/header');
         $this->load->view('admin/tambahrup');
     }
 
+        public function pengumuman_lelang()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/pengumuman_lelang');
+    }
+    public function tambahpengumuman()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/tambahpengumuman');
+    }
+
+        public function pemenang_lelang()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/pemenang_lelang');
+    }
+
+       public function tambahpemenanglelang()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/tambahpemenanglelang');
+    }
+
+    
 
 
 

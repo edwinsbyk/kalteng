@@ -50,7 +50,7 @@
 
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-file-text"></i>Pengumuman</a>
+                                <i class="fas fa-file"></i>Pengumuman</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="<?= base_url('admin/rup'); ?>">RUP</a>
