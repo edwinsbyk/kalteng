@@ -8,98 +8,93 @@
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
+                <li>
+                    <a href="<?= base_url('admin/index'); ?>">
+                        <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="<?= base_url('admin/pegawai'); ?>">
+                        <i class="fas fa-users"></i>Pegawai</a>
+                </li>
+
+                <li>
+                    <a href="<?= base_url('admin/bidang'); ?>">
+                        <i class="fas fa-bars"></i>Bidang</a>
+                </li>
+
+
                 <li class="active has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        <i class="fas fa-calendar"></i>Warta</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="index.html">Dashboard 1</a>
+                            <a href="<?= base_url('admin/berita'); ?>">Berita</a>
                         </li>
                         <li>
-                            <a href="index2.html">Dashboard 2</a>
+                            <a href="<?= base_url('admin/artikel'); ?>">Artikel</a>
                         </li>
                         <li>
-                            <a href="index3.html">Dashboard 3</a>
+                            <a href="<?= base_url('admin/agenda'); ?>">Agenda</a>
                         </li>
                         <li>
-                            <a href="index4.html">Dashboard 4</a>
+                            <a href="<?= base_url('admin/testimoni'); ?>">Testimoni</a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="chart.html">
-                        <i class="fas fa-chart-bar"></i>Charts</a>
-                </li>
-                <li>
-                    <a href="table.html">
-                        <i class="fas fa-table"></i>Tables</a>
-                </li>
-                <li>
-                    <a href="form.html">
-                        <i class="far fa-check-square"></i>Forms</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-calendar-alt"></i>Calendar</a>
-                </li>
-                <li>
-                    <a href="map.html">
-                        <i class="fas fa-map-marker-alt"></i>Maps</a>
-                </li>
-                <li class="has-sub">
+
+                <li class="active has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-copy"></i>Pages</a>
+                        <i class="fas fa-file-text"></i>Pengumuman</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="login.html">Login</a>
+                            <a href="<?= base_url('admin/rup'); ?>">RUP</a>
                         </li>
                         <li>
-                            <a href="register.html">Register</a>
+                            <a href="<?= base_url('admin/pengumuman_lelang'); ?>">Pengumuman Lelang</a>
                         </li>
                         <li>
-                            <a href="forget-pass.html">Forget Password</a>
+                            <a href="<?= base_url('admin/pemenang_lelang'); ?>">Pemenang Lelang</a>
                         </li>
+
                     </ul>
                 </li>
-                <li class="has-sub">
+                <li class="active has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-desktop"></i>UI Elements</a>
+                        <i class="fas fa-edit"></i>Data PU</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="button.html">Button</a>
+                            <a href="<?= base_url('admin/berita'); ?>">Jalan</a>
                         </li>
                         <li>
-                            <a href="badge.html">Badges</a>
+                            <a href="<?= base_url('admin/jembatan'); ?>">Jembatan</a>
                         </li>
                         <li>
-                            <a href="tab.html">Tabs</a>
+                            <a href="<?= base_url('admin/embung'); ?>">Embung</a>
                         </li>
                         <li>
-                            <a href="card.html">Cards</a>
+                            <a href="<?= base_url('admin/sumurbor'); ?>">Sumur Bor</a>
                         </li>
                         <li>
-                            <a href="alert.html">Alerts</a>
+                            <a href="<?= base_url('admin/blackspot'); ?>">Black Spot</a>
                         </li>
                         <li>
-                            <a href="progress-bar.html">Progress Bars</a>
+                            <a href="<?= base_url('admin/spam'); ?>">Spam</a>
                         </li>
                         <li>
-                            <a href="modal.html">Modals</a>
+                            <a href="<?= base_url('admin/potensidanau'); ?>">Potensi Danau</a>
                         </li>
                         <li>
-                            <a href="switch.html">Switchs</a>
+                            <a href="<?= base_url('admin/potensirawa'); ?>">Potensi Rawa</a>
                         </li>
                         <li>
-                            <a href="grid.html">Grids</a>
+                            <a href="<?= base_url('admin/potensisumurbor'); ?>">Potensi Sumur Bor</a>
                         </li>
-                        <li>
-                            <a href="fontawesome.html">Fontawesome Icon</a>
-                        </li>
-                        <li>
-                            <a href="typo.html">Typography</a>
-                        </li>
+
                     </ul>
                 </li>
+
+            </ul>
+            </li>
             </ul>
         </nav>
     </div>

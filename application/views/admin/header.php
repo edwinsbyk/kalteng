@@ -1,7 +1,7 @@
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        
+
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
@@ -27,7 +27,7 @@
                             <a href="<?= base_url('admin/bidang'); ?>">
                                 <i class="fas fa-bars"></i>Bidang</a>
                         </li>
-                        
+
 
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
@@ -61,7 +61,7 @@
                                 <li>
                                     <a href="<?= base_url('admin/pemenang_lelang'); ?>">Pemenang Lelang</a>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <li class="active has-sub">
@@ -77,7 +77,7 @@
                                 <li>
                                     <a href="<?= base_url('admin/embung'); ?>">Embung</a>
                                 </li>
-                                 <li>
+                                <li>
                                     <a href="<?= base_url('admin/sumurbor'); ?>">Sumur Bor</a>
                                 </li>
                                 <li>
@@ -86,7 +86,7 @@
                                 <li>
                                     <a href="<?= base_url('admin/spam'); ?>">Spam</a>
                                 </li>
-                                 <li>
+                                <li>
                                     <a href="<?= base_url('admin/potensidanau'); ?>">Potensi Danau</a>
                                 </li>
                                 <li>
@@ -95,12 +95,12 @@
                                 <li>
                                     <a href="<?= base_url('admin/potensisumurbor'); ?>">Potensi Sumur Bor</a>
                                 </li>
-                                
+
                             </ul>
                         </li>
-                        
-                            </ul>
-                        </li>
+
+                    </ul>
+                    </li>
                     </ul>
                 </nav>
             </div>
@@ -111,7 +111,7 @@
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
-                <div class="section__content section__content--p30">
+                <div class="section_content section_content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">

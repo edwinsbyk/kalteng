@@ -1,46 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
-
-    <!-- Title Page-->
-    <title>Dashboard</title>
-
-    <!-- Fontfaces CSS-->
-    <link href="<?= base_url('assets/admin/'); ?>css/font-face.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
-    <link href="<?= base_url('assets/admin/'); ?>vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
-    <link href="<?= base_url('assets/admin/'); ?>vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="<?= base_url('assets/admin/'); ?>css/theme.css" rel="stylesheet" media="all">
-
-</head>
 
                 
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                <div class="section__content section__content--p30">
+                <div class="section_content section_content--p30">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
@@ -333,7 +298,7 @@
                                             <p>Tasks for John Doe</p>
                                         </div>
                                         <div class="au-task-list js-scrollbar3">
-                                            <div class="au-task__item au-task__item--danger">
+                                            <div class="au-task_item au-task_item--danger">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Meeting about plan for Admin Template 2018</a>
@@ -341,7 +306,7 @@
                                                     <span class="time">10:00 AM</span>
                                                 </div>
                                             </div>
-                                            <div class="au-task__item au-task__item--warning">
+                                            <div class="au-task_item au-task_item--warning">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Create new task for Dashboard</a>
@@ -349,7 +314,7 @@
                                                     <span class="time">11:00 AM</span>
                                                 </div>
                                             </div>
-                                            <div class="au-task__item au-task__item--primary">
+                                            <div class="au-task_item au-task_item--primary">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Meeting about plan for Admin Template 2018</a>
@@ -357,7 +322,7 @@
                                                     <span class="time">02:00 PM</span>
                                                 </div>
                                             </div>
-                                            <div class="au-task__item au-task__item--success">
+                                            <div class="au-task_item au-task_item--success">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Create new task for Dashboard</a>
@@ -365,7 +330,7 @@
                                                     <span class="time">03:30 PM</span>
                                                 </div>
                                             </div>
-                                            <div class="au-task__item au-task__item--danger js-load-item">
+                                            <div class="au-task_item au-task_item--danger js-load-item">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Meeting about plan for Admin Template 2018</a>
@@ -373,7 +338,7 @@
                                                     <span class="time">10:00 AM</span>
                                                 </div>
                                             </div>
-                                            <div class="au-task__item au-task__item--warning js-load-item">
+                                            <div class="au-task_item au-task_item--warning js-load-item">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href="#">Create new task for Dashboard</a>
@@ -585,31 +550,4 @@
 
     </div>
 
-    <!-- Jquery JS-->
-    <script src="<?= base_url('assets/admin/'); ?>vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="<?= base_url('assets/admin/'); ?>vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="<?= base_url('assets/admin/'); ?>vendor/slick/slick.min.js">
-    </script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/wow/wow.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/animsition/animsition.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/select2/select2.min.js">
-    </script>
-
-    <!-- Main JS-->
-    <script src="<?= base_url('assets/admin/'); ?>js/main.js"></script>
-
-</body>
-
-</html>
-<!-- end document-->
+    
