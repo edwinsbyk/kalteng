@@ -114,57 +114,66 @@ class Admin extends CI_Controller
 
     public function datapuJalan()
     {
-        $this->loadAsset(["path" => "admin/datapu/jalan"]);
-        // $this->load->view('path" => "admin/header');
-        // $this->load->view('path" => "admin/datapu/jalan');
+        $lp = [
+            ["path" => "admin/datapu/jalan"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuJembatan()
     {
-        $this->loadAsset(["path" => "admin/datapu/jembatan"]);
-        // $this->load->view('path" => "admin/header');
-        // $this->load->view('path" => "admin/datapu/jembatan');
+        $lp = [
+            ["path" => "admin/datapu/jembatan"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuEmbung()
     {
-        $this->loadAsset(["path" => "admin/datapu/embung"]);
-        // $this->load->view('path" => "admin/header');
-        // $this->load->view('path" => "admin/datapu/embung');
+        $lp = [
+            ["path" => "admin/datapu/embung"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuSumurBor()
     {
-        $this->loadAsset(["path" => "admin/datapu/sumur-bor"]);
-        // $this->load->view('path" => "admin/header');
-        // $this->load->view('path" => "admin/datapu/sumur-bor');
+        $lp = [
+            ["path" => "admin/datapu/sumurbor"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuBlackSpot()
     {
-        $this->loadAsset(["path" => "admin/datapu/black-spot"]);
-        // $this->load->view('path" => "admin/header');
-        // $this->load->view('path" => "admin/datapu/black-spot');
+        $lp = [
+            ["path" => "admin/datapu/black-spot"]
+        ];
+        $this->loadAsset($lp);
     }
 
     public function datapuSpam()
     {
-        $this->loadAsset(["path" => "admin/datapu/spam"]);
-        // $this->load->view('path" => "admin/header');
-        // $this->load->view('path" => "admin/datapu/spam');
+        $lp = [
+            ["path" => "admin/datapu/spam"]
+        ];
+        $this->loadAsset($lp);
     }
     public function dataPotensiDanau()
     {
-        $this->loadAsset(["path" => "admin/datapu/potensi-danau"]);
-        // $this->load->view('path" => "admin/header');
-        // $this->load->view('path" => "admin/datapu/potensi-danau');
+        $lp = [
+            ["path" => "admin/datapu/potensi-danau"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuPotensiRawa()
     {
-        $this->loadAsset(["path" => "admin/datapu/potensi-rawa"]);
-        // $this->load->view('path" => "admin/header');
-        // $this->load->view('path" => "admin/datapu/potensi-rawa');
+        $lp = [
+            ["path" => "admin/datapu/potensi-rawa"]
+        ];
+        $this->loadAsset($lp);
     }
     public function datapuPotensiSumurBor()
     {
-        $this->loadAsset(["path" => "admin/datapu/potensi-sumur-bor"]);
-        // $this->load->view('path" => "admin/header');
-        // $this->load->view('path" => "admin/datapu/potensi-sumur-bor');
+        $lp = [
+            ["path" => "admin/datapu/potensi-sumur-bor"]
+        ];
+        $this->loadAsset($lp);
     }
 }
