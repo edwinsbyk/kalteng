@@ -1,0 +1,51 @@
+<<<<<<< HEAD
+application/config
+system
+assets
+third_party
+*.log
+.DS_Store
+*.DS_Store
+vendor
+composer.json
+composer.lock
+inc_.php
+index_.php
+.patch
+.local_query
+.local_stash
+=======
+.DS_Store
+
+application/config/database.php
+application/config/*
+application/cache/*
+!application/cache/index.html
+
+application/logs/*
+!application/logs/index.html
+
+!application/*/.htaccess
+
+composer.lock
+
+user_guide_src/build/*
+user_guide_src/cilexer/build/*
+user_guide_src/cilexer/dist/*
+user_guide_src/cilexer/pycilexer.egg-info/*
+/vendor/
+
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+/tests/tests/
+/tests/results/
+>>>>>>> b1d95ea7d3893b072643e65ea86e231d0a97bc70

@@ -200,7 +200,7 @@
 
         <h2 class="text-center mb-7">Hubungi Kami</h2>
 
-        <form class="form-row" action="../assets/php/sendmail.php" method="POST" data-form="mailer">
+        <form class="form-row" action="<?= base_url('assets/') ?>php/sendmail.php" method="POST" data-form="mailer">
             <div class="col-12">
                 <div class="alert alert-success d-on-success">Kami sudah menerima pesan anda dan akan segera menghubungi anda.</div>
             </div>
