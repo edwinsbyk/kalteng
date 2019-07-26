@@ -30,14 +30,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>06/UM/PP-BJJ/TM/APBD/VI/2013</td>
-                                                <td>Peningkatan Jalan Puai - Besum</td>
-                                                <td>PT. Sau Korem</td>
-                                                <td>9.392.580.000</td>
 
-                                                 <td>
+                                                <?php $nomor = 1; ?>
+                                <?php foreach ($data as $row) : ?>
+                                    <tr>
+                                        <td><?= $nomor; ?></td>
+                                        <td><?= $row['no_sk'] ?></td>
+                                        <td><?= $row['nama_paket'] ?></td>
+                                        <td><?= $row['pemenang']; ?></td>
+                                        <td><?= $row['hps']; ?></td>
+                                        
+                                                    <td>    
                                                      <div class="table-data-feature">
                                                    <a href="#"  class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
 
@@ -45,10 +48,15 @@
                                                </div>
                                                 </td>
                                             </tr>
-                                            
+                                                   <?php $nomor++; ?>
+
+                                <?php endforeach; ?>
                                         </tbody>
                                     </table>
-                                </div>
+  
+                              </div>
+ <?php foreach ($data as $row) : ?>                             
 <br><br>
+<?php endforeach; ?>
     <!-- Jquery JS-->
    

@@ -29,13 +29,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Proyek</td>
-                    <td>kalimantan</td>
-                    <td>Rp.1414</td>
-                    <td>Gatau</td>
-                    <td>
+               <?php $nomor = 1; ?>
+                                <?php foreach ($data as $row) : ?>
+                                    <tr>
+                                        <td><?= $nomor; ?></td>
+                                        <td><?= $row['kegiatan']; ?></td>
+                                        <td><?= $row['lokasi']; ?></td>
+                                        <td><?= $row['pagu']; ?></td>
+                                        <td><?= $row['metode']; ?></td>
+                                        
+                                        <td>
                         <div class="table-data-feature">
                             <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
 
@@ -43,6 +46,8 @@
                         </div>
                     </td>
                 </tr>
+                 <?php $nomor++; ?>
+                                <?php endforeach; ?>
 
             </tbody>
         </table>

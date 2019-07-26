@@ -15,19 +15,11 @@
                             <a href="<?= base_url('admin/pegawai'); ?>">
                                 <i class="fas fa-users"></i>Pegawai</a>
                         </li>
-                        <li class="has-sub list-sidebar-item">
-                            <a class="js-arrow" href="#">
+                        <li class="list-sidebar-item">
+                            <a href="<?= base_url('admin/pegawaibidang'); ?>">
                                 <i class="fas fa-bars"></i>Bidang</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li class="list-sidebar-item">
-                                    <a href="<?= base_url('admin/pegawaibidang'); ?>">Pegawai Bidang</a>
-                                </li>
-                                <li class="list-sidebar-item">
-                                    <a href="<?= base_url('admin/bidang'); ?>">Bidang</a>
-                                </li>
-                              
-                            </ul>
                         </li>
+                    
 
 
                         <li class="has-sub list-sidebar-item">
