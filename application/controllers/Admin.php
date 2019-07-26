@@ -21,8 +21,8 @@ class Admin extends CI_Controller
 
     public function loadAsset($param)
     {
-        $this->load->view('admin/header');
         $this->load->view('admin/admin_header');
+        $this->load->view('admin/header');
         foreach ($param as $key => $value) {
             $this->load->view($value['path'], isset($value["data"]) ? $value["data"] : '');
         }
@@ -52,19 +52,17 @@ class Admin extends CI_Controller
 
     public function artikel()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/artikel');
+        $this->loadAsset(["path" => "admin/testimoni"]);
     }
 
     public function agenda()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/agenda');
+        $this->loadAsset(["path" => "admin/agenda"]);
     }
 
     public function testimoni()
     {
-        $this->loadAsset(["admin/testimoni"]);
+        $this->loadAsset(["path" => "admin/testimoni"]);
     }
 
     public function rup()
