@@ -1635,11 +1635,11 @@ section {
 }
 
 .navbar-sidebar .navbar__list li a:hover {
-    color: #4272d7;
+    color: #4272d7!important;
 }
 
 .navbar-sidebar .navbar__list li.active > a {
-    color: #4272d7;
+    color: #4272d7!important;
 }
 
 .has-sub {
@@ -2511,6 +2511,10 @@ section {
     color: #666;
 }
 
+.list-sidebar-item a {
+    color: #FFF!important
+}
+
 .search-dropdown .search-dropdown__icon {
     position: absolute;
     top: 0;
@@ -2728,7 +2732,7 @@ section {
 }
 
 .header__navbar ul li.active > a {
-    color: #4272d7;
+    color: #4272d7!important;
 }
 
 .header__navbar ul li.active > a .bot-line {

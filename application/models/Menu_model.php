@@ -3,16 +3,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Menu_model extends CI_Model
 {
-    public function getSubMenu()
+    public function __getMenu()
     {
-        $query = "SELECT `user_sub_menu`.*,`user_menu`.`menu`
-                    FROM `user_sub_menu` JOIN `user_menu`
-                      ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
-        ";
-
-        return $this->db->query($query)->result_array();
+        $menu = $this->db->query("SELECT * FROM tbl_menu ORDER BY module_order ASC")->result_array();
+        $list_menu = array();
+        foreach ($menu as $m) {
+            $sql = "SELECT * FROM tbl_sub_menu WHERE module_parent='".$m['module_parent']."' ORDER BY module_order ASC";
+            $sub_menu = $this->db->query($sql)->result_array();
+            $m["sub_menu"] = $sub_menu;
+            array_push($list_menu, $m);
+        }
+        return json_decode(json_encode($list_menu), FALSE);
     }
-
-
-	  
 }

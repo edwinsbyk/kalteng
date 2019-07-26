@@ -1,66 +1,72 @@
 
     
-    <link href="<?= base_url('assets/admin/'); ?>vendor/font-awesome-4.7/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/font-awesome-4.7/css/bootstrap-datetimepicker.css" rel="stylesheet" media="all">
-    
-    
                 
             <!-- HEADER DESKTOP-->
-        
+            <br><br><br><br>
             <!-- MAIN CONTENT-->
             <form method="post" action="#">
               <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                       Tambah <strong>Pengumuman Lelang</strong>
+                                       Tambah <strong>Data Bidang</strong>
                                     </div>
                                     <div class="card-body card-block">
                                         <form action="" method="post" class="form-horizontal">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-tanggal" class=" form-control-label">Tanggal</label>
+                                                    <label for="hf-no_sk" class=" form-control-label">Jabatan</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="date" id="hf-tanggal" name="tanggal" placeholder="Masukkan Kegiatan" class="form-control">
+                                                    <input type="text" id="hf-no_sk" name="jabatan" placeholder="Masukkan Jabatan" class="form-control">
                                                     
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-batas" class=" form-control-label">Batas Waktu</label>
+                                                    <label for="hf-no_sk" class=" form-control-label">Nama</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="date" id="hf-batas" name="batas" placeholder="Masukkan lokasi" class="form-control">
-                                                    
-                                                </div>
-                                            </div>
-                                             <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-no_sk" class=" form-control-label">No. SK</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-no_sk" name="no_sk" placeholder="Masukkan No. Sk" class="form-control">
-                                                    
-                                                </div>
-                                            </div>
-                                             <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-nama_paket" class=" form-control-label">Nama Paket</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-nama_paket" name="nama_paket" placeholder="Masukkan Nama Paket" class="form-control">
+                                                    <input type="text" id="hf-no_sk" name="nama" placeholder="Masukkan Nama" class="form-control">
                                                     
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-pagu" class=" form-control-label">Pagu (Rp)</label>
+                                                    <label for="hf-nama_paket" class=" form-control-label">Nomor</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-pagu" name="pagu" placeholder="Masukkan Pagu" class="form-control">
+                                                    <input type="text" id="hf-nama_paket" name="nomor" placeholder="Masukkan Nomor" class="form-control">
                                                     
                                                 </div>
                                             </div>
+                                             <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-pemenang" class=" form-control-label">Alamat</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="hf-pemenang" name="alamat" placeholder="Masukkan Alamat Kantor" class="form-control">
+                                                    
+                                                </div>
+                                            </div>
+                                             <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-hps" class=" form-control-label">Bidang</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select type="text" id="hf-hps" name="hps" placeholder="Masukkan HPS" class="form-control">
+
+                                                        <option value="volvo">BIDANG SUMBER DAYA AIR</option>
+                                                        <option value="volvo">BIDANG BINA MARGA</option>
+                                                        <option value="saab">BIDANG CIPTA KARYA</option>
+                                                        <option value="saab">BIDANG PENATAAN RUANG</option>
+                                                        <option value="saab">BIDANG JASA KONTRUKSI</option>
+                                                        <option value="volvo">SEKERTARIS DINAS</option>
+                                                        <option value="volvo">UPT LABORATURIUM BAHAN KONSTRUKSI</option>
+                                                        
+                                                       </select>
+                                                </div>
+                                            </div>
+                                             
                                         </form>
                                     </div>
                                     <div class="card-footer">
@@ -72,26 +78,4 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                        
-
-    <!-- Jquery JS-->
-
-    <!-- Main JS-->
-    <script src="<?= base_url('assets/admin/'); ?>js/main.js"></script>
-     <script type="text/javascript" src="<?= base_url('assets/admin/'); ?>js/bootstrap-datetimepicker.min.js"></script>
-      <script type="text/javascript" src="<?= base_url('assets/admin/'); ?>js/bootstrap-datetimepicker.js"></script>
-      <script type="text/javascript" src="<?= base_url('assets/admin/'); ?>js/locales/bootstrap-datetimepicker.id.js"></script>
-       <script type="text/javascript" src="<?= base_url('assets/admin/'); ?>jquery/jquery-1.8.3.min.js"></script>
-       <script type="text/javascript">
- $('.form_date').datetimepicker({
-        language:  'id',
-        weekStart: 1,
-        todayBtn:  1,
-  autoclose: 1,
-  todayHighlight: 1,
-  startView: 2,
-  minView: 2,
-  forceParse: 0
-    });
+                            </br></br></br></br></br>
