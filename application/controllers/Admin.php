@@ -90,7 +90,9 @@ class Admin extends CI_Controller
 
     public function datapuJalan()
     {
-        $this->loadAsset([["path" => "admin/datapu/jalan"]]);
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataJalan();
+        $this->loadAsset([["path" => "admin/datapu/jalan", "data" => $data]]);
     }
     public function datapuJembatan()
     {
