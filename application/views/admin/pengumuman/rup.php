@@ -1,3 +1,6 @@
+
+
+
 <!-- HEADER DESKTOP-->
 <br><br><br><br>
 <!-- MAIN CONTENT-->
@@ -44,4 +47,8 @@
             </tbody>
         </table>
     </div>
+    <br><br>
+    <!-- Jquery JS-->
+  
+
 <!-- end document-->

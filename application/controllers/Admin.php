@@ -3,183 +3,130 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
-    // public function __construct()
-    // {
-
-    //     parent::__construct();
-
-    //     // is_logged_in();
-    // }
-    public function index()
+    public function __construct()
     {
-        $data = "wlw";
-        $lp = [
-            ["path" => "admin/index"]
-        ];
-        $this->loadAsset($lp);
-    }
 
+        parent::__construct();
+
+        // is_logged_in();
+    }
     public function loadAsset($param)
     {
-        $this->load->view('admin/header');
         $this->load->view('admin/admin_header');
+        $this->load->view('admin/header');
         foreach ($param as $key => $value) {
             $this->load->view($value['path'], isset($value["data"]) ? $value["data"] : '');
         }
         $this->load->view('admin/admin_footer');
     }
+    public function index()
+    {
+        $this->loadAsset([['path' => 'admin/index']]);
+    }
+
 
     public function pegawai()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/pegawai');
+        $this->loadAsset([["path" => "admin/pegawai/pegawai"]]);
     }
+
 
     public function bidang()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/bidang');
+        $this->loadAsset([['path' => 'admin/bidang']]);
     }
 
     public function berita()
     {
-        $data = "wlw";
-        $lp = [
-            ["path" => "admin/warta/tab.php"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/warta/tab"]]);
     }
 
     public function artikel()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/artikel');
+        $this->loadAsset([["path" => "admin/testimoni"]]);
     }
 
     public function agenda()
     {
-        $this->load->view('admin/header');
-        $this->load->view('admin/agenda');
+        $this->loadAsset([["path" => "admin/agenda"]]);
     }
 
     public function testimoni()
     {
-        $this->loadAsset(["admin/testimoni"]);
+        $this->loadAsset([["path" => "admin/testimoni"]]);
     }
 
     public function rup()
     {
-        $lp = [
-            ["path" => "admin/pengumuman/rup"]
-        ];
-        $this->loadAsset($lp);
+
+        $this->loadAsset([["path" => "admin/pengumuman/rup"]]);
     }
     public function tambahrup()
     {
-        $lp = [
-            ["path" => "admin/pengumuman/tambahrup"]
-        ];
-        $this->loadAsset($lp);
+
+        $this->loadAsset([["path" => "admin/pengumuman/tambahrup"]]);
     }
 
     public function pengumuman_lelang()
     {
-        $lp = [
-            ["path" => "admin/pengumuman/lelang"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/pengumuman/pengumuman_lelang"]]);
     }
     public function tambahpengumuman()
     {
-        $lp = [
-            ["path" => "admin/pengumuman/tambahpengumuman"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/pengumuman/tambahpengumuman"]]);
     }
 
     public function pemenang_lelang()
     {
-        $lp = [
-            ["path" => "admin/pengumuman/pememang_lelang"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/pengumuman/pemenang_lelang"]]);
     }
 
     public function tambahpemenanglelang()
     {
-        $lp = [
-            ["path" => "admin/pengumuman/tambahpemenanglelang"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/pengumuman/tambahpemenanglelang"]]);
     }
 
     //
 
     public function datapuJalan()
     {
-
-        $this->load->model('Datapu_model', 'data');
-        $data['data'] = $this->data->getDataJalan();
-        $lp = [
-            ["path" => "admin/datapu/jalan", "data" => $data]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/datapu/jalan"]]);
     }
     public function datapuJembatan()
     {
-        $lp = [
-            ["path" => "admin/datapu/jembatan"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/datapu/jembatan"]]);
     }
     public function datapuEmbung()
     {
-        $lp = [
-            ["path" => "admin/datapu/embung"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/datapu/embung"]]);
     }
     public function datapuSumurBor()
     {
-        $lp = [
-            ["path" => "admin/datapu/potensi-sumur-bor"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/datapu/sumur-bor"]]);
     }
     public function datapuBlackSpot()
     {
-        $lp = [
-            ["path" => "admin/datapu/black-spot"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/datapu/black-spot"]]);
     }
 
     public function datapuSpam()
     {
-        $lp = [
-            ["path" => "admin/datapu/spam"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/datapu/spam"]]);
     }
     public function datapuPotensiDanau()
     {
-        $lp = [
-            ["path" => "admin/datapu/potensi-danau"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/datapu/potensi-danau"]]);
     }
     public function datapuPotensiRawa()
     {
-        $lp = [
-            ["path" => "admin/datapu/potensi-rawa"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/datapu/potensi-rawa"]]);
     }
     public function datapuPotensiSumurBor()
     {
-        $lp = [
-            ["path" => "admin/datapu/potensi-sumur-bor"]
-        ];
-        $this->loadAsset($lp);
+        $this->loadAsset([["path" => "admin/datapu/potensi-sumur-bor"]]);
+    }
+    public function tambahpegawai()
+    {
+        $this->loadAsset([["path" => "admin/pegawai/tambahpegawai"]]);
     }
 }
