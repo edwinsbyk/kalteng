@@ -1,4 +1,3 @@
-<?php var_dump($data); ?>
 <header id="home" class="header text-white h-fullscreen  text-center text-lg-left" style="background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(37,22,131,1) 0%, rgba(97,170,231,1) 90% );">
 	<div class="container">
 		<div class="row align-items-center h-100">
@@ -39,29 +38,24 @@
 										</tr>
 									</thead>
 									<tbody>
-										<?php foreach ($data as $d) : ?>
-											<tr>
-												<td></td>
-												<td><?= $d['ruas']; ?></td>
-												<td><?= $d['kota']; ?></td>
-												<td><?= $d['status']; ?></td>
-												<td><?= $d['panjang']; ?></td>
-												<td><?= $d['lebar']; ?></td>
-												<td>
-
-													<div class="table-data-feature">
-														<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
-
-														<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
-													</div>
-												</td>
-
-											</tr>
-
-										<?php endforeach; ?>
-
 										<tr>
-											<!-- <td>1</td>
+											<td>1</td>
+											<td>60.13.K - BIAK</td>
+											<td>BIAK NUMFOR</td>
+											<td>Nas</td>
+											<td>2.19</td>
+											<td>3.5</td>
+											<td>
+												<div class="table-data-feature">
+													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+												</div>
+											</td>
+
+										</tr>
+										<tr>
+											<td>1</td>
 											<td>60.13.K - BIAK</td>
 											<td>BIAK NUMFOR</td>
 											<td>Nas</td>
@@ -171,7 +165,7 @@
 												</div>
 											</td>
 
-										</tr> -->
+										</tr>
 									</tbody>
 								</table>
 							</div>
