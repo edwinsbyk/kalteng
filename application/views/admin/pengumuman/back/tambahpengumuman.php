@@ -6,7 +6,7 @@
     
                 
             <!-- HEADER DESKTOP-->
-        
+            <br><br><br><br>
             <!-- MAIN CONTENT-->
             <form method="post" action="#">
               <div class="col-lg-12">
@@ -72,9 +72,7 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                        
+                            </br>
 
     <!-- Jquery JS-->
 

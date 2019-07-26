@@ -1,17 +1,12 @@
-
-    
-                
-            <!-- HEADER DESKTOP-->
-            <br><br><br><br>
-            <!-- MAIN CONTENT-->
-            <form method="post" action="#">
+            
+            <form action="tambah_pemenang_lelang" method="post" class="form-horizontal">
               <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
                                        Tambah <strong>Pemenang Lelang</strong>
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="" method="post" class="form-horizontal">
+                                        
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="hf-no_sk" class=" form-control-label">No. SK</label>
@@ -60,4 +55,4 @@
                                         </button>
                                     </div>
                                 </div>
-                            </br>
+                           </div></form>

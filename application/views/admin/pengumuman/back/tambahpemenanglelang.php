@@ -1,46 +1,50 @@
 
-      
-             <form action="tambah_rup" method="post" class="form-horizontal">
+    
+                
+            <!-- HEADER DESKTOP-->
+            <br><br><br><br>
+            <!-- MAIN CONTENT-->
+            <form method="post" action="#">
               <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                       Tambah <strong>RUP</strong>
+                                       Tambah <strong>Pemenang Lelang</strong>
                                     </div>
                                     <div class="card-body card-block">
-                                       
+                                        <form action="" method="post" class="form-horizontal">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-kegiatan" class=" form-control-label">Kegiatan atau Paket</label>
+                                                    <label for="hf-no_sk" class=" form-control-label">No. SK</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-kegiatan" name="kegiatan" placeholder="Masukkan Kegiatan" class="form-control" required>
+                                                    <input type="text" id="hf-no_sk" name="no_sk" placeholder="Masukkan No. Sk" class="form-control">
                                                     
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-lokasi" class=" form-control-label">Lokasi</label>
+                                                    <label for="hf-nama_paket" class=" form-control-label">Nama Paket</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-lokasi" name="lokasi" placeholder="Masukkan lokasi" class="form-control" required>
+                                                    <input type="text" id="hf-nama_paket" name="nama_paket" placeholder="Masukkan Nama Paket" class="form-control">
                                                     
                                                 </div>
                                             </div>
                                              <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-pagu" class=" form-control-label">Pagu (Rp)</label>
+                                                    <label for="hf-pemenang" class=" form-control-label">Pemenang</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-pagu" name="pagu" placeholder="Masukkan Pagu" class="form-control"required>
+                                                    <input type="text" id="hf-pemenang" name="pemenang" placeholder="Masukkan Pemenang" class="form-control">
                                                     
                                                 </div>
                                             </div>
                                              <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-metode" class=" form-control-label">Metode Lelang</label>
+                                                    <label for="hf-hps" class=" form-control-label">HPS (Rp) </label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-metode" name="metode_lelang" placeholder="Masukkan Metode Lelang" class="form-control" required>
+                                                    <input type="text" id="hf-hps" name="hps" placeholder="Masukkan HPS" class="form-control">
                                                     
                                                 </div>
                                             </div>
@@ -56,6 +60,4 @@
                                         </button>
                                     </div>
                                 </div>
-                          </div></form>
-
-   
+                            </br>

@@ -50,16 +50,22 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/chartjs/Chart.bundle.min.js',
                 'assets/admin/vendor/select2/select2.min.js',
                 'assets/admin/js/main.js'
-            )
+            ),
+            "path" => $param["path"]
         ];
-        $data = array_merge($data, $param);
+        $data = isset($param["data"]) ? array_merge($data, $param["data"]) : $data ;
+
+
+        // var_dump($data);
+        // die();
         // $this->load->view('admin/admin_header');
         // $this->load->view('admin/header');
         $this->load->view("/admin/v_main", $data);
         // $this->load->view('admin/admin_footer');
     }
     public function index()
-    {
+    {   
+
         $this->loadAsset(["path" => "admin/index"]);
     }
 
@@ -106,11 +112,6 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/pengumuman/rup", "data" => $data]);
     
     }
-    public function tambahrup()
-    {
-
-        $this->loadAsset(["path" => "admin/pengumuman/tambahrup"]);
-    }
 
     public function pengumuman_lelang()
     {
@@ -130,9 +131,19 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/pengumuman/pemenang_lelang", "data" => $data]);
     }
 
-    public function tambahpemenanglelang()
+    public function tambah_pemenang_lelang()
     {
-        $this->loadAsset(["path" => "admin/pengumuman/tambahpemenanglelang"]);
+           $this->load->model('Pengumuman_model');
+        $no_sk = $this->input->post('no_sk');
+        $nama_paket = $this->input->post('nama_paket');
+        $pemenang = $this->input->post('pemenang');
+        $hps = $this->input->post('hps');
+       
+
+
+       $tambahrup =  $this->Pengumuman_model->tambah_pemenang_lelang($no_sk, $nama_paket, $pemenang, $hps);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
+          redirect('admin/pemenang_lelang');
     }
 
     //
@@ -197,5 +208,21 @@ class Admin extends CI_Controller
     {
         $this->loadAsset(["path" => "admin/pegawai/tambahpegawai"]);
     }
-   
+
+    public function tambah_rup()
+    {
+
+        $this->load->model('Pengumuman_model');
+        $kegiatan = $this->input->post('kegiatan');
+        $lokasi = $this->input->post('lokasi');
+        $pagu = $this->input->post('pagu');
+        $metode_lelang = $this->input->post('metode_lelang');
+       
+
+
+       $tambahrup =  $this->Pengumuman_model->tambahrup($kegiatan, $lokasi, $pagu, $metode_lelang);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
+          redirect('admin/rup');
+
+    }
 }
