@@ -117,8 +117,11 @@ class Admin extends CI_Controller
 
     public function datapuJalan()
     {
+
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataJalan();
         $lp = [
-            ["path" => "admin/datapu/jalan"]
+            ["path" => "admin/datapu/jalan", "data" => $data]
         ];
         $this->loadAsset($lp);
     }
@@ -139,7 +142,7 @@ class Admin extends CI_Controller
     public function datapuSumurBor()
     {
         $lp = [
-            ["path" => "admin/datapu/sumurbor"]
+            ["path" => "admin/datapu/potensi-sumur-bor"]
         ];
         $this->loadAsset($lp);
     }

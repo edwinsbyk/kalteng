@@ -1,39 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
-
-    <!-- Title Page-->
-    <title>Dashboard</title>
-
-    <!-- Fontfaces CSS-->
-    <link href="<?= base_url('assets/admin/'); ?>css/font-face.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
-    <link href="<?= base_url('assets/admin/'); ?>vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
-    <link href="<?= base_url('assets/admin/'); ?>vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets/admin/'); ?>vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="<?= base_url('assets/admin/'); ?>css/theme.css" rel="stylesheet" media="all">
-
-</head>
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
@@ -92,6 +56,7 @@
                                     <th scope="col">Penduduk</th>
                                     <th scope="col">Ternak</th>
                                     <th scope="col">Irigasi</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -103,6 +68,13 @@
                                     <td align="center">257</td>
                                     <td align="center">128</td>
                                     <td align="center">2.1</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">2</td>
@@ -112,6 +84,13 @@
                                     <td align="center">470</td>
                                     <td align="center">144</td>
                                     <td align="center">3.52</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">3</td>
@@ -121,6 +100,13 @@
                                     <td align="center">393</td>
                                     <td align="center">786</td>
                                     <td align="center">4</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">4</td>
@@ -130,6 +116,13 @@
                                     <td align="center">190</td>
                                     <td align="center">5700</td>
                                     <td align="center">6.67</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">5</td>
@@ -139,6 +132,13 @@
                                     <td align="center">332</td>
                                     <td align="center">664</td>
                                     <td align="center">8.35</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">6</td>
@@ -148,6 +148,13 @@
                                     <td align="center">280</td>
                                     <td align="center">560</td>
                                     <td align="center">9.1</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">7</td>
@@ -157,6 +164,13 @@
                                     <td align="center">119</td>
                                     <td align="center">238</td>
                                     <td align="center">7.4</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">8</td>
@@ -166,6 +180,13 @@
                                     <td align="center">853</td>
                                     <td align="center">1706</td>
                                     <td align="center">1.8</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -173,34 +194,3 @@
                 </div>
             </div>
         </div>
-        <br><br>
-
-    </div>
-    <!-- Jquery JS-->
-    <script src="<?= base_url('assets/admin/'); ?>vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="<?= base_url('assets/admin/'); ?>vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="<?= base_url('assets/admin/'); ?>vendor/slick/slick.min.js">
-    </script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/wow/wow.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/animsition/animsition.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="<?= base_url('assets/admin/'); ?>vendor/select2/select2.min.js">
-    </script>
-
-    <!-- Main JS-->
-    <script src="<?= base_url('assets/admin/'); ?>js/main.js"></script>
-
-    </body>
-
-</html>
-<!-- end document-->

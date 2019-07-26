@@ -47,17 +47,18 @@
                     </div>
                     <div class="table-responsive m-b-40">
                         <table class="table table-borderless table-data3">
-                            <th>
+                            <thead>
                                 <tr>
-                                    <th rowspan="2" width="50">No</th>
-                                    <th rowspan="2">Nama</th>
-                                    <th rowspan="2">Kota/Kab.</th>
-                                    <th rowspan="2">SWL</th>
-                                    <th rowspan="2">Debit Pompa</th>
+                                    <th width="50">No</th>
+                                    <th>Nama</th>
+                                    <th>Kota/Kab.</th>
+                                    <th>SWL</th>
+                                    <th>Debit Pompa</th>
                                     <th>Air Baku</th>
                                     <th>Irigasi</th>
+                                    <th>Action</th>
                                 </tr>
-                            </th>
+                            </thead>
                             <tbody>
                                 <tr>
                                     <td align="center">1</td>
@@ -67,6 +68,13 @@
                                     <td align="center">7</td>
                                     <td align="center">250</td>
                                     <td align="center">5</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">2</td>
@@ -76,6 +84,13 @@
                                     <td align="center">7</td>
                                     <td align="center">250</td>
                                     <td align="center">5</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">3</td>
@@ -85,6 +100,13 @@
                                     <td align="center">8</td>
                                     <td align="center">250</td>
                                     <td align="center">4.5</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">4</td>
@@ -94,6 +116,13 @@
                                     <td align="center">10.9</td>
                                     <td align="center">250</td>
                                     <td align="center">3</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">5</td>
@@ -103,6 +132,13 @@
                                     <td align="center">6.5</td>
                                     <td align="center">250</td>
                                     <td align="center">5</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">6</td>
@@ -112,6 +148,13 @@
                                     <td align="center">10.9</td>
                                     <td align="center">250</td>
                                     <td align="center">4</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">7</td>
@@ -121,6 +164,13 @@
                                     <td align="center">6</td>
                                     <td align="center">250</td>
                                     <td align="center">3</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">8</td>
@@ -130,6 +180,13 @@
                                     <td align="center">3.5</td>
                                     <td align="center">250</td>
                                     <td align="center">4</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">9</td>
@@ -139,6 +196,13 @@
                                     <td align="center">8</td>
                                     <td align="center">250</td>
                                     <td align="center">3</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">10</td>
@@ -148,6 +212,13 @@
                                     <td align="center">5</td>
                                     <td align="center">250</td>
                                     <td align="center">3</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">11</td>
@@ -157,6 +228,13 @@
                                     <td align="center">5</td>
                                     <td align="center">250</td>
                                     <td align="center">3</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">12</td>
@@ -166,6 +244,13 @@
                                     <td align="center">8</td>
                                     <td align="center">250</td>
                                     <td align="center">10</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">13</td>
@@ -175,6 +260,13 @@
                                     <td align="center">8</td>
                                     <td align="center">250</td>
                                     <td align="center">5</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">14</td>
@@ -184,6 +276,13 @@
                                     <td align="center">5</td>
                                     <td align="center">250</td>
                                     <td align="center">3</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center">15</td>
@@ -193,6 +292,13 @@
                                     <td align="center">6</td>
                                     <td align="center">250</td>
                                     <td align="center">4</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+                                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                             </tbody>
