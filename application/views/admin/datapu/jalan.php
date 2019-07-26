@@ -1,11 +1,7 @@
-
-
-
-
 <!-- HEADER DESKTOP-->
-<br><br><br><br>
+<!-- <br><br><br><br> -->
 <!-- MAIN CONTENT-->
-<div class="col-md-2">
+<!-- <div class="col-md-2">
     <div align="right">
         <div class="table-data-feature">
             <a href="http://localhost/admin/tambahrup" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-plus-circle"></i></a>Tambah Data
@@ -13,10 +9,10 @@
 
         </div>
     </div>
-</div><br>
-<div class="col-lg-12">
-    <!-- DATA TABLE-->
-    <div class="table-responsive m-b-40">
+</div><br> -->
+<!-- <div class="col-lg-12"> -->
+<!-- DATA TABLE-->
+<!-- <div class="table-responsive m-b-40">
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -85,7 +81,7 @@
     <br><br>
 
     <!-- END MAIN CONTENT-->
-    <!-- END PAGE CONTAINER-->
+<!-- END PAGE CONTAINER-->
 </div>
 
 </div>

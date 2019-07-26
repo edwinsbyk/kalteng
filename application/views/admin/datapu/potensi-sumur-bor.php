@@ -1,18 +1,79 @@
-
-
-
-
-<!-- HEADER DESKTOP-->
-<br><br><br><br>
-<!-- MAIN CONTENT-->
-<div class="col-md-2">
-    <div align="right">
+<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+</div>
+</td>
+</tr>
+<tr>
+    <td align="center">12</td>
+    <td align="">02 - Arso III</td>
+    <td align="center">KEEROM</td>
+    <td align="center">0.8</td>
+    <td align="center">8</td>
+    <td align="center">250</td>
+    <td align="center">10</td>
+    <td>
         <div class="table-data-feature">
-            <a href="http://localhost/admin/tambahrup" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-plus-circle"></i></a>Tambah Data
+            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
 
-
+            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
         </div>
-    </div>
+    </td>
+</tr>
+<tr>
+    <td align="center">13</td>
+    <td align="">01 - Arso III</td>
+    <td align="center">KEEROM</td>
+    <td align="center">6</td>
+    <td align="center">8</td>
+    <td align="center">250</td>
+    <td align="center">5</td>
+    <td>
+        <div class="table-data-feature">
+            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td align="center">14</td>
+    <td align="">01 - Arso XI</td>
+    <td align="center">KEEROM</td>
+    <td align="center">1</td>
+    <td align="center">5</td>
+    <td align="center">250</td>
+    <td align="center">3</td>
+    <td>
+        <div class="table-data-feature">
+            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td align="center">15</td>
+    <td align="">01 - Arso VII</td>
+    <td align="center">KEEROM</td>
+    <td align="center">1</td>
+    <td align="center">6</td>
+    <td align="center">250</td>
+    <td align="center">4</td>
+    <td>
+        <div class="table-data-feature">
+            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+
+            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+        </div>
+    </td>
+</tr>
+</tbody>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div><br>
 <div class="col-lg-12">
     <!-- DATA TABLE-->
@@ -89,5 +150,3 @@
 </div>
 
 </div>
-
-
