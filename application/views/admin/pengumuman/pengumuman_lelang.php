@@ -31,13 +31,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>20-09-2019</td>
-                                                <td>30-09-2019</td>
-                                                <td>Nomor : 01/PENG/APBD-CK/DPU-PAPUA/PWS-DAMRI/2013</td>
-                                                <td>Pengawasan Pembangunan Gedung Terminal DAMRI Kota Jayapura</td>
-                                                <td>360.000.000</td>
+                                            
+                                                <?php $nomor = 1; ?>
+                                <?php foreach ($data as $row) : ?>
+                                    <tr>
+                                        <td><?= $nomor; ?></td>
+                                        <td><?= $row['tanggal']; ?></td>
+                                        <td><?= $row['batas']; ?></td>
+                                        <td><?= $row['no_sk']; ?></td>
+                                        <td><?= $row['nama_paket']; ?></td>
+                                        <td><?= $row['pagu']; ?></td>
+                                        
+                                        
                                                  <td>
                                                      <div class="table-data-feature">
                                                    <a href="#"  class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
@@ -46,11 +51,16 @@
                                                </div>
                                                 </td>
                                             </tr>
-                                            
+                                             <?php $nomor++; ?>
+
+                                <?php endforeach; ?>
+
                                         </tbody>
                                     </table>
                                 </div>
-<br><br>
+<?php foreach ($data as $row) : ?>
+<br>
+   <?php endforeach; ?>
     <!-- Jquery JS-->
    
 <!-- end document-->

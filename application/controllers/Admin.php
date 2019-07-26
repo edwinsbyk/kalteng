@@ -68,8 +68,11 @@ class Admin extends CI_Controller
 
     public function rup()
     {
+         $this->load->model('Pengumuman_model', 'data');
+        $data['data'] = $this->data->getDataRUP();
+        $this->loadAsset([["path" => "admin/pengumuman/rup", "data" => $data]]);
 
-        $this->loadAsset([["path" => "admin/pengumuman/rup"]]);
+    
     }
     public function tambahrup()
     {
@@ -79,7 +82,9 @@ class Admin extends CI_Controller
 
     public function pengumuman_lelang()
     {
-        $this->loadAsset([["path" => "admin/pengumuman/pengumuman_lelang"]]);
+        $this->load->model('Pengumuman_model', 'data');
+        $data['data'] = $this->data->getPengumumanLelang();
+        $this->loadAsset([["path" => "admin/pengumuman/pengumuman_lelang", "data" => $data]]);
     }
     public function tambahpengumuman()
     {
@@ -88,7 +93,9 @@ class Admin extends CI_Controller
 
     public function pemenang_lelang()
     {
-        $this->loadAsset([["path" => "admin/pengumuman/pemenang_lelang"]]);
+         $this->load->model('Pengumuman_model', 'data');
+        $data['data'] = $this->data->getPemenangLelang();
+        $this->loadAsset([["path" => "admin/pengumuman/pemenang_lelang", "data" => $data]]);
     }
 
     public function tambahpemenanglelang()
