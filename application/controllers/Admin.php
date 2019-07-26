@@ -103,59 +103,94 @@ class Admin extends CI_Controller
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJalan();
         $this->loadAsset([["path" => "admin/datapu/jalan", "data" => $data]]);
+
+        $this->load->view('admin/datapu/editdatapu-jalan-modal');
     }
     public function datapuJembatan()
     {
-        $this->loadAsset([["path" => "admin/datapu/jembatan"]]);
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataJembatan();
+        $this->loadAsset([["path" => "admin/datapu/jembatan", "data" => $data]]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/jembatan');
     }
     public function datapuEmbung()
     {
-        $this->loadAsset([["path" => "admin/datapu/embung"]]);
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataEmbung();
+        $this->loadAsset([["path" => "admin/datapu/embung", "data" => $data]]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/embung');
     }
     public function datapuSumurBor()
     {
-        $this->loadAsset([["path" => "admin/datapu/sumur-bor"]]);
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataSumurBor();
+        $this->loadAsset([["path" => "admin/datapu/sumur-bor", "data" => $data]]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/sumur-bor');
     }
+    /////
     public function datapuBlackSpot()
     {
-        $this->loadAsset([["path" => "admin/datapu/black-spot"]]);
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataBlackSpot();
+        $this->loadAsset([["path" => "admin/datapu/black-spot", "data" => $data]]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/black-spot');
     }
 
     public function datapuSpam()
     {
-        $this->loadAsset([["path" => "admin/datapu/spam"]]);
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataSpam();
+        $this->loadAsset([["path" => "admin/datapu/spam", "data" => $data]]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/spam');
     }
-    public function dataPotensiDanau()
+    public function datapuPotensiDanau()
     {
-        $this->loadAsset([["path" => "admin/datapu/potensi-danau"]]);
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataDanau();
+        $this->loadAsset([["path" => "admin/datapu/potensi-danau", "data" => $data]]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-danau');
     }
     public function datapuPotensiRawa()
     {
-        $this->loadAsset([["path" => "admin/datapu/potensi-rawa"]]);
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataRawa();
+        $this->loadAsset([["path" => "admin/datapu/potensi-rawa", "data" => $data]]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-rawa');
     }
     public function datapuPotensiSumurBor()
     {
-        $this->loadAsset([["path" => "admin/datapu/potensi-sumur-bor"]]);
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataSumurBor();
+        $this->loadAsset([["path" => "admin/datapu/potensi-sumur-bor", "data" => $data]]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-sumur-bor');
     }
 
     public function tambahpegawai()
     {
-        $this->loadAsset([["path" => "admin/pegawai/tambahpegawai"]]);
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataSumurBor();
+        $this->loadAsset([["path" => "admin/pegawai/tambahpegawai", "data" => $data]]);
+    }
+
+
+    function tambahdataJalan()
+    {
+        $this->load->model('Datapu_model', 'data_edit');
+        $ruas = $this->input->post('ruas');
+        $kota = $this->input->post('kota');
+        $stat = $this->input->post('stat');
+        $panjang = $this->input->post('panjang');
+        $lebar = $this->input->post('lebar');
+        $this->data_edit->addDatajalan($ruas, $kota, $stat, $panjang, $lebar);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
+        redirect('admin/datapujalan');
     }
 }
