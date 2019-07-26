@@ -24,7 +24,7 @@
 
                         <li class="has-sub list-sidebar-item">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-calendar"></i>Warta</a>
+                                    <i class="fas fa-calendar"></i>Warta</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li class="list-sidebar-item">
                                     <a href="<?= base_url('admin/berita'); ?>">Berita</a>
