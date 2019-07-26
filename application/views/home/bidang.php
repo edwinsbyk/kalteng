@@ -95,12 +95,12 @@
 
         <div class="card">
           <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-ketua">
-              <strong class="mr-auto">Ketua</strong>
+            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-bina">
+              <strong class="mr-auto">BIDANG BINA MARGA</strong>
               <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
             </a>
           </h6>
-          <div id="collapse-ketua" class="collapse" data-parent="#accordion-job">
+          <div id="collapse-bina" class="collapse" data-parent="#accordion-job">
             <div class="card-body">
               Kepala : RISLIANA PANGGOA, ST, MT <br>
               Nomor : 19751010 200212 2 010 <br>
@@ -113,12 +113,12 @@
 
         <div class="card">
           <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-sekretaris">
-              <strong class="mr-auto">Sekretaris</strong>
+            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-cipta">
+              <strong class="mr-auto">BIDANG CIPTA KARYA</strong>
               <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
             </a>
           </h6>
-          <div id="collapse-sekretaris" class="collapse" data-parent="#accordion-job">
+          <div id="collapse-cipta" class="collapse" data-parent="#accordion-job">
             <div class="card-body">
               Kepala : RISLIANA PANGGOA, ST, MT <br>
               Nomor : 19751010 200212 2 010 <br>
@@ -130,12 +130,46 @@
 
         <div class="card">
           <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-bendahara">
-              <strong class="mr-auto">Bendahara</strong>
+            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-penataan">
+              <strong class="mr-auto">BIDANG PENATAAN RUANG</strong>
               <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
             </a>
           </h6>
-          <div id="collapse-bendahara" class="collapse" data-parent="#accordion-job">
+          <div id="collapse-penataan" class="collapse" data-parent="#accordion-job">
+            <div class="card-body">
+              Kepala : RISLIANA PANGGOA, ST, MT <br>
+              Nomor : 19751010 200212 2 010 <br>
+              Alamat : KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura <br>
+              <!-- <hr class="w-100px"> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="card ">
+          <h6 class="card-title">
+            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-updt-jasa">
+              <strong class="mr-auto">BIDANG JASA KONTRUKSI</strong>
+              <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
+            </a>
+          </h6>
+          <div id="collapse-updt-jasa" class="collapse" data-parent="#accordion-job">
+            <div class="card-body">
+              Kepala : RISLIANA PANGGOA, ST, MT <br>
+              Nomor : 19751010 200212 2 010 <br>
+              Alamat : KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura <br>
+              <!-- <hr class="w-100px"> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h6 class="card-title">
+            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-updt-sekertaris">
+              <strong class="mr-auto">SEKERTARIS DINAS</strong>
+              <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
+            </a>
+          </h6>
+          <div id="collapse-updt-sekertaris" class="collapse" data-parent="#accordion-job">
             <div class="card-body">
               Kepala : RISLIANA PANGGOA, ST, MT <br>
               Nomor : 19751010 200212 2 010 <br>
@@ -148,7 +182,7 @@
         <div class="card">
           <h6 class="card-title">
             <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-updt-laboratorium">
-              <strong class="mr-auto">UPDT Laboratorium</strong>
+              <strong class="mr-auto">UPT LABORATURIUM</strong>
               <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
             </a>
           </h6>
@@ -161,6 +195,7 @@
             </div>
           </div>
         </div>
+
 
       </div>
 
