@@ -22,10 +22,18 @@
                             <a href="<?= base_url('admin/pegawai'); ?>">
                                 <i class="fas fa-users"></i>Pegawai</a>
                         </li>
-
-                        <li>
-                            <a href="<?= base_url('admin/bidang'); ?>">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
                                 <i class="fas fa-bars"></i>Bidang</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="<?= base_url('admin/pegawaibidang'); ?>">Pegawai Bidang</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('admin/bidang'); ?>">Bidang</a>
+                                </li>
+                              
+                            </ul>
                         </li>
 
 
