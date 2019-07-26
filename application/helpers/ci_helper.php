@@ -21,6 +21,13 @@ function is_logged_in()
     }
 }
 
+function throw_flash_redirect($message, $status, $url)
+{
+    $self = get_instance();
+    $self->session->set_flashdata('message', '<div class="alert alert-'.$status.'" role="alert">'.$message.'</div>');
+    redirect($url);
+}
+
 
 function check_access($role_id, $menu_id)
 {
