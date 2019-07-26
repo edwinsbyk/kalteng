@@ -165,4 +165,5 @@ class Admin extends CI_Controller
     {
         $this->loadAsset([["path" => "admin/pegawai/tambahpegawai"]]);
     }
+   
 }

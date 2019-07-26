@@ -29,5 +29,10 @@ class Pengumuman_model extends CI_Model
 
     }
 
+ public function edit_user($name, $email, $role_id, $is_active)
+    {
+        $hasil = $this->db->query("INSERT INTO tbl_rup VALUES()");
+        return $hasil;
+    }
 
 }

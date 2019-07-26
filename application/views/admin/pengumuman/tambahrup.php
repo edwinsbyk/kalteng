@@ -4,7 +4,7 @@
             <!-- HEADER DESKTOP-->
             <br><br><br><br>
             <!-- MAIN CONTENT-->
-            <form method="post" action="#">
+            <form method="post" action="admin/tambahrup">
               <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
