@@ -1,6 +1,5 @@
 application/config
 system
-assets
 third_party
 *.log
 .DS_Store

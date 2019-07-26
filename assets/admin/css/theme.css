@@ -2511,6 +2511,10 @@ section {
     color: #666;
 }
 
+.list-sidebar-item a {
+    color: #FFF!important
+}
+
 .search-dropdown .search-dropdown__icon {
     position: absolute;
     top: 0;
