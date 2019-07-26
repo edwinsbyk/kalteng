@@ -1635,11 +1635,11 @@ section {
 }
 
 .navbar-sidebar .navbar__list li a:hover {
-    color: #4272d7;
+    color: #4272d7!important;
 }
 
 .navbar-sidebar .navbar__list li.active > a {
-    color: #4272d7;
+    color: #4272d7!important;
 }
 
 .has-sub {
@@ -2732,7 +2732,7 @@ section {
 }
 
 .header__navbar ul li.active > a {
-    color: #4272d7;
+    color: #4272d7!important;
 }
 
 .header__navbar ul li.active > a .bot-line {
