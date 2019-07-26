@@ -8,7 +8,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="list-sidebar-item">
-                            <a href="<?= base_url('admin/index'); ?>">
+                            <a href="<?= base_url('admin'); ?>">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li class="list-sidebar-item">
