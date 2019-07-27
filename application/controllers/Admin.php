@@ -16,7 +16,11 @@ class Admin extends CI_Controller
 
     public function loadAsset($param)
     {
+
+        $this->load->model("Menu_model", "menu");
+
         $this->load->model('Menu_model', 'menu');
+
         $data = [
             "title" => "Dashboard",
             "active" => "active",
