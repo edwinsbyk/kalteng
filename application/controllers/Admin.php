@@ -16,9 +16,11 @@ class Admin extends CI_Controller
 
     public function loadAsset($param)
     {
+        $this->load->model("Menu_model", "menu");
         $data = [
             "title" => "Dashboard",
             "active" => "active",
+            "menu" => $this->menu->__getMenu(),
             "list_css_plugins" => array(
                 'assets/admin/css/font-face.css',
                 'assets/admin/css/style.css',
