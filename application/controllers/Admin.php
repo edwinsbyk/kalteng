@@ -16,9 +16,11 @@ class Admin extends CI_Controller
 
     public function loadAsset($param)
     {
+        $this->load->model('Menu_model', 'menu');
         $data = [
             "title" => "Dashboard",
             "active" => "active",
+            "menu" => $this->menu->__getMenu(),
             "list_css_plugins" => array(
                 'assets/admin/css/font-face.css',
                 'assets/admin/css/style.css',
@@ -192,7 +194,6 @@ class Admin extends CI_Controller
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataBlackSpot();
         $this->loadAsset(["path" => "admin/datapu/black-spot", "data" => $data]);
-        $this->loadAsset(["path" => "admin/datapu/black-spot"]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/black-spot');
     }
