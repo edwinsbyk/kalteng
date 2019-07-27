@@ -7,9 +7,7 @@
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-                <?php 
-                    foreach ($menu as $m):
-                ?>
+                <?php foreach ($menu as $m): ?>
                     <li class="<?php
                         echo count($m->sub_menu) ? "has-sub " : ""; 
                         echo $this->uri->uri_string() == $m->module_path || in_array($this->uri->uri_string(), array_map(function($v){return $v->module_sub_path;}, $m->sub_menu)) ? "active" : ""?> list-sidebar-item">
@@ -26,10 +24,8 @@
                                 </ul>
                             <?php endif; ?>
                     </li>
-                    
                 <?php endforeach; ?>
             </ul>
         </nav>
     </div>
 </aside>
-        <!-- END MENU SIDEBAR-->
