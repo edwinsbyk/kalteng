@@ -14,7 +14,7 @@ class Auth extends CI_Controller
     {
 
         if ($this->session->userdata('email')) {
-            redirect('user');
+            redirect('admin');
         }
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -34,7 +34,7 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
         $this->User_model->__makeAuthRequest($email, $password);
     }
-    
+
     private function _sendEmail($token, $type)
     {
         $config = [

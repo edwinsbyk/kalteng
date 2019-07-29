@@ -1,8 +1,9 @@
 <?php
 
-class User_model extends CI_Model {
+class User_model extends CI_Model
+{
 
-    public function __getUserWithEmail($email) 
+    public function __getUserWithEmail($email)
     {
         return $this->db->get_where("user", array("email" => $email))->row_array();
     }

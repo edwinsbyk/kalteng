@@ -74,4 +74,9 @@ class Datapu_model extends CI_Model
         $hasil = $this->db->query("INSERT INTO `tbl_jalan` (`id_jalan`, `ruas`, `kota`, `stat`, `panjang`, `lebar`) VALUES (NULL, '$ruas', '$kota', '$stat', '$panjang', '$lebar');");
         return $hasil;
     }
+    public function editDatajalan($id, $ruas, $kota, $stat, $panjang, $lebar)
+    {
+        $hasil = $this->db->query("UPDATE `tbl_jalan` SET `ruas`='$ruas',`kota`='$kota',stat='$stat',panjang='$panjang',lebar='$lebar' WHERE id_jalan='$id'");
+        return $hasil;
+    }
 }

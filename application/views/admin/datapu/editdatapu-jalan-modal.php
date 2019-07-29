@@ -15,12 +15,21 @@ foreach ($data as $d) : ?>
                             <input type="text" class="form-control" id="name" name="ruas" placeholder="Nama" value="<?= $d['ruas'] ?>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email" name="kota" placeholder="Kota" value="<?= $d['kota'] ?>" readonly>
+                            <input type="text" class="form-control" id="email" name="kota" placeholder="Kota" value="<?= $d['kota'] ?>" required>
                         </div>
-
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="stat" placeholder="Status" value="<?= $d['stat'] ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email" name="panjang" placeholder="Panjang (Km)" value="<?= $d['panjang'] ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email" name="lebar" placeholder="Lebar (m)" value="<?= $d['lebar'] ?>" required>
+                        </div>
                     </div>
 
                     <div class="modal-footer">
+                        <input type="hidden" name="id" value="<?= $d['id_jalan']; ?>">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
                         <button type="submit" class="btn btn-info">Update</button>
                     </div>

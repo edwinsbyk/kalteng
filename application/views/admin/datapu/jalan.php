@@ -10,7 +10,6 @@
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#tambah" role="tab" aria-controls="profile" aria-selected="false">Tambah Data</a>
             </li>
         </ul>
-        <?= $this->session->flashdata('message'); ?>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="home-tab">
                 <?php $this->load->view('admin/datapu/tabeldata_jalan') ?>

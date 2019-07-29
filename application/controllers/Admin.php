@@ -256,9 +256,23 @@ class Admin extends CI_Controller
         $panjang = $this->input->post('panjang');
         $lebar = $this->input->post('lebar');
         $this->data_edit->addDatajalan($ruas, $kota, $stat, $panjang, $lebar);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
         redirect('admin/datapujalan');
-        $this->loadAsset(["path" => "admin/pegawai/tambahpegawai"]);
+        $this->loadAsset(["path" => "admin/datapu/jalan"]);
+    }
+    function editdataJalan()
+    {
+        $this->load->model('Datapu_model', 'data_edit');
+        $ruas = $this->input->post('ruas');
+        $kota = $this->input->post('kota');
+        $stat = $this->input->post('stat');
+        $panjang = $this->input->post('panjang');
+        $lebar = $this->input->post('lebar');
+        $id = $this->input->post('id');
+        $this->data_edit->editDatajalan($id, $ruas, $kota, $stat, $panjang, $lebar);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapujalan');
+        $this->loadAsset(["path" => "admin/datapu/jalan"]);
     }
 
     public function tambah_rup()
