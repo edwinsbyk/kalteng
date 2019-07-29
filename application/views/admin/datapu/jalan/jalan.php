@@ -12,10 +12,10 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="home-tab">
-                <?php $this->load->view('admin/datapu/tabeldata_jalan') ?>
+                <?php $this->load->view('admin/datapu/jalan/tabeldata_jalan') ?>
             </div>
             <div class="tab-pane fade" id="tambah" role="tabpanel" aria-labelledby="home-tab">
-                <?php $this->load->view('admin/datapu/tambahdata_jalan') ?>
+                <?php $this->load->view('admin/datapu/jalan/tambahdata_jalan') ?>
             </div>
 
 

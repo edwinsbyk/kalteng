@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#table" role="tab" aria-controls="home" aria-selected="true">Data PU Blackspot</a>
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#table" role="tab" aria-controls="home" aria-selected="true">Data PU Jembatan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#tambah" role="tab" aria-controls="profile" aria-selected="false">Tambah Data</a>
@@ -11,10 +11,11 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="home-tab">
-                    <?php $this->load->view('admin/datapu/tabeldata_blackspot') ?>
+                    <?php $this->load->view('admin/datapu/jembatan/tabeldata_jembatan') ?>
                 </div>
                 <div class="tab-pane fade" id="tambah" role="tabpanel" aria-labelledby="home-tab">
-                    <?php $this->load->view('admin/datapu/tambahdata_blackspot') ?>
+                    <?php $this->load->view('admin/datapu/jembatan/tambahdata_jembatan') ?>
                 </div>
             </div>
+
         </div>

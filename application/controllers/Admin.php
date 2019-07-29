@@ -18,6 +18,8 @@ class Admin extends CI_Controller
     {
 
         $this->load->model("Menu_model", "menu");
+        $this->load->model("User_model", "user");
+
 
         $this->load->model('Menu_model', 'menu');
 
@@ -60,6 +62,7 @@ class Admin extends CI_Controller
             "path" => $param["path"]
         ];
         $data = isset($param["data"]) ? array_merge($data, $param["data"]) : $data;
+        $data['user'] = $this->user->getUser();
 
 
         // var_dump($data);
@@ -179,29 +182,78 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJalan();
-        $this->loadAsset(["path" => "admin/datapu/jalan", "data" => $data]);
-
-        $this->load->view('admin/datapu/editdatapu-jalan-modal');
+        $this->loadAsset(["path" => "admin/datapu/jalan/jalan", "data" => $data]);
     }
+
+    function tambahdataJalan()
+    {
+        $data = [
+            'ruas' => $this->input->post('ruas'),
+            'kota' => $this->input->post('kota'),
+            'stat' => $this->input->post('stat'),
+            'panjang' => $this->input->post('panjang'),
+            'lebar' => $this->input->post('lebar')
+        ];
+        $this->db->insert('tbl_jalan', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
+        redirect('admin/datapujalan');
+        $this->loadAsset(["path" => "admin/datapu/jalan/jalan"]);
+    }
+
+    function editdataJalan()
+    {
+        $this->load->model('Datapu_model', 'data_edit');
+        $id = $this->input->post('id');
+        $data = [
+            'ruas' => $this->input->post('ruas'),
+            'kota' => $this->input->post('kota'),
+            'stat' => $this->input->post('stat'),
+            'panjang' => $this->input->post('panjang'),
+            'lebar' => $this->input->post('lebar')
+        ];
+        $this->db->where('id_jalan', $id);
+        $this->db->update('tbl_jalan', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapujalan');
+        $this->loadAsset(["path" => "admin/datapu/jalan/jalan"]);
+    }
+    function deletedataJalan()
+    {
+        $id = $this->input->post('id');
+        $this->db->where('id_jalan', $id);
+        $this->db->delete('tbl_jalan');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/datapujalan');
+        $this->loadAsset(["path" => "admin/datapu/jalan/jalan"]);
+    }
+
     public function datapuJembatan()
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJembatan();
-        $this->loadAsset(["path" => "admin/datapu/jembatan", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/jembatan/jembatan", "data" => $data]);
         // $this->loadAsset(["path" => "admin/datapu/jalan", "data" => $data]);
     }
-    // public function datapuJembatan()
-    // {
-    //     $this->loadAsset(["path" => "admin/datapu/jembatan"]);
-    //     // $this->load->view('admin/header');
-    //     // $this->load->view('admin/datapu/jembatan');
-    // }
+
+    public function tambahdataJembatan()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'panjang' => $this->input->post('panjang'),
+            'lebar' => $this->input->post('lebar')
+        ];
+        $this->db->insert('tbl_jembatan', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
+        redirect('admin/datapujembatan');
+        $this->loadAsset(["path" => "admin/datapu/jalan/jalan"]);
+    }
+
     public function datapuEmbung()
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataEmbung();
-        $this->loadAsset(["path" => "admin/datapu/embung", "data" => $data]);
-        $this->loadAsset(["path" => "admin/datapu/embung"]);
+        $this->loadAsset(["path" => "admin/datapu/embung/embung", "data" => $data]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/embung');
     }
@@ -209,8 +261,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSumurBor();
-        $this->loadAsset(["path" => "admin/datapu/sumur-bor", "data" => $data]);
-        $this->loadAsset(["path" => "admin/datapu/sumur-bor"]);
+        $this->loadAsset(["path" => "admin/datapu/sumur-bor/sumur-bor", "data" => $data]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/sumur-bor');
     }
@@ -219,17 +270,44 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataBlackSpot();
-        $this->loadAsset(["path" => "admin/datapu/black-spot", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/black-spot/black-spot", "data" => $data]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/black-spot');
+    }
+    function tambahdataBlackSpot()
+    {
+        $data = [
+            'ruas' => $this->input->post('ruas'),
+            'kota' => $this->input->post('kota'),
+            'jenis_masalah' => $this->input->post('jenis_masalah'),
+            'tingkat_masalah' => $this->input->post('tingkat_masalah'),
+        ];
+        $this->db->insert('tbl_black_spot', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
+        redirect('admin/datapuBlackSpot');
+        $this->loadAsset(["path" => "admin/datapu/black-spot/black-spot"]);
+    }
+    function editdataBlackSpot()
+    {
+        $id = $this->input->post('id');
+        $data = [
+            'ruas' => $this->input->post('ruas'),
+            'kota' => $this->input->post('kota'),
+            'jenis_masalah' => $this->input->post('jenis_masalah'),
+            'tingkat_masalah' => $this->input->post('tingkat_masalah'),
+        ];
+        $this->db->where('id_black_spot', $id);
+        $this->db->update('tbl_black_spot', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapuBlackSpot');
+        $this->loadAsset(["path" => "admin/datapu/black-spot/black-spot"]);
     }
 
     public function datapuSpam()
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSpam();
-        $this->loadAsset(["path" => "admin/datapu/spam", "data" => $data]);
-        $this->loadAsset(["path" => "admin/datapu/spam"]);
+        $this->loadAsset(["path" => "admin/datapu/spam/spam", "data" => $data]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/spam');
     }
@@ -238,7 +316,7 @@ class Admin extends CI_Controller
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataDanau();
         $this->loadAsset(["path" => "admin/datapu/potensi-danau", "data" => $data]);
-        $this->loadAsset(["path" => "admin/datapu/potensi-danau"]);
+        $this->loadAsset(["path" => "admin/datapu/potensi-danau/potensi-danau"]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-danau');
     }
@@ -246,8 +324,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataRawa();
-        $this->loadAsset(["path" => "admin/datapu/potensi-rawa", "data" => $data]);
-        $this->loadAsset(["path" => "admin/datapu/potensi-rawa"]);
+        $this->loadAsset(["path" => "admin/datapu/potensi-rawa/potensi-rawa", "data" => $data]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-rawa');
     }
@@ -255,8 +332,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSumurBor();
-        $this->loadAsset(["path" => "admin/datapu/potensi-sumur-bor", "data" => $data]);
-        $this->loadAsset(["path" => "admin/datapu/potensi-sumur-bor"]);
+        $this->loadAsset(["path" => "admin/datapu/potensi-sumur-bor/potensi-sumur-bor", "data" => $data]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-sumur-bor');
     }
@@ -269,43 +345,9 @@ class Admin extends CI_Controller
     }
 
 
-    function tambahdataJalan()
-    {
-        $this->load->model('Datapu_model', 'data_edit');
-        $ruas = $this->input->post('ruas');
-        $kota = $this->input->post('kota');
-        $stat = $this->input->post('stat');
-        $panjang = $this->input->post('panjang');
-        $lebar = $this->input->post('lebar');
-        $this->data_edit->addDatajalan($ruas, $kota, $stat, $panjang, $lebar);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
-        redirect('admin/datapujalan');
-        $this->loadAsset(["path" => "admin/datapu/jalan"]);
-    }
-    function editdataJalan()
-    {
-        $this->load->model('Datapu_model', 'data_edit');
-        $ruas = $this->input->post('ruas');
-        $kota = $this->input->post('kota');
-        $stat = $this->input->post('stat');
-        $panjang = $this->input->post('panjang');
-        $lebar = $this->input->post('lebar');
-        $id = $this->input->post('id');
-        $this->data_edit->editDatajalan($id, $ruas, $kota, $stat, $panjang, $lebar);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
-        redirect('admin/datapujalan');
-        $this->loadAsset(["path" => "admin/datapu/jalan"]);
-    }
 
-    function deletedataJalan()
-    {
-        $this->load->model('Datapu_model', 'data_delete');
-        $id = $this->input->post('id');
-        $this->data_delete->deleteDatajalan($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
-        redirect('admin/datapujalan');
-        $this->loadAsset(["path" => "admin/datapu/jalan"]);
-    }
+
+
 
     public function tambah_rup()
     {
