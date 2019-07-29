@@ -1,5 +1,5 @@
 <div class="table-data__tool">
-    <?php $this->session->flashdata('message'); ?>
+   
     
     <div class="table-data__tool-left">
         <div class="rs-select2--light rs-select2--md">
@@ -60,10 +60,10 @@
                                         <td><?= $row['metode']; ?></td>
                                         
                                         <td>
-                        <div class="table-data-feature">
-                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+                       <div class="table-data-feature">
+                            <a href="#" class="item" data-toggle="modal" data-target="#modal_edit<?= $row['id_rup']; ?>"><i class="zmdi zmdi-edit"></i></a>
+                            <a href="#" class="item" data-toggle="modal" data-target="#modal_delete<?= $row['id_rup']; ?>"><i class="zmdi zmdi-delete"></i></a>
 
-                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -72,8 +72,10 @@
 
             </tbody>
         </table>
-    </div></div>
+    </div>
     
+
+<?php $this->load->view('admin/pengumuman/editdataRUP-modal'); ?>
     <!-- Jquery JS-->
   
 

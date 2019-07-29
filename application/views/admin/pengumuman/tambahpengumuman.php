@@ -8,7 +8,7 @@
             <!-- HEADER DESKTOP-->
         
             <!-- MAIN CONTENT-->
-            <form method="post" action="#">
+            <form method="post" action="tambahpengumuman">
               <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">

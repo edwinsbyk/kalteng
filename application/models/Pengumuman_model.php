@@ -21,7 +21,13 @@ class Pengumuman_model extends CI_Model
 
     public function getPemenangLelang()
     {
+
+       // $query = "SELECT * FROM `tbl_pemenang_lelang`
+        
+	$query = "SELECT * FROM tbl_pemenang_lelang  JOIN tbl_pengumuman_lelang ON tbl_pemenang_lelang.id_pengumuman_lelang=tbl_pengumuman_lelang.id_pengumuman_lelang ORDER BY  pemenang DESC ";
+
         // $query = "SELECT * FROM `tbl_pemenang_lelang`
+
 
         $query = "SELECT * FROM tbl_pemenang_lelang JOIN tbl_pengumuman_lelang ON tbl_pemenang_lelang.id_pengumuman_lelang=tbl_pengumuman_lelang.id_pengumuman_lelang";
 
@@ -34,9 +40,19 @@ class Pengumuman_model extends CI_Model
         return $hasil;
     }
 
-    public function tambah_pemenang_lelang($no_sk, $nama_paket, $pemenang, $hps)
+    public function tambah_pemenang_lelang($id_pengumuman_lelang, $pemenang, $hps)
     {
+
+        $hasil = $this->db->query("INSERT INTO `tbl_pemenang_lelang`(`id_pemenang_lelang`, `id_pengumuman_lelang`, `pemenang`, `hps`) VALUES (NULL,'$id_pengumuman_lelang','$pemenang','$hps')");
+        return $hasil;
+    }
+
+     public function tambahpengumuman($tanggal, $batas, $no_sk, $nama_paket, $pagu)
+    {
+        $hasil = $this->db->query("INSERT INTO `tbl_pengumuman_lelang`(`id_pengumuman_lelang`, `tanggal`, `batas`, `no_sk`, `nama_paket`, `pagu`) VALUES (NULL,'$tanggal','$batas','$no_sk','$nama_paket','$pagu')");
+
         $hasil = $this->db->query("INSERT INTO `tbl_pemenang_lelang`(`id_pengumuman_lelang`, `no_sk`, `nama_paket`, `pemenang`, `hps`) VALUES ('','$no_sk','$nama_paket','$pemenang','$hps')");
+
         return $hasil;
     }
 }
