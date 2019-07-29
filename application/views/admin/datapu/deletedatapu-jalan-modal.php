@@ -15,6 +15,8 @@ foreach ($data as $d) : ?>
                     </div>
 
                     <div class="modal-footer">
+                        <input type="hidden" name="id" value="<?= $d['id_jalan']; ?>">
+
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
                         <button type="submit" class="btn btn-info">Hapus</button>
                     </div>
