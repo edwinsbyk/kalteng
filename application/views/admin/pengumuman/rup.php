@@ -1,6 +1,6 @@
 <div class="main-content">
 
-    <div class="section__content section__content--p30">
+    <div class="">
         <div class="container-fluid">
             <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li class="nav-item">

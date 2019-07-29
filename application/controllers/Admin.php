@@ -116,6 +116,8 @@ class Admin extends CI_Controller
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getDataRUP();
         $this->loadAsset(["path" => "admin/pengumuman/rup", "data" => $data]);
+
+        $this->load->view('admin/pengumuman/editdataRUP-modal');
     }
 
     public function pengumuman_lelang()
@@ -126,29 +128,51 @@ class Admin extends CI_Controller
     }
     public function tambahpengumuman()
     {
-        $this->loadAsset(["path" => "admin/pengumuman/tambahpengumuman"]);
+         $this->load->model('Pengumuman_model');
+        $tanggal = $this->input->post('tanggal');
+        $batas = $this->input->post('batas');
+        $no_sk = $this->input->post('no_sk');
+        $nama_paket = $this->input->post('nama_paket');
+        $pagu = $this->input->post('pagu');
+
+      
+
+
+
+        $tambahpengumuman =  $this->Pengumuman_model->tambahpengumuman($tanggal, $batas, $no_sk, $nama_paket, $pagu);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
+        redirect('admin/pengumuman_lelang');
     }
 
     public function pemenang_lelang()
     {
+        // $data['data_pengumuman'] = $this->data->getPengumumanLelang();
+
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getPemenangLelang();
+        $data['data_pengumuman'] = $this->data->getPengumumanLelang();
+
         $this->loadAsset(["path" => "admin/pengumuman/pemenang_lelang", "data" => $data]);
     }
 
     public function tambah_pemenang_lelang()
     {
+        
+
+        
         $this->load->model('Pengumuman_model');
-        $no_sk = $this->input->post('no_sk');
-        $nama_paket = $this->input->post('nama_paket');
+        $id_pengumuman_lelang = $this->input->post('id_pengumuman_lelang');
         $pemenang = $this->input->post('pemenang');
         $hps = $this->input->post('hps');
+      
 
 
 
-        $tambahrup =  $this->Pengumuman_model->tambah_pemenang_lelang($no_sk, $nama_paket, $pemenang, $hps);
+        $tambah_pemenang_lelang =  $this->Pengumuman_model->tambah_pemenang_lelang($id_pengumuman_lelang, $pemenang, $hps);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
         redirect('admin/pemenang_lelang');
+    
+       
     }
 
     //
