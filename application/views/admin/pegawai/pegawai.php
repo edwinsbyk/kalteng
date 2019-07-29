@@ -1,19 +1,8 @@
-<!-- Large modal -->
-
-
-<!-- Small modal -->
-
-
-
-<!-- HEADER DESKTOP-->
 <br><br><br><br>
-<!-- MAIN CONTENT-->
 <div class="col-md-2">
   <div>
     <div class="table-data-feature">
       <a href="<?= base_url('admin/tambahpegawai'); ?>" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-plus-circle"></i></a>Tambah Data
-
-
     </div>
   </div>
 </div><br>
@@ -66,7 +55,7 @@
         </div>
         <div class="modal-body">
           <form>
-            <div class="form-group">
+          <div class="form-group">
               <label for="recipient-name" class="col-form-label">Nama:</label>
               <input type="text" class="form-control" id="recipient-name" name="nama" disabled>
             </div>

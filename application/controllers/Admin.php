@@ -36,6 +36,7 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/select2/select2.min.css',
                 'assets/admin/vendor/perfect-scrollbar/perfect-scrollbar.css',
                 'assets/admin/css/theme.css',
+                'assets/admin/css/bootstrap-datetimepicker.min.css'
             ),
             "list_js_plugins" => array(
                 'assets/admin/vendor/jquery-3.2.1.min.js',
@@ -52,7 +53,7 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/chartjs/Chart.bundle.min.js',
                 'assets/admin/vendor/select2/select2.min.js',
                 'assets/admin/js/main.js',
-                'assets/plugin/tinymce/tinymce.min.js'
+                'assets/admin/js/bootstrap-datetimepicker.min.js'
             ),
             "path" => $param["path"]
         ];
@@ -78,7 +79,30 @@ class Admin extends CI_Controller
 
     public function berita()
     {
-        $this->loadAsset(["path" => "admin/warta/tab"]);
+        $this->load->model("Berita_model");
+        $data["data"] = $this->Berita_model->getBerita();
+        $this->loadAsset(["path" => "admin/warta/tab", "data" => $data]);
+
+    }
+
+    public function tambah_berita()
+    {
+        $judul = $this->input->post("judul-berita");
+        $image = $this->input->post("image");
+        $tanggal = $this->input->post("tanggal");
+        $isi = $this->input->post("isi-berita");
+
+        $data = array(
+            'iduser'    => 1,
+            'judul'     => $judul,
+            'isi'       => $isi,
+            'tanggal'   => $tanggal,
+            'image'     => $image
+        );
+
+        $this->load->model("Berita_model");
+        $this->Berita_model->input_data($data, 'tbl_berita');
+        redirect("admin/berita");
     }
 
     public function artikel()
