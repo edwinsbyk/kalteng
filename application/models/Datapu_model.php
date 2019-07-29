@@ -81,7 +81,7 @@ class Datapu_model extends CI_Model
     }
     public function deleteDatajalan($id)
     {
-        $hasil = $this->db->query("DELETE FROM `tbl_jalan` WHERE id_jalan = '$id'");
+        $hasil = $this->db->query("DELETE FROM `tbl_jalan` WHERE `tbl_jalan`.`id_jalan` = '$id'");
         return $hasil;
     }
 }
