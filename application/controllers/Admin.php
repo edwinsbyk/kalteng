@@ -18,11 +18,6 @@ class Admin extends CI_Controller
     {
 
         $this->load->model("Menu_model", "menu");
-        $this->load->model("User_model", "user");
-
-
-        $this->load->model('Menu_model', 'menu');
-
         $data = [
             "title" => "Dashboard",
             "active" => "active",
@@ -42,11 +37,13 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/select2/select2.min.css',
                 'assets/admin/vendor/perfect-scrollbar/perfect-scrollbar.css',
                 'assets/admin/css/theme.css',
+                'assets/admin/css/datatables.css',
             ),
             "list_js_plugins" => array(
                 'assets/admin/vendor/jquery-3.2.1.min.js',
                 'assets/admin/vendor/bootstrap-4.1/popper.min.js',
                 'assets/admin/vendor/bootstrap-4.1/bootstrap.min.js',
+                'assets/plugin/thesaas/js/vendors/datatables.js',
                 'assets/admin/vendor/slick/slick.min.js',
                 'assets/admin/vendor/wow/wow.min.js',
                 'assets/admin/vendor/animsition/animsition.min.js',
@@ -57,33 +54,41 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/perfect-scrollbar/perfect-scrollbar.js',
                 'assets/admin/vendor/chartjs/Chart.bundle.min.js',
                 'assets/admin/vendor/select2/select2.min.js',
-                'assets/admin/js/main.js'
+                'assets/admin/js/main.js',
+                'assets/admin/js/tambahan.js',
+                'assets/admin/js/datatables.js',
             ),
             "path" => $param["path"]
         ];
         $data = isset($param["data"]) ? array_merge($data, $param["data"]) : $data;
-        $data['user'] = $this->user->getUser();
-
-
-        // var_dump($data);
-        // die();
-        // $this->load->view('admin/admin_header');
-        // $this->load->view('admin/header');
         $this->load->view("/admin/v_main", $data);
-        // $this->load->view('admin/admin_footer');
     }
     public function index()
     {
-
         $this->loadAsset(["path" => "admin/index"]);
+    }
+
+    public function artikel()
+    {
+        $this->load->model("ArtikelModel");
+        $this->loadAsset(["path" => "admin/warta/artikel", "data" => ["data" => $this->ArtikelModel->display_data()]]);
+    }
+
+    public function add_article()
+    {
+        $judul = $this->input->post("judul_artikel");
+        $isi = $this->input->post("isi_artikel");
+        $tanggal = $this->input->post("tanggal_pembuatan");
+        $this->load->model("ArtikelModel");
+        $this->ArtikelModel->tambah_data($judul, $isi, $tanggal)
+            ? throw_flash_redirect("Data berhasil ditambahkan", "success", "admin/artikel")
+            : throw_flash_redirect("Gagal menambahkan data", "danger", "admin/artikel");
     }
 
     public function pegawai()
     {
-
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
     }
-
 
     public function pegawaibidang()
     {
@@ -92,17 +97,13 @@ class Admin extends CI_Controller
 
     public function berita()
     {
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/admin_header');
-        // $this->load->view('admin/warta/tab');
         $this->loadAsset(["path" => "admin/warta/tab"]);
-        // $this->load->view('admin/admin_footer');
     }
 
-    public function artikel()
-    {
-        $this->loadAsset(["path" => "admin/testimoni"]);
-    }
+    // public function artikel()
+    // {
+    //     $this->loadAsset(["path" => "admin/testimoni"]);
+    // }
 
     public function agenda()
     {
@@ -137,11 +138,6 @@ class Admin extends CI_Controller
         $no_sk = $this->input->post('no_sk');
         $nama_paket = $this->input->post('nama_paket');
         $pagu = $this->input->post('pagu');
-
-
-
-
-
         $tambahpengumuman =  $this->Pengumuman_model->tambahpengumuman($tanggal, $batas, $no_sk, $nama_paket, $pagu);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
         redirect('admin/pengumuman_lelang');
@@ -149,8 +145,6 @@ class Admin extends CI_Controller
 
     public function pemenang_lelang()
     {
-        // $data['data_pengumuman'] = $this->data->getPengumumanLelang();
-
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getPemenangLelang();
         $data['data_pengumuman'] = $this->data->getPengumumanLelang();
@@ -160,17 +154,10 @@ class Admin extends CI_Controller
 
     public function tambah_pemenang_lelang()
     {
-
-
-
         $this->load->model('Pengumuman_model');
         $id_pengumuman_lelang = $this->input->post('id_pengumuman_lelang');
         $pemenang = $this->input->post('pemenang');
         $hps = $this->input->post('hps');
-
-
-
-
         $tambah_pemenang_lelang =  $this->Pengumuman_model->tambah_pemenang_lelang($id_pengumuman_lelang, $pemenang, $hps);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
         redirect('admin/pemenang_lelang');
@@ -265,7 +252,7 @@ class Admin extends CI_Controller
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/sumur-bor');
     }
-    /////
+
     public function datapuBlackSpot()
     {
         $this->load->model('Datapu_model', 'data');
@@ -311,6 +298,7 @@ class Admin extends CI_Controller
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/spam');
     }
+
     public function datapuPotensiDanau()
     {
         $this->load->model('Datapu_model', 'data');
@@ -320,6 +308,7 @@ class Admin extends CI_Controller
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-danau');
     }
+
     public function datapuPotensiRawa()
     {
         $this->load->model('Datapu_model', 'data');
@@ -328,6 +317,7 @@ class Admin extends CI_Controller
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-rawa');
     }
+
     public function datapuPotensiSumurBor()
     {
         $this->load->model('Datapu_model', 'data');
@@ -348,7 +338,6 @@ class Admin extends CI_Controller
 
 
 
-
     public function tambah_rup()
     {
 
@@ -357,11 +346,84 @@ class Admin extends CI_Controller
         $lokasi = $this->input->post('lokasi');
         $pagu = $this->input->post('pagu');
         $metode_lelang = $this->input->post('metode_lelang');
-
-
-
         $tambahrup =  $this->Pengumuman_model->tambahrup($kegiatan, $lokasi, $pagu, $metode_lelang);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
         redirect('admin/rup');
+    }
+
+    function editdataRup()
+    {
+        $this->load->model('Pengumuman_model', 'data_edit');
+        $id = $this->input->post('id_rup');
+        $kegiatan = $this->input->post('kegiatan');
+        $lokasi = $this->input->post('lokasi');
+        $pagu = $this->input->post('pagu');
+        $metode = $this->input->post('metode');
+
+        $this->data_edit->editDataRUP($id, $kegiatan, $lokasi, $pagu, $metode);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/rup');
+        $this->loadAsset(["path" => "admin/pengumuman/rup"]);
+    }
+
+    function deletedataRUP()
+    {
+        $this->load->model('Pengumuman_model', 'delete_data');
+        $id = $this->input->post('id');
+
+        $this->delete_data->deletedataRUP($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/rup');
+        $this->loadAsset(["path" => "admin/pengumuman/rup"]);
+    }
+    function editdataPengumuman()
+    {
+        $this->load->model('Pengumuman_model', 'data_edit');
+        $id = $this->input->post('id_pengumuman_lelang');
+        $tanggal = $this->input->post('tanggal');
+        $batas = $this->input->post('batas');
+        $no_sk = $this->input->post('no_sk');
+        $nama_paket = $this->input->post('nama_paket');
+        $pagu = $this->input->post('pagu');
+
+        $this->data_edit->editdataPengumuman($id, $tanggal, $batas, $no_sk, $nama_paket, $pagu);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/pengumuman_lelang');
+        $this->loadAsset(["path" => "admin/pengumuman/pengumuman_lelang"]);
+    }
+    function deletedataPengumuman()
+    {
+        $this->load->model('Pengumuman_model', 'delete_data');
+        $id = $this->input->post('id');
+
+        $this->delete_data->deletedataPengumuman($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/pengumuman_lelang');
+        $this->loadAsset(["path" => "admin/pengumuman/pengumuman_lelang"]);
+    }
+    function editdataPemenang()
+    {
+        $this->load->model('Pengumuman_model', 'data_edit');
+        $id = $this->input->post('id_pemenang_lelang');
+        $id_pengumuman_lelang = $this->input->post('id_pengumuman_lelang');
+        $pemenang = $this->input->post('pemenang');
+        $hps = $this->input->post('hps');
+
+
+        $this->data_edit->editdataPemenang($id, $id_pengumuman_lelang, $pemenang, $hps);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/pemenang_lelang');
+        $this->loadAsset(["path" => "admin/pengumuman/pemenang_lelang"]);
+    }
+    function deletedataPemenang()
+    {
+
+        $this->load->model('Pengumuman_model', 'delete_data');
+        $id = $this->input->post('id');
+
+        $this->delete_data->deletedataPemenang($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/pemenang_lelang');
+        $this->loadAsset(["path" => "admin/pengumuman/pemenang_lelang"]);
     }
 }

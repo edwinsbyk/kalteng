@@ -36,7 +36,7 @@
 </div>
 
                 
-          
+          <?= $this->session->flashdata('message'); ?>
             <!-- MAIN CONTENT-->
                         <div class="col-md-2">
                             
@@ -67,14 +67,14 @@
                                         <td><?= $row['no_sk'] ?></td>
                                         <td><?= $row['nama_paket'] ?></td>
                                         <td><?= $row['pemenang']; ?></td>
-                                        <td><?= $row['hps']; ?></td>
+                                        <td>Rp. <?php echo number_format($row['hps']) ?></td>
                                         
                                                     <td>    
-                                                     <div class="table-data-feature">
-                                                   <a href="#"  class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+                                                  <div class="table-data-feature">
+                            <a href="#" class="item" data-toggle="modal" data-target="#modal_edit<?= $row['id_pemenang_lelang']; ?>"><i class="zmdi zmdi-edit"></i></a>
+                            <a href="#" class="item" data-toggle="modal" data-target="#modal_delete<?= $row['id_pemenang_lelang']; ?>"><i class="zmdi zmdi-delete"></i></a>
 
-                                                   <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
-                                               </div>
+                        </div>
                                                 </td>
                                             </tr>
                                                    <?php $nomor++; ?>
@@ -84,8 +84,9 @@
                                     </table>
   
                               </div>
- <?php foreach ($data as $row) : ?>                             
-<br><br>
-<?php endforeach; ?>
+
 </div>
+
+<?php $this->load->view('admin/pengumuman/editdataPemenang-modal'); ?>
+<?php $this->load->view('admin/pengumuman/deletedataPemenang-modal'); ?>
    

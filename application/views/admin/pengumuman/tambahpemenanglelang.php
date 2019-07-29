@@ -10,7 +10,7 @@
                                             
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-nama_paket" class=" form-control-label">Nama Paket</label>
+                                                    <label for="hf-nama_paket" class=" form-control-label">No. Sk</label>
 
                                                 </div>
 

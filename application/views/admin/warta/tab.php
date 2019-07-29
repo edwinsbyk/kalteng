@@ -14,7 +14,7 @@
                     <?php $this->load->view('admin/warta/tableberita') ?>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <?php $this->load->view('admin/warta/tambahberita') ?>
+                    <?php $this->load->view('admin/warta/tambah_artikel') ?>
                 </div>
             </div>
         </div>
