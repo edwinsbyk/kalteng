@@ -18,7 +18,7 @@ class Admin extends CI_Controller
     {
         $this->load->model("Menu_model", "menu");
         $data = [
-            "title" => $param["title"],
+            "title" => isset($param["title"]) ? $param["title"] : "Dashboard",
             "active" => "active",
             "menu" => $this->menu->__getMenu(),
             "list_css_plugins" => array(
