@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,15 +6,24 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <title>Dinas Pekerjaan Umum Pemerintah Provinsi Kalimantan Tengah</title>
+  <title>TheSaaS — Responsive Bootstrap SaaS, Startup & WebApp Template</title>
 
   <!-- Styles -->
-  <link href="<?= base_url('assets/'); ?>css/page.min.css" rel="stylesheet">
+  <link href="assets/css/page.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" href="<?= base_url('assets/'); ?>img/favicon.png">
-  <link rel="icon" href="<?= base_url('assets/'); ?>img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" href="assets/img/favicon.png">
+
+  <!--  Open Graph Tags -->
+  <meta property="og:title" content="TheSaaS">
+  <meta property="og:description" content="A responsive, professional, and multipurpose SaaS, Software, Startup and WebApp landing template powered by Bootstrap 4.">
+  <meta property="og:image" content="http://thetheme.io/thesaas/assets/img/og-img.jpg">
+  <meta property="og:url" content="http://thetheme.io/thesaas/">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
+
 
 <body>
 

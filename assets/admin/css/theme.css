@@ -82,7 +82,7 @@ p {
 }
 
 .list-sidebar-item {
-    color: white
+    color: white;
 }
 
 .table-responsive {
@@ -1604,11 +1604,20 @@ section {
 
 .menu-sidebar .navbar__list .navbar__sub-list {
     display: none;
-    padding-left: 34px;
+}
+
+.menu-sidebar .navbar__list .navbar__sub-list li a::before {
+    content: ">";
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    width: 10%;
+    height: 10%;
+    margin-left: 15px;
 }
 
 .menu-sidebar .navbar__list .navbar__sub-list li a {
-    padding: 11.5px 0;
+    padding: 11.5px 0 11.5px 34px;
 }
 
 .menu-sidebar__content {
@@ -1619,15 +1628,29 @@ section {
 }
 
 .navbar-sidebar {
-    padding: 35px;
+    margin: 15px;
     padding-bottom: 0;
+}
+
+.active.list-sidebar-item>a{
+    transition: all 0.3s ease-in;
+    border-radius: 4px;
+    background-color: #4372d7;
+    box-shadow: 0 12px 20px -10px rgba(67, 114, 215,.28), 0 4px 20px 0 rgba(0, 0, 0,.12), 0 7px 8px -5px rgba(67, 114, 215,.2);   
+}
+
+.list-sidebar-item>a:hover {
+    background-color: #4372d7;
+    border-radius: 4px;
+    box-shadow: 0 12px 20px -10px rgba(67, 114, 215,.28), 0 4px 20px 0 rgba(0, 0, 0,.12), 0 7px 8px -5px rgba(67, 114, 215,.2);   
 }
 
 .navbar-sidebar .navbar__list li a {
     display: block;
-    color: #555;
+    color: #FFF;
     font-size: 16px;
-    padding: 15px 0;
+    padding: 15px;
+    margin: 10px 0;
 }
 
 .navbar-sidebar .navbar__list li a i {
@@ -1635,11 +1658,11 @@ section {
 }
 
 .navbar-sidebar .navbar__list li a:hover {
-    color: #4272d7!important;
+    color: #FFF;
 }
 
 .navbar-sidebar .navbar__list li.active > a {
-    color: #4272d7!important;
+    color: #FFF;
 }
 
 .has-sub {
