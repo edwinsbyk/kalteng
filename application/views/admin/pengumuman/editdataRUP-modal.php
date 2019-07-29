@@ -9,13 +9,25 @@ foreach ($data as $row) : ?>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="form-horizontal" method="post" action="<?= base_url('admin/editdataJalan') ?>">
+                <form class="form-horizontal" method="post" action="<?= base_url('admin/editdataRup') ?>">
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="ruas" placeholder="Nama" value="<?= $row['kegiatan'] ?>" required>
+                            <label class="col-form-label">Kegiatan:</label>
+                             <input type="hidden" class="form-control" id="id_rup" name="id_rup"
+                              value="<?= $row['id_rup'] ?>">
+                            <input type="text" class="form-control" id="kegiatan" name="kegiatan" placeholder="kegiatan" value="<?= $row['kegiatan'] ?>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email" name="kota" placeholder="Kota" value="<?= $row['lokasi'] ?>" readonly>
+                            <label class="col-form-label">Lokasi:</label>
+                            <input type="text" class="form-control" id="lokasi" name="lokasi" placeholder="lokasi" value="<?= $row['lokasi'] ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Pagu:</label>
+                            <input type="text" class="form-control" id="pagu" name="pagu" placeholder="pagu" value="<?php echo number_format($row['pagu'])  ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Metode:</label>
+                            <input type="text" class="form-control" id="metode" name="metode" placeholder="metode" value="<?= $row['metode'] ?>" required>
                         </div>
 
                     </div>

@@ -51,8 +51,41 @@ class Pengumuman_model extends CI_Model
     {
         $hasil = $this->db->query("INSERT INTO `tbl_pengumuman_lelang`(`id_pengumuman_lelang`, `tanggal`, `batas`, `no_sk`, `nama_paket`, `pagu`) VALUES (NULL,'$tanggal','$batas','$no_sk','$nama_paket','$pagu')");
 
-        $hasil = $this->db->query("INSERT INTO `tbl_pemenang_lelang`(`id_pengumuman_lelang`, `no_sk`, `nama_paket`, `pemenang`, `hps`) VALUES ('','$no_sk','$nama_paket','$pemenang','$hps')");
 
+        return $hasil;
+    }
+
+    public function editDataRUP($id , $kegiatan, $lokasi, $pagu, $metode)
+    {
+
+        $hasil = $this->db->query("UPDATE `tbl_rup` SET `kegiatan`='$kegiatan',`lokasi`='$lokasi',pagu='$pagu',metode='$metode' WHERE id_rup='$id'");
+        return $hasil;
+
+
+    }
+    public function deletedataRUP($id)
+    {
+        $hasil = $this->db->query("DELETE FROM `tbl_rup` WHERE `tbl_rup`.`id_rup` = '$id'");
+        return $hasil;
+    }
+
+    public function editdataPengumuman($id, $tanggal, $batas, $no_sk, $nama_paket, $pagu)
+    {
+        $hasil = $this->db->query("UPDATE `tbl_pengumuman_lelang` SET `tanggal`='$tanggal',`batas`='$batas',no_sk='$no_sk',nama_paket='$nama_paket',pagu='$pagu' WHERE id_pengumuman_lelang='$id'");
+    }
+
+    public function deletedataPengumuman($id)
+    {
+        $hasil = $this->db->query("DELETE FROM `tbl_pengumuman_lelang` WHERE `tbl_pengumuman_lelang`.`id_pengumuman_lelang` = '$id'");
+        return $hasil;
+    }
+    public function editdataPemenang($id, $id_pengumuman_lelang, $pemenang, $hps)
+    {
+         $hasil = $this->db->query("UPDATE `tbl_pemenang_lelang` SET `id_pengumuman_lelang`='$id_pengumuman_lelang',`pemenang`='$pemenang',hps='$hps' WHERE id_pemenang_lelang='$id'");
+    }
+
+    public function deletedataPemenang($id){
+         $hasil = $this->db->query("DELETE FROM `tbl_pemenang_lelang` WHERE `tbl_pemenang_lelang`.`id_pemenang_lelang` = '$id'");
         return $hasil;
     }
 }
