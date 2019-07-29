@@ -236,6 +236,16 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/datapu/jalan"]);
     }
 
+    function deletedataJalan()
+    {
+        $this->load->model('Datapu_model', 'data_delete');
+        $id = $this->input->post('id');
+        $this->data_delete->deleteDatajalan($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/datapujalan');
+        $this->loadAsset(["path" => "admin/datapu/jalan"]);
+    }
+
     public function tambah_rup()
     {
         $this->load->model('Pengumuman_model');

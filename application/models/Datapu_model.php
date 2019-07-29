@@ -79,4 +79,9 @@ class Datapu_model extends CI_Model
         $hasil = $this->db->query("UPDATE `tbl_jalan` SET `ruas`='$ruas',`kota`='$kota',stat='$stat',panjang='$panjang',lebar='$lebar' WHERE id_jalan='$id'");
         return $hasil;
     }
+    public function deleteDatajalan($id)
+    {
+        $hasil = $this->db->query("DELETE FROM `tbl_jalan` WHERE id_jalan = '$id'");
+        return $hasil;
+    }
 }

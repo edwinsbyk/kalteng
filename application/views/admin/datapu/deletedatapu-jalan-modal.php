@@ -9,7 +9,7 @@ foreach ($data as $d) : ?>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="form-horizontal" method="post" action="<?= base_url('admin/hapusdataJalan') ?>">
+                <form class="form-horizontal" method="post" action="<?= base_url('admin/deletedataJalan') ?>">
                     <div class="modal-body">
                         Hapus data <?= $d['ruas'] ?>?
                     </div>
