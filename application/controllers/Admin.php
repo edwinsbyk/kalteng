@@ -236,6 +236,30 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/datapu/jalan/jalan"]);
     }
 
+    public function editdataJembatan()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'panjang' => $this->input->post('panjang'),
+            'lebar' => $this->input->post('lebar')
+        ];
+        $id = $this->input->post('id');
+
+        $this->db->where('id_jembatan', $id);
+        $this->db->update('tbl_jembatan', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapujembatan');
+    }
+    function deletedataJembatan()
+    {
+        $id = $this->input->post('id');
+        $this->db->where('id_jembatan', $id);
+        $this->db->delete('tbl_jembatan');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/datapujembatan');
+    }
+
     public function datapuEmbung()
     {
         $this->load->model('Datapu_model', 'data');

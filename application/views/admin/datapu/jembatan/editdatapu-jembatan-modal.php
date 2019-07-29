@@ -9,19 +9,19 @@ foreach ($data as $d) : ?>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="form-horizontal" method="post" action="<?= base_url('admin/editdataJalan') ?>">
+                <form class="form-horizontal" method="post" action="<?= base_url('admin/editdataJembatan') ?>">
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="ruas" placeholder="Nama" value="<?= $d['nama'] ?>" required>
+                            <input type="text" class="form-control" id="name" name="nama" placeholder="Nama" value="<?= $d['nama'] ?>" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="email" name="kota" placeholder="Kota" value="<?= $d['kota'] ?>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="stat" placeholder="Status" value="<?= $d['panjang'] ?>" required>
+                            <input type="text" class="form-control" id="name" name="panjang" placeholder="Panjang" value="<?= $d['panjang'] ?>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email" name="panjang" placeholder="Panjang (Km)" value="<?= $d['lebar'] ?>" required>
+                            <input type="text" class="form-control" id="email" name="lebar" placeholder="Lebar" value="<?= $d['lebar'] ?>" required>
                         </div>
                     </div>
 
