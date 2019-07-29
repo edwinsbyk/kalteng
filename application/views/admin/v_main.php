@@ -11,17 +11,19 @@
     <title><?=$title?></title>
 </head>
 <body class="animsition">
-<div class="page-wrapper">
-    <?php 
-        $this->load->view("admin/v_sidebar");
-    ?>
-    <div class="page-container">
-    <?php 
-        $this->load->view("admin/v_header");
-        $this->load->view($path); 
-    ?>
-    </div>
-    </div>
+    <main>
+        <div class="page-wrapper">
+            <?php 
+                $this->load->view("admin/v_sidebar");
+            ?>
+            <div class="page-container">
+            <?php 
+                $this->load->view("admin/v_header");
+                $this->load->view($path); 
+            ?>
+            </div>
+            </div>
+    </main>
 </body>
     <footer>
         <?php if (isset($list_js_plugins)){

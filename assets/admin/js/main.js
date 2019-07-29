@@ -1580,7 +1580,7 @@
   // Sublist Sidebar
   try {
     var arrow = $('.js-arrow');
-    arrow.each(function (index) {
+    arrow.each(function () {
       var that = $(this);
       that.on('click', function (e) {
         e.preventDefault();
