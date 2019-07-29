@@ -18,7 +18,7 @@ class Admin extends CI_Controller
     {
         $this->load->model("Menu_model", "menu");
         $data = [
-            "title" => $param["title"],
+            "title" => isset($param["title"]) ? $param["title"] : "Dashboard",
             "active" => "active",
             "menu" => $this->menu->__getMenu(),
             "list_css_plugins" => array(
@@ -51,7 +51,8 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/perfect-scrollbar/perfect-scrollbar.js',
                 'assets/admin/vendor/chartjs/Chart.bundle.min.js',
                 'assets/admin/vendor/select2/select2.min.js',
-                'assets/admin/js/main.js'
+                'assets/admin/js/main.js',
+                'assets/plugin/tinymce/tinymce.min.js'
             ),
             "path" => $param["path"]
         ];
