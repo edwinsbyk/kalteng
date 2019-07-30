@@ -28,6 +28,7 @@
         </div>
     </div>
 </div> -->
+<?= $this->session->flashdata('message') ?>
 <table id="artikelTable" class="table table-striped" style="width:100%"> 
     <thead> 
         <tr> 
@@ -49,8 +50,17 @@
                 <td><?= $d["tanggal"] ?></td>
                 <td>
                     <div class="table-data-feature" style="justify-content: flex-start">
-                        <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
-                        <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                        <button id="edit_artikel" class="item" data-toggle="tooltip" data-placement="top" artikel-index="<?= $d["id_artikel"] ?>" title="Edit"><i class="zmdi zmdi-edit"></i></button>
+                        <button 
+                            id="delete_artikel" 
+                            class="item delete_artikel" 
+                            data-url="<?= base_url("admin/delete_article") ?>" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            artikel-index="<?= $d["id_artikel"] ?>" 
+                            title="Delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button>
                     </div>
                 </td>
             </tr>
