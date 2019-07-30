@@ -88,14 +88,11 @@ class Admin extends CI_Controller
 
     public function add_article()
     {
-        $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal_pembuatan"));
-        // var_dump($this->input->post("tanggal_pembuatan"));
-        // die();
         $data = array(
             "iduser" => 1,
             "judul" => $this->input->post("judul_artikel"),
             "isi" => $this->input->post("isi_artikel"),
-            "tanggal" => $date->format("Y/m/d H:i:s"),
+            "tanggal" => date("Y/m/d H:i:s"),
             "image" => "null"
         );
         $this->load->model("ArtikelModel");

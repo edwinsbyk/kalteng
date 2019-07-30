@@ -137,4 +137,11 @@ $(document).ready(() => {
         })
     })
 
+        tinymce.init({
+            selector: 'textarea.tinyarea',
+            mode : "specific_textareas",
+            height: 500,
+            plugins: 'preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
+            toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
+        });
 })
