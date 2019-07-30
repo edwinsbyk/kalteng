@@ -34,13 +34,14 @@
     <div class="modal-dialog modal-xxlg">
         <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Preview Berita</h5>
+              <h5 class="modal-title" id="judul-berita">Preview Berita</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body" style="overflow: auto;">
-                <div id="previewContent"></div>
+                <h5 id="judul-berita" class=""></h5>
+                <div id="isi-berita"></div>
             </div>
         </div>
     </div>

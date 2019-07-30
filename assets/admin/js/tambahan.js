@@ -13,7 +13,8 @@ $(document).ready(() => {
         showOtherMonths: true,
         format: 'dd-mm-yyyy'
     });
-    $(".delete_artikel").click(() => {
+    $(".delete_artikel").click(function () {
+        var self = $(this);
         swal({
             text: "Apakah anda yakin ingin menghapus data?",
             // text: "Jika data telah terhapus, sistem kami tidak dapat mengembalikannya",
@@ -25,8 +26,8 @@ $(document).ready(() => {
             if (onDelete) {
                 $.ajax({
                     method: "post",
-                    url: $(".delete_artikel").attr("data-url"),
-                    data: {artikel_id: $(".delete_artikel").attr("artikel-index")},
+                    url: self.attr("data-url"),
+                    data: {artikel_id: self.attr("artikel-index")},
                     cache: false
                 }).done((bool) => {
                     swal(bool ? "Berhasil menghapus data" : "Gagal menghapus data", {
@@ -39,13 +40,20 @@ $(document).ready(() => {
           });
     })
 
-
-    $(".detail_berita").click(() => {
-        $.ajax({
-            method: "get",
-            url: $(".detail_berita").attr("data-url"),
-            data: {berita_id: $(".detail_berita").attr("berita-index")},
-            cache: false
+    var detail_berita = $(".detail_berita");
+    detail_berita.each(function () {
+        detail_berita.click(function () {
+            var self = $(this);
+            $.ajax({
+                method: "get",
+                url: self.attr("data-url"),
+                data: {berita_id: self.attr("berita-index")},
+                cache: false
+            }).done((data) => {
+                data = JSON.parse(data)[0]
+                $("#judul-berita").html(data.judul);
+                $("#isi-berita").html(data.isi)  
+            })
         })
     })
 
