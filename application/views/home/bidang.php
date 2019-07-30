@@ -148,7 +148,7 @@
         <div class="card ">
           <h6 class="card-title">
             <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-updt-jasa">
-              <strong class="mr-auto">BIDANG JASA KONTRUKSI</strong>
+              <strong class="mr-auto">BIDANG JASA KONSTRUKSI</strong>
               <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
             </a>
           </h6>
