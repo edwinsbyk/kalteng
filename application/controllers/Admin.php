@@ -139,9 +139,9 @@ class Admin extends CI_Controller
         $data = array(
             'iduser'    => 1,
             'judul'     => $this->input->post("judul-berita"),
-            'isi'       => $this->input->post("image"),
+            'isi'       => $this->input->post("isi-berita"),
             'tanggal'   => $date->format("Y/m/d H:i:s"),
-            'image'     => $this->input->post("isi-berita"),
+            'image'     => $this->input->post("image"),
         );
 
         $this->load->model("Berita_model");

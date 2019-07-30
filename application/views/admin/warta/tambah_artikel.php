@@ -27,7 +27,7 @@ tinymce.init({
                     <label class=" form-control-label">Tanggal & Waktu</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type='text' class="form-control" id='datepicker' required name="tanggal_pembuatan"/>
+                    <input type='text' class="form-control" id='datepickerArtikel' required name="tanggal_pembuatan"/>
                 </div>
             </div>
 
@@ -36,7 +36,6 @@ tinymce.init({
                     <label class=" form-control-label">Dibuat oleh</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type='text' class="form-control" id='datepickerArtikel' required name="tanggal_pembuatan"/>
                     <input type="text" name="dibuat_oleh" disabled value="Syahid Nurrohim" class="form-control">
                 </div>
             </div>
@@ -46,7 +45,7 @@ tinymce.init({
                     <label for="disabled-input" class=" form-control-label">Isi Artikel</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <textarea type="textarea" name="isi_artikel" rows="10" placeholder="Isi artikel disini" class="form-control"></textarea>
+                    <textarea type="textarea" name="isi_artikel" rows="10" class="form-control"></textarea>
                 </div>
             </div>
 

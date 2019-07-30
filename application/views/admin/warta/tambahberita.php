@@ -35,7 +35,6 @@ tinymce.init({
 
             <div class="row form-group">
                 <div class="col col-md-3">
-<<<<<<< HEAD
                     <label for="text-input" class=" form-control-label">Tanggal</label>
                 </div>
                 <div class="col-12 col-md-9 date" >
@@ -45,8 +44,6 @@ tinymce.init({
 
             <div class="row form-group">
                 <div class="col col-md-3">
-=======
->>>>>>> 1aa7676fc097ee1c7cac18c7a1612470f1120396
                     <label for="textarea-input" class=" form-control-label">Isi Berita</label>
                 </div>
                 <div class="col-12 col-md-9">
