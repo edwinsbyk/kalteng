@@ -90,7 +90,7 @@
                             <label for="textarea-input" class=" form-control-label">Isi Berita</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <textarea name="isi-berita" id="edit_isi_berita" class="form-control"></textarea>
+                            <textarea name="isi-berita" id="edit_isi_berita" class="form-control tinyarea"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
