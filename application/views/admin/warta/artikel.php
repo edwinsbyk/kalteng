@@ -75,7 +75,7 @@
                                 <label class=" form-control-label">Tanggal & Waktu</label>
                             </div>
                             <div class="col-12 col-md-9">
-                            <input type='text' class="form-control datepicker" id='datepickerArtikel2' required name="edit-tanggal"/>
+                            <input type='text' class="form-control" required disabled name="edit-tanggal"/>
                             </div>
                         </div>
 
@@ -93,7 +93,7 @@
                                 <label for="disabled-input" class=" form-control-label">Isi Artikel</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <textarea type="textarea" name="edit-isi" rows="10" placeholder="Isi artikel disini" class="form-control"></textarea>
+                                <textarea type="textarea" name="edit-isi" id="edit-isi-artikel" rows="10" class="form-control tinyarea"></textarea>
                             </div>
                         </div>
 

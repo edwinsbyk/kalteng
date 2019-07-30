@@ -78,10 +78,10 @@
 
                     <div class="row form-group">
                         <div class="col col-md-3">
-                            <label for="text-input" class=" form-control-label">Tanggal</label>
+                            <label for="text-input" class=" form-control-label">Tanggal & Waktu</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" class="datepicker" id="edit_tanggal_berita" name="tanggal" class="form-control">
+                            <input type="text" id="edit_tanggal_berita" name="tanggal" disabled class="form-control">
                         </div>
                     </div>
 
