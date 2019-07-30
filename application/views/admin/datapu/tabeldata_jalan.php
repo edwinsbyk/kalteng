@@ -34,6 +34,7 @@
         </div>
     </div>
 </div>
+<?= $this->session->flashdata('message'); ?>
 <div class="table-responsive m-b-40">
     <table class="table table-borderless table-data3">
         <thead>
@@ -74,3 +75,4 @@
 </div>
 
 <?php $this->load->view('admin/datapu/editdatapu-jalan-modal'); ?>
+<?php $this->load->view('admin/datapu/deletedatapu-jalan-modal'); ?>

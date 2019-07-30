@@ -1,5 +1,5 @@
 <div class="table-data__tool">
-    <?php $this->session->flashdata('message'); ?>
+   
     
     <div class="table-data__tool-left">
         <div class="rs-select2--light rs-select2--md">
@@ -36,6 +36,7 @@
 </div>
 <div class="col-lg-12">
     <!-- DATA TABLE-->
+    <?= $this->session->flashdata('message'); ?>
     <div class="table-responsive m-b-40">
         <table class="table table-borderless table-data3">
             <thead>
@@ -56,14 +57,16 @@
                                         <td><?= $nomor; ?></td>
                                         <td><?= $row['kegiatan']; ?></td>
                                         <td><?= $row['lokasi']; ?></td>
-                                        <td><?= $row['pagu']; ?></td>
+                                        <td>Rp. <?php echo number_format($row['pagu']) ?></td>
                                         <td><?= $row['metode']; ?></td>
-                                        
                                         <td>
-                        <div class="table-data-feature">
-                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+                                        
+                                       
 
-                            <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                       <div class="table-data-feature">
+                            <a href="#" class="item" data-toggle="modal" data-target="#modal_edit<?= $row['id_rup']; ?>"><i class="zmdi zmdi-edit"></i></a>
+                            <a href="#" class="item" data-toggle="modal" data-target="#modal_delete<?= $row['id_rup']; ?>"><i class="zmdi zmdi-delete"></i></a>
+
                         </div>
                     </td>
                 </tr>
@@ -72,8 +75,12 @@
 
             </tbody>
         </table>
-    </div></div>
+    </div>
+</div>
     
+
+<?php $this->load->view('admin/pengumuman/editdataRUP-modal'); ?>
+<?php $this->load->view('admin/pengumuman/deletedataRUP-modal'); ?>
     <!-- Jquery JS-->
   
 

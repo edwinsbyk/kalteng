@@ -1584,6 +1584,13 @@
       var that = $(this);
       that.on('click', function (e) {
         e.preventDefault();
+        arrow.each((i) => {
+          if ((arrow.eq(i).attr("data-index") !== that.attr("data-index")) && arrow.eq(i).hasClass("open")) {
+            arrow.find(".arrow").removeClass("up");
+            arrow.removeClass("open");
+            arrow.parent().find(".js-sub-list").hide("250");
+          }
+        })
         that.find(".arrow").toggleClass("up");
         that.toggleClass("open");
         that.parent().find('.js-sub-list').slideToggle("250");

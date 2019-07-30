@@ -1,8 +1,19 @@
+<style type="text/css">
+    .tabb {
+        background-color: white;
+        border-radius: 4px;
+    }
+</style>
 <div class="main-content">
-    <div class="section__content--p30">
-        <div class="default-tab">
+        <div class="container-fluid">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Berita</h4>
+                </div>
+                <div class="card-body">
             <nav>
-                <div class="nav nav-tabs mb-2" id="myTab" role="tablist">
+                <div class="nav nav-tabs mb-4" id="myTab" role="tablist">
                         <a class="nav-item nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tabel Berita</a>
                         <a class="nav-item nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tambah Berita</a>
                 </div>
@@ -29,7 +40,7 @@
               </button>
             </div>
             <div class="modal-body" style="overflow: auto;">
-                <h1>WKWK</h1>
+                <div id="previewContent"></div>
             </div>
         </div>
     </div>
@@ -57,10 +68,10 @@
 
                     <div class="row form-group">
                         <div class="col col-md-3">
-                            <label for="file-input" class=" form-control-label">Thumbnail Image</label>
+                            <label for="text-input" class=" form-control-label">Link Gambar</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="file" id="file-input" name="image" class="form-control-file">
+                            <input type="text" id="text-input" name="image" placeholder="Link Gambar" class="form-control">
                         </div>
                     </div>
 

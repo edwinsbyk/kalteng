@@ -7,22 +7,20 @@
                                     </div>
                                     <div class="card-body card-block">
                                         
+                                            
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-no_sk" class=" form-control-label">No. SK</label>
+                                                    <label for="hf-nama_paket" class=" form-control-label">No. Sk</label>
+
                                                 </div>
+
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-no_sk" name="no_sk" placeholder="Masukkan No. Sk" class="form-control">
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-nama_paket" class=" form-control-label">Nama Paket</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-nama_paket" name="nama_paket" placeholder="Masukkan Nama Paket" class="form-control">
-                                                    
+                                                    <select class="form-control" name="id_pengumuman_lelang">
+                                     <?php foreach ($data_pengumuman as $row) : ?>
+                                                    <option value="<?= $row['id_pengumuman_lelang'] ?>"><?= $row['no_sk']; ?></option>
+                                           <?php endforeach ; ?>
+                                                    </select>
+                                                     
                                                 </div>
                                             </div>
                                              <div class="row form-group">
