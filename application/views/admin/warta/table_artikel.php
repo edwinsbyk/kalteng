@@ -28,6 +28,29 @@
         </div>
     </div>
 </div> -->
+
+<style type="text/css">
+.modal-xxlg {
+    width: 97%;
+    height: 97%;
+    max-width: 100%;
+    padding: 0;
+}
+
+.modal-xlg {
+    width: 60%;
+    height: 97%;
+    max-width: 60%;
+    padding: 0;
+}
+
+.modal-content {
+    height: 97%;
+    overflow:auto;
+}
+
+</style>
+
 <?= $this->session->flashdata('message') ?>
 <table id="artikelTable" class="table table-striped" style="width:100%"> 
     <thead> 
@@ -50,12 +73,13 @@
                 <td><?= $d["tanggal"] ?></td>
                 <td>
                     <div class="table-data-feature" style="justify-content: flex-start">
-                        <button id="edit_artikel" class="item" data-toggle="tooltip" data-placement="top" artikel-index="<?= $d["id_artikel"] ?>" title="Edit"><i class="zmdi zmdi-edit"></i></button>
+                        <button id="preview_artikel" class="item preview_artikel" data-toggle="modal" data-target="#previewModal" data-placement="top" artikel-index="<?= $d["id_artikel"] ?>" title="Preview"><i class="fas fa-eye"></i></button>
+                        <button id="edit_artikel" class="item edit_artikel" data-toggle="modal" data-target="#editModal" data-placement="top" artikel-index="<?= $d["id_artikel"] ?>" title="Edit"><i class="zmdi zmdi-edit"></i></button>
                         <button 
                             id="delete_artikel" 
                             class="item delete_artikel" 
                             data-url="<?= base_url("admin/delete_article") ?>" 
-                            data-toggle="tooltip" 
+                            data-toggle="modal" 
                             data-placement="top" 
                             artikel-index="<?= $d["id_artikel"] ?>" 
                             title="Delete">
