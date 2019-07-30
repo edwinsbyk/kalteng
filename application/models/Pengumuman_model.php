@@ -29,7 +29,6 @@ class Pengumuman_model extends CI_Model
         // $query = "SELECT * FROM `tbl_pemenang_lelang`
 
 
-        $query = "SELECT * FROM tbl_pemenang_lelang JOIN tbl_pengumuman_lelang ON tbl_pemenang_lelang.id_pengumuman_lelang=tbl_pengumuman_lelang.id_pengumuman_lelang";
 
         return $this->db->query($query)->result_array();
     }
