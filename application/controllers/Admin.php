@@ -39,6 +39,7 @@ class Admin extends CI_Controller
                 'assets/admin/css/theme.css',
                 'assets/admin/css/materialdate.min.css',
                 'assets/admin/css/datatables.css',
+                'assets/admin/css/bootstrap-datetimepicker.min.css',
             ),
             "list_js_plugins" => array(
                 'assets/admin/vendor/jquery-3.2.1.min.js',
@@ -59,6 +60,7 @@ class Admin extends CI_Controller
                 'assets/admin/js/materialdate.min.js',
                 'assets/admin/js/tambahan.js',
                 'assets/admin/js/datatables.js',
+                'assets/admin/js/bootstrap-datetimepicker.min.js',
                 'assets/admin/js/swal.js'
             ),
             "path" => $param["path"]
@@ -118,7 +120,34 @@ class Admin extends CI_Controller
 
     public function berita()
     {
-        $this->loadAsset(["path" => "admin/warta/tab"]);
+        $this->load->model("Berita_model");
+        $data["data"] = $this->Berita_model->getBerita();
+        $this->loadAsset(["path" => "admin/warta/tab", "data" => $data]);
+
+    }
+
+    public function preview_berita()
+    {
+        $this->load->model("Berita_model");
+        $data = $this->Berita_model->getDataByIndex($this->input->get("berita_id"));
+        echo json_encode($data);
+    }
+
+    public function tambah_berita()
+    {
+        $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
+        $data = array(
+            'iduser'    => 1,
+            'judul'     => $this->input->post("judul-berita"),
+            'isi'       => $this->input->post("image"),
+            'tanggal'   => $date->format("Y/m/d H:i:s"),
+            'image'     => $this->input->post("isi-berita"),
+        );
+
+        $this->load->model("Berita_model");
+        $this->Berita_model->input_data($data)
+            ? throw_flash_redirect("Berhasil menambah data", "success", "admin/berita") 
+            : throw_flash_redirect("Gagal menambah data", "danger", "admin/berita");
     }
 
     // public function artikel()

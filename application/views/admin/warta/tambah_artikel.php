@@ -23,7 +23,7 @@
                     <label class=" form-control-label">Tanggal & Waktu</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type='text' class="form-control" id='datepicker' required name="tanggal_pembuatan"/>
+                    <input type='text' class="form-control" id='datepickerArtikel' required name="tanggal_pembuatan"/>
                 </div>
             </div>
 

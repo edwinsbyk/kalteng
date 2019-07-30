@@ -1,8 +1,15 @@
 $(document).ready(() => {
     $("#artikelTable").DataTable();
+    $('#datetimepicker1').datetimepicker();
     $("#beritaTable").DataTable();
 
-    $('#datepicker').datepicker({
+    $('#datepickerArtikel').datepicker({
+        uiLibrary: 'bootstrap4',
+        showOtherMonths: true,
+        format: 'dd-mm-yyyy'
+    });
+
+    $('#datepickerBerita').datepicker({
         uiLibrary: 'bootstrap4',
         showOtherMonths: true,
         format: 'dd-mm-yyyy'
@@ -31,6 +38,16 @@ $(document).ready(() => {
               swal("Perintah dibatalkan");
             }
           });
+    })
+
+
+    $(".detail_berita").click(() => {
+        $.ajax({
+            method: "get",
+            url: $(".detail_berita").attr("data-url"),
+            data: {berita_id: $(".detail_berita").attr("berita-index")},
+            cache: false
+        })
     })
 
 })
