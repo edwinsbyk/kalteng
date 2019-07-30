@@ -57,13 +57,13 @@
               </button>
             </div>
             <div class="modal-body" style="overflow: auto;">
-                <form action="<?= base_url("admin/tambahBerita") ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <form action="<?= base_url("admin/edit_berita") ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
                     <div class="row form-group">
                         <div class="col col-md-3">
                         <label for="text-input" class=" form-control-label">Judul Berita</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="text-input" name="judul-berita" placeholder="Judul Berita" class="form-control">
+                            <input type="text" id="edit_judul_berita" name="judul-berita" placeholder="Judul Berita" class="form-control">
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                             <label for="text-input" class=" form-control-label">Link Gambar</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="text-input" name="image" placeholder="Link Gambar" class="form-control">
+                            <input type="text" id="edit_link_gambar" name="image" placeholder="Link Gambar" class="form-control">
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@
                             <label for="text-input" class=" form-control-label">Tanggal</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="date" id="date-berita" name="tanggal" class="form-control">
+                            <input type="text" class="datepicker" id="edit_tanggal_berita" name="tanggal" class="form-control">
                         </div>
                     </div>
 
@@ -90,15 +90,15 @@
                             <label for="textarea-input" class=" form-control-label">Isi Berita</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <textarea name="isi-berita" id="textarea-input" class="form-control"></textarea>
+                            <textarea name="isi-berita" id="edit_isi_berita" class="form-control"></textarea>
                         </div>
                     </div>
-
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary btn-sm">
                             <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
                     </div>
+                    <input type="hidden" name="edit_idberita">
                 </form>
             </div>
         </div>

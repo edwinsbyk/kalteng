@@ -136,8 +136,29 @@ class Admin extends CI_Controller
     public function preview_berita()
     {
         $this->load->model("Berita_model");
-        $data = $this->Berita_model->getDataByIndex($this->input->get("berita_id"));
+        $data = $this->Berita_model->get_data_by_index($this->input->get("berita_id"));
         echo json_encode($data);
+    }
+
+    public function delete_berita()
+    {
+        $this->load->model("Berita_model");
+        echo $this->Berita_model->delete_data_by_id($this->input->post("berita_id"));
+    }
+
+    public function edit_berita()
+    {
+        $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
+        $data = array(
+            "judul" => $this->input->post("judul-berita"),
+            "isi" => $this->input->post("isi-berita"),
+            "tanggal" => $date->format("Y/m/d H:i:s"),
+            "image" => $this->input->post("image"),
+        );
+        $this->load->model("Berita_model");
+        echo $this->Berita_model->update_data($data, $this->input->post("edit_idberita")) 
+            ? throw_flash_redirect("Berita berhasil diubah", "success", "admin/berita") 
+            : throw_flash_redirect("Gagal merubah berita", "danger", "admin/berita");
     }
 
     public function tambah_berita()
