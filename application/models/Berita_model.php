@@ -22,8 +22,6 @@ class Berita_model extends CI_Model
     }
     
     public function update_data($data, $id) {
-        var_dump($data, $id);
-        die();
         $this->db->set($data, FALSE);
         $this->db->where('idberita', $id);
         return $this->db->update('tbl_berita');

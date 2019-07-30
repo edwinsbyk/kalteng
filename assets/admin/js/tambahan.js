@@ -7,12 +7,17 @@ $(document).ready(() => {
         showOtherMonths: true,
         format: 'dd-mm-yyyy'
     });
-
+    $('.datepicker').datepicker({
+        uiLibrary: 'bootstrap4',
+        showOtherMonths: true,
+        format: 'dd-mm-yyyy'
+    });
     $('#datepickerBerita').datepicker({
         uiLibrary: 'bootstrap4',
         showOtherMonths: true,
         format: 'dd-mm-yyyy'
     });
+
     $(".delete_artikel").click(function () {
         var self = $(this);
         swal({
@@ -94,12 +99,12 @@ $(document).ready(() => {
                 data = JSON.parse(data)[0]
                 $("#edit_judul_berita").val(data.judul);
                 $("input[name='edit_idberita']").val(data.idberita);
+                $("#edit_tanggal_berita").val(data.tanggal);
                 tinymce.get('edit_isi_berita').setContent(data.isi);
             })
         })
 
     var detail_artikel = $(".detail_artikel");
-    detail_artikel.each(function () {
         detail_artikel.click(function () {
             var self = $(this);
             $.ajax({
@@ -113,6 +118,5 @@ $(document).ready(() => {
                 $("#isi-artikel").html(data.isi)  
             })
         })
-    })
 
 })

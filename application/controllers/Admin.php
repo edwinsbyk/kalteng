@@ -148,14 +148,15 @@ class Admin extends CI_Controller
 
     public function edit_berita()
     {
+        $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
         $data = array(
             "judul" => $this->input->post("judul-berita"),
             "isi" => $this->input->post("isi-berita"),
-            "tanggal" => $this->input->post("tanggal"),
+            "tanggal" => $date->format("Y/m/d H:i:s"),
             "image" => $this->input->post("image"),
         );
         $this->load->model("Berita_model");
-        echo $this->Berita_model->update_data($data, $this->input->post("idberita")) 
+        echo $this->Berita_model->update_data($data, $this->input->post("edit_idberita")) 
             ? throw_flash_redirect("Berita berhasil diubah", "success", "admin/berita") 
             : throw_flash_redirect("Gagal merubah berita", "danger", "admin/berita");
     }
