@@ -1,6 +1,5 @@
 $(document).ready(() => {
     $("#artikelTable").DataTable();
-    $('#datetimepicker1').datetimepicker();
     $("#beritaTable").DataTable();
 
     $('#datepickerArtikel').datepicker({

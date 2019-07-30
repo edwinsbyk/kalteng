@@ -1,4 +1,16 @@
-            <!-- MAIN CONTENT-->
+<!-- MAIN CONTENT-->
+<script src="<?= base_url("assets/plugin/tinymce/tinymce.min.js") ?>"></script>
+
+<script>
+tinymce.init({
+  selector: 'textarea',
+  height: 500,
+  plugins: 'preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
+  toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
+});
+
+</script>
+
 <div class="col-lg-12">
     <form action="<?= base_url("admin/add_article") ?>" method="post" enctype="multipart/form-data" class="form-horizontal card">
         <div class="card-body card-block borders">
@@ -12,18 +24,10 @@
             </div>
             <div class="row form-group">
                 <div class="col col-md-3">
-                    <label for="disabled-input" class=" form-control-label">Isi Artikel</label>
-                </div>
-                <div class="col-12 col-md-9">
-                    <textarea type="textarea" name="isi_artikel" rows="10" placeholder="Isi artikel disini" class="form-control"></textarea>
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col col-md-3">
                     <label class=" form-control-label">Tanggal & Waktu</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type='text' class="form-control" id='datepickerArtikel' required name="tanggal_pembuatan"/>
+                    <input type='text' class="form-control" id='datepicker' required name="tanggal_pembuatan"/>
                 </div>
             </div>
 
@@ -32,9 +36,20 @@
                     <label class=" form-control-label">Dibuat oleh</label>
                 </div>
                 <div class="col-12 col-md-9">
+                    <input type='text' class="form-control" id='datepickerArtikel' required name="tanggal_pembuatan"/>
                     <input type="text" name="dibuat_oleh" disabled value="Syahid Nurrohim" class="form-control">
                 </div>
             </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="disabled-input" class=" form-control-label">Isi Artikel</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <textarea type="textarea" name="isi_artikel" rows="10" placeholder="Isi artikel disini" class="form-control"></textarea>
+                </div>
+            </div>
+
         </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-primary btn-sm">
