@@ -254,6 +254,7 @@ class Admin extends CI_Controller
     function deletedataJembatan()
     {
         $id = $this->input->post('id');
+
         $this->db->where('id_jembatan', $id);
         $this->db->delete('tbl_jembatan');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
