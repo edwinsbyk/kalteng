@@ -36,8 +36,25 @@
                         data-target="#previewModal">
                             <i class="fas fa-eye"></i>
                         </button>
-                    <button class="item" data-toggle="modal" data-placement="top" title="Edit" data-target="#editModal"><i class="zmdi zmdi-edit"></i></button>
-                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                    <button 
+                        class="item edit_berita" 
+                        berita-index="<?= $d->idberita ?>"
+                        data-url="<?= base_url("admin/preview_berita") ?>" 
+                        data-toggle="modal" 
+                        data-placement="top" 
+                        title="Edit" 
+                        data-target="#editModal">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                    <button 
+                        class="item delete_berita" 
+                        berita-index="<?= $d->idberita ?>"
+                        data-url="<?= base_url("admin/delete_berita") ?>" 
+                        data-toggle="tooltip" 
+                        data-placement="top" 
+                        title="Delete">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
                 </div>
                 </td>
             </tr>
