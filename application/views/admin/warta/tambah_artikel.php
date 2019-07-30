@@ -1,18 +1,5 @@
-<!-- MAIN CONTENT-->
-<script src="<?= base_url("assets/plugin/tinymce/tinymce.min.js") ?>"></script>
-
-<script>
-tinymce.init({
-  selector: 'textarea',
-  height: 500,
-  plugins: 'preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
-  toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
-});
-
-</script>
-
 <div class="col-lg-12">
-    <form action="<?= base_url("admin/add_article") ?>" method="post" enctype="multipart/form-data" class="form-horizontal card">
+    <form action="<?= base_url("admin/add_article") ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <div class="card-body card-block borders">
             <div class="row form-group">
                 <div class="col col-md-3">
@@ -40,12 +27,13 @@ tinymce.init({
                 </div>
             </div>
 
+
             <div class="row form-group">
                 <div class="col col-md-3">
-                    <label for="disabled-input" class=" form-control-label">Isi Artikel</label>
+                    <label for="textarea-input" class=" form-control-label">Isi Artikel</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <textarea type="textarea" name="isi_artikel" rows="10" class="form-control"></textarea>
+                    <textarea type="textarea" name="isi_artikel" class="form-control tinyarea"></textarea>
                 </div>
             </div>
 
@@ -61,14 +49,3 @@ tinymce.init({
     </form>
    
 </div>
-    <script>
-        document.getElementById("tanggal_pembuatan").placeholder = (new Date()).toLocaleDateString("id", {
-            timeZone: "Asia/Jakarta",
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: 'numeric', 
-            minute: 'numeric',
-        });
-    </script>

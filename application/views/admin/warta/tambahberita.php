@@ -1,17 +1,3 @@
-            <!-- MAIN CONTENT-->
-<script src="<?= base_url("assets/plugin/tinymce/tinymce.min.js") ?>"></script>
-
-<script>
-tinymce.init({
-    selector: 'textarea',
-    mode : "specific_textareas",
-    height: 500,
-    plugins: 'preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
-    toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
-});
-
-</script>
-
 <div class="col-lg-12">
 
     <div class="card-body card-block" style="background-color: white">
@@ -39,7 +25,16 @@ tinymce.init({
                     <label for="text-input" class=" form-control-label">Tanggal</label>
                 </div>
                 <div class="col-12 col-md-9 date" >
-                    <input type='text' class="form-control" name="tanggal" required id='datepickerBerita' />
+                    <input type='text' class="form-control" name="tanggal" placeholder="<?= date("Y/m/d H:i:s") ?>" required disabled/>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="text-input" class=" form-control-label">Dibuat oleh</label>
+                </div>
+                <div class="col-12 col-md-9 date" >
+                    <input type='text' class="form-control" name="tanggal" placeholder="Syahid Nurrohim" required disabled/>
                 </div>
             </div>
 
@@ -48,7 +43,7 @@ tinymce.init({
                     <label for="textarea-input" class=" form-control-label">Isi Berita</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <textarea name="isi-berita" id="textarea-input" class="form-control"></textarea>
+                    <textarea name="isi-berita" id="textarea-input" class="form-control tinyarea"></textarea>
                 </div>
             </div>
 
