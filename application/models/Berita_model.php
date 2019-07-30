@@ -8,8 +8,13 @@ class Berita_model extends CI_Model
         return $this->db->get("tbl_berita")->result();
     }
 
+    public function getDataByIndex($id)
+    {
+        return $this->db->get_where("tbl_berita", array('idberita' => $id))->result_array();
+    }
+
     function input_data($data){
-		$this->db->insert('tbl_berita', $data);
+		return $this->db->insert('tbl_berita', $data);
 	}
 }
 

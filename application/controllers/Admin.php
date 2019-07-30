@@ -103,6 +103,11 @@ class Admin extends CI_Controller
         echo $this->ArtikelModel->delete_data($this->input->post("artikel_id"));
     }
 
+    public function agenda()
+    {
+        $this->loadAsset(["path" => "admin/warta/agenda"]);
+    }
+
     public function pegawai()
     {
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
@@ -121,30 +126,34 @@ class Admin extends CI_Controller
 
     }
 
+    public function preview_berita()
+    {
+        $this->load->model("Berita_model");
+        $data = $this->Berita_model->getDataByIndex($this->input->get("berita_id"));
+        echo json_encode($data);
+    }
+
     public function tambah_berita()
     {
+        $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
         $data = array(
             'iduser'    => 1,
             'judul'     => $this->input->post("judul-berita"),
             'isi'       => $this->input->post("image"),
-            'tanggal'   => $this->input->post("tanggal"),
+            'tanggal'   => $date->format("Y/m/d H:i:s"),
             'image'     => $this->input->post("isi-berita"),
         );
 
         $this->load->model("Berita_model");
-        $this->Berita_model->input_data($data);
-        redirect("admin/berita");
+        $this->Berita_model->input_data($data)
+            ? throw_flash_redirect("Berhasil menambah data", "success", "admin/berita") 
+            : throw_flash_redirect("Gagal menambah data", "danger", "admin/berita");
     }
 
     // public function artikel()
     // {
     //     $this->loadAsset(["path" => "admin/testimoni"]);
     // }
-
-    public function agenda()
-    {
-        $this->loadAsset(["path" => "admin/agenda"]);
-    }
 
     public function testimoni()
     {

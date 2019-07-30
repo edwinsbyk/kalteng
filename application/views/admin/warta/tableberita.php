@@ -7,6 +7,7 @@
     });
 </script>    -->
 
+<?= $this->session->flashdata('message') ?>
 <div class="table-responsive m-b-40">
 <table id="beritaTable" class="table table-striped" style="width:100%"> 
         <thead>
@@ -25,9 +26,18 @@
                 <td><?= $d->tanggal ?></td>
                 <td>
                 <div class="table-data-feature">
-                    <a href="#" class="item" data-toggle="modal" data-placement="top" title="Preview" data-target="#previewModal"><i class="fas fa-eye"></i></a>
-                    <a href="#" class="item" data-toggle="modal" data-placement="top" title="Edit" data-target="#editModal"><i class="zmdi zmdi-edit"></i></a>
-                    <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                    <button 
+                        class="item detail_berita"
+                        berita-index="<?= $d->idberita ?>"
+                        data-url="<?= base_url("admin/preview_berita") ?>" 
+                        data-toggle="modal" 
+                        data-placement="top" 
+                        title="Preview" 
+                        data-target="#previewModal">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    <button class="item" data-toggle="modal" data-placement="top" title="Edit" data-target="#editModal"><i class="zmdi zmdi-edit"></i></button>
+                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
                 </div>
                 </td>
             </tr>
