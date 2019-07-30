@@ -68,20 +68,4 @@ class Datapu_model extends CI_Model
 
         return $this->db->query($query)->result_array();
     }
-
-    public function addDatajalan($ruas, $kota, $stat, $panjang, $lebar)
-    {
-        $hasil = $this->db->query("INSERT INTO `tbl_jalan` (`id_jalan`, `ruas`, `kota`, `stat`, `panjang`, `lebar`) VALUES (NULL, '$ruas', '$kota', '$stat', '$panjang', '$lebar');");
-        return $hasil;
-    }
-    public function editDatajalan($id, $ruas, $kota, $stat, $panjang, $lebar)
-    {
-        $hasil = $this->db->query("UPDATE `tbl_jalan` SET `ruas`='$ruas',`kota`='$kota',stat='$stat',panjang='$panjang',lebar='$lebar' WHERE id_jalan='$id'");
-        return $hasil;
-    }
-    public function deleteDatajalan($id)
-    {
-        $hasil = $this->db->query("DELETE FROM `tbl_jalan` WHERE `tbl_jalan`.`id_jalan` = '$id'");
-        return $hasil;
-    }
 }

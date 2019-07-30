@@ -36,19 +36,15 @@
     <table class="table table-borderless table-data3">
         <thead>
             <tr>
-                <th rowspan="2" width="50">No</th>
-                <th rowspan="2">Nama</th>
-                <th rowspan="2">Jenis</th>
-                <th rowspan="2">Kota/Kab.</th>
-                <th colspan="2">Dianfaatkan</th>
-                <th rowspan="2">Total</th>
-                <th rowspan="2">Tahun Design</th>
-                <th rowspan="2">Action</th>
-            </tr>
-            <tr>
-
-                <th>Sudah</th>
-                <th>Belum</th>
+                <th class="bg-color-5" width="50">No</th>
+                <th class="bg-color-5">Nama</th>
+                <th class="bg-color-5">Kota/Kab.</th>
+                <th class="bg-color-5">Luas<br />(Km<sup>2</sup>)</th>
+                <th class="bg-color-5">Kedalaman<br />(m)</th>
+                <th class="bg-color-5">Kapasitas<br />(m<sup>3</sup>)</th>
+                <th class="bg-color-5">Penduduk<br />(jiwa)</th>
+                <th class="bg-color-5">Irigasi<br />(Ha)</th>
+                <th class="bg-color-5">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -57,12 +53,12 @@
                 <tr>
                     <td><?= $i; ?></td>
                     <td><?= $d['nama']; ?></td>
-                    <td><?= $d['jenis']; ?></td>
                     <td><?= $d['kota']; ?></td>
-                    <td><?= $d['sudah_kembang']; ?></td>
-                    <td><?= $d['belum_kembang']; ?></td>
-                    <td><?= $d['total']; ?></td>
-                    <td><?= $d['tahun']; ?></td>
+                    <td><?= $d['luas']; ?></td>
+                    <td><?= $d['kedalaman']; ?></td>
+                    <td><?= $d['kapasitas']; ?></td>
+                    <td><?= $d['penduduk']; ?></td>
+                    <td><?= $d['irigasi']; ?></td>
                     <td>
                         <div class="table-data-feature">
                             <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
@@ -70,12 +66,11 @@
                             <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
                         </div>
                     </td>
-
-
-
                 </tr>
                 <?php $i++; ?>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+<?php $this->load->view('admin/datapu/editdatapu-potensi-danau-modal'); ?>
+<?php $this->load->view('admin/datapu/deletedatapu-potensi-danau-modal'); ?>

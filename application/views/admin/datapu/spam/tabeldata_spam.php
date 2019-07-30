@@ -66,3 +66,5 @@
          </tbody>
      </table>
  </div>
+ <?php $this->load->view('admin/datapu/editdatapu-spam-modal'); ?>
+ <?php $this->load->view('admin/datapu/deletedatapu-spam-modal'); ?>

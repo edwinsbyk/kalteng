@@ -25,4 +25,10 @@ class User_model extends CI_Model
             throw_flash_redirect('Account is not registered', 'danger', 'auth');
         }
     }
+
+    public function getUser()
+    {
+        $hasil = $this->db->query("SELECT * FROM `user`");
+        return $hasil;
+    }
 }
