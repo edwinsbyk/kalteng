@@ -38,13 +38,13 @@
     <div class="modal-dialog modal-xxlg">
         <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Preview Berita</h5>
+              <h5 class="modal-title" id="judul-artikel">Preview Berita</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body" style="overflow: auto;">
-                <div id="previewContent"></div>
+                <div id="isi-artikel"></div>
             </div>
         </div>
     </div>

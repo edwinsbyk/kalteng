@@ -57,4 +57,21 @@ $(document).ready(() => {
         })
     })
 
+    var detail_artikel = $(".detail_artikel");
+    detail_artikel.each(function () {
+        detail_artikel.click(function () {
+            var self = $(this);
+            $.ajax({
+                method: "get",
+                url: self.attr("data-url"),
+                data: {artikel_id: self.attr("artikel-index")},
+                cache: false
+            }).done((data) => {
+                data = JSON.parse(data)[0]
+                $("#judul-artikel").html(data.judul);
+                $("#isi-artikel").html(data.isi)  
+            })
+        })
+    })
+
 })

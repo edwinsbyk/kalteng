@@ -73,7 +73,16 @@
                 <td><?= $d["tanggal"] ?></td>
                 <td>
                     <div class="table-data-feature" style="justify-content: flex-start">
-                        <button id="preview_artikel" class="item preview_artikel" data-toggle="modal" data-target="#previewModal" data-placement="top" artikel-index="<?= $d["id_artikel"] ?>" title="Preview"><i class="fas fa-eye"></i></button>
+                        <button
+                            class="item detail_artikel"
+                            artikel-index="<?= $d["id_artikel"] ?>"
+                            data-url="<?= base_url("admin/preview_artikel") ?>"
+                            data-toggle="modal"  
+                            data-placement="top" 
+                            title="Preview"
+                            data-target="#previewModal">
+                            <i class="fas fa-eye"></i>
+                            </button>
                         <button id="edit_artikel" class="item edit_artikel" data-toggle="modal" data-target="#editModal" data-placement="top" artikel-index="<?= $d["id_artikel"] ?>" title="Edit"><i class="zmdi zmdi-edit"></i></button>
                         <button 
                             id="delete_artikel" 
