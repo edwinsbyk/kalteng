@@ -35,23 +35,6 @@ tinymce.init({
 
             <div class="row form-group">
                 <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">Tanggal</label>
-                </div>
-                <!-- <div class="col-12 col-md-9">
-                    <input type="datetime-local" id="date-berita" name="tanggal" class="form-control">
-                </div> -->
-                <div class="col-12 col-md-9 date" id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                </div>
-                <!-- <script type="text/javascript">
-                    $(function () {
-                        
-                    });
-                </script> -->
-            </div>
-
-            <div class="row form-group">
-                <div class="col col-md-3">
                     <label for="textarea-input" class=" form-control-label">Isi Berita</label>
                 </div>
                 <div class="col-12 col-md-9">
