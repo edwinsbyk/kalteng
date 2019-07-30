@@ -37,6 +37,7 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/select2/select2.min.css',
                 'assets/admin/vendor/perfect-scrollbar/perfect-scrollbar.css',
                 'assets/admin/css/theme.css',
+                'assets/admin/css/materialdate.min.css',
                 'assets/admin/css/datatables.css',
             ),
             "list_js_plugins" => array(
@@ -55,8 +56,10 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/chartjs/Chart.bundle.min.js',
                 'assets/admin/vendor/select2/select2.min.js',
                 'assets/admin/js/main.js',
+                'assets/admin/js/materialdate.min.js',
                 'assets/admin/js/tambahan.js',
                 'assets/admin/js/datatables.js',
+                'assets/admin/js/swal.js'
             ),
             "path" => $param["path"]
         ];
@@ -76,13 +79,26 @@ class Admin extends CI_Controller
 
     public function add_article()
     {
-        $judul = $this->input->post("judul_artikel");
-        $isi = $this->input->post("isi_artikel");
-        $tanggal = $this->input->post("tanggal_pembuatan");
+        $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal_pembuatan"));
+        // var_dump($this->input->post("tanggal_pembuatan"));
+        // die();
+        $data = array(
+            "iduser" => 1,
+            "judul" => $this->input->post("judul_artikel"),
+            "isi" => $this->input->post("isi_artikel"),
+            "tanggal" => $date->format("Y/m/d H:i:s"),
+            "image" => "null"
+        );
         $this->load->model("ArtikelModel");
-        $this->ArtikelModel->tambah_data($judul, $isi, $tanggal)
-            ? throw_flash_redirect("Data berhasil ditambahkan", "success", "admin/artikel")
+        $this->ArtikelModel->tambah_data($data) 
+            ? throw_flash_redirect("Data berhasil ditambahkan", "success", "admin/artikel") 
             : throw_flash_redirect("Gagal menambahkan data", "danger", "admin/artikel");
+    }
+
+    public function delete_article()
+    {
+        $this->load->model("ArtikelModel");
+        echo $this->ArtikelModel->delete_data($this->input->post("artikel_id"));
     }
 
     public function pegawai()

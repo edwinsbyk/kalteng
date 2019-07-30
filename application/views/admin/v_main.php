@@ -30,5 +30,6 @@
         foreach ($list_js_plugins as $key) {?>
             <script src="<?php echo base_url($key) ?>"></script>
         <?php }} ?>
+        
     </footer>
 </html>
