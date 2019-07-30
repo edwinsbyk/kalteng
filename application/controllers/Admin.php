@@ -79,6 +79,13 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/warta/artikel", "data" => ["data" => $this->ArtikelModel->display_data()]]);
     }
 
+    public function preview_artikel()
+    {
+        $this->load->model("ArtikelModel");
+        $data = $this->ArtikelModel->getDataByIndex($this->input->get("artikel_id"));
+        echo json_encode($data);
+    }
+
     public function add_article()
     {
         $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal_pembuatan"));

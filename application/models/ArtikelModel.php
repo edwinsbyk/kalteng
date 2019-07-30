@@ -15,4 +15,9 @@ class ArtikelModel extends CI_Model {
     public function display_data() {
         return $this->db->get("tbl_artikel")->result_array();
     }
+
+    public function getDataByIndex($id)
+    {
+        return $this->db->get_where("tbl_artikel", array('id_artikel' => $id))->result_array();
+    }
 }
