@@ -76,8 +76,12 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
+
 	'username' => 'root',
 	'password' => '',
+
+	'username' => 'pu_kalteng',
+	'password' => "kalteng",
 	'database' => 'pu_kalteng',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
