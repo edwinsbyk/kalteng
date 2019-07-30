@@ -89,6 +89,7 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/pengumuman/rup", "data" => $data]);
 
         $this->load->view('admin/pengumuman/editdataRUP-modal');
+    }
 
     public function preview_artikel()
     {
