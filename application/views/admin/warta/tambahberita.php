@@ -22,7 +22,7 @@
 
             <div class="row form-group">
                 <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">Tanggal</label>
+                    <label for="text-input" class=" form-control-label">Tanggal & Waktu</label>
                 </div>
                 <div class="col-12 col-md-9 date" >
                     <input type='text' class="form-control" name="tanggal" placeholder="<?= date("Y/m/d H:i:s") ?>" required disabled/>

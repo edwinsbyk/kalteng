@@ -1,3 +1,35 @@
+
+<style type="text/css">
+    .tabb {
+        background-color: white;
+        border-radius: 4px;
+    }
+</style>
+<div class="main-content">
+  <div class="container-fluid">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Pegawai</h4>
+                </div>
+                <div class="card-body">
+    
+            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tabel Pegawi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tambah Pegawai</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <?php $this->load->view('admin/pegawai/tabelpegawai',$data) ?>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <?php $this->load->view('admin/pegawai/tambahpegawai',$data) ?>
+                </div>
+
 <br><br><br><br>
 <div class="col-md-2">
   <div>
@@ -66,31 +98,8 @@
             <div class="form-group">
               <label for="message-text" class="col-form-label">Tangal Pembuatan</label>
               <input type="text" class="form-control" id="recipient-name" name="date_created" disabled>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Bidang</label>
-              <input type="text" class="form-control" id="recipient-name" name="bidang" disabled>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Jabatan</label>
-              <input type="text" class="form-control" id="recipient-name" name="jabatan" disabled>
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Alamat Kantor</label>
-              <input type="text" class="form-control" id="recipient-name" name="alamat" disabled>
-            </div>
 
-          </form>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-        </div>
-      </div>
     </div>
-  </div>
-  <br><br>
-  <!-- Jquery JS-->
-
-
-  <!-- end document-->
+</div>

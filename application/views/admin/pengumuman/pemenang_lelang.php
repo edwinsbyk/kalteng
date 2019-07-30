@@ -1,7 +1,17 @@
+<style type="text/css">
+    .tabb {
+        background-color: white;
+        border-radius: 4px;
+    }
+</style>
 <div class="main-content">
-
-    <div class="">
-        <div class="container-fluid">
+  <div class="container-fluid">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Pemenang Lelang</h4>
+                </div>
+                <div class="card-body">
             <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tabel Pemenang Lelang</a>

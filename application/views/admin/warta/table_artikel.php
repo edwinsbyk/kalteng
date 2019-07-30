@@ -56,10 +56,8 @@
     <thead> 
         <tr> 
             <th>Judul</th> 
-            <th>Isi</th> 
-            <th>Dibuat oleh</th> 
-            <th>Tanggal dibuat</th> 
-            <th>Aksi</th> 
+            <th width="200">Tanggal</th>
+            <th width="100">Action</th>
         </tr> 
     </thead> 
     <tbody> 
@@ -68,8 +66,6 @@
         ?>
             <tr>
                 <td><?= $d["judul"] ?></td>
-                <td><?= $d["isi"] ?></td>
-                <td><?= $d["iduser"] ?></td>
                 <td><?= $d["tanggal"] ?></td>
                 <td>
                     <div class="table-data-feature" style="justify-content: flex-start">
@@ -83,7 +79,16 @@
                             data-target="#previewModal">
                             <i class="fas fa-eye"></i>
                             </button>
-                        <button id="edit_artikel" class="item edit_artikel" data-toggle="modal" data-target="#editModal" data-placement="top" artikel-index="<?= $d["id_artikel"] ?>" title="Edit"><i class="zmdi zmdi-edit"></i></button>
+                        <button
+                            class="item edit_artikel"
+                            artikel-index="<?= $d["id_artikel"] ?>"
+                            data-url="<?= base_url("admin/preview_artikel") ?>"
+                            data-toggle="modal"  
+                            data-placement="top" 
+                            title="Edit"
+                            data-target="#editModal">
+                            <i class="zmdi zmdi-edit"></i>
+                            </button>
                         <button 
                             id="delete_artikel" 
                             class="item delete_artikel" 

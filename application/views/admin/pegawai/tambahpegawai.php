@@ -2,19 +2,21 @@
     
                 
             <!-- HEADER DESKTOP-->
-            <br><br><br><br>
+            
             <!-- MAIN CONTENT-->
-            <form method="post" action="#">
+   <form action="tambah_pegawai" method="post" class="form-horizontal">
               <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
                                        Tambah <strong>Pegawai</strong>
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="" method="post" class="form-horizontal">
+                                        
+                                            
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-no_sk" class=" form-control-label">Username</label>
+                                                    <label for="hf-nama_paket" class=" form-control-label">NIP</label>
+
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     <input type="text" id="hf-no_sk" name="username" placeholder="Masukkan NIP" class="form-control">
@@ -41,10 +43,10 @@
                                             </div>
                                              <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-pemenang" class=" form-control-label">Passowrd</label>
+                                                    <label for="hf-pemenang" class=" form-control-label">Password</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="passowrd" id="hf-pemenang" name="pemenang" placeholder="Masukkan Passowrd" class="form-control">
+                                                    <input type="password" id="hf-passowrd" name="password" placeholder="Masukkan Passowrd" class="form-control">
                                                     
                                                 </div>
                                             </div>
@@ -53,20 +55,27 @@
                                                     <label for="hf-hps" class=" form-control-label">Level</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <select type="text" id="hf-hps" name="hps" placeholder="Masukkan HPS" class="form-control">
-                                                        <option value="saab">Pegawai</option>
-                                                        <option value="volvo">Admin</option>
+                                                    <select type="text" id="hf-hps" name="role_id" placeholder="Masukkan Level" class="form-control">
+                                                        <option value="2">Pegawai</option>
+                                                        <option value="1">Admin</option>
                                                         
                                                        </select>
                                                 </div>
                                             </div>
-                                             <div class="row form-group">
+                                            <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-no_sk" class=" form-control-label">Bidang</label>
+                                                    <label for="hf-hps" class=" form-control-label">Bidang</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-no_sk" name="bidang" placeholder="Masukkan Bidang" class="form-control">
+                                                    <select type="text" id="hf-hps" name="id_bidang" placeholder="Masukkan HPS" class="form-control">
+                                                        <?php foreach ($data_pegawai as $row) : ?>
+                                                        <option value="<?= $row['id_bidang'] ?>"><?= $row['bidang'] ?></option>
+                                                        <?php endforeach ?>
                                                     
+                                                        
+                                                        
+                                                       </select>
+                                                       
                                                 </div>
                                             </div>
                                              <div class="row form-group">
@@ -78,15 +87,10 @@
                                                     
                                                 </div>
                                             </div>
-                                             <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="hf-no_sk" class=" form-control-label">Alamat Kantor</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-no_sk" name="alamat" placeholder="Masukkan Alamat Kantor" class="form-control">
-                                                    
-                                                </div>
-                                            </div>
+                                                <input type="hidden" id="hf-image" name="image" placeholder="Masukkan image" class="form-control" value="default.jpg">
+                                                    <input type="hidden" id="hf-is_active" name="is_active"  class="form-control" value="1">
+                                                
+                                            
                                         </form>
                                     </div>
                                     <div class="card-footer">
@@ -98,4 +102,8 @@
                                         </button>
                                     </div>
                                 </div>
-                            </br></br></br></br></br>
+                           </div></form>
+                
+                         
+
+                            
