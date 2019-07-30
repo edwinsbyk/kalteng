@@ -101,6 +101,11 @@ class Admin extends CI_Controller
         echo $this->ArtikelModel->delete_data($this->input->post("artikel_id"));
     }
 
+    public function agenda()
+    {
+        $this->loadAsset(["path" => "admin/warta/agenda"]);
+    }
+
     public function pegawai()
     {
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
@@ -120,11 +125,6 @@ class Admin extends CI_Controller
     // {
     //     $this->loadAsset(["path" => "admin/testimoni"]);
     // }
-
-    public function agenda()
-    {
-        $this->loadAsset(["path" => "admin/agenda"]);
-    }
 
     public function testimoni()
     {
