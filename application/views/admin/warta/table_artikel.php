@@ -56,10 +56,8 @@
     <thead> 
         <tr> 
             <th>Judul</th> 
-            <th>Isi</th> 
-            <th>Dibuat oleh</th> 
-            <th>Tanggal dibuat</th> 
-            <th>Aksi</th> 
+            <th width="200">Tanggal</th>
+            <th width="100">Action</th>
         </tr> 
     </thead> 
     <tbody> 
@@ -68,8 +66,6 @@
         ?>
             <tr>
                 <td><?= $d["judul"] ?></td>
-                <td><?= $d["isi"] ?></td>
-                <td><?= $d["iduser"] ?></td>
                 <td><?= $d["tanggal"] ?></td>
                 <td>
                     <div class="table-data-feature" style="justify-content: flex-start">
