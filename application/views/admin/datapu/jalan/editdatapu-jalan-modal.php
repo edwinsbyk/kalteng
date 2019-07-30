@@ -12,7 +12,7 @@ foreach ($data as $d) : ?>
                 <form class="form-horizontal" method="post" action="<?= base_url('admin/editdataJalan') ?>">
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="ruas" placeholder="Nama" value="<?= $d['ruas'] ?>" required>
+                            <input type="text" class="form-control" id="name" name="ruas" placeholder="Ruas" value="<?= $d['ruas'] ?>" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="email" name="kota" placeholder="Kota" value="<?= $d['kota'] ?>" required>
