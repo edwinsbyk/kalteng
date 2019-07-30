@@ -36,13 +36,19 @@
     <table class="table table-borderless table-data3">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Kota/Kab.</th>
-                <th scope="col">P(Km)</th>
-                <th scope="col">L(m)</th>
-                <th scope="col">Action</th>
+                <th rowspan="2" width="50">No</th>
+                <th rowspan="2">Nama</th>
+                <th rowspan="2">Jenis</th>
+                <th rowspan="2">Kota/Kab.</th>
+                <th colspan="2">Dianfaatkan</th>
+                <th rowspan="2">Total</th>
+                <th rowspan="2">Tahun Design</th>
+                <th rowspan="2">Action</th>
+            </tr>
+            <tr>
 
+                <th>Sudah</th>
+                <th>Belum</th>
             </tr>
         </thead>
         <tbody>
@@ -51,9 +57,12 @@
                 <tr>
                     <td><?= $i; ?></td>
                     <td><?= $d['nama']; ?></td>
+                    <td><?= $d['jenis']; ?></td>
                     <td><?= $d['kota']; ?></td>
-                    <td><?= $d['panjang']; ?></td>
-                    <td><?= $d['lebar']; ?></td>
+                    <td><?= $d['sudah_kembang']; ?></td>
+                    <td><?= $d['belum_kembang']; ?></td>
+                    <td><?= $d['total']; ?></td>
+                    <td><?= $d['tahun']; ?></td>
                     <td>
                         <div class="table-data-feature">
                             <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
@@ -61,9 +70,14 @@
                             <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
                         </div>
                     </td>
+
+
+
                 </tr>
                 <?php $i++; ?>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+<?php $this->load->view('admin/datapu/editdatapu-potensi-rawa-modal'); ?>
+<?php $this->load->view('admin/datapu/deletedatapu-potensi-rawa-modal'); ?>
