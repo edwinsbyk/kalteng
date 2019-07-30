@@ -27,7 +27,7 @@ tinymce.init({
                     <label class=" form-control-label">Tanggal & Waktu</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type='text' class="form-control" id='datepickerArtikel' required name="tanggal_pembuatan"/>
+                    <input type='text' class="form-control datepicker" id='datepickerArtikel' required name="tanggal_pembuatan"/>
                 </div>
             </div>
 
@@ -61,14 +61,3 @@ tinymce.init({
     </form>
    
 </div>
-    <script>
-        document.getElementById("tanggal_pembuatan").placeholder = (new Date()).toLocaleDateString("id", {
-            timeZone: "Asia/Jakarta",
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: 'numeric', 
-            minute: 'numeric',
-        });
-    </script>

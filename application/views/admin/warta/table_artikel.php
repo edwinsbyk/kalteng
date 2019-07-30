@@ -83,7 +83,16 @@
                             data-target="#previewModal">
                             <i class="fas fa-eye"></i>
                             </button>
-                        <button id="edit_artikel" class="item edit_artikel" data-toggle="modal" data-target="#editModal" data-placement="top" artikel-index="<?= $d["id_artikel"] ?>" title="Edit"><i class="zmdi zmdi-edit"></i></button>
+                        <button
+                            class="item edit_artikel"
+                            artikel-index="<?= $d["id_artikel"] ?>"
+                            data-url="<?= base_url("admin/preview_artikel") ?>"
+                            data-toggle="modal"  
+                            data-placement="top" 
+                            title="Edit"
+                            data-target="#editModal">
+                            <i class="zmdi zmdi-edit"></i>
+                            </button>
                         <button 
                             id="delete_artikel" 
                             class="item delete_artikel" 

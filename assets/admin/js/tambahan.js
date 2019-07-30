@@ -74,4 +74,22 @@ $(document).ready(() => {
         })
     })
 
+    var edit_artikel = $(".edit_artikel");
+    edit_artikel.each(function () {
+        edit_artikel.click(function () {
+            var self = $(this);
+            $.ajax({
+                method: "get",
+                url: self.attr("data-url"),
+                data: {artikel_id: self.attr("artikel-index")},
+                cache: false
+            }).done((data) => {
+                data = JSON.parse(data)[0]
+                $("[name='edit-judul']").val(data.judul);
+                $("[name='edit-isi']").html(data.isi);
+                $("[name='edit-tanggal']").html(data.tanggal);  
+            })
+        })
+    })
+
 })

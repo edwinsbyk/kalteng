@@ -54,7 +54,7 @@
     <div class="modal-dialog modal-xlg">
         <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Edit Berita</h5>
+              <h5 class="modal-title">Edit Berita</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
               </button>
@@ -67,7 +67,7 @@
                                 <label class=" form-control-label" required>Judul Artikel</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" name="judul_artikel" required placeholder="Judul artikel disini" class="form-control">
+                                <input type="text" name="edit-judul" required placeholder="Judul artikel disini" class="form-control">
                             </div>
                         </div>
                         <div class="row form-group">
@@ -75,7 +75,7 @@
                                 <label class=" form-control-label">Tanggal & Waktu</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type='text' class="form-control" id='datepicker' required name="tanggal_pembuatan"/>
+                            <input type='text' class="form-control datepicker" id='datepickerArtikel2' required name="edit-tanggal"/>
                             </div>
                         </div>
 
@@ -84,7 +84,7 @@
                                 <label class=" form-control-label">Dibuat oleh</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" name="dibuat_oleh" disabled value="Syahid Nurrohim" class="form-control">
+                                <input type="text" name="edit-dibuat-oleh" disabled value="Syahid Nurrohim" class="form-control">
                             </div>
                         </div>
 
@@ -93,7 +93,7 @@
                                 <label for="disabled-input" class=" form-control-label">Isi Artikel</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <textarea type="textarea" name="isi_artikel" rows="10" placeholder="Isi artikel disini" class="form-control"></textarea>
+                                <textarea type="textarea" name="edit-isi" rows="10" placeholder="Isi artikel disini" class="form-control"></textarea>
                             </div>
                         </div>
 
