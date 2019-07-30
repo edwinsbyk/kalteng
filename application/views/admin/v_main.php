@@ -8,6 +8,7 @@
     foreach ($list_css_plugins as $key) {?>
         <link href="<?php echo base_url($key) ?>" rel="stylesheet" media="all">
     <?php }} ?>
+    <script src="<?= base_url("assets/plugin/tinymce/tinymce.min.js") ?>"></script>
     <title><?=$title?></title>
 </head>
 <body class="animsition">
@@ -30,5 +31,6 @@
         foreach ($list_js_plugins as $key) {?>
             <script src="<?php echo base_url($key) ?>"></script>
         <?php }} ?>
+        
     </footer>
 </html>

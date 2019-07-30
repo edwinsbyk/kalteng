@@ -28,6 +28,30 @@
         </div>
     </div>
 </div> -->
+
+<style type="text/css">
+.modal-xxlg {
+    width: 97%;
+    height: 97%;
+    max-width: 100%;
+    padding: 0;
+}
+
+.modal-xlg {
+    width: 60%;
+    height: 97%;
+    max-width: 60%;
+    padding: 0;
+}
+
+.modal-content {
+    height: 97%;
+    overflow:auto;
+}
+
+</style>
+
+<?= $this->session->flashdata('message') ?>
 <table id="artikelTable" class="table table-striped" style="width:100%"> 
     <thead> 
         <tr> 
@@ -49,11 +73,39 @@
                 <td><?= $d["tanggal"] ?></td>
                 <td>
                     <div class="table-data-feature" style="justify-content: flex-start">
-                        <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
-                        <a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
+                        <button
+                            class="item detail_artikel"
+                            artikel-index="<?= $d["id_artikel"] ?>"
+                            data-url="<?= base_url("admin/preview_artikel") ?>"
+                            data-toggle="modal"  
+                            data-placement="top" 
+                            title="Preview"
+                            data-target="#previewModal">
+                            <i class="fas fa-eye"></i>
+                            </button>
+                        <button
+                            class="item edit_artikel"
+                            artikel-index="<?= $d["id_artikel"] ?>"
+                            data-url="<?= base_url("admin/preview_artikel") ?>"
+                            data-toggle="modal"  
+                            data-placement="top" 
+                            title="Edit"
+                            data-target="#editModal">
+                            <i class="zmdi zmdi-edit"></i>
+                            </button>
+                        <button 
+                            id="delete_artikel" 
+                            class="item delete_artikel" 
+                            data-url="<?= base_url("admin/delete_article") ?>" 
+                            data-toggle="modal" 
+                            data-placement="top" 
+                            artikel-index="<?= $d["id_artikel"] ?>" 
+                            title="Delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button>
                     </div>
                 </td>
             </tr>
-        <?php } ?>
+        <?php } ?> 
     </tbody>
 </table>
