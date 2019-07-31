@@ -21,11 +21,7 @@
     <meta property="og:image" content="http://thetheme.io/thesaas/assets/img/og-img.jpg">
     <meta property="og:url" content="http://thetheme.io/thesaas/">
     <meta name="twitter:card" content="summary_large_image">
-</head>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="<?= base_url('assets/admin/vendor/jquery-3.2.1.min.js') ?>"></script>
 </head>
 <body>
     <?php 

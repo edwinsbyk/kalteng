@@ -93,111 +93,28 @@
 
       <div class="accordion accordion-connected shadow-5" id="accordion-job">
 
-        <div class="card">
-          <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-bina">
-              <strong class="mr-auto">BIDANG BINA MARGA</strong>
-              <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
-            </a>
-          </h6>
-          <div id="collapse-bina" class="collapse" data-parent="#accordion-job">
-            <div class="card-body">
-              Kepala : RISLIANA PANGGOA, ST, MT <br>
-              Nomor : 19751010 200212 2 010 <br>
-              Alamat : KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura <br>
-              <!-- <hr class="w-100px"> -->
-            </div>
-          </div>
-        </div>
-
+        <?php foreach ($data as $row) : ?>
 
         <div class="card">
           <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-cipta">
-              <strong class="mr-auto">BIDANG CIPTA KARYA</strong>
+            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-binaa-<?= $row['id']  ?>">
+              <strong class="mr-auto"><td><?= $row['bidang']  ?></td></strong>
               <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
             </a>
           </h6>
-          <div id="collapse-cipta" class="collapse" data-parent="#accordion-job">
+          <div id="collapse-binaa-<?= $row['id']  ?>" class="collapse" data-parent="#accordion-job">
             <div class="card-body">
-              Kepala : RISLIANA PANGGOA, ST, MT <br>
-              Nomor : 19751010 200212 2 010 <br>
-              Alamat : KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura <br>
-              <!-- <hr class="w-100px"> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-penataan">
-              <strong class="mr-auto">BIDANG PENATAAN RUANG</strong>
-              <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
-            </a>
-          </h6>
-          <div id="collapse-penataan" class="collapse" data-parent="#accordion-job">
-            <div class="card-body">
-              Kepala : RISLIANA PANGGOA, ST, MT <br>
-              Nomor : 19751010 200212 2 010 <br>
-              Alamat : KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura <br>
-              <!-- <hr class="w-100px"> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="card ">
-          <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-updt-jasa">
-              <strong class="mr-auto">BIDANG JASA KONSTRUKSI</strong>
-              <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
-            </a>
-          </h6>
-          <div id="collapse-updt-jasa" class="collapse" data-parent="#accordion-job">
-            <div class="card-body">
-              Kepala : RISLIANA PANGGOA, ST, MT <br>
-              Nomor : 19751010 200212 2 010 <br>
-              Alamat : KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura <br>
-              <!-- <hr class="w-100px"> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-updt-sekertaris">
-              <strong class="mr-auto">SEKERTARIS DINAS</strong>
-              <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
-            </a>
-          </h6>
-          <div id="collapse-updt-sekertaris" class="collapse" data-parent="#accordion-job">
-            <div class="card-body">
-              Kepala : RISLIANA PANGGOA, ST, MT <br>
-              Nomor : 19751010 200212 2 010 <br>
-              Alamat : KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura <br>
-              <!-- <hr class="w-100px"> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-updt-laboratorium">
-              <strong class="mr-auto">UPT LABORATURIUM</strong>
-              <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
-            </a>
-          </h6>
-          <div id="collapse-updt-laboratorium" class="collapse" data-parent="#accordion-job">
-            <div class="card-body">
-              Kepala : RISLIANA PANGGOA, ST, MT <br>
-              Nomor : 19751010 200212 2 010 <br>
-              Alamat : KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura <br>
+              <strong>KEPALA <?= $row['bidang']  ?></strong><br>
+               Nama : <?= $row['name']  ?> <br>
+              Nip : <?= $row['username']  ?> <br>
+              Alamat : <?= $row['alamat_kantor']  ?> <br>
               <!-- <hr class="w-100px"> -->
             </div>
           </div>
         </div>
 
 
-      </div>
+         <?php endforeach; ?>
 
 
     </div>
