@@ -6,6 +6,7 @@
 <div class="row overflow-hidden">
   <div class="large-12 columns overflow-hidden w-100">
     <div class="owl-carousel owl-theme">
+<<<<<<< HEAD
       <div class="item text-white h-fullscreen text-center text-lg-left w-100 position-relative">
         <div class="content-slider" style="background-image: url('https://images3.alphacoders.com/823/82317.jpg')">
           <div class="inner-content row align-items-center h-100">
@@ -53,6 +54,19 @@
             </div>
           </div>
         </div>
+=======
+      <div class="item text-white h-fullscreen text-center text-lg-left">
+        <img src="<?= base_url('assets/'); ?>img/slide4.jpg" >
+      </div>
+      <div class="item text-white h-fullscreen text-center text-lg-left">
+        <img src="<?= base_url('assets/'); ?>img/slide2.jpg" >
+      </div>
+      <div class="item text-white h-fullscreen text-center text-lg-left">
+        <img src="<?= base_url('assets/'); ?>img/slide3.jpg" >
+      </div>
+      <div class="item text-white h-fullscreen text-center text-lg-left">
+        <img src="<?= base_url('assets/'); ?>img/slide1.jpg" >
+>>>>>>> 8b2012ba225f90333eb4941a033c1abc0b645e29
       </div>
     </div>
   </div>

@@ -20,34 +20,32 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 mx-auto">
-					<table class="table table-hover">
+					<table class="table table-hover data_table">
 						<thead>
 							<tr>
-								<th>#</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Username</th>
+								<th scope="col">#</th>
+								<th scope="col">Ruas</th>
+								<th scope="col">Kota / Kab</th>
+								<th scope="col">Stat</th>
+								<th scope="col">P(KM)</th>
+								<th scope="col">L(M)</th>
+
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>Larry</td>
-								<td>the Bird</td>
-								<td>@twitter</td>
-							</tr>
+							<?php $i = 1; ?>
+							<?php foreach ($data as $d) : ?>
+								<tr>
+									<td><?= $i; ?></td>
+									<td><?= $d['ruas']; ?></td>
+									<td><?= $d['kota']; ?></td>
+									<td><?= $d['stat']; ?></td>
+									<td><?= $d['panjang']; ?></td>
+									<td><?= $d['lebar']; ?></td>
+								</tr>
+								<?php $i++; ?>
+							<?php endforeach; ?>
+
 						</tbody>
 					</table>
 

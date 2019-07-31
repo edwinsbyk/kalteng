@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,19 +24,24 @@
     <meta name="twitter:card" content="summary_large_image">
     <script src="<?= base_url('assets/admin/vendor/jquery-3.2.1.min.js') ?>"></script>
 </head>
+
 <body>
-    <?php 
-        $this->load->view("templates/navbar");
-        if (is_array($path)) {
-            foreach ($path as $p) {
-                $this->load->view($p);
-            }
-        } else {
-            $this->load->view($path);
+    <?php
+    $this->load->view("templates/navbar");
+    if (is_array($path)) {
+        foreach ($path as $p) {
+            $this->load->view($p);
         }
+    } else {
+        $this->load->view($path);
+    }
     ?>
 </body>
-    <?php 
-        $this->load->view("templates/footer");
-    ?>
+<?php
+$this->load->view("templates/footer");
+?>
+<script>
+    $(".data_table").DataTable();
+</script>
+
 </html>
