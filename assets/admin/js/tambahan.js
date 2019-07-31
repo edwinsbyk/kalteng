@@ -65,6 +65,7 @@ $(document).ready(() => {
     
     var detail_berita = $(".detail_berita");
         detail_berita.click(function () {
+            console.log("kwkwkw")
             var self = $(this);
             $.ajax({
                 method: "get",
