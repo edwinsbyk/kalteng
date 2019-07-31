@@ -11,9 +11,11 @@ class Home extends CI_Controller
                 "assets/css/page.min.css",
                 "assets/admin/css/style.css",
                 'assets/admin/css/datatables.css',
+                "assets/plugin/carousel/css/owl.carousel.min.css",
+                "assets/plugin/carousel/css/owl.theme.default.min.css",
+
             ),
             "js_list" => array(
-                'assets/admin/vendor/jquery-3.2.1.min.js',
                 "assets/vendor/jquery-easing/jquery.easing.min.js",
                 "assets/js/sb-admin-2.min.js",
                 "assets/js/src/script.js",
@@ -37,6 +39,8 @@ class Home extends CI_Controller
                 'assets/admin/js/datatables.js',
                 'assets/admin/js/bootstrap-datetimepicker.min.js',
                 'assets/admin/js/swal.js'
+                "assets/plugin/carousel/js/owl.carousel.js",
+                "assets/plugin/carousel/js/owl.autoplay.js"
             ),
             "path" => $param["path"]
         );
@@ -49,9 +53,12 @@ class Home extends CI_Controller
     }
 
     public function bidang()
-    {
+    {   //Bidanghome_model.php
         $data['title'] = 'Bidang';
-        $this->inject_resources(["path" => 'home/bidang', "data" => $data]);
+         $this->load->model('Bidanghome_model', 'data');
+        $data['data'] = $this->data->getdataBidang();
+        $this->inject_resources(["path" => "home/bidang", "data" => $data]);
+        $this->load->view('home/bidang');
     }
 
     public function berita()
@@ -63,8 +70,12 @@ class Home extends CI_Controller
         $this->inject_resources(["path" => array('templates/berita_header', 'newsdemo/index')]);
     }
     public function pengumumanRup()
-    {
-        $this->inject_resources(["path" => 'pengumuman/rup']);
+    {   
+         $this->load->model('Pengumuman_model', 'data');
+        $data['data'] = $this->data->getDataRUP();
+        $this->inject_resources(["path" => 'pengumuman/rup' ,"data" => $data]);
+        
+        
     }
     public function datapujalan()
     {
