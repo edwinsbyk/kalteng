@@ -9,7 +9,7 @@
 
 <?= $this->session->flashdata('message') ?>
 <div class="table-responsive m-b-40">
-<table id="beritaTable" class="table table-striped" style="width:100%"> 
+<table class="data_table table table-striped" style="width:100%"> 
         <thead>
             <tr>
                 <th>Judul</th>

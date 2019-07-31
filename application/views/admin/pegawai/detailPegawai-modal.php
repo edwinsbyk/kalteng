@@ -1,5 +1,5 @@
 <?php
-foreach ($data as $row) : ?>
+foreach ($datajabatan as $row) : ?>
     <div class="modal fade" id="modal_detail<?= $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -32,18 +32,12 @@ foreach ($data as $row) : ?>
                         <div class="form-group">
                             <label class="col-form-label">Jabatan :</label>
                             <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="" value="<?= $row['jabatan'] ?>" disabled>
-                        </div><div class="form-group">
-                            <label class="col-form-label">Bidang :</label>
-                            <input type="text" class="form-control" id="bidang" name="bidang" placeholder="bidang" value="<?= $row['bidang'] ?>" disabled>
-                        </div><div class="form-group">
-                            <label class="col-form-label">Alamat Kantor:</label>
-                            <input type="text" class="form-control" id="alamat" name="alamat" placeholder="alamat" value="<?= $row['alamat_kantor'] ?>" disabled>
                         </div>
 
                     </div>
 
                     <div class="modal-footer">
-                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                        <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Tutup</button>
                         
                     </div>
                 </form>

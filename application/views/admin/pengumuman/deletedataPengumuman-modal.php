@@ -10,8 +10,24 @@ foreach ($data as $row) : ?>
                     </button>
                 </div>
                 <form class="form-horizontal" method="post" action="<?= base_url('admin/deletedataPengumuman') ?>">
-                    <div class="modal-body">
-                        Hapus data ( <?= $row['no_sk'] ?> )?
+                    <div class="modal-body ">
+                            <div class="row">
+              <div class="col">
+               
+              </div>
+              <div class="col">
+                <section class="">
+                  <div class=" text-secondary">  <i class="fas fa-exclamation-circle fa-8x" style="color: black;" ></i></div>
+                </section>
+              </div>
+              <div class="col">
+               
+              </div>
+            </div>
+                        <br>
+
+                        <i text-align='center'>Anda yakin ingin menghapus Data ?</i>
+
                     </div>
 
                     <div class="modal-footer">
