@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,24 +23,30 @@
     <meta property="og:url" content="http://thetheme.io/thesaas/">
     <meta name="twitter:card" content="summary_large_image">
 </head>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
+
 <body>
-    <?php 
-        $this->load->view("templates/navbar");
-        if (is_array($path)) {
-            foreach ($path as $p) {
-                $this->load->view($p);
-            }
-        } else {
-            $this->load->view($path);
+    <?php
+    $this->load->view("templates/navbar");
+    if (is_array($path)) {
+        foreach ($path as $p) {
+            $this->load->view($p);
         }
+    } else {
+        $this->load->view($path);
+    }
     ?>
 </body>
-    <?php 
-        $this->load->view("templates/footer");
-    ?>
+<?php
+$this->load->view("templates/footer");
+?>
+<script>
+    $(".data_table").DataTable();
+</script>
+
 </html>
