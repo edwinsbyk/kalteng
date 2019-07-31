@@ -82,12 +82,9 @@ class Admin extends CI_Controller
 
     public function rup()
     {
-        
-
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getDataRUP();
         $this->loadAsset(["path" => "admin/pengumuman/rup", "data" => $data]);
-
         $this->load->view('admin/pengumuman/editdataRUP-modal');
     }
 
@@ -129,12 +126,10 @@ class Admin extends CI_Controller
 
     public function pegawai()
     {
-         $this->load->model('Pegawai_model', 'data');
+        $this->load->model('Pegawai_model', 'data');
         $data['data'] = $this->data->getPegawai();
-
-          $this->load->model('Bidang_model', 'bidang');
-         $data['data_pegawai'] = $this->bidang->getBidang();
-
+        $this->load->model('Bidang_model', 'bidang');
+        $data['data_pegawai'] = $this->bidang->getBidang();
         $this->loadAsset(["path" => "admin/pegawai/pegawai", "data" => $data]);
     }
 
@@ -174,11 +169,11 @@ class Admin extends CI_Controller
 
     public function edit_berita()
     {
-        $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
+        // $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
         $data = array(
             "judul" => $this->input->post("judul-berita"),
             "isi" => $this->input->post("isi-berita"),
-            "tanggal" => $date->format("Y/m/d H:i:s"),
+            "tanggal" => date("Y/m/d H:i:s"),
             "image" => $this->input->post("image"),
         );
         $this->load->model("Berita_model");
@@ -189,12 +184,12 @@ class Admin extends CI_Controller
 
     public function tambah_berita()
     {
-        $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
+        // $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
         $data = array(
             'iduser'    => 1,
             'judul'     => $this->input->post("judul-berita"),
             'isi'       => $this->input->post("isi-berita"),
-            'tanggal'   => $date->format("Y/m/d H:i:s"),
+            'tanggal'   => date("Y/m/d H:i:s"),
             'image'     => $this->input->post("image"),
         );
 
