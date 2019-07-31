@@ -1,6 +1,6 @@
 <?php
 foreach ($data as $row) : ?>
-    <div class="modal fade" id="modal_delete<?= $row['id_bidang']; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal fade" id="modal_delete<?= $row['id_jabatan']; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -9,8 +9,8 @@ foreach ($data as $row) : ?>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="form-horizontal" method="post" action="<?= base_url('admin/deletedataBidang') ?>">
-                   <div class="modal-body ">
+                <form class="form-horizontal" method="post" action="<?= base_url('admin/deletedataJabatan') ?>">
+                    <div class="modal-body ">
                             <div class="row">
               <div class="col">
                
@@ -31,7 +31,8 @@ foreach ($data as $row) : ?>
                     </div>
 
                     <div class="modal-footer">
-                        <input type="hidden" name="id_bidang" value="<?= $row['id_bidang']; ?>">
+
+                        <input type="hidden" name="id_jabatan" value="<?= $row['id_jabatan']; ?>">
 
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
                         <button type="submit" class="btn btn-info">Hapus</button>

@@ -9,24 +9,24 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Pegawai</h4>
+                    <h4>Jabatan</h4>
                 </div>
                 <div class="card-body">
     
             <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tabel Pegawi</a>
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tabel Jabatan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tambah Pegawai</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tambah Jabatan</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <?php $this->load->view('admin/pegawai/tabelpegawai',$data) ?>
+                    <?php $this->load->view('admin/Jabatan/tabeljabatan',$data) ?>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <?php $this->load->view('admin/pegawai/tambahpegawai',$data) ?>
+                    <?php $this->load->view('admin/Jabatan/tambahjabatan',$data) ?>
                 </div>
             </div>
         </div>
