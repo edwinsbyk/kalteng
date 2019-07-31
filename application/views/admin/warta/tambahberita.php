@@ -22,7 +22,7 @@
 
             <div class="row form-group">
                 <div class="col col-md-3">
-                    <label for="text-input" class=" form-control-label">Tanggal</label>
+                    <label for="text-input" class=" form-control-label">Tanggal & Waktu</label>
                 </div>
                 <div class="col-12 col-md-9 date" >
                     <input type='text' class="form-control" name="tanggal" placeholder="<?= date("Y/m/d H:i:s") ?>" required disabled/>
@@ -48,8 +48,9 @@
             </div>
 
             <div class="card-footer">
-            <button type="submit" name="sbmt" class="btn btn-primary btn-sm"><i class="fa fa-dot-circle-o"></i> Submit
-            </button>
+                <button type="submit" name="sbmt" class="btn btn-primary btn-sm"><i class="fa fa-dot-circle-o"></i> Submit</button>
+                <button type="reset" class="btn btn-danger btn-sm"><i class="fa fa-ban"></i> Reset</button>
+            </div>
         </form>
     </div>
 </div>

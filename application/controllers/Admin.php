@@ -109,8 +109,8 @@ class Admin extends CI_Controller
             "image" => "null"
         );
         $this->load->model("ArtikelModel");
-        $this->ArtikelModel->tambah_data($data) 
-            ? throw_flash_redirect("Data berhasil ditambahkan", "success", "admin/artikel") 
+        $this->ArtikelModel->tambah_data($data)
+            ? throw_flash_redirect("Data berhasil ditambahkan", "success", "admin/artikel")
             : throw_flash_redirect("Gagal menambahkan data", "danger", "admin/artikel");
     }
 
@@ -355,6 +355,7 @@ class Admin extends CI_Controller
     function deletedataJembatan()
     {
         $id = $this->input->post('id');
+
         $this->db->where('id_jembatan', $id);
         $this->db->delete('tbl_jembatan');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
@@ -369,13 +370,91 @@ class Admin extends CI_Controller
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/embung');
     }
+    public function tambahdataEmbung()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'kapasitas' => $this->input->post('kapasitas'),
+            'penduduk' => $this->input->post('penduduk'),
+            'ternak' => $this->input->post('ternak'),
+            'irigasi' => $this->input->post('irigasi'),
+        ];
+
+        $this->db->insert('tbl_embung', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapuembung');
+    }
+    public function editdataEmbung()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'kapasitas' => $this->input->post('kapasitas'),
+            'penduduk' => $this->input->post('penduduk'),
+            'ternak' => $this->input->post('ternak'),
+            'irigasi' => $this->input->post('irigasi'),
+        ];
+        $id = $this->input->post('id');
+
+        $this->db->where('id_embung', $id);
+        $this->db->update('tbl_embung', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapuembung');
+    }
+
+    function deletedataEmbung()
+    {
+        $id = $this->input->post('id');
+
+        $this->db->where('id_embung', $id);
+        $this->db->delete('tbl_embung');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/datapuEmbung');
+    }
     public function datapuSumurBor()
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSumurBor();
         $this->loadAsset(["path" => "admin/datapu/sumur-bor/sumur-bor", "data" => $data]);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/datapu/sumur-bor');
+    }
+    public function tambahdataSumurBor()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'debit' => $this->input->post('debit'),
+            'air_baku' => $this->input->post('air_baku'),
+            'irigasi' => $this->input->post('irigasi')
+        ];
+
+        $this->db->insert('tbl_sumurbor', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
+        redirect('admin/datapuSumurBor');
+    }
+    public function editdataSumurBor()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'debit' => $this->input->post('debit'),
+            'air_baku' => $this->input->post('air_baku'),
+            'irigasi' => $this->input->post('irigasi')
+        ];
+        $id = $this->input->post('id');
+        $this->db->where('id_sumurbor', $id);
+        $this->db->update('tbl_sumurbor', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapuSumurBor');
+    }
+
+    public function deletedataSumurBor()
+    {
+        $id = $this->input->post('id');
+        $this->db->where('id_sumurbor', $id);
+        $this->db->delete('tbl_sumurbor');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/datapuSumurBor');
     }
 
     public function datapuBlackSpot()
@@ -406,11 +485,21 @@ class Admin extends CI_Controller
             'ruas' => $this->input->post('ruas'),
             'kota' => $this->input->post('kota'),
             'jenis_masalah' => $this->input->post('jenis_masalah'),
-            'tingkat_masalah' => $this->input->post('tingkat_masalah'),
+            'tingkat_masalah' => $this->input->post('tingkat_masalah')
         ];
         $this->db->where('id_black_spot', $id);
         $this->db->update('tbl_black_spot', $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapuBlackSpot');
+        $this->loadAsset(["path" => "admin/datapu/black-spot/black-spot"]);
+    }
+    function deletedataBlackSpot()
+    {
+        $id = $this->input->post('id');
+
+        $this->db->where('id_black_spot', $id);
+        $this->db->delete('tbl_black_spot');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/datapuBlackSpot');
         $this->loadAsset(["path" => "admin/datapu/black-spot/black-spot"]);
     }
@@ -423,15 +512,93 @@ class Admin extends CI_Controller
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/spam');
     }
+    public function tambahdataSpam()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'kapasitas' => $this->input->post('kapasitas'),
+            'pelayanan' => $this->input->post('pelayanan'),
+        ];
+        $this->db->insert('tbl_spam', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
+        redirect('admin/datapuSpam');
+    }
+    public function editdataSpam()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'kapasitas' => $this->input->post('kapasitas'),
+            'pelayanan' => $this->input->post('pelayanan'),
+        ];
+
+        $id = $this->input->post('id');
+        $this->db->where('id_spam', $id);
+        $this->db->update('tbl_spam', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapuSpam');
+    }
+
+    public function deletedataSpam()
+    {
+        $id = $this->input->post('id');
+        $this->db->where('id_spam', $id);
+        $this->db->delete('tbl_spam');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/datapuSpam');
+    }
 
     public function datapuPotensiDanau()
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataDanau();
-        $this->loadAsset(["path" => "admin/datapu/potensi-danau", "data" => $data]);
-        $this->loadAsset(["path" => "admin/datapu/potensi-danau/potensi-danau"]);
+        $this->loadAsset(["path" => "admin/datapu/potensi-danau/potensi-danau", "data" => $data]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-danau');
+    }
+    public function tambahdataPotensiDanau()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'luas' => $this->input->post('luas'),
+            'kedalaman' => $this->input->post('kedalaman'),
+            'kapasitas' => $this->input->post('kapasitas'),
+            'penduduk' => $this->input->post('penduduk'),
+            'irigasi' => $this->input->post('irigasi')
+        ];
+        $this->db->insert('tbl_danau', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
+        redirect('admin/datapuPotensiDanau');
+    }
+    public function editdataPotensiDanau()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'luas' => $this->input->post('luas'),
+            'kedalaman' => $this->input->post('kedalaman'),
+            'kapasitas' => $this->input->post('kapasitas'),
+            'penduduk' => $this->input->post('penduduk'),
+            'irigasi' => $this->input->post('irigasi')
+        ];
+
+        $id = $this->input->post('id');
+        $this->db->where('id_danau', $id);
+        $this->db->update('tbl_danau', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapuPotensiDanau');
+    }
+
+    public function deletedataPotensiDanau()
+    {
+
+        $id = $this->input->post('id');
+        $this->db->where('id_danau', $id);
+        $this->db->delete('tbl_danau');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/datapuPotensiDanau');
     }
 
     public function datapuPotensiRawa()
@@ -443,13 +610,96 @@ class Admin extends CI_Controller
         // $this->load->view('admin/datapu/potensi-rawa');
     }
 
+    public function tambahdataPotensiRawa()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'jenis' => $this->input->post('jenis'),
+            'kota' => $this->input->post('kota'),
+            'sudah_kembang' => $this->input->post('sudah_kembang'),
+            'belum_kembang' => $this->input->post('belum_kembang'),
+            'total' => $this->input->post('total'),
+            'tahun' => $this->input->post('tahun')
+        ];
+        $this->db->insert('tbl_rawa', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
+        redirect('admin/datapuPotensiRawa');
+    }
+
+    public function editdataPotensiRawa()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'jenis' => $this->input->post('jenis'),
+            'kota' => $this->input->post('kota'),
+            'sudah_kembang' => $this->input->post('sudah_kembang'),
+            'belum_kembang' => $this->input->post('belum_kembang'),
+            'total' => $this->input->post('total'),
+            'tahun' => $this->input->post('tahun')
+        ];
+        $id = $this->input->post('id');
+        $this->db->where('id_rawa', $id);
+        $this->db->update('tbl_rawa', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/datapuPotensiRawa');
+    }
+    public function deletedataPotensiRawa()
+    {
+
+        $id = $this->input->post('id');
+        $this->db->where('id_rawa', $id);
+        $this->db->delete('tbl_rawa');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/datapuPotensiRawa');
+    }
+
     public function datapuPotensiSumurBor()
     {
         $this->load->model('Datapu_model', 'data');
-        $data['data'] = $this->data->getDataSumurBor();
+        $data['data'] = $this->data->getDataPotensiSumurBor();
         $this->loadAsset(["path" => "admin/datapu/potensi-sumur-bor/potensi-sumur-bor", "data" => $data]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-sumur-bor');
+    }
+
+    public function tambahdataPotensiSumurBor()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'swl' => $this->input->post('swl'),
+            'debit' => $this->input->post('debit'),
+            'airbaku' => $this->input->post('airbaku'),
+            'irigasi' => $this->input->post('irigasi')
+        ];
+        $this->db->insert('tbl_potensi_sumur_bor', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
+        redirect('admin/datapuPotensiSumurBor');
+    }
+    public function editdataPotensiSumurBor()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kota' => $this->input->post('kota'),
+            'swl' => $this->input->post('swl'),
+            'debit' => $this->input->post('debit'),
+            'airbaku' => $this->input->post('airbaku'),
+            'irigasi' => $this->input->post('irigasi')
+        ];
+        $id = $this->input->post('id');
+        $this->db->where('id_sumur', $id);
+        $this->db->update('tbl_potensi_sumur_bor', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
+        redirect('admin/datapuPotensiSumurBor');
+    }
+    public function deletedataPotensiSumurBor()
+    {
+
+        $id = $this->input->post('id');
+        $this->db->where('id_sumur', $id);
+        $this->db->delete('tbl_potensi_sumur_bor');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/datapuPotensiSumurBor');
     }
 
     public function tambahpegawai()

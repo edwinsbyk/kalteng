@@ -2,17 +2,7 @@ $(document).ready(() => {
     $("#artikelTable").DataTable();
     $("#beritaTable").DataTable();
 
-    $('#datepickerArtikel').datepicker({
-        uiLibrary: 'bootstrap4',
-        showOtherMonths: true,
-        format: 'dd-mm-yyyy'
-    });
     $('.datepicker').datepicker({
-        uiLibrary: 'bootstrap4',
-        showOtherMonths: true,
-        format: 'dd-mm-yyyy'
-    });
-    $('#datepickerBerita').datepicker({
         uiLibrary: 'bootstrap4',
         showOtherMonths: true,
         format: 'dd-mm-yyyy'
@@ -120,7 +110,6 @@ $(document).ready(() => {
         })
 
     var edit_artikel = $(".edit_artikel");
-    edit_artikel.each(function () {
         edit_artikel.click(function () {
             var self = $(this);
             $.ajax({
@@ -131,11 +120,10 @@ $(document).ready(() => {
             }).done((data) => {
                 data = JSON.parse(data)[0]
                 $("[name='edit-judul']").val(data.judul);
-                $("[name='edit-isi']").html(data.isi);
-                $("[name='edit-tanggal']").html(data.tanggal);  
+                $("[name='edit-tanggal']").val(data.tanggal);
+                tinymce.get('edit-isi-artikel').setContent(data.isi);
             })
         })
-    })
 
         tinymce.init({
             selector: 'textarea.tinyarea',
