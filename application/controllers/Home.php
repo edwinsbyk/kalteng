@@ -28,9 +28,12 @@ class Home extends CI_Controller
     }
 
     public function bidang()
-    {
+    {   //Bidanghome_model.php
         $data['title'] = 'Bidang';
-        $this->inject_resources(["path" => 'home/bidang', "data" => $data]);
+         $this->load->model('Bidanghome_model', 'data');
+        $data['data'] = $this->data->getdataBidang();
+        $this->inject_resources(["path" => "home/bidang", "data" => $data]);
+        $this->load->view('home/bidang');
     }
 
     public function berita()
