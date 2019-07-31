@@ -7,13 +7,16 @@
   <div class="large-12 columns overflow-hidden">
     <div class="owl-carousel owl-theme">
       <div class="item text-white h-fullscreen text-center text-lg-left">
-        <img src="https://images3.alphacoders.com/823/82317.jpg" >
+        <img src="<?= base_url('assets/'); ?>img/slide4.jpg" >
       </div>
       <div class="item text-white h-fullscreen text-center text-lg-left">
-        <img src="https://cdn.pixabay.com/photo/2017/02/07/16/47/kingfisher-2046453_960_720.jpg" >
+        <img src="<?= base_url('assets/'); ?>img/slide2.jpg" >
       </div>
       <div class="item text-white h-fullscreen text-center text-lg-left">
-        <img src="https://cdn.pixabay.com/photo/2019/04/04/17/49/eye-4103308_960_720.jpg" >
+        <img src="<?= base_url('assets/'); ?>img/slide3.jpg" >
+      </div>
+      <div class="item text-white h-fullscreen text-center text-lg-left">
+        <img src="<?= base_url('assets/'); ?>img/slide1.jpg" >
       </div>
     </div>
   </div>

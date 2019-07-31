@@ -16,23 +16,54 @@
 
 <main class="main-content">
 
-    <section class="section" id="section-open-positions">
+    
+        <div class="col-lg-12">
+    <!-- DATA TABLE-->
+   
+    <section class="section">
         <div class="container">
-            <header class="section-header">
-                <h4>
-                    <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Non arcu risus quis varius quam quisque id diam. At imperdiet dui accumsan
-                        sit amet nulla facilisi morbi tempus. Iaculis nunc sed augue lacus viverra vitae congue eu
-                        consequat. Nunc scelerisque viverra mauris in aliquam.</p>
-                </h4>
-            </header>
+            <div class="row">
+                <div class="col-lg-10 mx-auto ">
+                    <table class="table table-hover data_table table-danger" >
+                        <thead class="table-dark">
+                            <tr>
+                    <th>No</th>
+                    <th>Kegiatan / Paket</th>
+                    <th>Lokasi</th>
+                    <th>Pagu</th>
+                    <th>Metode Lelang</th>
+                    
 
+                            </tr>
+                        </thead>
+                        <tbody>
+                          
+                            
 
+                           <?php $nomor = 1; ?>
+                                <?php foreach ($data as $row) : ?>
+                                    <tr>
+                                        <td><?= $nomor; ?></td>
+                                        <td><?= $row['kegiatan']; ?></td>
+                                        <td><?= $row['lokasi']; ?></td>
+                                        <td>Rp. <?php echo number_format($row['pagu']) ?></td>
+                                        <td><?= $row['metode']; ?></td>
+                                        <td>
+                                        
+                                </tr>
+                                <?php $nomor++; ?>
+                            <?php endforeach; ?>
 
+                        </tbody>
+                    </table>
 
+                </div>
+            </div>
 
         </div>
     </section>
+    
+
 
 
 </main>
