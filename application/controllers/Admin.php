@@ -82,12 +82,9 @@ class Admin extends CI_Controller
 
     public function rup()
     {
-        
-
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getDataRUP();
         $this->loadAsset(["path" => "admin/pengumuman/rup", "data" => $data]);
-
         $this->load->view('admin/pengumuman/editdataRUP-modal');
     }
 
@@ -129,12 +126,10 @@ class Admin extends CI_Controller
 
     public function pegawai()
     {
-         $this->load->model('Pegawai_model', 'data');
+        $this->load->model('Pegawai_model', 'data');
         $data['data'] = $this->data->getPegawai();
-
-          $this->load->model('Bidang_model', 'bidang');
-         $data['data_pegawai'] = $this->bidang->getBidang();
-
+        $this->load->model('Bidang_model', 'bidang');
+        $data['data_pegawai'] = $this->bidang->getBidang();
         $this->loadAsset(["path" => "admin/pegawai/pegawai", "data" => $data]);
     }
 
