@@ -42,7 +42,6 @@ class Admin extends CI_Controller
                 'assets/admin/css/bootstrap-datetimepicker.min.css',
             ),
             "list_js_plugins" => array(
-                'assets/admin/vendor/jquery-3.2.1.min.js',
                 'assets/admin/vendor/bootstrap-4.1/popper.min.js',
                 'assets/admin/vendor/bootstrap-4.1/bootstrap.min.js',
                 'assets/plugin/thesaas/js/vendors/datatables.js',
@@ -126,16 +125,35 @@ class Admin extends CI_Controller
 
     public function pegawai()
     {
+
+         $this->load->model('Pegawai_model', 'data');
+         $this->load->model('Jabatan_model', 'jabatan');
+            $data['data'] = $this->data->getPegawai();
+         $data['data_jabatan'] = $this->jabatan->getJabatan();
+
+
+          $this->load->model('Bidang_model', 'bidang');
+         $data['data_pegawai'] = $this->bidang->getBidang();
+
+
+         $this->load->model('Pegawai_model', 'datajabatan');
+        $data['datajabatan'] = $this->data->getPegawaiJabatan();
+
+
         $this->load->model('Pegawai_model', 'data');
         $data['data'] = $this->data->getPegawai();
         $this->load->model('Bidang_model', 'bidang');
         $data['data_pegawai'] = $this->bidang->getBidang();
+
         $this->loadAsset(["path" => "admin/pegawai/pegawai", "data" => $data]);
+      
     }
 
     public function pegawaibidang()
     {
-        $this->loadAsset(["path" => "admin/pegawaibidang/tab"]);
+        $this->load->model('Pegawai_model', 'data');
+        $data['data'] = $this->data->getPegawaibidang();
+        $this->loadAsset(["path" => "admin/pegawaibidang/bidang", "data" => $data]);
     }
 
 
@@ -843,10 +861,91 @@ class Admin extends CI_Controller
         $is_active = $this->input->post('is_active');
         
       
-        $this->data->editdataPegawai($id_bidang, $username , $name , $email , $image , $password_hash , $role_id , $is_active , $jabatan);
+        $this->data->tambahdataPegawai($id_bidang, $username , $name , $email , $image , $password_hash , $role_id , $is_active , $jabatan);
           $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambahkan. </div>');
         redirect('admin/pegawai');
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
+    }
+
+    public function editPegawai(){
+         $this->load->model('Pegawai_model' , 'data');
+         $id = $this->input->post('id');
+        $username = $this->input->post('username');
+        $name = $this->input->post('name');
+        $email = $this->input->post('email');
+        $password =  $this->input->post('password');
+       
+
+        $role_id = $this->input->post('role_id');
+        $id_bidang = $this->input->post('id_bidang');
+        $jabatan = $this->input->post('jabatan');
+        $image = $this->input->post('image');
+        $is_active = $this->input->post('is_active');
+
+          $this->data->editdataPegawai($id , $id_bidang, $username , $name , $email , $image , $password , $role_id , $is_active , $jabatan);
+          $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/pegawai');
+        $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
+    }
+
+    public function deletedataPegawai(){
+        $this->load->model('Pegawai_model' , 'delete_data');
+        $id = $this->input->post('id');
+
+        $this->delete_data->deletedataPegawai($id);
+         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/pegawai');
+        $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
+    }
+
+        public function jabatan()
+    {
+        $this->load->model('Jabatan_model', 'data');
+        $data['data'] = $this->data->getJabatan();
+        $this->loadAsset(["path" => "admin/jabatan/jabatan", "data" => $data]);
+    }
+    public function Tambah_jabatan()
+    {
+
+        $this->load->model('Jabatan_model' , 'data');
+        $jabatan = $this->input->post('jabatan');
+       
+        
+      
+        $this->data->tambahdataJabatan($jabatan);
+          $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambahkan. </div>');
+        redirect('admin/jabatan');
+        $this->loadAsset(["path" => "admin/jabatan/jabatan"]);
+
+    }
+
+    public function editdataJabatan()
+    {
+
+        $this->load->model('Jabatan_model' , 'data');
+        $id_jabatan = $this->input->post('id_jabatan');
+        $jabatan = $this->input->post('jabatan');
+       
+        
+      
+        $this->data->editdataJabatan($id_jabatan , $jabatan);
+          $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/jabatan');
+        $this->loadAsset(["path" => "admin/jabatan/jabatan"]);
+    }
+
+    public function deletedataJabatan()
+    {
+
+        $this->load->model('Jabatan_model' , 'data');
+        $id_jabatan = $this->input->post('id_jabatan');
+        
+        
+      
+        $this->data->deletedataJabatan($id_jabatan);
+          $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/jabatan');
+        $this->loadAsset(["path" => "admin/jabatan/jabatan"]);
     }
 }
 
