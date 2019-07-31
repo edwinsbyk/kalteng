@@ -9,13 +9,16 @@ class Home extends CI_Controller
             "css_list" => array(
                 "assets/css/page.min.css",
                 "assets/admin/css/style.css",
+                "assets/plugin/carousel/css/owl.carousel.min.css",
+                "assets/plugin/carousel/css/owl.theme.default.min.css",
+
             ),
             "js_list" => array(
-                'assets/admin/vendor/jquery-3.2.1.min.js',
                 "assets/vendor/jquery-easing/jquery.easing.min.js",
                 "assets/js/sb-admin-2.min.js",
                 "assets/js/src/script.js",
-                "assets/js/page.min.js"
+                "assets/js/page.min.js",
+                "assets/plugin/carousel/js/owl.carousel.js"
             ),
             "path" => $param["path"]
         );
