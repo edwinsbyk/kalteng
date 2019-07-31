@@ -42,7 +42,6 @@ class Admin extends CI_Controller
                 'assets/admin/css/bootstrap-datetimepicker.min.css',
             ),
             "list_js_plugins" => array(
-                'assets/admin/vendor/jquery-3.2.1.min.js',
                 'assets/admin/vendor/bootstrap-4.1/popper.min.js',
                 'assets/admin/vendor/bootstrap-4.1/bootstrap.min.js',
                 'assets/plugin/thesaas/js/vendors/datatables.js',
