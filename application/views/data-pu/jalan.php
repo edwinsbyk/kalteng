@@ -16,163 +16,42 @@
 
 <main class="main-content">
 
-	<section class="mainContent full-width clearfix coursesSection">
+	<section class="section">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 block">
-					<div>
-						<div class="caption border-color-1">
-							<h3 class="color-1">Jalan</h3>
-							<div class="table">
-								<table class="table">
-									<thead>
-										<tr>
-											<th scope="col">#</th>
-											<th scope="col">Ruas</th>
-											<th scope="col">Kota / Kab</th>
-											<th scope="col">Stat</th>
-											<th scope="col">P(KM)</th>
-											<th scope="col">L(M)</th>
+				<div class="col-lg-6 mx-auto">
+					<table class="table table-hover data_table">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Ruas</th>
+								<th scope="col">Kota / Kab</th>
+								<th scope="col">Stat</th>
+								<th scope="col">P(KM)</th>
+								<th scope="col">L(M)</th>
 
-											<th scope="col">Action</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>1</td>
-											<td>60.13.K - BIAK</td>
-											<td>BIAK NUMFOR</td>
-											<td>Nas</td>
-											<td>2.19</td>
-											<td>3.5</td>
-											<td>
-												<div class="table-data-feature">
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
+							</tr>
+						</thead>
+						<tbody>
+							<?php $i = 1; ?>
+							<?php foreach ($data as $d) : ?>
+								<tr>
+									<td><?= $i; ?></td>
+									<td><?= $d['ruas']; ?></td>
+									<td><?= $d['kota']; ?></td>
+									<td><?= $d['stat']; ?></td>
+									<td><?= $d['panjang']; ?></td>
+									<td><?= $d['lebar']; ?></td>
+								</tr>
+								<?php $i++; ?>
+							<?php endforeach; ?>
 
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
-												</div>
-											</td>
+						</tbody>
+					</table>
 
-										</tr>
-										<tr>
-											<td>1</td>
-											<td>60.13.K - BIAK</td>
-											<td>BIAK NUMFOR</td>
-											<td>Nas</td>
-											<td>2.19</td>
-											<td>3.5</td>
-											<td>
-												<div class="table-data-feature">
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
-
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
-												</div>
-											</td>
-
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>60.13.K - BIAK</td>
-											<td>BIAK NUMFOR</td>
-											<td>Nas</td>
-											<td>2.19</td>
-											<td>3.5</td>
-											<td>
-												<div class="table-data-feature">
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
-
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
-												</div>
-											</td>
-
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>60.13.K - BIAK</td>
-											<td>BIAK NUMFOR</td>
-											<td>Nas</td>
-											<td>2.19</td>
-											<td>3.5</td>
-											<td>
-												<div class="table-data-feature">
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
-
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
-												</div>
-											</td>
-
-										</tr>
-										<tr>
-											<td>4</td>
-											<td>60.13.K - BIAK</td>
-											<td>BIAK NUMFOR</td>
-											<td>Nas</td>
-											<td>2.19</td>
-											<td>3.5</td>
-											<td>
-												<div class="table-data-feature">
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
-
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
-												</div>
-											</td>
-
-										</tr>
-										<tr>
-											<td>5</td>
-											<td>60.13.K - BIAK</td>
-											<td>BIAK NUMFOR</td>
-											<td>Nas</td>
-											<td>2.19</td>
-											<td>3.5</td>
-											<td>
-												<div class="table-data-feature">
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
-
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
-												</div>
-											</td>
-
-										</tr>
-										<tr>
-											<td>6</td>
-											<td>60.13.K - BIAK</td>
-											<td>BIAK NUMFOR</td>
-											<td>Nas</td>
-											<td>2.19</td>
-											<td>3.5</td>
-											<td>
-												<div class="table-data-feature">
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
-
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
-												</div>
-											</td>
-
-										</tr>
-										<tr>
-											<td>7</td>
-											<td>60.13.K - BIAK</td>
-											<td>BIAK NUMFOR</td>
-											<td>Nas</td>
-											<td>2.19</td>
-											<td>3.5</td>
-											<td>
-												<div class="table-data-feature">
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Edit"><i class="zmdi zmdi-edit"></i></a>
-
-													<a href="#" class="item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete"></i></a>
-												</div>
-											</td>
-
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
+
 		</div>
 	</section>
 

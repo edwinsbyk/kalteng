@@ -1,18 +1,64 @@
-<header id="home" class="header text-white h-fullscreen  text-center text-lg-left" style="background-image: radial-gradient( circle 547px at 6.8% 40.8%,  rgba(85,141,175,1) 0%, rgba(29,77,113,1) 98.6% );">
+<!-- <div id="home" class="header text-white h-fullscreen  text-center text-lg-left" style="background-image: radial-gradient( circle 547px at 6.8% 40.8%,  rgba(85,141,175,1) 0%, rgba(29,77,113,1) 98.6% );">
   <div class="container">
-    <div class="row align-items-center h-100">
+    <div class="row align-items-center h-100"> !-->
 
-      <div class="col-lg-6">
-        <h1>SELAMAT DATANG </h1>
-        <p class="lead mt-5 mb-8">DI PORTAL WEB
-          DINAS PEKERJAAN UMUM DAN PENATAAN RUANG
-          PEMERINTAH PROVINSI KALIMANTAN TENGAH</p>
-        <p class="gap-xy">
-          <a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
-          <a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
-        </p>
+<section id="demos" class="overflow-hidden">
+<div class="row overflow-hidden">
+  <div class="large-12 columns overflow-hidden w-100">
+    <div class="owl-carousel owl-theme">
+      <div class="item text-white h-fullscreen text-center text-lg-left w-100 position-relative">
+        <div class="content-slider" style="background-image: url('https://images3.alphacoders.com/823/82317.jpg')">
+          <div class="inner-content row align-items-center h-100">
+            <div class="col-lg-6">
+              <h1>SELAMAT DATANG </h1>
+              <p class="lead mt-5 mb-8">DI PORTAL WEB
+                DINAS PEKERJAAN UMUM DAN PENATAAN RUANG
+                PEMERINTAH PROVINSI KALIMANTAN TENGAH</p>
+              <p class="gap-xy">
+                <a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
+                <a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-</header><!-- /.header -->
+      <div class="item text-white h-fullscreen text-center text-lg-left w-100 position-relative">
+        <div class="content-slider" style="background-image: url('https://cdn.pixabay.com/photo/2017/02/07/16/47/kingfisher-2046453_960_720.jpg')">
+          <div class="inner-content row align-items-center h-100">
+            <div class="col-lg-6">
+              <h1>SELAMAT DATANG </h1>
+              <p class="lead mt-5 mb-8">DI PORTAL WEB
+                DINAS PEKERJAAN UMUM DAN PENATAAN RUANG
+                PEMERINTAH PROVINSI KALIMANTAN TENGAH</p>
+              <p class="gap-xy">
+                <a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
+                <a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item text-white h-fullscreen text-center text-lg-left w-100 position-relative">
+        <div class="content-slider" style="background-image: url('https://cdn.pixabay.com/photo/2019/04/04/17/49/eye-4103308_960_720.jpg')">
+          <div class="inner-content row align-items-center h-100">
+            <div class="col-lg-6">
+              <h1>SELAMAT DATANG </h1>
+              <p class="lead mt-5 mb-8">DI PORTAL WEB
+                DINAS PEKERJAAN UMUM DAN PENATAAN RUANG
+                PEMERINTAH PROVINSI KALIMANTAN TENGAH</p>
+              <p class="gap-xy">
+                <a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
+                <a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</div>
 <main>
   <!--
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
@@ -81,3 +127,20 @@
     </div>
   </section>
 </main>
+
+<script>
+  $(document).ready(function() {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+      loop:true,
+      touchDrag: false,
+      mouseDrag: false,
+      autoplay: true,
+      autoplaySpeed: 1000,
+      autoplayTimeout: 5000,
+      animateOut: 'fadeOut',
+      animateIn: 'fadeOut',
+      items:1
+    })
+  })
+</script>
