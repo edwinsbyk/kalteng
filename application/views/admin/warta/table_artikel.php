@@ -52,13 +52,13 @@
 </style>
 
 <?= $this->session->flashdata('message') ?>
-<table id="artikelTable" class="table table-striped" style="width:100%"> 
+<table class="data_table table table-striped" style="width:100%"> 
     <thead> 
         <tr> 
             <th>Judul</th> 
             <th width="200">Tanggal</th>
             <th width="100">Action</th>
-        </tr> 
+        </tr>   
     </thead> 
     <tbody> 
         <?php 
