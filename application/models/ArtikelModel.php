@@ -20,4 +20,10 @@ class ArtikelModel extends CI_Model {
     {
         return $this->db->get_where("tbl_artikel", array('id_artikel' => $id))->result_array();
     }
+
+    public function update_data($data, $id) {
+        $this->db->set($data, FALSE);
+        $this->db->where('id_artikel', $id);
+        return $this->db->update('tbl_artikel');
+    }
 }

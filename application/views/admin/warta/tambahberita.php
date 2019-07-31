@@ -25,7 +25,7 @@
                     <label for="text-input" class=" form-control-label">Tanggal & Waktu</label>
                 </div>
                 <div class="col-12 col-md-9 date" >
-                    <input type='text' class="form-control" name="tanggal" placeholder="<?= date("Y/m/d H:i:s") ?>" required disabled/>
+                    <input type='text' class="form-control" name="tanggal" required disabled/>
                 </div>
             </div>
 
@@ -34,7 +34,7 @@
                     <label for="text-input" class=" form-control-label">Dibuat oleh</label>
                 </div>
                 <div class="col-12 col-md-9 date" >
-                    <input type='text' class="form-control" name="tanggal" placeholder="Syahid Nurrohim" required disabled/>
+                    <input type='text' class="form-control" name="dibuat-oleh" placeholder="Syahid Nurrohim" required disabled/>
                 </div>
             </div>
 
@@ -54,3 +54,34 @@
         </form>
     </div>
 </div>
+
+<!-- Realtime Datetime -->
+<script type="text/javascript">
+
+function startTime() {
+  var today = new Date();
+
+  var day 		= today.getDate();
+  var month 	= today.getMonth();
+  var year 		= today.getFullYear();
+  var hour      = today.getHours();
+  var minute    = today.getMinutes();
+  var second    = today.getSeconds();
+
+  hour = addZeroPadding(hour);
+  minute = addZeroPadding(minute);
+  second = addZeroPadding(second);
+  
+  $('[name="tanggal"]').val(day + "/" + month + "/" + year + " " + hour + ":" + minute +":" + second);
+  $('[name="edit_tanggal_berita"]').val(day + "/" + month + "/" + year + " " + hour + ":" + minute +":" + second);
+ 
+  var t = setTimeout(startTime, 500);
+}
+
+function addZeroPadding(i) {
+  if (i < 10) {i = "0" + i};  // add zero padding in front of numbers < 10
+  return i;
+}
+
+$(document).ready(startTime);
+</script>
