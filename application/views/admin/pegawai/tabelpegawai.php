@@ -1,3 +1,4 @@
+                 <?= $this->session->flashdata('message'); ?>
                   <div class="col-lg-12">
                                 <!-- DATA TABLE-->
                                 <div class="table-responsive m-b-40">
@@ -7,7 +8,7 @@
                                           <th>Nama</th>
                                           <th>Email</th>
                                           <th>Bidang</th>
-                                          <th>Jabatan</th>
+                                         
                                           <th>Action</th>
 
                                         </tr>
@@ -15,13 +16,16 @@
                                       <tbody>
                                                       <?php $nomor = 1; ?>
                                 <?php foreach ($data as $row) : ?>
+                                 
                                         <tr>
                                           <td><?= $nomor ?></td>
                                           <td><?= $row['name'] ?></td>
                                           <td><?= $row['email']  ?></td>
                                           <td><?= $row['bidang']  ?></td>
-                                          <td><?= $row['jabatan']  ?></td>
-
+                                         
+                                          
+                                           
+                                          
                                          <td>  
 
                                                   <div class="table-data-feature">
@@ -34,14 +38,19 @@
                                                 </td>
                                             </tr>
 
-                                               <?php $nomor++; ?>
+                                                 
+                                               
 
-                                <?php endforeach; ?>
-                                          
+ <?php $nomor++; ?>
+                                              <?php endforeach; ?>
+
+                              
+                                          <?php $this->load->view('admin/pegawai/detailPegawai-modal'); ?>
+<?php $this->load->view('admin/pegawai/editPegawai-modal'); ?>
+<?php $this->load->view('admin/pegawai/deletePegawai-modal'); ?>
                                         </tbody>
                                     </table>
   
                               </div>
 
 </div>
-<?php $this->load->view('admin/pegawai/detailPegawai-modal'); ?>

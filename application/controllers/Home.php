@@ -8,12 +8,14 @@ class Home extends CI_Controller
             "title" => isset($param["title"]) ? $param["title"] : "Home",
             "css_list" => array(
                 "assets/css/page.min.css",
-                "assets/css/style.css"
+                "assets/admin/css/style.css",
             ),
             "js_list" => array(
                 'assets/admin/vendor/jquery-3.2.1.min.js',
                 "assets/vendor/jquery-easing/jquery.easing.min.js",
                 "assets/js/sb-admin-2.min.js",
+                "assets/js/src/script.js",
+                "assets/js/page.min.js"
             ),
             "path" => $param["path"]
         );

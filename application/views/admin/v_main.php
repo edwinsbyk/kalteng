@@ -9,6 +9,7 @@
         <link href="<?php echo base_url($key) ?>" rel="stylesheet" media="all">
     <?php }} ?>
     <script src="<?= base_url("assets/plugin/tinymce/tinymce.min.js") ?>"></script>
+    <script src="<?= base_url('assets/admin/vendor/jquery-3.2.1.min.js') ?>"></script>
     <title><?=$title?></title>
 </head>
 <body class="animsition">
@@ -23,7 +24,7 @@
                 $this->load->view($path); 
             ?>
             </div>
-            </div>
+        </div>
     </main>
 </body>
     <footer>

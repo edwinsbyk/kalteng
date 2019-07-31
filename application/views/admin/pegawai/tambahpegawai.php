@@ -78,13 +78,20 @@
                                                        
                                                 </div>
                                             </div>
-                                             <div class="row form-group">
+                                              <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="hf-no_sk" class=" form-control-label">Jabatan</label>
+                                                    <label for="hf-hps" class=" form-control-label">Jabatan</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="hf-no_sk" name="jabatan" placeholder="Masukkan Jabatan" class="form-control">
+                                                    <select type="text" id="hf-hps" name="jabatan" placeholder="Masukkan jabatan" class="form-control">
+                                                        <?php foreach ($data_jabatan as $row) : ?>
+                                                        <option value="<?= $row['id_jabatan'] ?>"><?= $row['jabatan'] ?></option>
+                                                        <?php endforeach ?>
                                                     
+                                                        
+                                                        
+                                                       </select>
+                                                       
                                                 </div>
                                             </div>
                                                 <input type="hidden" id="hf-image" name="image" placeholder="Masukkan image" class="form-control" value="default.jpg">

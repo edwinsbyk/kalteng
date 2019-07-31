@@ -14,7 +14,7 @@
 <!--
 
 
-<!-- <header class="header text-white" style="background-image: url(../assets/img/bg/1.jpg)" data-overlay="7">
+<header class="header text-white" style="background-image: url(../assets/img/bg/1.jpg)" data-overlay="7">
   <div class="container text-center">
 
     <div class="row">

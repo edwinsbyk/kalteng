@@ -1,4 +1,43 @@
 
+.dash-item {
+    position: relative;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.dashboard {
+    margin-top: 64px;
+}
+
+.dash-number {
+    font-size: 2rem;
+}
+
+.dash-desc {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: rgba(128, 128, 128, 0.8);
+}
+
+.desc-foot {
+    opacity: .7;
+}
+
+.dash-icon {
+    border-radius: 4px;
+    background: linear-gradient(60deg, #ef5350, #e53935);
+    padding: 0 2rem;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(244, 67, 54,.4);
+    position: absolute;
+    right: -3%;
+    top: -10%;
+    font-size: 4rem;
+    color: white;
+}
+
 .list-sidebar-item a {
     color: #FFF!important
 }
