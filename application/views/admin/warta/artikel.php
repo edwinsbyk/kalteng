@@ -38,7 +38,7 @@
     <div class="modal-dialog modal-xxlg">
         <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="judul-artikel">Preview Berita</h5>
+              <h5 class="modal-title" id="judul-artikel">Preview Artikel</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -54,13 +54,13 @@
     <div class="modal-dialog modal-xlg">
         <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Edit Berita</h5>
+              <h5 class="modal-title">Edit Artikel</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body" style="overflow: auto;">
-                <form action="<?= base_url("admin/add_article") ?>" method="post" enctype="multipart/form-data" class="form-horizontal card">
+                <form action="<?= base_url("admin/edit_artikel") ?>" method="post" enctype="multipart/form-data" class="form-horizontal card">
                     <div class="card-body card-block borders">
                         <div class="row form-group">
                             <div class="col col-md-3">
@@ -70,6 +70,16 @@
                                 <input type="text" name="edit-judul" required placeholder="Judul artikel disini" class="form-control">
                             </div>
                         </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="text-input" class=" form-control-label">Link Gambar</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" id="text-input" name="edit-image" placeholder="Link Gambar" class="form-control">
+                            </div>
+                        </div>
+
                         <div class="row form-group">
                             <div class="col col-md-3">
                                 <label class=" form-control-label">Tanggal & Waktu</label>
@@ -96,7 +106,7 @@
                                 <textarea type="textarea" name="edit-isi" id="edit-isi-artikel" rows="10" class="form-control tinyarea"></textarea>
                             </div>
                         </div>
-
+                        <input type="hidden" name="edit-id_artikel">
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-sm">

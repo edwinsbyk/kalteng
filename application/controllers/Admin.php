@@ -102,7 +102,7 @@ class Admin extends CI_Controller
             "judul" => $this->input->post("judul_artikel"),
             "isi" => $this->input->post("isi_artikel"),
             "tanggal" => date("Y/m/d H:i:s"),
-            "image" => "null"
+            "image" => $this->input->post("image")
         );
         $this->load->model("ArtikelModel");
         $this->ArtikelModel->tambah_data($data)
@@ -110,6 +110,21 @@ class Admin extends CI_Controller
             : throw_flash_redirect("Gagal menambahkan data", "danger", "admin/artikel");
     }
 
+    public function edit_artikel()
+    {
+        // $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
+        $data = array(
+            "judul" => $this->input->post("edit-judul"),
+            "isi" => $this->input->post("edit-isi"),
+            "tanggal" => date("Y/m/d H:i:s"),
+            "image" => $this->input->post("edit-image"),
+        );
+
+        $this->load->model("ArtikelModel");
+        echo $this->ArtikelModel->update_data($data, $this->input->post("edit-id_artikel")) 
+            ? throw_flash_redirect("Berita berhasil diubah", "success", "admin/artikel") 
+            : throw_flash_redirect("Gagal merubah berita", "danger", "admin/artikel");
+    }
 
     public function delete_article()
     {
@@ -119,7 +134,9 @@ class Admin extends CI_Controller
 
     public function agenda()
     {
-        $this->loadAsset(["path" => "admin/warta/agenda"]);
+        $this->load->model("Agenda_model");
+        $data['data'] = $this->Agenda_model->getAgenda();
+        $this->loadAsset(["path" => "admin/warta/agenda", "data" => $data]);
     }
 
 

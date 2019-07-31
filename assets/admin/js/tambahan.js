@@ -1,6 +1,4 @@
 $(document).ready(() => {
-    $("#artikelTable").DataTable();
-    $("#beritaTable").DataTable();
     $(".data_table").DataTable();
 
     $('.datepicker').datepicker({
@@ -91,6 +89,7 @@ $(document).ready(() => {
                 $("#edit_judul_berita").val(data.judul);
                 $("input[name='edit_idberita']").val(data.idberita);
                 $("#edit_tanggal_berita").val(data.tanggal);
+                $("#edit_link_gambar").val(data.image);
                 tinymce.get('edit_isi_berita').setContent(data.isi);
             })
         })
@@ -122,6 +121,8 @@ $(document).ready(() => {
                 data = JSON.parse(data)[0]
                 $("[name='edit-judul']").val(data.judul);
                 $("[name='edit-tanggal']").val(data.tanggal);
+                $("[name='edit-image']").val(data.image);
+                $("[name='edit-id_artikel']").val(data.id_artikel);
                 tinymce.get('edit-isi-artikel').setContent(data.isi);
             })
         })
