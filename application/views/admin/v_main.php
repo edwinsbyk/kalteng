@@ -24,7 +24,7 @@
                 $this->load->view($path); 
             ?>
             </div>
-            </div>
+        </div>
     </main>
 </body>
     <footer>
