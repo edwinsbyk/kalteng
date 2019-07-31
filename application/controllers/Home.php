@@ -48,8 +48,12 @@ class Home extends CI_Controller
         $this->inject_resources(["path" => array('templates/berita_header', 'newsdemo/index')]);
     }
     public function pengumumanRup()
-    {
-        $this->inject_resources(["path" => 'pengumuman/rup']);
+    {   
+         $this->load->model('Pengumuman_model', 'data');
+        $data['data'] = $this->data->getDataRUP();
+        $this->inject_resources(["path" => 'pengumuman/rup' ,"data" => $data]);
+        
+        
     }
     public function datapujalan()
     {
