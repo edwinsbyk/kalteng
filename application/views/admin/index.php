@@ -6,12 +6,12 @@
                             <div class="col-md-6 col-xl-3 col-lg-4">
                                 <div class="dash-item">
                                     <h2 class="dash-number">10,368</h2>
-                                    <span class="dash-desc">members online</span>
-                                    <div class="w-100 d-flex justify-content-between align-items-center mt-5 desc-foot">
-                                        <span><small>Informasi</small></span>
+                                    <span class="dash-desc">pegawai</span>
+                                    <div class="w-100 d-flex justify-content-between align-items-center mt-4 desc-foot">
+                                        <span><small>Informasi Pegawai</small></span>
                                         <i class=" far fa-chart-bar"></i>
                                     </div>
-                                    <div class="dash-icon">
+                                    <div class="item-pegawai dash-icon">
                                         <i class="zmdi zmdi-account-o"></i>
                                     </div>
                                 </div>
@@ -19,39 +19,39 @@
                             <div class="col-md-6 col-xl-3 col-lg-4">
                                 <div class="dash-item">
                                     <h2 class="dash-number">10,368</h2>
-                                    <span class="dash-desc">members online</span>
-                                    <div class="w-100 d-flex justify-content-between align-items-center mt-5 desc-foot">
-                                        <span><small>Informasi</small></span>
+                                    <span class="dash-desc">bidang</span>
+                                    <div class="w-100 d-flex justify-content-between align-items-center mt-4 desc-foot">
+                                        <span><small>Informasi Bidang</small></span>
                                         <i class=" far fa-chart-bar"></i>
                                     </div>
-                                    <div class="dash-icon">
-                                        <i class="zmdi zmdi-account-o"></i>
+                                    <div class="item-bidang dash-icon">
+                                        <i class="fas fa-expand"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-xl-3 col-lg-4">
                                 <div class="dash-item">
                                     <h2 class="dash-number">10,368</h2>
-                                    <span class="dash-desc">members online</span>
-                                    <div class="w-100 d-flex justify-content-between align-items-center mt-5 desc-foot">
-                                        <span><small>Informasi</small></span>
+                                    <span class="dash-desc">berita</span>
+                                    <div class="w-100 d-flex justify-content-between align-items-center mt-4 desc-foot">
+                                        <span><small>Informasi Berita</small></span>
                                         <i class=" far fa-chart-bar"></i>
                                     </div>
-                                    <div class="dash-icon">
-                                        <i class="zmdi zmdi-account-o"></i>
+                                    <div class="item-berita dash-icon">
+                                        <i class="far fa-newspaper"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-xl-3 col-lg-4">
                                 <div class="dash-item">
                                     <h2 class="dash-number">10,368</h2>
-                                    <span class="dash-desc">members online</span>
-                                    <div class="w-100 d-flex justify-content-between align-items-center mt-5 desc-foot">
-                                        <span><small>Informasi</small></span>
+                                    <span class="dash-desc">artikel</span>
+                                    <div class="w-100 d-flex justify-content-between align-items-center mt-4 desc-foot">
+                                        <span><small>Informasi Artikel</small></span>
                                         <i class=" far fa-chart-bar"></i>
                                     </div>
-                                    <div class="dash-icon">
-                                        <i class="zmdi zmdi-account-o"></i>
+                                    <div class="item-artikel dash-icon">
+                                        <i class="far fa-file-alt"></i>
                                     </div>
                                 </div>
                             </div>
