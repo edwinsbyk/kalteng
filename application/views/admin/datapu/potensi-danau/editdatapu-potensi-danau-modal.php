@@ -1,6 +1,6 @@
 <?php
 foreach ($data as $d) : ?>
-    <div class="modal fade" id="modal_edit<?= $d['id_jalan']; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal fade" id="modal_edit<?= $d['id_danau']; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -9,27 +9,33 @@ foreach ($data as $d) : ?>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="form-horizontal" method="post" action="<?= base_url('admin/editdataJalan') ?>">
+                <form class="form-horizontal" method="post" action="<?= base_url('admin/editdataPotensiDanau') ?>">
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="ruas" placeholder="Nama" value="<?= $d['ruas'] ?>" required>
+                            <input type="text" class="form-control" name="nama" placeholder="Nama" value="<?= $d['nama'] ?>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email" name="kota" placeholder="Kota" value="<?= $d['kota'] ?>" required>
+                            <input type="text" class="form-control" name="kota" placeholder="Kota" value="<?= $d['kota'] ?>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="stat" placeholder="Status" value="<?= $d['stat'] ?>" required>
+                            <input type="text" class="form-control" name="luas" placeholder="luas" value="<?= $d['luas'] ?>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email" name="panjang" placeholder="Panjang (Km)" value="<?= $d['panjang'] ?>" required>
+                            <input type="text" class="form-control" name="kedalaman" placeholder="Kedalaman" value="<?= $d['kedalaman'] ?>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email" name="lebar" placeholder="Lebar (m)" value="<?= $d['lebar'] ?>" required>
+                            <input type="text" class="form-control" name="kapasitas" placeholder="Kapasitas" value="<?= $d['kapasitas'] ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="penduduk" placeholder="Penduduk" value="<?= $d['penduduk'] ?>" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="irigasi" placeholder="Irigasi" value="<?= $d['irigasi'] ?>" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <input type="hidden" name="id" value="<?= $d['id_jalan']; ?>">
+                        <input type="hidden" name="id" value="<?= $d['id_danau']; ?>">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
                         <button type="submit" class="btn btn-info">Update</button>
                     </div>

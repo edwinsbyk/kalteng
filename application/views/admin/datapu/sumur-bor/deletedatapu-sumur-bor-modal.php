@@ -1,6 +1,6 @@
 <?php
 foreach ($data as $d) : ?>
-    <div class="modal fade" id="modal_delete<?= $d['id_embung']; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal fade" id="modal_delete<?= $d['id_sumurbor']; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -9,13 +9,13 @@ foreach ($data as $d) : ?>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="form-horizontal" method="post" action="<?= base_url('admin/deletedataEmbung') ?>">
+                <form class="form-horizontal" method="post" action="<?= base_url('admin/deletedataSumurBor') ?>">
                     <div class="modal-body">
                         Hapus data <?= $d['nama'] ?>?
                     </div>
 
                     <div class="modal-footer">
-                        <input type="hidden" name="id" value="<?= $d['id_embung']; ?>">
+                        <input type="hidden" name="id" value="<?= $d['id_sumurbor']; ?>">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
                         <button type="submit" class="btn btn-info">Hapus</button>
                     </div>
