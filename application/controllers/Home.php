@@ -10,6 +10,7 @@ class Home extends CI_Controller
             "css_list" => array(
                 "assets/css/page.min.css",
                 "assets/admin/css/style.css",
+                "assets/admin/css/fstyle.css",
                 'assets/admin/css/datatables.css',
                 "assets/plugin/carousel/css/owl.carousel.min.css",
                 "assets/plugin/carousel/css/owl.theme.default.min.css",
