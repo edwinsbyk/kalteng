@@ -38,7 +38,7 @@ class Home extends CI_Controller
                 'assets/admin/js/tambahan.js',
                 'assets/admin/js/datatables.js',
                 'assets/admin/js/bootstrap-datetimepicker.min.js',
-                'assets/admin/js/swal.js'
+                'assets/admin/js/swal.js',
                 "assets/plugin/carousel/js/owl.carousel.js",
                 "assets/plugin/carousel/js/owl.autoplay.js"
             ),
@@ -58,7 +58,7 @@ class Home extends CI_Controller
          $this->load->model('Bidanghome_model', 'data');
         $data['data'] = $this->data->getdataBidang();
         $this->inject_resources(["path" => "home/bidang", "data" => $data]);
-        $this->load->view('home/bidang');
+      
     }
 
     public function berita()
@@ -88,4 +88,18 @@ class Home extends CI_Controller
     {
         $this->inject_resources(["path" => 'home/download']);
     }
+
+    public function pengumumanlelang()
+    {
+        $this->load->model('Pengumuman_model', 'data');
+        $data['data'] = $this->data->getPengumumanLelang();
+        $this->inject_resources(["path" => 'pengumuman/pengumumanlelang' ,"data" => $data]);
+    }
+    public function pengumumanpemenanglelang()
+    {
+        $this->load->model('Pengumuman_model', 'data');
+        $data['data'] = $this->data->getPemenangLelang();
+        $this->inject_resources(["path" => 'pengumuman/pemenanglelang' ,"data" => $data]);
+    }
 }
+

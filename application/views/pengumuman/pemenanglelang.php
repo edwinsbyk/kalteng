@@ -27,24 +27,26 @@
                     <table class="table table-hover data_table">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Kegiatan / Paket</th>
-                                <th scope="col">Lokasi</th>
-                                <th scope="col">Pagu</th>
-                                <th scope="col">Metode Lelang)</th>
+                                 <th>No</th> 
+                                                <th>No. SK</th>
+                                                <th>Nama Paket</th>
+                                                <th>Pemenang</th>
+                                                <th>HPS (Rp)</th>
+                                                <th>Action</th>
                                 
 
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $nomor = 1; ?>
-                            <?php foreach ($data as $row) : ?>
-                                <tr>
-                                    <td><?= $nomor; ?></td>
-                                        <td><?= $row['kegiatan']; ?></td>
-                                        <td><?= $row['lokasi']; ?></td>
-                                        <td>Rp. <?php echo number_format($row['pagu']) ?></td>
-                                        <td><?= $row['metode']; ?></td>
+                            
+                                                <?php $nomor = 1; ?>
+                                <?php foreach ($data as $row) : ?>
+                                    <tr>
+                                        <td><?= $nomor; ?></td>
+                                        <td><?= $row['no_sk'] ?></td>
+                                        <td><?= $row['nama_paket'] ?></td>
+                                        <td><?= $row['pemenang']; ?></td>
+                                        <td>Rp. <?php echo number_format($row['hps']) ?></td>
                                         
                                 </tr>
                                 <?php $nomor++; ?>

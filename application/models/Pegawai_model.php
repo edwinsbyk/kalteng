@@ -5,7 +5,7 @@ class Pegawai_model extends CI_Model
 {
 	public function getPegawai()
     {
-       $query = "SELECT * FROM user  JOIN tbl_bidang ON user.id_bidang=tbl_bidang.id_bidang ORDER BY name DESC ";
+       $query = "SELECT * FROM tbl_pegawai  JOIN tbl_bidang ON tbl_pegawai.id_bidang=tbl_bidang.id_bidang ORDER BY nama DESC ";
 
         // $query = "SELECT * FROM `tbl_pemenang_lelang`
 
@@ -25,28 +25,28 @@ class Pegawai_model extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
-    public function tambahdataPegawai($id_bidang, $username , $name , $email , $image , $password_hash , $role_id , $is_active , $jabatan)
+    public function tambahdataPegawai($id_bidang , $jabatan, $nip ,$nama, $alamat)
     {
 
-        $hasil = $this->db->query("INSERT INTO `user`(`id`, `id_bidang`, `username`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `id_jabatan`) VALUES (NULL,'$id_bidang','$username','$name','$email','$image','$password_hash','$role_id','$is_active','','$jabatan');");
+        $hasil = $this->db->query("INSERT INTO `tbl_pegawai`(`id_pegawai`, `id_bidang`, `id_jabatan`, `nip`, `nama`, `alamat`) VALUES (NULL,'$id_bidang','$jabatan','$nip','$nama','$alamat');");
         return $hasil;
     }
-    public function editdataPegawai($id , $id_bidang, $username , $name , $email , $image , $password , $role_id , $is_active , $jabatan)
+    public function editdataPegawai($id_pegawai, $id_bidang , $jabatan, $nip ,$nama, $alamat)
    	{
 
-        $hasil = $this->db->query("UPDATE `user` SET `id_bidang`='$id_bidang',`username`='$username',name='$name',email='$email',image='$image',password='$password' ,role_id='$role_id' ,is_active='$is_active' ,date_created='' ,id_jabatan='$jabatan'  WHERE id='$id'");
+        $hasil = $this->db->query("UPDATE `tbl_pegawai` SET `id_bidang`='$id_bidang',`id_jabatan`='$jabatan',`nip`='$nip',`nama`='$nama',`alamat`='$alamat' WHERE id_pegawai='$id_pegawai'");
 
         return $hasil;
    	}
-   	public function deletedataPegawai($id) {
+   	public function deletedataPegawai($id_pegawai) {
 
-   		 $hasil = $this->db->query("DELETE FROM `user` WHERE `user`.`id` = '$id'");
+   		 $hasil = $this->db->query("DELETE FROM `tbl_pegawai` WHERE `tbl_pegawai`.`id_pegawai` = '$id_pegawai'");
         return $hasil;
    	}
 
     public function getPegawaiJabatan()
     {
-       $query = "SELECT * FROM user  JOIN tbl_jabatan ON user.id_jabatan=tbl_jabatan.id_jabatan ORDER BY jabatan DESC ";
+       $query = "SELECT * FROM tbl_pegawai  JOIN tbl_jabatan ON tbl_pegawai.id_jabatan=tbl_jabatan.id_jabatan ORDER BY jabatan DESC ";
 
         // $query = "SELECT * FROM `tbl_pemenang_lelang`
 
