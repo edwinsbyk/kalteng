@@ -69,6 +69,24 @@ $(document).ready(() => {
 
 	var detail_berita = $(".detail_berita");
 	detail_berita.click(function () {
+		console.log("kwkwkw")
+		var self = $(this);
+		$.ajax({
+			method: "get",
+			url: self.attr("data-url"),
+			data: {
+				berita_id: self.attr("berita-index")
+			},
+			cache: false
+		}).done((data) => {
+			data = JSON.parse(data)[0]
+			$("#judul-berita").html(data.judul);
+			$("#isi-berita").html(data.isi)
+		})
+	})
+
+	var detail_berita = $(".detail_berita");
+	detail_berita.click(function () {
 		var self = $(this);
 		$.ajax({
 			method: "get",

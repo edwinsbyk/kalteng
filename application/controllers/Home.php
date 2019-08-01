@@ -12,10 +12,9 @@ class Home extends CI_Controller
                 "assets/admin/css/style.css",
                 "assets/admin/css/fstyle.css",
                 'assets/admin/css/datatables.css',
-                "assets/plugin/carousel/css/owl.carousel.min.css",
                 "assets/plugin/carousel/css/owl.theme.default.min.css",
-                "assets/vendor/fontawesome-free/css/all.css"
-
+                "assets/vendor/fontawesome-free/css/all.css",
+                "assets/plugin/carousel/css/owl.carousel.min.css",
 
             ),
             "js_list" => array(
@@ -44,6 +43,7 @@ class Home extends CI_Controller
                 'assets/admin/js/swal.js',
                 "assets/plugin/carousel/js/owl.carousel.js",
                 "assets/plugin/carousel/js/owl.autoplay.js",
+                "assets/plugin/carousel/js/owl.navigation.js",
             ),
             "path" => $param["path"]
         );
