@@ -74,6 +74,9 @@ function startTime() {
   var minute    = today.getMinutes();
   var second    = today.getSeconds();
 
+  day = addZeroPadding(day);
+  month = addZeroPadding(month);
+
   hour = addZeroPadding(hour);
   minute = addZeroPadding(minute);
   second = addZeroPadding(second);

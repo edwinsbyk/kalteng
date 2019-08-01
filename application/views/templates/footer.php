@@ -19,7 +19,7 @@
                     <a class="nav-link" href="<?= base_url('home/bidang'); ?>">Bidang</a>
                     <a class="nav-link" href="<?= base_url('home/warta'); ?>">Warta</a>
                     <a class="nav-link" href="<?= base_url('home/pengumuman'); ?>">Pengumuman</a>
-                    <a class="nav-link" href="<?= base_url('home/data-pu'); ?>">Data PU</a>
+                    <a class="nav-link" href="<?= base_url('home/datapu') ?>">Data PU</a>
                     <a class="nav-link" href="<?= base_url('home/download'); ?>">Download</a>
                 </div>
             </div>
