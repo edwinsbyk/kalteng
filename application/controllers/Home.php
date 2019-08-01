@@ -14,6 +14,8 @@ class Home extends CI_Controller
                 'assets/admin/css/datatables.css',
                 "assets/plugin/carousel/css/owl.carousel.min.css",
                 "assets/plugin/carousel/css/owl.theme.default.min.css",
+                "assets/vendor/fontawesome-free/css/all.css"
+
 
             ),
             "js_list" => array(
@@ -41,7 +43,7 @@ class Home extends CI_Controller
                 'assets/admin/js/bootstrap-datetimepicker.min.js',
                 'assets/admin/js/swal.js',
                 "assets/plugin/carousel/js/owl.carousel.js",
-                "assets/plugin/carousel/js/owl.autoplay.js"
+                "assets/plugin/carousel/js/owl.autoplay.js",
             ),
             "path" => $param["path"]
         );
@@ -60,6 +62,14 @@ class Home extends CI_Controller
         $data['data'] = $this->data->getdataBidang();
         $this->inject_resources(["path" => "home/bidang", "data" => $data]);
         $this->load->view('home/bidang');
+    }
+
+    public function datapu()
+    {
+        // $data['title'] = 'Bidang';
+        // $this->load->model('Bidanghome_model', 'data');
+        // $data['data'] = $this->data->getdataBidang();
+        $this->inject_resources(["path" => "home/datapu"]);
     }
 
     public function berita()
@@ -81,7 +91,63 @@ class Home extends CI_Controller
 
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJalan();
-        $this->inject_resources(["path" => 'data-pu/jalan', "data" => $data]);
+        $this->inject_resources(["path" => 'home/data-pu/jalan', "data" => $data]);
+    }
+    public function datapujembatan()
+    {
+
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataJembatan();
+        $this->inject_resources(["path" => 'home/data-pu/jembatan', "data" => $data]);
+    }
+    public function datapuembung()
+    {
+
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataEmbung();
+        $this->inject_resources(["path" => 'home/data-pu/embung', "data" => $data]);
+    }
+    public function datapusumurbor()
+    {
+
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataSumurBor();
+        $this->inject_resources(["path" => 'home/data-pu/sumurbor', "data" => $data]);
+    }
+    public function datapublackspot()
+    {
+
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataBlackSpot();
+        $this->inject_resources(["path" => 'home/data-pu/black-spot', "data" => $data]);
+    }
+    public function datapuspam()
+    {
+
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataSpam();
+        $this->inject_resources(["path" => 'home/data-pu/spam', "data" => $data]);
+    }
+    public function datapupotensidanau()
+    {
+
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataDanau();
+        $this->inject_resources(["path" => 'home/data-pu/danau', "data" => $data]);
+    }
+    public function datapupotensirawa()
+    {
+
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataRawa();
+        $this->inject_resources(["path" => 'home/data-pu/rawa', "data" => $data]);
+    }
+    public function datapupotensisumurbor()
+    {
+
+        $this->load->model('Datapu_model', 'data');
+        $data['data'] = $this->data->getDataPotensiSumurBor();
+        $this->inject_resources(["path" => 'home/data-pu/potensi-sumur-bor', "data" => $data]);
     }
     public function download()
     {

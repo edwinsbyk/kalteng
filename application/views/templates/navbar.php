@@ -32,18 +32,17 @@
             </nav>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Data Pu <span class="arrow"></span></a>
+            <a class="nav-link" href="<?= base_url('home/datapu') ?>">Data Pu <span class="arrow"></span></a>
             <nav class="nav">
-              <a class="nav-link" href="<?= base_url('home/datapuJalan') ?>">Jalan</a>
-              <a class="nav-link" href="<?= base_url('home/datapuJembatan') ?>">Jembatan</a>
-              <a class="nav-link" href="<?= base_url('home/datapuEmbung') ?>">Embung</a>
-              <a class="nav-link" href="<?= base_url('home/datapuSumurBor') ?>">Sumur Bor</a>
-              <a class="nav-link" href="<?= base_url('home/datapuBlackSpot') ?>">Black Spot</a>
-              <a class="nav-link" href="<?= base_url('home/datapuSpam') ?>">Spam</a>
-
-              <a class="nav-link" href="<?= base_url('home/datapuPotensiDanau') ?>">Potensi Danau</a>
-              <a class="nav-link" href="<?= base_url('home/datapuPotensiRawa') ?>">Potensi Rawa</a>
-              <a class="nav-link" href="<?= base_url('home/datapuPotensiSumurBor') ?>">Potensi Sumur Bor</a>
+              <a class="nav-link" href="<?= base_url('home/datapujalan') ?>">Jalan</a>
+              <a class="nav-link" href="<?= base_url('home/datapujembatan') ?>">Jembatan</a>
+              <a class="nav-link" href="<?= base_url('home/datapuembung') ?>">Embung</a>
+              <a class="nav-link" href="<?= base_url('home/datapusumurbor') ?>">Sumur Bor</a>
+              <a class="nav-link" href="<?= base_url('home/datapublackspot') ?>">Black Spot</a>
+              <a class="nav-link" href="<?= base_url('home/datapuspam') ?>">Spam</a>
+              <a class="nav-link" href="<?= base_url('home/datapupotensidanau') ?>">Potensi Danau</a>
+              <a class="nav-link" href="<?= base_url('home/datapupotensirawa') ?>">Potensi Rawa</a>
+              <a class="nav-link" href="<?= base_url('home/datapupotensisumurbor') ?>">Potensi Sumur Bor</a>
             </nav>
           </li>
           <a class="nav-link" href="<?= base_url('home/download'); ?>">Download</a>
