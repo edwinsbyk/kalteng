@@ -97,16 +97,16 @@
 
         <div class="card">
           <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-binaa-<?= $row['id']  ?>">
+            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-binaa-<?= $row['id_pegawai']  ?>">
               <strong class="mr-auto"><td><?= $row['bidang']  ?></td></strong>
               <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
             </a>
           </h6>
-          <div id="collapse-binaa-<?= $row['id']  ?>" class="collapse" data-parent="#accordion-job">
+          <div id="collapse-binaa-<?= $row['id_pegawai']  ?>" class="collapse" data-parent="#accordion-job">
             <div class="card-body">
               <strong>KEPALA <?= $row['bidang']  ?></strong><br>
-               Nama : <?= $row['name']  ?> <br>
-              Nip : <?= $row['username']  ?> <br>
+               Nama : <?= $row['nama']  ?> <br>
+              Nip : <?= $row['nip']  ?> <br>
               Alamat : <?= $row['alamat_kantor']  ?> <br>
               <!-- <hr class="w-100px"> -->
             </div>

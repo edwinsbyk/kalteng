@@ -5,10 +5,9 @@
                                     <table id="artikelTable" class="table table-borderless table-data3" style="width:100%">
                                         <thead>
                                             <th>No</th>
-                                            <th>Nip</th>
+                                          <th>Email</th>
                                           <th>Nama</th>
-                                          <th>Alamat</th>
-                                          <th>Bidang</th>
+                                          
                                          
                                           <th>Action</th>
 
@@ -20,10 +19,9 @@
                                  
                                         <tr>
                                           <td><?= $nomor ?></td>
-                                          <td><?= $row['nip'] ?></td>
-                                          <td><?= $row['nama']  ?></td>
-                                          <td><?= $row['alamat_kantor']  ?></td>
-                                           <td><?= $row['bidang']  ?></td>
+                                          <td><?= $row['name'] ?></td>
+                                          <td><?= $row['email']  ?></td>
+                                         
                                          
                                           
                                            
@@ -31,10 +29,10 @@
                                          <td>  
 
                                                   <div class="table-data-feature">
-                            <a href="#" class="item" data-toggle="modal" data-target="#modal_detail<?= $row['id_pegawai']; ?>"><i class="zmdi zmdi-eye"></i></a>
+                            <a href="#" class="item" data-toggle="modal" data-target="#modal_detail<?= $row['id']; ?>"><i class="fas fa-key"></i></a>
                                                   <div class="table-data-feature">
-                            <a href="#" class="item" data-toggle="modal" data-target="#modal_edit<?= $row['id_pegawai']; ?>"><i class="zmdi zmdi-edit"></i></a>
-                            <a href="#" class="item" data-toggle="modal" data-target="#modal_delete<?= $row['id_pegawai']; ?>"><i class="zmdi zmdi-delete"></i></a>
+                            <a href="#" class="item" data-toggle="modal" data-target="#modal_edit<?= $row['id']; ?>"><i class="zmdi zmdi-edit"></i></a>
+                            <a href="#" class="item" data-toggle="modal" data-target="#modal_delete<?= $row['id']; ?>"><i class="zmdi zmdi-delete"></i></a>
 
                         </div>
                                                 </td>
@@ -47,9 +45,9 @@
                                               <?php endforeach; ?>
 
                               
-                                          <?php $this->load->view('admin/pegawai/detailPegawai-modal'); ?>
-<?php $this->load->view('admin/pegawai/editPegawai-modal'); ?>
-<?php $this->load->view('admin/pegawai/deletePegawai-modal'); ?>
+                                          <?php $this->load->view('admin/user/passwordUser-modal'); ?>
+<?php $this->load->view('admin/user/editUser-modal'); ?>
+<?php $this->load->view('admin/user/deleteUser-modal'); ?>
                                         </tbody>
                                     </table>
   
