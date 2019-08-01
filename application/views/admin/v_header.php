@@ -70,17 +70,17 @@
                                             <a href="#">
                                                 <i class="zmdi zmdi-settings"></i>Setting</a>
                                         </div>
-                                        <div class="account-dropdown__item">
+                                        <!-- <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="account-dropdown__body">
                                         <div class="account-dropdown__item">
                                             <a href="#">
-                                                <i class="zmdi zmdi-globe"></i>Language</a>
+                                                <i class="zmdi zmdi-globe"></i>Log out</a>
                                         </div>
-                                        <div class="account-dropdown__item">
+                                        <!-- <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-pin"></i>Location</a>
                                         </div>
@@ -91,7 +91,7 @@
                                         <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-notifications"></i>Notifications</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>

@@ -1,7 +1,8 @@
 <!-- <div id="home" class="header text-white h-fullscreen  text-center text-lg-left" style="background-image: radial-gradient( circle 547px at 6.8% 40.8%,  rgba(85,141,175,1) 0%, rgba(29,77,113,1) 98.6% );">
   <div class="container">
     <div class="row align-items-center h-100"> !-->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <section id="demos" class="overflow-hidden">
 <div class="row overflow-hidden">
   <div class="large-12 columns overflow-hidden w-100">
@@ -133,11 +134,14 @@
     var owl = $('.owl-carousel');
     owl.owlCarousel({
       loop:true,
-      touchDrag: false,
-      mouseDrag: false,
+      // touchDrag: false,
+      dotClass: 'owl-dot',
+      dotsClass: 'owl-dots',
+      dots: true,
+      // mouseDrag: false,
       autoplay: true,
       autoplaySpeed: 1000,
-      autoplayTimeout: 5000,
+      autoplayTimeout: 7000,
       animateOut: 'fadeOut',
       animateIn: 'fadeOut',
       items:1
