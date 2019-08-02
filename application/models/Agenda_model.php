@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Agenda_model extends CI_Model {
     public function getAgenda()
     {
-        return $this->db->get("tbl_agenda")->result();
+        return $this->db->get("tbl_agenda")->result_array();
     }
 
     public function get_data_by_index($id)

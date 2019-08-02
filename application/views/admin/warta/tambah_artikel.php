@@ -6,7 +6,7 @@
                     <label class=" form-control-label" required>Judul Artikel</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type="text" name="judul_artikel" required placeholder="Judul artikel disini" class="form-control">
+                    <input required type="text" name="judul_artikel" required placeholder="Judul artikel disini" class="form-control">
                 </div>
             </div>
 
@@ -15,7 +15,7 @@
                     <label for="text-input" class=" form-control-label">Link Gambar</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type="text" id="text-input" name="image" placeholder="Link Gambar" class="form-control">
+                    <input required type="text" id="text-input" name="image" placeholder="Link Gambar" class="form-control">
                 </div>
             </div>
 

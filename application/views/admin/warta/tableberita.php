@@ -27,28 +27,30 @@
                 <td>
                 <div class="table-data-feature">
                     <button 
-                        class="item detail_berita"
-                        berita-index="<?= $d->idberita ?>"
-                        data-url="<?= base_url("admin/preview_berita") ?>" 
-                        data-toggle="modal" 
+                        class="item get_data_on_table"
+                        table-data-id="<?= $d->idberita ?>"
+                        data-url="<?= base_url("admin/get_data_berita_by_id") ?>" 
+                        data-toggle="modal"
+                        data-namespace="preview_berita"
                         data-placement="top" 
                         title="Preview" 
                         data-target="#previewModal">
                             <i class="fas fa-eye"></i>
                         </button>
                     <button 
-                        class="item edit_berita" 
-                        berita-index="<?= $d->idberita ?>"
-                        data-url="<?= base_url("admin/preview_berita") ?>" 
+                        class="item get_data_on_table" 
+                        table-data-id="<?= $d->idberita ?>"
+                        data-url="<?= base_url("admin/get_data_berita_by_id") ?>" 
                         data-toggle="modal" 
                         data-placement="top" 
+                        data-namespace="edit_berita"
                         title="Edit" 
                         data-target="#editModal">
                             <i class="zmdi zmdi-edit"></i>
                         </button>
                     <button 
-                        class="item delete_berita" 
-                        berita-index="<?= $d->idberita ?>"
+                        class="item delete_data_on_table" 
+                        table-data-id="<?= $d->idberita ?>"
                         data-url="<?= base_url("admin/delete_berita") ?>" 
                         data-toggle="tooltip" 
                         data-placement="top" 

@@ -51,46 +51,44 @@
 
 </style>
 
+
 <?= $this->session->flashdata('message') ?>
-<table id="agendaTable" class="table table-striped" style="width:100%"> 
+<table class="data_table table table-striped" style="width:100%"> 
     <thead> 
         <tr> 
-        <tr> 
-            <th>Judul</th> 
-            <th width="200">Tanggal Mulai</th>
-            <th width="200">Tanggal Selesai</th>
+            <th width="200">Nama</th>
+            <th>Isi</th> 
+            <th width="200">Email</th>
             <th width="100">Action</th>
         </tr>   
-        </tr> 
     </thead> 
     <tbody> 
-        <?php
-            foreach ($wk as $d) {
+        <?php 
+            foreach ($data as $d) {
         ?>
             <tr>
-                <td><?= $d["judul"] ?></td>
-                <td><?= $d["tanggal_mulai"] ?></td>
-                <td><?= $d["tanggal_selesai"] ?></td>
+                <td><?= $d["nama"] ?></td>
+                <td><?= $d["isi"] ?></td>
+                <td><?= $d["email"] ?></td>
                 <td>
                     <div class="table-data-feature" style="justify-content: flex-start">
                         <button
                             class="item get_data_on_table"
-                            table-data-id="<?= $d["id_agenda"] ?>"
-                            data-url="<?= base_url("admin/get_data_agenda_by_id") ?>"
+                            table-data-id="<?= $d["id_testimoni"] ?>"
+                            data-url="<?= base_url("admin/get_data_testimoni_by_id") ?>"
+                            data-namespace="edit_testimoni"
                             data-toggle="modal"  
                             data-placement="top" 
                             title="Edit"
-                            data-namespace="edit_agenda"
                             data-target="#editModal">
                             <i class="zmdi zmdi-edit"></i>
                             </button>
                         <button 
-                            id="delete_agenda" 
                             class="item delete_data_on_table" 
-                            data-url="<?= base_url("admin/delete_agenda") ?>" 
+                            data-url="<?= base_url("admin/delete_testimoni") ?>" 
                             data-toggle="modal" 
                             data-placement="top" 
-                            table-data-id="<?= $d["id_agenda"] ?>" 
+                            table-data-id="<?= $d["id_testimoni"] ?>" 
                             title="Delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button>
