@@ -37,9 +37,8 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/select2/select2.min.css',
                 'assets/admin/vendor/perfect-scrollbar/perfect-scrollbar.css',
                 'assets/admin/css/theme.css',
-                'assets/admin/css/materialdate.min.css',
+                'assets/admin/css/datetimepicker.min.css',
                 'assets/admin/css/datatables.css',
-                'assets/admin/css/bootstrap-datetimepicker.min.css',
             ),
             "list_js_plugins" => array(
                 'assets/admin/vendor/bootstrap-4.1/popper.min.js',
@@ -52,7 +51,8 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/chartjs/Chart.bundle.min.js',
                 'assets/admin/vendor/select2/select2.min.js',
                 'assets/admin/js/main.js',
-                'assets/admin/js/materialdate.min.js',
+                'assets/admin/js/moment.min.js',
+                'assets/admin/js/datetimepicker.min.js',
                 'assets/admin/js/tambahan.js',
                 'assets/admin/js/datatables.js',
                 'assets/admin/js/swal.js'
@@ -79,13 +79,49 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/setting/setting"]);
     }
 
-    public function update_accout()
+    public function change_accout_password()
     {
+        $this->form_validation->set_rules('oldpassword', 'Password', 'trim|required|min_length[8]|matches[password2]');
+        $this->form_validation->set_rules('newpassword', 'Repeat Password', 'trim|required|min_length[8]|matches[password1]');
+        if ($this->form_validation->run() == false) {
+            return false;
+        }
+        $p2 = password_hash($this->input->post("newpassword"), PASSWORD_DEFAULT);
+        $p3 = password_hash($this->input->post("rnewpassword"), PASSWORD_DEFAULT);
+        if ($p3 != $p2) {
+            throw_flash_redirect("Password tidak sinkron");
+            return false;
+        }
+        $this->load->model("User_model");
+        $password = $this->User_model->__getUserWithEmail($this->session->userdata('email'))["password"];
+        if (!password_verify($this->input->post("oldpassword"), $password)) {
+            throw_flash_redirect("Password lama tidak cocok");
+            return false;
+        }
         $this->load->model("SettingModel");
+        $this->SettingModel->update_data(["password" => $p3]);
+    }
+
+    public function change_account_setting()
+    {
+        $upload_file = $_FILES['setting-image']['name'];
+        !$upload_file && throw_flash_redirect("Mohon memilih file", "danger", "admin/setting");
+        $this->load->model("SettingModel");
+        $config['allowed_types'] = 'gif|jpg|png|txt|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar';
+        $config['max_size']     = 0;
+        $config['upload_path'] = './assets/admin/images/user_profile/';
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        !$this->upload->do_upload("setting-image") && throw_flash_redirect($this->upload->display_errors(), "danger", "admin/setting");
+        
         $data = array(
-            
+            "name" => $this->input->post("setting-nama"),
+            "email" => $this->input->post("setting-email"),
+            "image" => $file = $this->upload->data('file_name'),
         );
-        $this->SettingModel->update_data($data, $this->session->id);
+        $this->SettingModel->update_data($data, "1") 
+            ? throw_flash_redirect("Data berhasil diubah", "success", "admin/setting")
+            : throw_flash_redirect("Gagal mengubah data", "danger", "admin/setting");
     }
 
     public function rup()
@@ -96,10 +132,10 @@ class Admin extends CI_Controller
         $this->load->view('admin/pengumuman/editdataRUP-modal');
     }
 
-    public function preview_artikel()
+    public function get_data_article_by_id()
     {
         $this->load->model("ArtikelModel");
-        $data = $this->ArtikelModel->getDataByIndex($this->input->get("artikel_id"));
+        $data = $this->ArtikelModel->getDataByIndex($this->input->get("id"));
         echo json_encode($data);
     }
 
@@ -137,14 +173,64 @@ class Admin extends CI_Controller
     public function delete_article()
     {
         $this->load->model("ArtikelModel");
-        echo $this->ArtikelModel->delete_data($this->input->post("artikel_id"));
+        echo $this->ArtikelModel->delete_data($this->input->post("id"));
     }
 
     public function agenda()
     {
         $this->load->model("Agenda_model");
-        $data['data'] = $this->Agenda_model->getAgenda();
+        $data['wk'] = $this->Agenda_model->getAgenda();
         $this->loadAsset(["path" => "admin/warta/agenda", "data" => $data]);
+    }
+
+    public function tambah_agenda()
+    {
+        $data = array(
+          "iduser"              => 1,
+          "judul"               => $this->input->post("judul_agenda"),
+          "isi"                 => $this->input->post("isi_agenda"),
+          "tanggal_mulai"       => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_mulai"))->format("Y/m/d H:i"),
+          "tanggal_selesai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_selesai"))->format("Y/m/d H:i"),
+          "image"               => $this->input->post("image")
+        );
+        $this->load->model("Agenda_model");
+        $this->Agenda_model->input_data($data)
+            ? throw_flash_redirect("Data berhasil ditambahkan", "success", "admin/agenda")
+            : throw_flash_redirect("Gagal menambahkan data", "danger", "admin/agenda");
+    }
+
+    public function get_data_agenda_by_id()
+    {
+        $this->load->model("Agenda_model");
+        $data = $this->Agenda_model->get_data_by_index($this->input->get("id"));
+        $data[0]["tanggal_mulai"] = DateTime::createFromFormat("Y-m-d H:i:s", $data[0]["tanggal_mulai"])->format("d/m/Y H:i");
+        $data[0]["tanggal_selesai"] = DateTime::createFromFormat("Y-m-d H:i:s", $data[0]["tanggal_selesai"])->format("d/m/Y H:i");
+        echo json_encode($data);
+    }
+
+    public function edit_agenda()
+    {
+
+        $data = array(
+            "iduser"            => 1,
+            "judul"             => $this->input->post("edit_judul_agenda"),
+            "isi"               => $this->input->post("edit_isi_agenda"),
+            "tanggal_mulai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("edit_dtp_tgl_mulai"))->format("Y/m/d H:i"),
+            "tanggal_selesai"   => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("edit_dtp_tgl_selesai"))->format("Y/m/d H:i"),
+            "image"             => $this->input->post("edit_image"),
+            
+        );
+
+        $this->load->model("Agenda_model");
+        echo $this->Agenda_model->update_data($data, $this->input->post("edit_id_agenda"))
+            ? throw_flash_redirect("Berita berhasil diubah", "success", "admin/agenda")
+            : throw_flash_redirect("Gagal merubah berita", "danger", "admin/agenda");
+    }
+
+    public function delete_agenda()
+    {
+        $this->load->model("Agenda_model");
+        echo $this->Agenda_model->delete_data_by_id($this->input->post("id"));
     }
 
 
@@ -195,17 +281,17 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/warta/tab", "data" => $data]);
     }
 
-    public function preview_berita()
+    public function get_data_berita_by_id()
     {
         $this->load->model("Berita_model");
-        $data = $this->Berita_model->get_data_by_index($this->input->get("berita_id"));
+        $data = $this->Berita_model->get_data_by_index($this->input->get("id"));
         echo json_encode($data);
     }
 
     public function delete_berita()
     {
         $this->load->model("Berita_model");
-        echo $this->Berita_model->delete_data_by_id($this->input->post("berita_id"));
+        echo $this->Berita_model->delete_data_by_id($this->input->post("id"));
     }
 
     public function edit_berita()
