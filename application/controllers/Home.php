@@ -61,7 +61,7 @@ class Home extends CI_Controller
         $this->load->model('Bidanghome_model', 'data');
         $data['data'] = $this->data->getdataBidang();
         $this->inject_resources(["path" => "home/bidang", "data" => $data]);
-        $this->load->view('home/bidang');
+      
     }
 
     public function datapu()
@@ -86,7 +86,6 @@ class Home extends CI_Controller
     }
     public function datapujalan()
     {
-
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJalan();
         $data['title'] = 'Data PU Jalan';
@@ -169,4 +168,18 @@ class Home extends CI_Controller
         $data['data'] = $this->data->getDataJembatan();
         $this->loadAsset(["path" => "admin/datapu/jembatan/jembatan", "data" => $data]);
     }
+
+    public function pengumumanlelang()
+    {
+        $this->load->model('Pengumuman_model', 'data');
+        $data['data'] = $this->data->getPengumumanLelang();
+        $this->inject_resources(["path" => 'pengumuman/pengumumanlelang' ,"data" => $data]);
+    }
+    public function pengumumanpemenanglelang()
+    {
+        $this->load->model('Pengumuman_model', 'data');
+        $data['data'] = $this->data->getPemenangLelang();
+        $this->inject_resources(["path" => 'pengumuman/pemenanglelang' ,"data" => $data]);
+    }
 }
+

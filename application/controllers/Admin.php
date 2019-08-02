@@ -45,12 +45,8 @@ class Admin extends CI_Controller
                 'assets/admin/vendor/bootstrap-4.1/popper.min.js',
                 'assets/admin/vendor/bootstrap-4.1/bootstrap.min.js',
                 'assets/plugin/thesaas/js/vendors/datatables.js',
-                'assets/admin/vendor/slick/slick.min.js',
-                'assets/admin/vendor/wow/wow.min.js',
                 'assets/admin/vendor/animsition/animsition.min.js',
                 'assets/admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js',
-                'assets/admin/vendor/counter-up/jquery.waypoints.min.js',
-                'assets/admin/vendor/counter-up/jquery.counterup.min.js',
                 'assets/admin/vendor/circle-progress/circle-progress.min.js',
                 'assets/admin/vendor/perfect-scrollbar/perfect-scrollbar.js',
                 'assets/admin/vendor/chartjs/Chart.bundle.min.js',
@@ -59,7 +55,6 @@ class Admin extends CI_Controller
                 'assets/admin/js/materialdate.min.js',
                 'assets/admin/js/tambahan.js',
                 'assets/admin/js/datatables.js',
-                'assets/admin/js/bootstrap-datetimepicker.min.js',
                 'assets/admin/js/swal.js'
             ),
             "path" => $param["path"]
@@ -69,7 +64,8 @@ class Admin extends CI_Controller
     }
     public function index()
     {
-        $this->loadAsset(["path" => "admin/index"]);
+        $this->load->model("DashboardModel");
+        $this->loadAsset(["path" => "admin/index", "data" => ["data" => $this->DashboardModel->get_dashboard_info()[0]]]);
     }
 
     public function artikel()
@@ -282,6 +278,14 @@ class Admin extends CI_Controller
     }
 
     //
+
+    public function user()
+    {
+
+        $this->load->model('userdata_model', 'data');
+        $data['data'] = $this->data->getUser();
+        $this->loadAsset(["path" => "admin/user/user", "data" => $data]);
+    }
 
     public function datapuJalan()
     {
@@ -860,20 +864,18 @@ class Admin extends CI_Controller
     function tambah_pegawai()
     {
         $this->load->model('Pegawai_model', 'data');
-        $username = $this->input->post('username');
-        $name = $this->input->post('nama');
-        $email = $this->input->post('email');
-        $password =  $this->input->post('password');
-        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+        $nip = $this->input->post('nip');
+        $nama = $this->input->post('nama');
+        $alamat = $this->input->post('alamat');
 
-        $role_id = $this->input->post('role_id');
+
+
         $id_bidang = $this->input->post('id_bidang');
         $jabatan = $this->input->post('jabatan');
-        $image = $this->input->post('image');
-        $is_active = $this->input->post('is_active');
 
 
-        $this->data->tambahdataPegawai($id_bidang, $username, $name, $email, $image, $password_hash, $role_id, $is_active, $jabatan);
+
+        $this->data->tambahdataPegawai($id_bidang, $jabatan, $nip, $nama, $alamat);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambahkan. </div>');
         redirect('admin/pegawai');
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
@@ -882,20 +884,17 @@ class Admin extends CI_Controller
     public function editPegawai()
     {
         $this->load->model('Pegawai_model', 'data');
-        $id = $this->input->post('id');
-        $username = $this->input->post('username');
-        $name = $this->input->post('name');
-        $email = $this->input->post('email');
-        $password =  $this->input->post('password');
+        $id_pegawai = $this->input->post('id_pegawai');
+        $nip = $this->input->post('nip');
+        $nama = $this->input->post('nama');
+        $alamat = $this->input->post('alamat');
 
 
-        $role_id = $this->input->post('role_id');
+
         $id_bidang = $this->input->post('id_bidang');
         $jabatan = $this->input->post('jabatan');
-        $image = $this->input->post('image');
-        $is_active = $this->input->post('is_active');
 
-        $this->data->editdataPegawai($id, $id_bidang, $username, $name, $email, $image, $password, $role_id, $is_active, $jabatan);
+        $this->data->editdataPegawai($id_pegawai, $id_bidang, $jabatan, $nip, $nama, $alamat);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/pegawai');
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
@@ -904,9 +903,9 @@ class Admin extends CI_Controller
     public function deletedataPegawai()
     {
         $this->load->model('Pegawai_model', 'delete_data');
-        $id = $this->input->post('id');
+        $id_pegawai = $this->input->post('id_pegawai');
 
-        $this->delete_data->deletedataPegawai($id);
+        $this->delete_data->deletedataPegawai($id_pegawai);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/pegawai');
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
@@ -964,5 +963,80 @@ class Admin extends CI_Controller
         $this->load->model('File_model', 'data');
         $data['data'] = $this->data->getfileList();
         $this->loadAsset(["path" => "admin/download/download", "data" => $data]);
+    }
+
+
+
+    public function edituser()
+    {
+        $this->load->model('userdata_model', 'data');
+        $id = $this->input->post('id');
+        $email = $this->input->post('email');
+        $name = $this->input->post('name');
+        $password = $this->input->post('password');
+
+        $image = $this->input->post('image');
+        $role_id = $this->input->post('role_id');
+        $is_active = $this->input->post('is_active');
+
+
+
+        $this->data->editdataUser($id, $email, $name, $password, $image, $role_id, $is_active);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/user');
+        $this->loadAsset(["path" => "admin/user/user"]);
+    }
+
+    public function tambah_user()
+    {
+        $this->load->model('userdata_model', 'data');
+
+        $email = $this->input->post('email');
+        $name = $this->input->post('name');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+        $image = $this->input->post('image');
+        $role_id = $this->input->post('role_id');
+        $is_active = $this->input->post('is_active');
+        $date_created = time();
+
+
+
+        $this->data->tambahdataUser($email, $name, $password, $image, $role_id, $is_active, $date_created);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/user');
+        $this->loadAsset(["path" => "admin/user/user"]);
+    }
+
+    public function editPassword()
+    {
+        $this->load->model('userdata_model', 'data');
+        $id = $this->input->post('id');
+        $email = $this->input->post('email');
+        $name = $this->input->post('name');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+        $image = $this->input->post('image');
+        $role_id = $this->input->post('role_id');
+        $is_active = $this->input->post('is_active');
+        $date_created = $this->input->post('date_created');
+
+
+
+        $this->data->editpasswordUser($id, $email, $name, $password, $image, $role_id, $is_active, $date_created);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/user');
+        $this->loadAsset(["path" => "admin/user/user"]);
+    }
+
+    public function deletedataUser()
+    {
+        $this->load->model('userdata_model', 'delete_data');
+        $id = $this->input->post('id');
+
+        $this->delete_data->deletedataUser($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/user');
+        $this->loadAsset(["path" => "admin/user/user"]);
     }
 }
