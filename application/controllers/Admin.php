@@ -78,6 +78,51 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/setting/setting"]);
     }
 
+    public function change_accout_password()
+    {
+        $this->form_validation->set_rules('oldpassword', 'Password', 'trim|required|min_length[8]|matches[password2]');
+        $this->form_validation->set_rules('newpassword', 'Repeat Password', 'trim|required|min_length[8]|matches[password1]');
+        if ($this->form_validation->run() == false) {
+            return false;
+        }
+        $p2 = password_hash($this->input->post("newpassword"), PASSWORD_DEFAULT);
+        $p3 = password_hash($this->input->post("rnewpassword"), PASSWORD_DEFAULT);
+        if ($p3 != $p2) {
+            throw_flash_redirect("Password tidak sinkron");
+            return false;
+        }
+        $this->load->model("User_model");
+        $password = $this->User_model->__getUserWithEmail($this->session->userdata('email'))["password"];
+        if (!password_verify($this->input->post("oldpassword"), $password)) {
+            throw_flash_redirect("Password lama tidak cocok");
+            return false;
+        }
+        $this->load->model("SettingModel");
+        $this->SettingModel->update_data(["password" => $p3]);
+    }
+
+    public function change_account_setting()
+    {
+        $upload_file = $_FILES['setting-image']['name'];
+        !$upload_file && throw_flash_redirect("Mohon memilih file", "danger", "admin/setting");
+        $this->load->model("SettingModel");
+        $config['allowed_types'] = 'gif|jpg|png|txt|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar';
+        $config['max_size']     = 0;
+        $config['upload_path'] = './assets/admin/images/user_profile/';
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        !$this->upload->do_upload("setting-image") && throw_flash_redirect($this->upload->display_errors(), "danger", "admin/setting");
+        
+        $data = array(
+            "name" => $this->input->post("setting-nama"),
+            "email" => $this->input->post("setting-email"),
+            "image" => $file = $this->upload->data('file_name'),
+        );
+        $this->SettingModel->update_data($data, "1") 
+            ? throw_flash_redirect("Data berhasil diubah", "success", "admin/setting")
+            : throw_flash_redirect("Gagal mengubah data", "danger", "admin/setting");
+    }
+
     public function rup()
     {
         $this->load->model('Pengumuman_model', 'data');
@@ -104,8 +149,8 @@ class Admin extends CI_Controller
         );
         $this->load->model("ArtikelModel");
         $this->ArtikelModel->tambah_data($data)
-            ? throw_flash_redirect("Data berhasil ditambahkan", "success", "admin/artikel")
-            : throw_flash_redirect("Gagal menambahkan data", "danger", "admin/artikel");
+            ? throw_flash_redirect("Artikel berhasil ditambahkan", "success", "admin/artikel")
+            : throw_flash_redirect("Gagal menambahkan artikel", "danger", "admin/artikel");
     }
 
     public function edit_artikel()
@@ -120,8 +165,8 @@ class Admin extends CI_Controller
 
         $this->load->model("ArtikelModel");
         echo $this->ArtikelModel->update_data($data, $this->input->post("edit-id_artikel"))
-            ? throw_flash_redirect("Berita berhasil diubah", "success", "admin/artikel")
-            : throw_flash_redirect("Gagal merubah berita", "danger", "admin/artikel");
+            ? throw_flash_redirect("Artikel berhasil diubah", "success", "admin/artikel")
+            : throw_flash_redirect("Gagal merubah artikel", "danger", "admin/artikel");
     }
 
     public function delete_article()
@@ -149,8 +194,8 @@ class Admin extends CI_Controller
         );
         $this->load->model("Agenda_model");
         $this->Agenda_model->input_data($data)
-            ? throw_flash_redirect("Data berhasil ditambahkan", "success", "admin/agenda")
-            : throw_flash_redirect("Gagal menambahkan data", "danger", "admin/agenda");
+            ? throw_flash_redirect("Agenda berhasil ditambahkan", "success", "admin/agenda")
+            : throw_flash_redirect("Gagal menambahkan agenda", "danger", "admin/agenda");
     }
 
     public function get_data_agenda_by_id()
@@ -177,8 +222,8 @@ class Admin extends CI_Controller
 
         $this->load->model("Agenda_model");
         echo $this->Agenda_model->update_data($data, $this->input->post("edit_id_agenda"))
-            ? throw_flash_redirect("Berita berhasil diubah", "success", "admin/agenda")
-            : throw_flash_redirect("Gagal merubah berita", "danger", "admin/agenda");
+            ? throw_flash_redirect("Agenda berhasil diubah", "success", "admin/agenda")
+            : throw_flash_redirect("Gagal merubah agenda", "danger", "admin/agenda");
     }
 
     public function delete_agenda()
@@ -187,6 +232,53 @@ class Admin extends CI_Controller
         echo $this->Agenda_model->delete_data_by_id($this->input->post("id"));
     }
 
+    public function testimoni()
+    {
+        $this->load->model("Testimoni_model");
+        $data["data"] = $this->Testimoni_model->display_data();
+        $this->loadAsset(["path" => "admin/warta/testimoni", "data"=> $data]);
+    }
+
+    public function get_data_testimoni_by_id()
+    {
+        $this->load->model("Testimoni_model");
+        $data = $this->Testimoni_model->getDataByIndex($this->input->get("id"));
+        echo json_encode($data);
+    }
+
+    public function tambah_testimoni()
+    {
+        $data = array(
+            "nama"  => $this->input->post("nama"),
+            "email"   => $this->input->post("email"),
+            "isi"   => $this->input->post("isi")
+        );
+
+        $this->load->model("Testimoni_model");
+        echo $this->Testimoni_model->tambah_data($data)
+            ? throw_flash_redirect("Testimoni berhasil ditambahkan", "success", "admin/testimoni")
+            : throw_flash_redirect("Gagal menambahkan data", "danger", "admin/testimoni");
+    }
+
+    public function edit_testimoni()
+    {
+        $data = array(
+            "nama"      => $this->input->post("edit_nama"),
+            "email"     => $this->input->post("edit_email"),
+            "isi"       => $this->input->post("edit_isi")
+        );
+
+        $this->load->model("Testimoni_model");
+        echo $this->Testimoni_model->update_data($data, $this->input->post("edit_id_testimoni"))
+            ? throw_flash_redirect("Testimoni berhasil diubah", "success", "admin/testimoni")
+            : throw_flash_redirect("Gagal merubah berita", "danger", "admin/testimoni");
+    }
+
+    public function delete_testimoni()
+    {
+        $this->load->model("Testimoni_model");
+        echo $this->Testimoni_model->delete_data($this->input->post("id"));
+    }
 
     public function pegawai()
     {
@@ -276,20 +368,9 @@ class Admin extends CI_Controller
 
         $this->load->model("Berita_model");
         $this->Berita_model->input_data($data)
-            ? throw_flash_redirect("Berhasil menambah data", "success", "admin/berita")
-            : throw_flash_redirect("Gagal menambah data", "danger", "admin/berita");
+            ? throw_flash_redirect("Berhasil menambah berita", "success", "admin/berita")
+            : throw_flash_redirect("Gagal menambah berita", "danger", "admin/berita");
     }
-
-    // public function artikel()
-    // {
-    //     $this->loadAsset(["path" => "admin/testimoni"]);
-    // }
-
-    public function testimoni()
-    {
-        $this->loadAsset(["path" => "admin/testimoni"]);
-    }
-
 
     public function pengumuman_lelang()
     {
