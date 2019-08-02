@@ -28,42 +28,75 @@
         </div>
     </div>
 </div> -->
+
+<style type="text/css">
+.modal-xxlg {
+    width: 97%;
+    height: 97%;
+    max-width: 100%;
+    padding: 0;
+}
+
+.modal-xlg {
+    width: 60%;
+    height: 97%;
+    max-width: 60%;
+    padding: 0;
+}
+
+.modal-content {
+    height: 97%;
+    overflow:auto;
+}
+
+</style>
+
 <?= $this->session->flashdata('message') ?>
-<table id="artikelTable" class="table table-striped" style="width:100%"> 
+<table id="agendaTable" class="table table-striped" style="width:100%"> 
     <thead> 
         <tr> 
+        <tr> 
             <th>Judul</th> 
-            <th>Isi</th> 
-            <th>Dibuat oleh</th> 
-            <th>Tanggal dibuat</th> 
-            <th>Aksi</th> 
+            <th width="200">Tanggal Mulai</th>
+            <th width="200">Tanggal Selesai</th>
+            <th width="100">Action</th>
+        </tr>   
         </tr> 
     </thead> 
     <tbody> 
-        <?php 
-            foreach ($data as $d) {
+        <?php
+            foreach ($wk as $d) {
         ?>
             <tr>
                 <td><?= $d["judul"] ?></td>
-                <td><?= $d["isi"] ?></td>
-                <td><?= $d["iduser"] ?></td>
-                <td><?= $d["tanggal"] ?></td>
+                <td><?= $d["tanggal_mulai"] ?></td>
+                <td><?= $d["tanggal_selesai"] ?></td>
                 <td>
                     <div class="table-data-feature" style="justify-content: flex-start">
-                        <button id="edit_artikel" class="item" data-toggle="tooltip" data-placement="top" artikel-index="<?= $d["id_artikel"] ?>" title="Edit"><i class="zmdi zmdi-edit"></i></button>
-                        <button 
-                            id="delete_artikel" 
-                            class="item delete_artikel" 
-                            data-url="<?= base_url("admin/delete_article") ?>" 
-                            data-toggle="tooltip" 
+                        <button
+                            class="item get_data_on_table"
+                            table-data-id="<?= $d["id_agenda"] ?>"
+                            data-url="<?= base_url("admin/get_data_agenda_by_id") ?>"
+                            data-toggle="modal"  
                             data-placement="top" 
-                            artikel-index="<?= $d["id_artikel"] ?>" 
+                            title="Edit"
+                            data-namespace="edit_agenda"
+                            data-target="#editModal">
+                            <i class="zmdi zmdi-edit"></i>
+                            </button>
+                        <button 
+                            id="delete_agenda" 
+                            class="item delete_data_on_table" 
+                            data-url="<?= base_url("admin/delete_agenda") ?>" 
+                            data-toggle="modal" 
+                            data-placement="top" 
+                            table-data-id="<?= $d["id_agenda"] ?>" 
                             title="Delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button>
                     </div>
                 </td>
             </tr>
-        <?php } ?>
+        <?php } ?> 
     </tbody>
 </table>

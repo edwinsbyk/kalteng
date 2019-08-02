@@ -22,6 +22,7 @@
                 toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image responsivefilemanager",
                 automatic_uploads: true,
                 image_advtab: true,
+                height: 500,
                 images_upload_url: "<?= base_url("files/image_acceptor") ?>",
                 file_picker_types: 'image',
                 paste_data_images: true,

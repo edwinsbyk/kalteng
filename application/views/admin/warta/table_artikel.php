@@ -70,9 +70,10 @@
                 <td>
                     <div class="table-data-feature" style="justify-content: flex-start">
                         <button
-                            class="item detail_artikel"
-                            artikel-index="<?= $d["id_artikel"] ?>"
-                            data-url="<?= base_url("admin/preview_artikel") ?>"
+                            class="item get_data_on_table"
+                            table-data-id="<?= $d["id_artikel"] ?>"
+                            data-url="<?= base_url("admin/get_data_article_by_id") ?>"
+                            data-namespace="preview_artikel"
                             data-toggle="modal"  
                             data-placement="top" 
                             title="Preview"
@@ -80,9 +81,10 @@
                             <i class="fas fa-eye"></i>
                             </button>
                         <button
-                            class="item edit_artikel"
-                            artikel-index="<?= $d["id_artikel"] ?>"
-                            data-url="<?= base_url("admin/preview_artikel") ?>"
+                            class="item get_data_on_table"
+                            table-data-id="<?= $d["id_artikel"] ?>"
+                            data-url="<?= base_url("admin/get_data_article_by_id") ?>"
+                            data-namespace="edit_artikel"
                             data-toggle="modal"  
                             data-placement="top" 
                             title="Edit"
@@ -91,11 +93,11 @@
                             </button>
                         <button 
                             id="delete_artikel" 
-                            class="item delete_artikel" 
+                            class="item delete_data_on_table" 
                             data-url="<?= base_url("admin/delete_article") ?>" 
                             data-toggle="modal" 
                             data-placement="top" 
-                            artikel-index="<?= $d["id_artikel"] ?>" 
+                            table-data-id="<?= $d["id_artikel"] ?>" 
                             title="Delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button>
