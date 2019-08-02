@@ -48,6 +48,19 @@
           <a class="nav-link" href="<?= base_url('home/download'); ?>">Download</a>
         </nav>
       </section>
-      <a class="btn btn-xs btn-round btn-success" href="<?= base_url('auth') ?>">Login</a>
+
+
+      <?php
+      $login = (base_url('auth'));
+      $logout = (base_url('auth/logout'));
+
+      if ($this->session->userdata('email') == null) {
+        $stat = ('<a class="btn btn-xs btn-round btn-success" href="' . $login . '">Login</a>');
+      } else {
+        $stat = ('<a class="btn btn-xs btn-round btn-success" href="' . $logout . '">Logout</a>');
+      }
+      echo $stat;
+      ?>
+      <!--  -->
     </div>
   </nav><!-- /.navbar -->

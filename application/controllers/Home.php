@@ -1,7 +1,14 @@
 <?php
-
 class Home extends CI_Controller
 {
+    public function __construct()
+    {
+
+        parent::__construct();
+        // is_logged_in();
+    }
+
+
 
     public function inject_resources($param)
     {
@@ -65,6 +72,8 @@ class Home extends CI_Controller
 
     public function datapu()
     {
+
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Data PU';
         $this->inject_resources(["path" => "home/datapu", "data" => $data]);
     }
