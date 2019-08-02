@@ -59,8 +59,9 @@ class Home extends CI_Controller
     }
     public function index()
     {
-
-        $this->inject_resources(["path" => 'home/index']);
+        $this->load->model('Bidang_model', 'data');
+        $data['data'] = $this->data->getBidang();
+        $this->inject_resources(["path" => 'home/index', "data" => $data]);
     }
 
     public function bidang()
