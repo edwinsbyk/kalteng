@@ -67,7 +67,7 @@
                                                 <i class="zmdi zmdi-account"></i>Account</a>
                                         </div>
                                         <div class="account-dropdown__item">
-                                            <a href="#">
+                                            <a href="<?= base_url("admin/setting") ?>">
                                                 <i class="zmdi zmdi-settings"></i>Setting</a>
                                         </div>
                                         <!-- <div class="account-dropdown__item">

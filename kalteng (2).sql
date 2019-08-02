@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 02, 2019 at 03:36 AM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.3.6
+-- Host: localhost:3306
+-- Generation Time: Aug 02, 2019 at 10:01 AM
+-- Server version: 5.7.27-0ubuntu0.18.04.1
+-- PHP Version: 7.0.33-8+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pu_kalteng`
+-- Database: `kalteng`
 --
 
 -- --------------------------------------------------------
@@ -52,6 +50,13 @@ CREATE TABLE `tbl_artikel` (
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_artikel`
+--
+
+INSERT INTO `tbl_artikel` (`id_artikel`, `iduser`, `judul`, `isi`, `tanggal`, `image`) VALUES
+(1, 1, 'kwkw', '<p>kwkwkw</p>', '2019-08-02 09:21:13', 'wwkkw');
+
 -- --------------------------------------------------------
 
 --
@@ -62,10 +67,17 @@ CREATE TABLE `tbl_berita` (
   `idberita` int(11) NOT NULL,
   `iduser` int(11) NOT NULL,
   `judul` varchar(255) NOT NULL,
-  `isi` text NOT NULL,
+  `isi` longtext NOT NULL,
   `tanggal` datetime NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_berita`
+--
+
+INSERT INTO `tbl_berita` (`idberita`, `iduser`, `judul`, `isi`, `tanggal`, `image`) VALUES
+(20, 1, 'qwe', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<p>qwe</p>\r\n</body>\r\n</html>', '2019-08-01 11:14:14', 'qwe');
 
 -- --------------------------------------------------------
 
@@ -84,7 +96,7 @@ CREATE TABLE `tbl_bidang` (
 --
 
 INSERT INTO `tbl_bidang` (`id_bidang`, `bidang`, `alamat_kantor`) VALUES
-(1, 'BIDANG SUMBER DAYA AIR', 'adad'),
+(1, 'BIDANG SUMBER DAYA AIR', 'KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura'),
 (2, 'BIDANG BINA MARGA', 'KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura'),
 (3, 'BIDANG CIPTA KARYA', 'KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura'),
 (4, 'BIDANG PENATAAN RUANG', 'KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura'),
@@ -139,6 +151,13 @@ CREATE TABLE `tbl_embung` (
   `ternak` int(11) NOT NULL,
   `irigasi` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_embung`
+--
+
+INSERT INTO `tbl_embung` (`id_embung`, `nama`, `kota`, `kapasitas`, `penduduk`, `ternak`, `irigasi`) VALUES
+(1, 'qwe', 'qwe', '0', 0, 0, '0');
 
 -- --------------------------------------------------------
 
@@ -249,8 +268,7 @@ CREATE TABLE `tbl_pegawai` (
 --
 
 INSERT INTO `tbl_pegawai` (`id_pegawai`, `id_bidang`, `id_jabatan`, `nip`, `nama`, `alamat`) VALUES
-(6, 1, 1, '32532', 'Dedy sayhputra', 'medan'),
-(7, 2, 2, '425832592355', 'user dedy', 'KantorJalan Sumatera No. 15 Dok IV Tlp. (0967) 533219 - Jayapura');
+(6, 1, 1, '32532', 'Dedy sayhputra', 'medan');
 
 -- --------------------------------------------------------
 
@@ -286,8 +304,8 @@ INSERT INTO `tbl_pemenang_lelang` (`id_pemenang_lelang`, `id_pengumuman_lelang`,
 
 CREATE TABLE `tbl_pengumuman_lelang` (
   `id_pengumuman_lelang` int(11) NOT NULL,
-  `tanggal` varchar(255) NOT NULL,
-  `batas` varchar(255) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `batas` text NOT NULL,
   `no_sk` varchar(255) NOT NULL,
   `nama_paket` varchar(255) NOT NULL,
   `pagu` int(255) NOT NULL
@@ -298,8 +316,8 @@ CREATE TABLE `tbl_pengumuman_lelang` (
 --
 
 INSERT INTO `tbl_pengumuman_lelang` (`id_pengumuman_lelang`, `tanggal`, `batas`, `no_sk`, `nama_paket`, `pagu`) VALUES
-(4, '2019-07-26', '2019-07-29', '036/LU/PROG/PSIEBW/VIII/2013', 'fggf', 46346363),
-(7, '2019-07-29', '2019-09-11', '07052003', 'mantapp', 36435);
+(4, '2019-07-26 00:00:00', '2019-07-29', '036/LU/PROG/PSIEBW/VIII/2013', 'fggf', 46346363),
+(7, '2019-07-29 00:00:00', '2019-09-11', '07052003', 'mantapp', 36435);
 
 -- --------------------------------------------------------
 
@@ -355,6 +373,7 @@ CREATE TABLE `tbl_rup` (
 --
 
 INSERT INTO `tbl_rup` (`id_rup`, `kegiatan`, `lokasi`, `pagu`, `metode`) VALUES
+(1, '123', '123', '123', '123'),
 (210, 'sdd', 'efer', '5', 'fr'),
 (215, 'medan', 'medan', '5', 'medan'),
 (216, 'sadasfs', 'asdas', '5', 'fds'),
@@ -412,12 +431,12 @@ INSERT INTO `tbl_sub_menu` (`module_sub_path`, `module_sub_name`, `module_parent
 ('admin/datapupotensisumurbor', 'Potensi Sumur Bor', 4, 9),
 ('admin/datapuspam', 'Spam', 4, 6),
 ('admin/datapusumurbor', 'Sumur Bor', 4, 4),
-('admin/jabatan', 'Jabatan', 1, 3),
 ('admin/pegawaibidang', 'Pegawai Bidang', 1, 1),
 ('admin/pemenang_lelang', 'Pemenang Lelang', 3, 3),
 ('admin/pengumuman_lelang', 'Pengumuman Lelang', 3, 2),
 ('admin/rup', 'RUP', 3, 1),
-('admin/testimoni', 'Testimoni', 2, 4);
+('admin/testimoni', 'Testimoni', 2, 4),
+('admin/user', 'User', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -461,7 +480,7 @@ CREATE TABLE `user` (
   `password` varchar(256) NOT NULL,
   `role_id` int(1) NOT NULL,
   `is_active` int(1) NOT NULL,
-  `date_created` text NOT NULL
+  `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -469,9 +488,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(21, 'dedy', 'admin@gmail.com', 'default.jpg', '$2y$10$cPMBBWoZ.M88izA5UNRKAOS9q.TJq1mVNpuPXm8IYYpSgPA1Kr3Se', 1, 1, '0'),
-(34, 'eda', 'tes@gmail.com', 'default.jpg', '$2y$10$rK83bGPGbufrigKdpzrdJuCKXYb8tyYWNNAKxORrRjGdbnaKBd4BG', 1, 1564634350, '0'),
-(35, 'dedy harahap', 'admin@gmail.coma', 'default.jpg', '$2y$10$1fFO0iJry/aNg6ZOFV3U3uxs2M1NKr5nCxsGFKHSoXZRwOCnU6dry', 1, 1, '1564634529');
+(1, 'a', 'a@a.com', 'default.jpg', '$2y$10$Hh9MW6Rjl8n0UqnkUa100.XR87k6l2oMlH6zu.pmkXLUvpqoxS6ra', 1, 1, 1564020775);
 
 --
 -- Indexes for dumped tables
@@ -618,122 +635,66 @@ ALTER TABLE `user`
 --
 ALTER TABLE `tbl_agenda`
   MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_artikel`
 --
 ALTER TABLE `tbl_artikel`
   MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tbl_berita`
 --
 ALTER TABLE `tbl_berita`
-  MODIFY `idberita` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_bidang`
---
-ALTER TABLE `tbl_bidang`
-  MODIFY `id_bidang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `idberita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `tbl_black_spot`
 --
 ALTER TABLE `tbl_black_spot`
   MODIFY `id_black_spot` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_danau`
 --
 ALTER TABLE `tbl_danau`
   MODIFY `id_danau` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_embung`
 --
 ALTER TABLE `tbl_embung`
-  MODIFY `id_embung` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_jabatan`
---
-ALTER TABLE `tbl_jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id_embung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_jalan`
 --
 ALTER TABLE `tbl_jalan`
   MODIFY `id_jalan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `tbl_jembatan`
---
-ALTER TABLE `tbl_jembatan`
-  MODIFY `id_jembatan` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_pegawai`
 --
 ALTER TABLE `tbl_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_pemenang_lelang`
 --
 ALTER TABLE `tbl_pemenang_lelang`
   MODIFY `id_pemenang_lelang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `tbl_pengumuman_lelang`
---
-ALTER TABLE `tbl_pengumuman_lelang`
-  MODIFY `id_pengumuman_lelang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `tbl_potensi_sumur_bor`
 --
 ALTER TABLE `tbl_potensi_sumur_bor`
   MODIFY `id_sumur` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_rawa`
 --
 ALTER TABLE `tbl_rawa`
   MODIFY `id_rawa` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbl_rup`
 --
 ALTER TABLE `tbl_rup`
   MODIFY `id_rup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
-
---
--- AUTO_INCREMENT for table `tbl_spam`
---
-ALTER TABLE `tbl_spam`
-  MODIFY `id_spam` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_sumurbor`
---
-ALTER TABLE `tbl_sumurbor`
-  MODIFY `tbl_sumurbor` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_testimoni`
---
-ALTER TABLE `tbl_testimoni`
-  MODIFY `id_testimoni` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

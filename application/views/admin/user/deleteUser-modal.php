@@ -9,7 +9,7 @@ foreach ($data as $row) : ?>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="form-horizontal" method="post" action="<?= base_url('admin/deletedataPegawai') ?>">
+                <form class="form-horizontal" method="post" action="<?= base_url('admin/deletedataUser') ?>">
                     <div class="modal-body ">
                             <div class="row">
               <div class="col">
