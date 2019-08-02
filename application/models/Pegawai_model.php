@@ -21,11 +21,7 @@ class Pegawai_model extends CI_Model
                 ON u.role_id=tb.id_bidang
             LEFT JOIN tbl_jabatan tj
                 ON tj.id_jabatan=u.role_id";
-
-        // $query = "SELECT * FROM `tbl_pemenang_lelang`
-
-
-
+                
         return $this->db->query($query)->result_array();
     }
 

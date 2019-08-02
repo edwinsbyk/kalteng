@@ -74,6 +74,10 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/warta/artikel", "data" => ["data" => $this->ArtikelModel->display_data()]]);
     }
 
+    public function setting()
+    {
+        $this->loadAsset(["path" => "admin/setting/setting"]);
+    }
 
     public function rup()
     {
