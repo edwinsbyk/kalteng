@@ -16,20 +16,40 @@
 
 <main class="main-content">
 
-    <section class="section" id="section-open-positions">
+    <section class="section">
         <div class="container">
-            <header class="section-header">
-                <h4>
-                    <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Non arcu risus quis varius quam quisque id diam. At imperdiet dui accumsan
-                        sit amet nulla facilisi morbi tempus. Iaculis nunc sed augue lacus viverra vitae congue eu
-                        consequat. Nunc scelerisque viverra mauris in aliquam.</p>
-                </h4>
-            </header>
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <table class="table table-hover data_table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nama File</th>
+                                <th scope="col">Keterangan</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach ($data as $d) : ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $d['nama_file']; ?></td>
+                                    <td><?= $d['keterangan']; ?></td>
+                                    <td>
+                                        <div>
+                                            <a href="<?php echo base_url('files/download/') ?><?= $d['id_file'] ?>" target="_self" class="item"><i style="color: #203e5f" class="fas fw fa-download"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
 
+                        </tbody>
+                    </table>
 
-
-
+                </div>
+            </div>
 
         </div>
     </section>

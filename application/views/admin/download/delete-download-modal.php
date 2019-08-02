@@ -4,14 +4,14 @@ foreach ($data as $d) : ?>
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="newSubMenuModalLabel">Hapus Data</h5>
+                    <h5 class="modal-title" id="newSubMenuModalLabel">Hapus File</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="form-horizontal" method="post" action="<?= base_url('admin/deletefile_download') ?>">
+                <form class="form-horizontal" method="post" action="<?= base_url('files/file_delete') ?>">
                     <div class="modal-body">
-                        Hapus data <?= $d['alias'] ?> / <?= $d['nama_file'] ?> ?
+                        Hapus data <?= $d['keterangan'] ?> / <?= $d['nama_file'] ?> ?
                     </div>
 
                     <div class="modal-footer">
