@@ -1,16 +1,20 @@
-<header id="home" class="header text-white h-fullscreen  text-center text-lg-left" style="background-image: url(../assets/img/bg/1.jpg)" data-overlay="7">
-  <div class="container">
-    <div class="row align-items-center h-100">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<section id="demos" class="overflow-hidden">
 
-      <div class="col-lg-6">
-        <h1>Bidang</h1>
-        <p class="lead mt-5 mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="gap-xy">
-          <a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
-          <a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
-        </p>
-      </div>
-</header>
+      <div class="item text-white h-fullscreen text-lg-left w-100 position-relative">
+        <div class="content-slider" style="background-image: url('https://images3.alphacoders.com/823/82317.jpg')">
+          <div class="inner-content row align-items-center h-100">
+            <div class="col-lg-12">
+              <h1>BIDANG</h1>
+              <p class="lead mt-5 mb-8">Pimpinan Kepala Bidang PU Kalimantan Tengah </p>
+              
+            </div>
+          </div>
+        </div>
+</div>
+</section>
+</div>
 <!--
 
 
@@ -147,3 +151,22 @@
 
 
 </main><!-- /.main-content -->
+<script>
+  $(document).ready(function() {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+      loop:true,
+      // touchDrag: false,
+      dotClass: 'owl-dot',
+      dotsClass: 'owl-dots',
+      dots: true,
+      // mouseDrag: false,
+      autoplay: true,
+      autoplaySpeed: 1000,
+      autoplayTimeout: 7000,
+      animateOut: 'fadeOut',
+      animateIn: 'fadeOut',
+      items:1
+    })
+  })
+</script>
