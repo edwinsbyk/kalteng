@@ -1,8 +1,8 @@
                  <?= $this->session->flashdata('message'); ?>
                   <div class="col-lg-12">
                                 <!-- DATA TABLE-->
-                                <div class="table-responsive m-b-40">
-                                    <table id="artikelTable" class="table table-borderless table-data3" style="width:100%">
+                                <div class="table-responsive m-b-40 ">
+                                    <table id="artikelTable" class="table table-borderless table-data3 data_table" style="width:100%">
                                         <thead>
                                             <th>No</th>
                                           <th>Email</th>

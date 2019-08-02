@@ -3,7 +3,7 @@
     <!-- DATA TABLE-->
     <?= $this->session->flashdata('message'); ?>
     <div class="table-responsive m-b-40">
-        <table class="table table-borderless table-data3" id="artikelTable" style="width:100%">
+        <table class="table table-borderless table-data3 data_table" id="artikelTable" style="width:100%">
             <thead>
                 <tr>
                     <th>No</th>
