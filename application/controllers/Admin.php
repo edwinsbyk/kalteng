@@ -285,13 +285,13 @@ class Admin extends CI_Controller
 
     public function user()
     {
-       
-         $this->load->model('userdata_model', 'data');
+
+        $this->load->model('userdata_model', 'data');
         $data['data'] = $this->data->getUser();
         $this->loadAsset(["path" => "admin/user/user", "data" => $data]);
     }
 
-       public function datapuJalan()
+    public function datapuJalan()
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJalan();
@@ -871,15 +871,15 @@ class Admin extends CI_Controller
         $nip = $this->input->post('nip');
         $nama = $this->input->post('nama');
         $alamat = $this->input->post('alamat');
-      
 
-        
+
+
         $id_bidang = $this->input->post('id_bidang');
         $jabatan = $this->input->post('jabatan');
-        
 
 
-        $this->data->tambahdataPegawai($id_bidang , $jabatan, $nip ,$nama, $alamat);
+
+        $this->data->tambahdataPegawai($id_bidang, $jabatan, $nip, $nama, $alamat);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambahkan. </div>');
         redirect('admin/pegawai');
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
@@ -892,13 +892,13 @@ class Admin extends CI_Controller
         $nip = $this->input->post('nip');
         $nama = $this->input->post('nama');
         $alamat = $this->input->post('alamat');
-      
 
-        
+
+
         $id_bidang = $this->input->post('id_bidang');
         $jabatan = $this->input->post('jabatan');
 
-        $this->data->editdataPegawai($id_pegawai, $id_bidang , $jabatan, $nip ,$nama, $alamat);
+        $this->data->editdataPegawai($id_pegawai, $id_bidang, $jabatan, $nip, $nama, $alamat);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/pegawai');
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
@@ -961,6 +961,16 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/jabatan/jabatan"]);
     }
 
+
+    public function download()
+    {
+        $this->load->model('File_model', 'data');
+        $data['data'] = $this->data->getfileList();
+        $this->loadAsset(["path" => "admin/download/download", "data" => $data]);
+    }
+
+
+
     public function edituser()
     {
         $this->load->model('userdata_model', 'data');
@@ -972,10 +982,10 @@ class Admin extends CI_Controller
         $image = $this->input->post('image');
         $role_id = $this->input->post('role_id');
         $is_active = $this->input->post('is_active');
-        
-        
 
-        $this->data->editdataUser($id, $email ,$name ,$password, $image , $role_id , $is_active);
+
+
+        $this->data->editdataUser($id, $email, $name, $password, $image, $role_id, $is_active);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/user');
         $this->loadAsset(["path" => "admin/user/user"]);
@@ -983,22 +993,54 @@ class Admin extends CI_Controller
 
     public function tambah_user()
     {
-         $this->load->model('userdata_model', 'data');
-       
+        $this->load->model('userdata_model', 'data');
+
         $email = $this->input->post('email');
         $name = $this->input->post('name');
-        $password =password_hash($this->input->post('password'), PASSWORD_DEFAULT) ;
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 
         $image = $this->input->post('image');
         $role_id = $this->input->post('role_id');
         $is_active = $this->input->post('is_active');
-        
-        
+        $date_created = time();
 
-        $this->data->tambahdataUser($email ,$name ,$password, $image , $role_id , $is_active);
+
+
+        $this->data->tambahdataUser($email, $name, $password, $image, $role_id, $is_active, $date_created);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/user');
         $this->loadAsset(["path" => "admin/user/user"]);
     }
-}
 
+    public function editPassword()
+    {
+        $this->load->model('userdata_model', 'data');
+        $id = $this->input->post('id');
+        $email = $this->input->post('email');
+        $name = $this->input->post('name');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+        $image = $this->input->post('image');
+        $role_id = $this->input->post('role_id');
+        $is_active = $this->input->post('is_active');
+        $date_created = $this->input->post('date_created');
+
+
+
+        $this->data->editpasswordUser($id, $email, $name, $password, $image, $role_id, $is_active, $date_created);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/user');
+        $this->loadAsset(["path" => "admin/user/user"]);
+    }
+
+    public function deletedataUser()
+    {
+        $this->load->model('userdata_model', 'delete_data');
+        $id = $this->input->post('id');
+
+        $this->delete_data->deletedataUser($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
+        redirect('admin/user');
+        $this->loadAsset(["path" => "admin/user/user"]);
+    }
+}

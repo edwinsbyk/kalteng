@@ -7,7 +7,7 @@
                 <th rowspan="2">Nama</th>
                 <th rowspan="2">Jenis</th>
                 <th rowspan="2">Kota/Kab.</th>
-                <th colspan="2">Dimanfaatkan</th>
+                <th colspan="2">Dikembangkan</th>
                 <th rowspan="2">Total</th>
                 <th rowspan="2">Tahun Design</th>
                 <th rowspan="2">Action</th>

@@ -18,7 +18,7 @@
                                 <?php foreach ($data as $row) : ?>
                                         <tr>
                                           <td><?= $nomor ?></td>
-                                           <td><?= $row['name'] ?></td>
+                                           <td><?= $row['nama'] ?></td>
                                             <td value="<?= $row['id_jabatan'] ?>">Kepala</td>
                                           <td><?= $row['bidang'] ?></td>
                                           <td><?= $row['alamat_kantor']  ?></td>

@@ -66,10 +66,8 @@ class Home extends CI_Controller
 
     public function datapu()
     {
-        // $data['title'] = 'Bidang';
-        // $this->load->model('Bidanghome_model', 'data');
-        // $data['data'] = $this->data->getdataBidang();
-        $this->inject_resources(["path" => "home/datapu"]);
+        $data['title'] = 'Data PU';
+        $this->inject_resources(["path" => "home/datapu", "data" => $data]);
     }
 
     public function berita()
@@ -90,6 +88,7 @@ class Home extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJalan();
+        $data['title'] = 'Data PU Jalan';
         $this->inject_resources(["path" => 'home/data-pu/jalan', "data" => $data]);
     }
     public function datapujembatan()
@@ -97,6 +96,8 @@ class Home extends CI_Controller
 
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJembatan();
+        $data['title'] = 'Data PU Jembatan';
+
         $this->inject_resources(["path" => 'home/data-pu/jembatan', "data" => $data]);
     }
     public function datapuembung()
@@ -104,6 +105,8 @@ class Home extends CI_Controller
 
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataEmbung();
+        $data['title'] = 'Data PU Embung';
+
         $this->inject_resources(["path" => 'home/data-pu/embung', "data" => $data]);
     }
     public function datapusumurbor()
@@ -111,6 +114,8 @@ class Home extends CI_Controller
 
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSumurBor();
+        $data['title'] = 'Data PU Sumur Bor';
+
         $this->inject_resources(["path" => 'home/data-pu/sumurbor', "data" => $data]);
     }
     public function datapublackspot()
@@ -118,6 +123,8 @@ class Home extends CI_Controller
 
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataBlackSpot();
+        $data['title'] = 'Data PU Black Spot';
+
         $this->inject_resources(["path" => 'home/data-pu/black-spot', "data" => $data]);
     }
     public function datapuspam()
@@ -125,6 +132,8 @@ class Home extends CI_Controller
 
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSpam();
+        $data['title'] = 'Data PU Spam';
+
         $this->inject_resources(["path" => 'home/data-pu/spam', "data" => $data]);
     }
     public function datapupotensidanau()
@@ -132,6 +141,8 @@ class Home extends CI_Controller
 
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataDanau();
+        $data['title'] = 'Data PU Potensi Danau';
+
         $this->inject_resources(["path" => 'home/data-pu/danau', "data" => $data]);
     }
     public function datapupotensirawa()
@@ -139,6 +150,8 @@ class Home extends CI_Controller
 
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataRawa();
+        $data['title'] = 'Data PU Potensi Rawa';
+
         $this->inject_resources(["path" => 'home/data-pu/rawa', "data" => $data]);
     }
     public function datapupotensisumurbor()
@@ -146,11 +159,14 @@ class Home extends CI_Controller
 
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataPotensiSumurBor();
+        $data['title'] = 'Data PU Potensi Sumur Bor';
+
         $this->inject_resources(["path" => 'home/data-pu/potensi-sumur-bor', "data" => $data]);
     }
     public function download()
     {
-        $this->inject_resources(["path" => 'home/download']);
+        $data['data'] = $this->data->getDataJembatan();
+        $this->loadAsset(["path" => "admin/datapu/jembatan/jembatan", "data" => $data]);
     }
 
     public function pengumumanlelang()
