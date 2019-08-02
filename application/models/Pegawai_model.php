@@ -5,12 +5,7 @@ class Pegawai_model extends CI_Model
 {
 	public function getPegawai()
     {
-       $query = "SELECT * FROM tbl_pegawai  JOIN tbl_bidang ON tbl_pegawai.id_bidang=tbl_bidang.id_bidang ORDER BY nama DESC ";
-
-        // $query = "SELECT * FROM `tbl_pemenang_lelang`
-
-
-
+        $query = "SELECT * FROM tbl_pegawai  JOIN tbl_bidang ON tbl_pegawai.id_bidang=tbl_bidang.id_bidang ORDER BY nama DESC ";
         return $this->db->query($query)->result_array();
     }
 
@@ -18,14 +13,9 @@ class Pegawai_model extends CI_Model
     {
         $query = "SELECT u.*, tb.*, tj.* FROM tbl_pegawai u 
             LEFT JOIN tbl_bidang tb 
-                ON u.id_bidang=tb.id_bidang
+            ON u.id_bidang=tb.id_bidang
             LEFT JOIN tbl_jabatan tj
-                ON tj.id_jabatan=u.id_jabatan WHERE u.id_jabatan = '1'";
-
-        // $query = "SELECT * FROM `tbl_pemenang_lelang`
-
-
-
+            ON tj.id_jabatan=u.id_jabatan WHERE u.id_jabatan = '1'";
         return $this->db->query($query)->result_array();
     }
 
