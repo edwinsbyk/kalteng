@@ -7,7 +7,7 @@
                     <label for="text-input" class=" form-control-label">Judul Berita</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type="text" id="text-input" name="judul-berita" placeholder="Judul Berita" class="form-control">
+                    <input required type="text" id="text-input" name="judul-berita" placeholder="Judul Berita" class="form-control">
                 </div>
             </div>
 
@@ -16,7 +16,7 @@
                     <label for="text-input" class=" form-control-label">Link Gambar</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type="text" id="text-input" name="image" placeholder="Link Gambar" class="form-control">
+                    <input required type="text" id="text-input" name="image" placeholder="Link Gambar" class="form-control">
                 </div>
             </div>
 
@@ -34,7 +34,7 @@
                     <label for="text-input" class=" form-control-label">Dibuat oleh</label>
                 </div>
                 <div class="col-12 col-md-9 date" >
-                    <input type='text' class="form-control" name="dibuat-oleh" placeholder="Syahid Nurrohim" required disabled/>
+                    <input type='text' class="form-control" name="dibuat-oleh" placeholder="Syahid Nurrohim" disabled/>
                 </div>
             </div>
 

@@ -68,6 +68,12 @@ $(document).ready(() => {
 						$("[name='edit_id_agenda']").val(data.id_agenda);
 						tinymce.get('edit_isi_agenda').setContent(data.isi);
 					break;
+				case "edit_testimoni":
+						$("[name='edit_nama']").val(data.nama);
+						$("[name='edit_email']").val(data.email);
+						$("[name='edit_id_testimoni']").val(data.id_testimoni);
+						tinymce.get('edit_isi').setContent(data.isi);
+					break;
 				default:
 						console.log("invalid namespace");
 					break;

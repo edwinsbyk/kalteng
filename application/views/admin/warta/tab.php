@@ -63,7 +63,7 @@
                         <label for="text-input" class=" form-control-label">Judul Berita</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="edit_judul_berita" name="judul-berita" placeholder="Judul Berita" class="form-control">
+                            <input required type="text" id="edit_judul_berita" name="judul-berita" placeholder="Judul Berita" class="form-control">
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                             <label for="text-input" class=" form-control-label">Link Gambar</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="edit_link_gambar" name="image" placeholder="Link Gambar" class="form-control">
+                            <input required type="text" id="edit_link_gambar" name="image" placeholder="Link Gambar" class="form-control">
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@
                             <label for="text-input" class=" form-control-label">Tanggal & Waktu</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="edit_tanggal_berita" name="tanggal" disabled class="form-control">
+                            <input required type="text" id="edit_tanggal_berita" name="tanggal" disabled class="form-control">
                         </div>
                     </div>
 
