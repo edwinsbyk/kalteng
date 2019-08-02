@@ -5,13 +5,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
-    // public function __construct()
-    // {
+    public function __construct()
+    {
 
-    //     parent::__construct();
-
-    //     // is_logged_in();
-    // }
+        parent::__construct();
+        is_logged_in();
+    }
 
 
     public function loadAsset($param)
@@ -141,12 +140,12 @@ class Admin extends CI_Controller
     public function tambah_agenda()
     {
         $data = array(
-          "iduser"              => 1,
-          "judul"               => $this->input->post("judul_agenda"),
-          "isi"                 => $this->input->post("isi_agenda"),
-          "tanggal_mulai"       => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_mulai"))->format("Y/m/d H:i"),
-          "tanggal_selesai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_selesai"))->format("Y/m/d H:i"),
-          "image"               => $this->input->post("image")
+            "iduser"              => 1,
+            "judul"               => $this->input->post("judul_agenda"),
+            "isi"                 => $this->input->post("isi_agenda"),
+            "tanggal_mulai"       => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_mulai"))->format("Y/m/d H:i"),
+            "tanggal_selesai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_selesai"))->format("Y/m/d H:i"),
+            "image"               => $this->input->post("image")
         );
         $this->load->model("Agenda_model");
         $this->Agenda_model->input_data($data)
@@ -173,7 +172,7 @@ class Admin extends CI_Controller
             "tanggal_mulai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("edit_dtp_tgl_mulai"))->format("Y/m/d H:i"),
             "tanggal_selesai"   => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("edit_dtp_tgl_selesai"))->format("Y/m/d H:i"),
             "image"             => $this->input->post("edit_image"),
-            
+
         );
 
         $this->load->model("Agenda_model");
