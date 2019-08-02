@@ -38,7 +38,7 @@ class Files extends CI_Controller
 
 
         if ($upload_file) {
-            $config['allowed_types'] = 'gif|jpg|png|zip|rar|pdf|doc|xlsx|xls|csv|tar';
+            $config['allowed_types'] = 'gif|jpg|png|txt|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar';
             $config['max_size']     = 0;
             $config['upload_path'] = './assets/download/';
 
@@ -61,23 +61,17 @@ class Files extends CI_Controller
                 echo $this->upload->display_errors();
             }
         }
+    }
 
+    public function download($download)
+    {
 
+        $this->load->model('File_model', 'file');
+        $file['file'] = $this->file->downloadfile($download);
+        force_download('/assets/download/' . $download, NULL);
 
-        // $alias = $this->input->post('alias');
-
-        // $config['upload_path']          = './assets/download/';
-        // $config['allowed_types']        = 'gif|jpg|png|zip|rar|pdf|doc|xlsx|xls|csv|tar';
-        // $config['max_size']             = 0;
-
-        // $this->load->library('upload', $config);
-        // if (!$this->upload->do_upload('file')) {
-        //     $error = array('error' => $this->upload->display_errors());
-        // } else {
-        //     $data = array('upload_data' => $this->upload->data());
-        //     $this->db->set('file_name', $data);
-        //     $this->db->set('alias', $alias);
-        //     throw_flash_redirect('Data Sudah Di upload', 'success', 'admin/download');
-        // }
+        // var_dump($file);
+        // die;
+        redirect('admin/download');
     }
 }
