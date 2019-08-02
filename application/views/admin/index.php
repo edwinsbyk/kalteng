@@ -3,58 +3,21 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-6 col-xl-3 col-lg-4">
-                                <div class="dash-item">
-                                    <h2 class="dash-number">10,368</h2>
-                                    <span class="dash-desc">pegawai</span>
-                                    <div class="w-100 d-flex justify-content-between align-items-center mt-4 desc-foot">
-                                        <span><small>Informasi Pegawai</small></span>
-                                        <i class=" far fa-chart-bar"></i>
-                                    </div>
-                                    <div class="item-pegawai dash-icon">
-                                        <i class="zmdi zmdi-account-o"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-3 col-lg-4">
-                                <div class="dash-item">
-                                    <h2 class="dash-number">10,368</h2>
-                                    <span class="dash-desc">bidang</span>
-                                    <div class="w-100 d-flex justify-content-between align-items-center mt-4 desc-foot">
-                                        <span><small>Informasi Bidang</small></span>
-                                        <i class=" far fa-chart-bar"></i>
-                                    </div>
-                                    <div class="item-bidang dash-icon">
-                                        <i class="fas fa-expand"></i>
+                            <?php foreach ($data as $key => $value) { ?>
+                                <div class="col-md-6 col-xl-3 col-lg-4">
+                                    <div class="dash-item">
+                                        <h2 class="dash-number"><?= $data[$key] ?></h2>
+                                        <span class="dash-desc"><?= $key ?></span>
+                                        <div class="w-100 d-flex justify-content-between align-items-center mt-4 desc-foot">
+                                            <span><small>Informasi <?= ucfirst($key) ?></small></span>
+                                            <i class=" far fa-chart-bar"></i>
+                                        </div>
+                                        <div class="item-<?= $key ?> dash-icon">
+                                            <i class="zmdi zmdi-account-o"></i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-xl-3 col-lg-4">
-                                <div class="dash-item">
-                                    <h2 class="dash-number">10,368</h2>
-                                    <span class="dash-desc">berita</span>
-                                    <div class="w-100 d-flex justify-content-between align-items-center mt-4 desc-foot">
-                                        <span><small>Informasi Berita</small></span>
-                                        <i class=" far fa-chart-bar"></i>
-                                    </div>
-                                    <div class="item-berita dash-icon">
-                                        <i class="far fa-newspaper"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-3 col-lg-4">
-                                <div class="dash-item">
-                                    <h2 class="dash-number">10,368</h2>
-                                    <span class="dash-desc">artikel</span>
-                                    <div class="w-100 d-flex justify-content-between align-items-center mt-4 desc-foot">
-                                        <span><small>Informasi Artikel</small></span>
-                                        <i class=" far fa-chart-bar"></i>
-                                    </div>
-                                    <div class="item-artikel dash-icon">
-                                        <i class="far fa-file-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -65,7 +28,7 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-xl-8">
+                            <div class="col-xl-12">
                                 <!-- RECENT REPORT 2-->
                                 <div class="recent-report2">
                                     <h3 class="title-3">recent reports</h3>
@@ -104,47 +67,6 @@
                                     </div>
                                 </div>
                                 <!-- END RECENT REPORT 2             -->
-                            </div>
-                            <div class="col-xl-4">
-                                <!-- TASK PROGRESS-->
-                                <div class="task-progress">
-                                    <h3 class="title-3">task progress</h3>
-                                    <div class="au-skill-container">
-                                        <div class="au-progress">
-                                            <span class="au-progress__title">Web Design</span>
-                                            <div class="au-progress__bar">
-                                                <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="90">
-                                                    <span class="au-progress__value js-value"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="au-progress">
-                                            <span class="au-progress__title">HTML5/CSS3</span>
-                                            <div class="au-progress__bar">
-                                                <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="85">
-                                                    <span class="au-progress__value js-value"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="au-progress">
-                                            <span class="au-progress__title">WordPress</span>
-                                            <div class="au-progress__bar">
-                                                <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="95">
-                                                    <span class="au-progress__value js-value"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="au-progress">
-                                            <span class="au-progress__title">Support</span>
-                                            <div class="au-progress__bar">
-                                                <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="95">
-                                                    <span class="au-progress__value js-value"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END TASK PROGRESS-->
                             </div>
                         </div>
                     </div>
@@ -339,85 +261,6 @@
                                     </div>
                                 </div>
                                 <!-- END USER DATA-->
-                            </div>
-                            <div class="col-xl-6">
-                                <!-- MAP DATA-->
-                                <div class="map-data m-b-40">
-                                    <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-map"></i>map data</h3>
-                                    <div class="filters">
-                                        <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                                            <select class="js-select2" name="property">
-                                                <option selected="selected">All Worldwide</option>
-                                                <option value="">Products</option>
-                                                <option value="">Services</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--border">
-                                            <select class="js-select2 au-select-dark" name="time">
-                                                <option selected="selected">All Time</option>
-                                                <option value="">By Month</option>
-                                                <option value="">By Day</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
-                                    </div>
-                                    <div class="map-wrap m-t-45 m-b-80">
-                                        <div id="vmap" style="height: 284px;"></div>
-                                    </div>
-                                    <div class="table-wrap">
-                                        <div class="table-responsive table-style1">
-                                            <table class="table">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>United States</td>
-                                                        <td>$119,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Australia</td>
-                                                        <td>$70,261.65</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>United Kingdom</td>
-                                                        <td>$46,399.22</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="table-responsive table-style1">
-                                            <table class="table">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Germany</td>
-                                                        <td>$20,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>France</td>
-                                                        <td>$10,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Russian</td>
-                                                        <td>$5,366.96</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END MAP DATA-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="copyright">
-                                <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
                             </div>
                         </div>
                     </div>

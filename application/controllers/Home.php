@@ -88,7 +88,6 @@ class Home extends CI_Controller
     }
     public function datapujalan()
     {
-
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJalan();
         $this->inject_resources(["path" => 'home/data-pu/jalan', "data" => $data]);

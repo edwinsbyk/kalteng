@@ -4,17 +4,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Files extends CI_Controller {
     public function image_acceptor(){
-        $this->load->helper(array('form', 'url'));
-        $config['upload_path'] = base_url("upload/images");
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = '100';
-        $config['max_width'] = '1024';
-        $config['max_height'] = '768';
+        // $this->load->helper(array('form', 'url'));
+        $config['upload_path'] = './assets/img/berita/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = 0;
         $this->load->library('upload', $config);
-        if ($this->upload->do_upload()) {
-            echo json_encode(array('upload_data' => $this->upload->data()));
+        if (!$this->upload->do_upload('file')) {
+            $this->output->set_header('HTTP/1.0 500 Server Error');
+            exit;
         } else {
-            echo json_encode(array('error' => $this->upload->display_errors()));
+            $file = $this->upload->data();
+            $this->output
+                ->set_content_type('application/json', 'utf-8')
+                ->set_output(json_encode(['location' => base_url() . '/assets/img/berita/' . $file['file_name']]))
+                ->_display();
+            exit;
         }
         // $this->load->helper(array('form', 'url'));
     }
