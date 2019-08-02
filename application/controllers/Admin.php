@@ -957,4 +957,12 @@ class Admin extends CI_Controller
         redirect('admin/jabatan');
         $this->loadAsset(["path" => "admin/jabatan/jabatan"]);
     }
+
+
+    public function download()
+    {
+        $this->load->model('File_model', 'data');
+        $data['data'] = $this->data->getfileList();
+        $this->loadAsset(["path" => "admin/download/download", "data" => $data]);
+    }
 }
