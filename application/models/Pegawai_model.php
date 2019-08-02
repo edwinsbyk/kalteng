@@ -16,11 +16,11 @@ class Pegawai_model extends CI_Model
 
     public function getPegawaibidang()
     {
-        $query = "SELECT u.*, tb.*, tj.* FROM user u 
+        $query = "SELECT u.*, tb.*, tj.* FROM tbl_pegawai u 
             LEFT JOIN tbl_bidang tb 
-                ON u.role_id=tb.id_bidang
+                ON u.id_bidang=tb.id_bidang
             LEFT JOIN tbl_jabatan tj
-                ON tj.id_jabatan=u.role_id";
+                ON tj.id_jabatan=u.id_jabatan WHERE u.id_jabatan = '1'";
 
         // $query = "SELECT * FROM `tbl_pemenang_lelang`
 

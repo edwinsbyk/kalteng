@@ -992,11 +992,44 @@ class Admin extends CI_Controller
         $image = $this->input->post('image');
         $role_id = $this->input->post('role_id');
         $is_active = $this->input->post('is_active');
+        $date_created = time();
         
         
 
-        $this->data->tambahdataUser($email ,$name ,$password, $image , $role_id , $is_active);
+        $this->data->tambahdataUser($email ,$name ,$password, $image , $role_id , $is_active , $date_created);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/user');
+        $this->loadAsset(["path" => "admin/user/user"]);
+    }
+
+      public function editPassword()
+    {
+        $this->load->model('userdata_model', 'data');
+        $id = $this->input->post('id');
+        $email = $this->input->post('email');
+        $name = $this->input->post('name');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+        $image = $this->input->post('image');
+        $role_id = $this->input->post('role_id');
+        $is_active = $this->input->post('is_active');
+        $date_created = $this->input->post('date_created');
+        
+        
+
+        $this->data->editpasswordUser($id, $email ,$name ,$password, $image , $role_id , $is_active ,$date_created);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
+        redirect('admin/user');
+        $this->loadAsset(["path" => "admin/user/user"]);
+    }
+
+      public function deletedataUser()
+    {
+        $this->load->model('userdata_model', 'delete_data');
+        $id = $this->input->post('id');
+
+        $this->delete_data->deletedataUser($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/user');
         $this->loadAsset(["path" => "admin/user/user"]);
     }
