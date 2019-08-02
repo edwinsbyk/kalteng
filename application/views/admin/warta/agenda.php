@@ -45,7 +45,7 @@
                                 <label class=" form-control-label" required>Judul Agenda</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" name="edit_judul_agenda" required placeholder="Judul agenda disini" class="form-control">
+                                <input required type="text" name="edit_judul_agenda" required placeholder="Judul agenda disini" class="form-control">
                             </div>
                         </div>
 
@@ -54,7 +54,7 @@
                                 <label for="text-input" class=" form-control-label">Link Gambar</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="text-input" name="edit_image" placeholder="Link Gambar" class="form-control">
+                                <input required type="text" id="text-input" name="edit_image" placeholder="Link Gambar" class="form-control">
                             </div>
                         </div>
 
@@ -64,7 +64,7 @@
                             </div>
                             <div class="col-12 col-md-9 date" >
                                 <div class="input-group date" id="edit_dtp_tgl_mulai" data-target-input="nearest">
-                                    <input type="text" name="edit_dtp_tgl_mulai" class="form-control datetimepicker-input" data-target="#edit_dtp_tgl_mulai" placeholder="Tanggal & Waktu Mulai" required/>
+                                    <input required type="text" name="edit_dtp_tgl_mulai" class="form-control datetimepicker-input" data-target="#edit_dtp_tgl_mulai" placeholder="Tanggal & Waktu Mulai" required/>
                                     <div class="input-group-append" data-target="#edit_dtp_tgl_mulai" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-12 col-md-9 date" >
                                 <div class="input-group date" id="edit_dtp_tgl_selesai" data-target-input="nearest">
-                                        <input type="text" name="edit_dtp_tgl_selesai" class="form-control datetimepicker-input" data-target="#edit_dtp_tgl_selesai" placeholder="Tanggal & Waktu Selesai" required/>
+                                        <input required type="text" name="edit_dtp_tgl_selesai" class="form-control datetimepicker-input" data-target="#edit_dtp_tgl_selesai" placeholder="Tanggal & Waktu Selesai" required/>
                                         <div class="input-group-append" data-target="#edit_dtp_tgl_selesai" data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
