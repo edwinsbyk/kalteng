@@ -28,43 +28,41 @@
                 </div>
                 <div class="tab-content col-sm-10" id="myTabContent">
                     <div class="tab-pane fade show active" id="v-pills-account" role="tabpanel" aria-labelledby="account-tab">
-                        <div class="d-flex">
+                        <form action="" enctye="multipart/form-data" method="post" class="col-sm-12 d-flex form-horizontal flex-wrap">
                             <div class="col-sm-8">
-                                <form action="" method="post" class="form-horizontal">
-                                    <h4 class="border-bottom mb-4 pb-3">Account setting</h4>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="hf-email" class=" form-control-label">Email</label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="email" id="hf-email" name="hf-email" placeholder="Input email" value="a@a.com" class="form-control">
-                                        </div>
+                                <h4 class="border-bottom mb-4 pb-3">Account setting</h4>
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="hf-email" class=" form-control-label">Email</label>
                                     </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="hf-email" class=" form-control-label">Username</label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="hf-username" name="hf-username" value="porrosyhd" disabled class="form-control">
-                                        </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="email" id="hf-email" name="hf-email" placeholder="Input email" value="a@a.com" class="form-control">
                                     </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="hf-email" class=" form-control-label">Nama</label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="hf-nama" name="hf-nama" placeholder="Input nama" value="Syahid Nurrohim" class="form-control">
-                                        </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="hf-email" class=" form-control-label">Username</label>
                                     </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="hf-password" class=" form-control-label">Tanggal dibuat</label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <p class="form-control-static"><?= date("d M Y, H:i:s") ?></p>
-                                        </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="hf-username" name="hf-username" value="porrosyhd" disabled class="form-control">
                                     </div>
-                                </form>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="hf-email" class=" form-control-label">Nama</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="hf-nama" name="hf-nama" placeholder="Input nama" value="Syahid Nurrohim" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="hf-password" class=" form-control-label">Tanggal dibuat</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <p class="form-control-static"><?= date("d M Y, H:i:s") ?></p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="card">
@@ -84,10 +82,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <input class="btn btn-primary" value="Submit" type="submit">
+                            <input class="btn btn-primary" value="Submit" type="submit">
+                        </form>
                     </div>
-                    <div class="tab-pane fade" id="v-pills-changep" role="tabpanel" aria-labelledby="changep-tab">
+                    <div class="tab-pane col-sm-10 fade" id="v-pills-changep" role="tabpanel" aria-labelledby="changep-tab">
                         <form action="" method="post" class="form-horizontal">
                             <h4 class="border-bottom mb-4 pb-3">Change Password</h4>
                             <div class="row form-group">

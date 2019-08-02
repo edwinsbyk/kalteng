@@ -67,8 +67,9 @@ $(document).ready(() => {
 			});
 	})
 
-	var detail_berita = $(".detail_berita");
-	detail_berita.click(function () {
+	$(document).on("click", ".detail_berita", function () {
+		$("#judul-berita").html("Sedang request ke server");
+		$("#isi-berita").html("Sedang request ke server");
 		var self = $(this);
 		$.ajax({
 			method: "get",
@@ -84,25 +85,7 @@ $(document).ready(() => {
 		})
 	})
 
-	var detail_berita = $(".detail_berita");
-	detail_berita.click(function () {
-		var self = $(this);
-		$.ajax({
-			method: "get",
-			url: self.attr("data-url"),
-			data: {
-				berita_id: self.attr("berita-index")
-			},
-			cache: false
-		}).done((data) => {
-			data = JSON.parse(data)[0]
-			$("#judul-berita").html(data.judul);
-			$("#isi-berita").html(data.isi)
-		})
-	})
-
-	var edit_berita = $(".edit_berita");
-	edit_berita.click(function () {
+	$(document).on("click", ".edit_berita", function () {
 		var self = $(this);
 		$.ajax({
 			method: "get",

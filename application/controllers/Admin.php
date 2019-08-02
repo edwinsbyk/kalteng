@@ -79,6 +79,15 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/setting/setting"]);
     }
 
+    public function update_accout()
+    {
+        $this->load->model("SettingModel");
+        $data = array(
+            
+        );
+        $this->SettingModel->update_data($data, $this->session->id);
+    }
+
     public function rup()
     {
         $this->load->model('Pengumuman_model', 'data');
