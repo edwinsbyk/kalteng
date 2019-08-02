@@ -9,9 +9,9 @@ foreach ($data as $d) : ?>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="form-horizontal" method="post" action="<?= base_url('admin/deletedataJalan') ?>">
+                <form class="form-horizontal" method="post" action="<?= base_url('admin/deletefile_download') ?>">
                     <div class="modal-body">
-                        Hapus data <?= $d['ruas'] ?>?
+                        Hapus data <?= $d['alias'] ?> / <?= $d['nama_file'] ?> ?
                     </div>
 
                     <div class="modal-footer">

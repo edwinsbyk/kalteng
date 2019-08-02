@@ -15,7 +15,9 @@
                 <tr>
                     <td><?= $i; ?></td>
                     <td><?= $d['alias']; ?></td>
-                    <td><?= $d['nama_file']; ?></td>
+                    <td>
+                        <a href="<?php echo base_url('files/download/') ?><?php echo $d['nama_file'] ?>" target=”_blank”><?= $d['nama_file'] ?></a>
+                    </td>
                     <td>
                         <div class="table-data-feature">
                             <a href="#" class="item" data-toggle="modal" data-target="#modal_edit<?= $d['id_file']; ?>"><i class="zmdi zmdi-edit"></i></a>
