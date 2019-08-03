@@ -5,13 +5,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
-    // public function __construct()
-    // {
+    public function __construct()
+    {
 
-    //     parent::__construct();
+        parent::__construct();
 
-    //     // is_logged_in();
-    // }
+        is_logged_in();
+    }
 
 
     public function loadAsset($param)
@@ -76,50 +76,54 @@ class Admin extends CI_Controller
 
     public function setting()
     {
-        $this->loadAsset(["path" => "admin/setting/setting"]);
+        $this->load->model("SettingModel");
+        $data["data"] = $this->SettingModel->get_data($this->session->userdata("user_id"));
+        $this->loadAsset(["path" => "admin/setting/setting", "data" => $data]);
     }
 
-    public function change_accout_password()
+    public function change_account_password()
     {
-        $this->form_validation->set_rules('oldpassword', 'Password', 'trim|required|min_length[8]|matches[password2]');
-        $this->form_validation->set_rules('newpassword', 'Repeat Password', 'trim|required|min_length[8]|matches[password1]');
-        if ($this->form_validation->run() == false) {
-            return false;
-        }
-        $p2 = password_hash($this->input->post("newpassword"), PASSWORD_DEFAULT);
-        $p3 = password_hash($this->input->post("rnewpassword"), PASSWORD_DEFAULT);
+        $p2 = $this->input->post("newpassword");
+        $p3 = $this->input->post("rnewpassword");
         if ($p3 != $p2) {
-            throw_flash_redirect("Password tidak sinkron");
+            throw_flash_redirect("Password tidak sinkron", "danger", "admin/setting");
             return false;
         }
         $this->load->model("User_model");
         $password = $this->User_model->__getUserWithEmail($this->session->userdata('email'))["password"];
         if (!password_verify($this->input->post("oldpassword"), $password)) {
-            throw_flash_redirect("Password lama tidak cocok");
+            throw_flash_redirect("Password lama tidak cocok", "danger", "admin/setting");
             return false;
         }
+        $p3 = password_hash($p3, PASSWORD_DEFAULT);
         $this->load->model("SettingModel");
-        $this->SettingModel->update_data(["password" => $p3]);
+        $this->SettingModel->update_data(["password" => $p3], $this->session->userdata("user_id")) 
+            ? throw_flash_redirect("Password berhasil diubah", "success", "admin/setting")
+            : throw_flash_redirect("Tidak dapat mengubah password", "danger", "admin/setting");
     }
 
     public function change_account_setting()
     {
         $upload_file = $_FILES['setting-image']['name'];
-        !$upload_file && throw_flash_redirect("Mohon memilih file", "danger", "admin/setting");
         $this->load->model("SettingModel");
-        $config['allowed_types'] = 'gif|jpg|png|txt|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar';
-        $config['max_size']     = 0;
-        $config['upload_path'] = './assets/admin/images/user_profile/';
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
-        !$this->upload->do_upload("setting-image") && throw_flash_redirect($this->upload->display_errors(), "danger", "admin/setting");
-        
+        if ($upload_file) {
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size']     = 2500;
+            $config['upload_path'] = './assets/admin/images/user_profile/';
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+            !$this->upload->do_upload("setting-image") && throw_flash_redirect($this->upload->display_errors(), "danger", "admin/setting");
+            $this->load->model("User_model");
+            unlink(FCPATH."assets/admin/images/user_profile/".$this->User_model->__getUserWithEmail($this->session->userdata("email"))["image"]);
+        }
+        $email = $this->input->post("setting-email");
         $data = array(
             "name" => $this->input->post("setting-nama"),
-            "email" => $this->input->post("setting-email"),
-            "image" => $file = $this->upload->data('file_name'),
+            "email" => $email,
         );
-        $this->SettingModel->update_data($data, "1") 
+        $data = $upload_file ? array_merge($data, ["image" => $file = $this->upload->data('file_name')]) : $data;
+        $this->session->set_userdata(array("email" => $email));
+        $this->SettingModel->update_data($data, $this->session->userdata("user_id"))
             ? throw_flash_redirect("Data berhasil diubah", "success", "admin/setting")
             : throw_flash_redirect("Gagal mengubah data", "danger", "admin/setting");
     }

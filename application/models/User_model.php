@@ -12,7 +12,11 @@ class User_model extends CI_Model
         if ($user = $this->__getUserWithEmail($email)) {
             if ($user['is_active'] == 1) {
                 if (password_verify($password, $user['password'])) {
-                    $data = ['email' => $user['email'], 'role_id' => $user['role_id']];
+                    $data = [
+                        'email' => $user['email'], 
+                        'role_id' => $user['role_id'], 
+                        'user_id' => $user["id"]
+                    ];
                     $this->session->set_userdata($data);
                     redirect($user['role_id'] == 1 ? 'admin' : 'user');
                 } else {

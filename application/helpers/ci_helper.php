@@ -4,19 +4,17 @@ function is_logged_in()
 {
     $ci = get_instance();
     if (!$ci->session->userdata('email')) {
-        redirect('auth');
+        redirect('home');
     } else {
         $role_id = $ci->session->userdata('role_id');
-        $menu = $ci->uri->segment(1);
-
-        $queryMenu = $ci->db->get_where('user_menu', ['menu' => $menu])->row_array();
-
-        $menu_id =  $queryMenu['id'];
-
-        $userAccess = $ci->db->get_where('user_access_menu', ['role_id' => $role_id, 'menu_id' => $menu_id]);
-
+        $email = $ci->session->userdata('email');
+        $queryMenu = $ci->db->get_where('user', ['email' => $email])->row_array();
+        $user_id =  $queryMenu['id'];
+        $userAccess = $ci->db->get_where('user', ['role_id' => $role_id, 'id' => $user_id]);
+        // var_dump($ci->session->userdata());
+        // die;
         if ($userAccess->num_rows() < 1) {
-            redirect('auth/blocked');
+            redirect('404');
         }
     }
 }
