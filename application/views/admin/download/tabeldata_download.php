@@ -4,7 +4,7 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Alias</th>
+                <th scope="col">Keterangan</th>
                 <th scope="col">Nama File</th>
                 <th scope="col">Action</th>
             </tr>
@@ -14,14 +14,12 @@
             <?php foreach ($data as $d) : ?>
                 <tr>
                     <td><?= $i; ?></td>
-                    <td><?= $d['alias']; ?></td>
-                    <td>
-                        <a href="<?php echo base_url('files/download/') ?><?php echo $d['nama_file'] ?>" target=”_blank”><?= $d['nama_file'] ?></a>
-                    </td>
+                    <td><?= $d['keterangan']; ?></td>
+                    <td><?= $d['nama_file'] ?></td>
                     <td>
                         <div class="table-data-feature">
-                            <a href="#" class="item" data-toggle="modal" data-target="#modal_edit<?= $d['id_file']; ?>"><i class="zmdi zmdi-edit"></i></a>
                             <a href="#" class="item" data-toggle="modal" data-target="#modal_delete<?= $d['id_file']; ?>"><i class="zmdi zmdi-delete"></i></a>
+                            <a href="<?php echo base_url('files/download/') ?><?= $d['id_file'] ?>" target="_self" class="item"><i class="zmdi zmdi-download"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -32,5 +30,4 @@
     </table>
 </div>
 
-<?php $this->load->view('admin/download/edit-download-modal'); ?>
 <?php $this->load->view('admin/download/delete-download-modal'); ?>

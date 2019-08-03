@@ -1,7 +1,14 @@
 <?php
-
 class Home extends CI_Controller
 {
+    public function __construct()
+    {
+
+        parent::__construct();
+        // is_logged_in();
+    }
+
+
 
     public function inject_resources($param)
     {
@@ -52,7 +59,9 @@ class Home extends CI_Controller
     }
     public function index()
     {
-        $this->inject_resources(["path" => 'home/index']);
+        $this->load->model('Bidang_model', 'data');
+        $data['data'] = $this->data->getBidang();
+        $this->inject_resources(["path" => 'home/index', "data" => $data]);
     }
 
     public function bidang()
@@ -61,11 +70,12 @@ class Home extends CI_Controller
         $this->load->model('Bidanghome_model', 'data');
         $data['data'] = $this->data->getdataBidang();
         $this->inject_resources(["path" => "home/bidang", "data" => $data]);
-      
     }
 
     public function datapu()
     {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
         $data['title'] = 'Data PU';
         $this->inject_resources(["path" => "home/datapu", "data" => $data]);
     }
@@ -165,21 +175,22 @@ class Home extends CI_Controller
     }
     public function download()
     {
-        $data['data'] = $this->data->getDataJembatan();
-        $this->loadAsset(["path" => "admin/datapu/jembatan/jembatan", "data" => $data]);
+
+        $this->load->model('File_model', 'file');
+        $data['data'] = $this->file->getFileList();
+        $this->inject_resources(["path" => "home/download", "data" => $data]);
     }
 
     public function pengumumanlelang()
     {
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getPengumumanLelang();
-        $this->inject_resources(["path" => 'pengumuman/pengumumanlelang' ,"data" => $data]);
+        $this->inject_resources(["path" => 'pengumuman/pengumumanlelang', "data" => $data]);
     }
     public function pengumumanpemenanglelang()
     {
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getPemenangLelang();
-        $this->inject_resources(["path" => 'pengumuman/pemenanglelang' ,"data" => $data]);
+        $this->inject_resources(["path" => 'pengumuman/pemenanglelang', "data" => $data]);
     }
 }
-

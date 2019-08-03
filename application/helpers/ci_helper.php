@@ -11,8 +11,6 @@ function is_logged_in()
         $queryMenu = $ci->db->get_where('user', ['email' => $email])->row_array();
         $user_id =  $queryMenu['id'];
         $userAccess = $ci->db->get_where('user', ['role_id' => $role_id, 'id' => $user_id]);
-        // var_dump($ci->session->userdata());
-        // die;
         if ($userAccess->num_rows() < 1) {
             redirect('404');
         }
@@ -22,7 +20,7 @@ function is_logged_in()
 function throw_flash_redirect($message, $status, $url)
 {
     $self = get_instance();
-    $self->session->set_flashdata('message', '<div class="alert alert-'.$status.'" role="alert">'.$message.'</div>');
+    $self->session->set_flashdata('message', '<div class="alert alert-' . $status . '" role="alert">' . $message . '</div>');
     redirect($url);
 }
 

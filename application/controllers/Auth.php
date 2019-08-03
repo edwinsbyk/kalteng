@@ -33,6 +33,7 @@ class Auth extends CI_Controller
         $email = $this->input->post('email');
         $password = $this->input->post('password');
         $this->User_model->__makeAuthRequest($email, $password);
+        $this->session->set_userdata('email');
     }
 
     private function _sendEmail($token, $type)
@@ -79,7 +80,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> You have been logged out. </div>');
-        redirect('auth');
+        redirect('home');
     }
 
     public function blocked()

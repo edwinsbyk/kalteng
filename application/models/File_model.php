@@ -12,10 +12,10 @@ class File_model extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
-    function downloadfile($download)
+    function filename($id)
     {
 
-        $query = "SELECT * FROM `tbl_file_download` WHERE `nama_file`='$download'
+        $query = "SELECT `nama_file` FROM `tbl_file_download` WHERE `id_file`='$id'
         ";
         return $this->db->query($query)->result_array();
     }

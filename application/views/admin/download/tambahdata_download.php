@@ -3,9 +3,9 @@
                 <div class="card-body card-block">
                     <?= form_open_multipart('files/do_upload'); ?>
                     <div class="form-group row">
-                        <label for="alias" class="col-sm-2 col-form-label">Alias</label>
+                        <label for="alias" class="col-sm-2 col-form-label">Keterangan</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="alias" name="alias">
+                            <input type="text" class="form-control" id="keterangan" name="keterangan">
                         </div>
                     </div>
                     <div class=" form-group row">

@@ -69,12 +69,55 @@
   <section class="section">
     <div class="container">
       <header class="section-header">
-        <h2>Non arcu risus quis varius quam quisque id diam.</h2>
+        <h2>Website Dinas Pekerjaan Umum Kalimantan Tengah</h2>
+        <p>Media penyebaran informasi dan komunikasi Dinas Pekerjaan Umum dan Penataan Ruang pemerintah Provinsi Kalimantan Tengah dengan mayarakat.</p>
         <hr>
-        <p class="lead">At imperdiet dui accumsan</p>
+
+        <div class="row">
+              <div class="col-lg-4">
+                <section class="card">
+                 <img src="<?php echo base_url(); ?>assets/img/bangunjalan.jpg">
+                </section>
+              </div>
+              <div class="col-lg-4">
+                <section class="card">
+                   <img src="<?php echo base_url(); ?>assets/img/bangunjalan2.jpg">
+                </section>
+              </div>
+              <div class="col-lg-4">
+                <section class="card">
+                   <img src="<?php echo base_url(); ?>assets/img/bangunkereta.jpg">
+                </section>
+              </div>
+            </div>
+       
+
       </header>
+      <br><br>
+   <div class="row" >
+              <div class="col-md-8 offset-md-8 col-sm-8 ml-auto">
+                <section class="card">
+                  <div class="card-body text-secondary">
+                    <h1 class="fas  fa-arrow-circle-right" style="color: black;">
+                    BIDANG
+                    <span class="fas  fa-arrow-circle-left" style="color: black;" >  </span></h1></div>
+                </section>
+              </div>
+            </div>
 
+            
+           <div class="row" >
+            <?php foreach ($data as $row) : ?>
+              <div class="col-lg-4">
+                <section class="card">
+                  <div class="card-body text-secondary"><h6><?= $row['bidang'] ?></h6></div>
+                </section>
+              </div>
+            <?php endforeach ?>
+              
+            </div>
 
+        <br><br>
       <div class="row gap-y">
 
         <div class="col-6 col-md-4 col-xl-2">

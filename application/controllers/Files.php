@@ -31,14 +31,15 @@ class Files extends CI_Controller
     public function do_upload()
     {
 
-        $alias = $this->input->post('alias');
+        $keterangan = $this->input->post('keterangan');
 
         //jika ada gambar yang akan di upload
         $upload_file = $_FILES['file_name']['name'];
 
 
         if ($upload_file) {
-            $config['allowed_types'] = 'gif|jpg|png|txt|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar';
+            $config['allowed_types'] = 'text|gif|jpg|png|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar';
+            // $config['allowed_types'] = '*';
             $config['max_size']     = 0;
             $config['upload_path'] = './assets/download/';
 
@@ -50,7 +51,7 @@ class Files extends CI_Controller
                 $this->db->set('nama_file', $file);
 
 
-                $this->db->set('alias', $alias);
+                $this->db->set('keterangan', $keterangan);
                 $this->db->insert('tbl_file_download');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your profile has been updated.</div>');
                 redirect('admin/download');
@@ -58,20 +59,42 @@ class Files extends CI_Controller
                 // var_dump($this->upload->data());
                 // die;
             } else {
-                echo $this->upload->display_errors();
+
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Extensi ini tidak di izinkan untuk di upload</div>');
+                // echo $this->upload->display_errors();
+                redirect('admin/download');
             }
         }
     }
 
-    public function download($download)
+    public function download($id = null)
+    {
+        $this->load->helper('download');
+        $this->load->model('File_model', 'file');
+
+
+        if ($id) {
+            $nama_file = $this->file->filename($id);
+            force_download(FCPATH . 'assets/download/' . $nama_file[0]["nama_file"], NULL);
+            redirect('admin/download');
+        } else {
+            redirect('admin/download');
+        }
+    }
+
+    public function file_delete()
     {
 
         $this->load->model('File_model', 'file');
-        $file['file'] = $this->file->downloadfile($download);
-        force_download('/assets/download/' . $download, NULL);
+        $id = $this->input->post('id');
+        $nama_file = $this->file->filename($id);
 
-        // var_dump($file);
-        // die;
+        unlink(FCPATH . 'assets/download/'  . $nama_file[0]["nama_file"]);
+
+        $this->db->where('id_file', $id);
+        $this->db->delete('tbl_file_download');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">File berhasil di hapus</div>');
+
         redirect('admin/download');
     }
 }
