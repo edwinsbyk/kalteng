@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="account-dropdown__body">
                                         <div class="account-dropdown__item">
-                                            <a href="#">
+                                            <a href="<?= base_url("auth/logout") ?>">
                                                 <i class="zmdi zmdi-globe"></i>Log out</a>
                                         </div>
                                         <!-- <div class="account-dropdown__item">

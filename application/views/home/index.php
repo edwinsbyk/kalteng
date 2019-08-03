@@ -184,6 +184,7 @@
       // mouseDrag: false,
       autoplay: true,
       autoplaySpeed: 1000,
+      lazyLoad: true,
       autoplayTimeout: 7000,
       animateOut: 'fadeOut',
       animateIn: 'fadeOut',

@@ -7,14 +7,9 @@ class Admin extends CI_Controller
 {
     public function __construct()
     {
-<<<<<<< HEAD
 
         parent::__construct();
 
-=======
-
-        parent::__construct();
->>>>>>> 3967f713f937ccd493cc6d2e09aadbf3499c6939
         is_logged_in();
     }
 
