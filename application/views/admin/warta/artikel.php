@@ -60,7 +60,8 @@
               </button>
             </div>
             <div class="modal-body" style="overflow: auto;">
-                <form action="<?= base_url("admin/edit_artikel") ?>" method="post" enctype="multipart/form-data" class="form-horizontal card">
+            <?php echo form_open_multipart(base_url("admin/edit_artikel"));?>
+                <div class="form-horizontal card">
                     <div class="card-body card-block borders">
                         <div class="row form-group">
                             <div class="col col-md-3">
@@ -103,7 +104,7 @@
                                 <label for="disabled-input" class=" form-control-label">Isi Artikel</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <textarea type="textarea" name="edit-isi" id="edit-isi-artikel" rows="10" class="form-control tinyarea"></textarea>
+                                <textarea type="textarea" data-directory="<?= base_url("files/artikel_img_acceptor") ?>" name="edit-isi" id="edit-isi-artikel" rows="10" class="form-control tinyarea"></textarea>
                             </div>
                         </div>
                         <input type="hidden" name="edit-id_artikel">
@@ -115,6 +116,7 @@
                         <button type="reset" class="btn btn-danger btn-sm">
                             <i class="fa fa-ban"></i> Reset
                         </button>
+                    </div>
                     </div>
                 </form>
             </div>

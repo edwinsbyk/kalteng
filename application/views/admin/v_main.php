@@ -11,44 +11,47 @@
     <script src="<?= base_url('assets/admin/vendor/jquery-3.2.1.min.js') ?>"></script>
     <script src="<?= base_url("assets/plugin/tinymce/tinymce.min.js") ?>"></script>
         <script>
-                tinymce.init({
-                selector: "textarea.tinyarea",
-                plugins: [
-                    "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-                    "searchreplace wordcount visualblocks visualchars code fullscreen",
-                    "insertdatetime nonbreaking save table contextmenu directionality",
-                    "emoticons template paste textcolor colorpicker textpattern"
-                ],
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image responsivefilemanager",
-                automatic_uploads: true,
-                image_advtab: true,
-                height: 500,
-                images_upload_url: "<?= base_url("files/image_acceptor") ?>",
-                file_picker_types: 'image',
-                paste_data_images: true,
-                relative_urls: true,
-                remove_script_host: true,
-                    file_picker_callback: function(cb, value, meta) {
-                    var input = document.createElement('input');
-                    input.setAttribute('type', 'file');
-                    input.setAttribute('accept', 'image/*');
-                    input.onchange = function() {
-                        var file = this.files[0];
-                        var reader = new FileReader();
-                        reader.readAsDataURL(file);
-                        reader.onload = function() {
-                            var id = 'post-image-' + (new Date()).getTime();
-                            var blobCache = tinymce.activeEditor.editorUpload.blobCache;
-                            var blobInfo = blobCache.create(id, file, reader.result);
-                            blobCache.add(blobInfo);
-                            cb(blobInfo.blobUri(), {
-                                title: file.name
-                            });
-                        };
-                    };
-                    input.click();
-                }
-            });
+
+	tinymce.init({
+		selector: "textarea.tinyarea",
+		plugins: [
+			"advlist autolink lists link image charmap print preview hr anchor pagebreak",
+			"searchreplace wordcount visualblocks visualchars code fullscreen",
+			"insertdatetime nonbreaking save table directionality",
+			"emoticons template paste textpattern"
+		],
+		toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image responsivefilemanager",
+		automatic_uploads: true,
+		image_advtab: true,
+        height: 500,
+		file_picker_types: 'image',
+		paste_data_images: true,
+		relative_urls: true,
+        remove_script_host: true, 
+        images_upload_handler: function (blobInfo, success, failure) {
+            var xhr, formData;
+            xhr = new XMLHttpRequest();
+            xhr.withCredentials = false;
+            xhr.open('POST', tinyMCE.activeEditor.getElement().getAttribute("data-directory"));
+            xhr.onload = function() {
+            var json;
+            if (xhr.status != 200) {
+                failure('HTTP Error: ' + xhr.status);
+                return;
+            }
+            json = JSON.parse(xhr.responseText);
+            if (!json || typeof json.location != 'string') {
+                failure('Invalid JSON: ' + xhr.responseText);
+                return;
+            }
+            success(json.location);
+            };
+            formData = new FormData();
+            formData.append('file', blobInfo.blob(), blobInfo.filename());
+            xhr.send(formData);
+        }
+	});
+	
         </script>
     <title><?=$title?></title>
 </head>

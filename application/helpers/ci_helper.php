@@ -24,7 +24,6 @@ function throw_flash_redirect($message, $status, $url)
     redirect($url);
 }
 
-
 function check_access($role_id, $menu_id)
 {
 

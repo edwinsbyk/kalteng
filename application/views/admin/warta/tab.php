@@ -57,7 +57,8 @@
               </button>
             </div>
             <div class="modal-body" style="overflow: auto;">
-                <form action="<?= base_url("admin/edit_berita") ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <?php echo form_open_multipart(base_url("admin/edit_berita"));?>            
+                <div class="form-horizontal">
                     <div class="row form-group">
                         <div class="col col-md-3">
                         <label for="text-input" class=" form-control-label">Judul Berita</label>
@@ -90,7 +91,7 @@
                             <label for="textarea-input" class=" form-control-label">Isi Berita</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <textarea name="isi-berita" id="edit_isi_berita" class="form-control tinyarea"></textarea>
+                            <textarea name="isi-berita" data-directory=<?= base_url("files/berita_img_acceptor") ?> id="edit_isi_berita" class="form-control tinyarea"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -99,6 +100,7 @@
                         </button>
                     </div>
                     <input type="hidden" name="edit_idberita">
+                    </div>
                 </form>
             </div>
         </div>

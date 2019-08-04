@@ -1,7 +1,7 @@
 <div class="col-lg-12">
 
     <div class="card-body card-block" style="background-color: white">
-        <form action="<?php echo base_url().'admin/tambah_berita' ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <?php echo form_open_multipart(base_url("admin/tambah_berita"));?>
             <div class="row form-group">
                 <div class="col col-md-3">
                     <label for="text-input" class=" form-control-label">Judul Berita</label>
@@ -43,7 +43,7 @@
                     <label for="textarea-input" class=" form-control-label">Isi Berita</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <textarea name="isi-berita" id="textarea-input" class="form-control tinyarea"></textarea>
+                    <textarea name="isi-berita" data-directory="<?= base_url("files/berita_img_acceptor") ?>" id="textarea-input" class="form-control tinyarea"></textarea>
                 </div>
             </div>
 

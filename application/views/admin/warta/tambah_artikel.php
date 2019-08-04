@@ -1,5 +1,5 @@
 <div class="col-lg-12">
-    <form action="<?= base_url("admin/add_article") ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <?php echo form_open_multipart(base_url("admin/add_article"));?>
         <div class="card-body card-block borders">
             <div class="row form-group">
                 <div class="col col-md-3">
@@ -44,7 +44,7 @@
                     <label for="textarea-input" class=" form-control-label">Isi Artikel</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <textarea type="textarea" name="isi_artikel" class="form-control tinyarea"></textarea>
+                    <textarea type="textarea" data-directory="<?= base_url("files/artikel_img_acceptor") ?>" id="add_isi_artikel" name="isi_artikel" class="form-control tinyarea"></textarea>
                 </div>
             </div>
 

@@ -5,26 +5,42 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Files extends CI_Controller
 {
 
-
-    public function image_acceptor()
+    public function __construct()
     {
-        // $this->load->helper(array('form', 'url'));
-        $config['upload_path'] = './assets/img/berita/';
+        parent::__construct();
+        ini_set( 'memory_limit', '200M' );
+        ini_set('upload_max_filesize', '200M');  
+        ini_set('post_max_size', '200M');  
+        ini_set('max_input_time', 3600);  
+        ini_set('max_execution_time', 3600);
+    }
+
+    public function artikel_img_acceptor() {
+        $this->image_acceptor("file", "artikel");
+    }
+
+    public function berita_img_acceptor() {
+        $this->image_acceptor("file", "berita");        
+    }
+
+    public function image_acceptor($file, $path)
+    {
+        $config['upload_path'] = './assets/img/'.$path.'/';
         $config['allowed_types'] = 'jpg|png|jpeg';
-        $config['max_size'] = 0;
+        $config['max_size'] = 20480;
         $this->load->library('upload', $config);
-        if (!$this->upload->do_upload('file')) {
+        $this->upload->initialize($config);
+        if ( ! $this->upload->do_upload('file')) {
             $this->output->set_header('HTTP/1.0 500 Server Error');
             exit;
         } else {
             $file = $this->upload->data();
             $this->output
                 ->set_content_type('application/json', 'utf-8')
-                ->set_output(json_encode(['location' => base_url() . '/assets/img/berita/' . $file['file_name']]))
+                ->set_output(json_encode(['location' => base_url().'assets/img/'.$path.'/'.$file['file_name']]))
                 ->_display();
             exit;
         }
-        // $this->load->helper(array('form', 'url'));
     }
 
 
