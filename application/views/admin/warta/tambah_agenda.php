@@ -1,5 +1,5 @@
 <div class="col-lg-12">
-    <form action="<?= base_url("admin/tambah_agenda") ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <?php echo form_open_multipart(base_url("admin/tambah_agenda"));?>
         <div class="card-body card-block borders">
             <div class="row form-group">
                 <div class="col col-md-3">
@@ -54,7 +54,7 @@
                     <label class=" form-control-label">Dibuat oleh</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type="text" name="dibuat_oleh" disabled value="Syahid Nurrohim" class="form-control">
+                    <input type="text" name="dibuat_oleh" disabled value="<?= $this->session->userdata("user_name") ?>" class="form-control">
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
                     <label for="textarea-input" class=" form-control-label">Isi Agenda</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <textarea type="textarea" name="isi_agenda" class="form-control tinyarea"></textarea>
+                    <textarea type="textarea" data-directory="<?= base_url("files/agenda_img_acceptor") ?>" name="isi_agenda" class="form-control tinyarea"></textarea>
                 </div>
             </div>
 

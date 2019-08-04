@@ -19,6 +19,10 @@ class Files extends CI_Controller
         $this->image_acceptor("file", "artikel");
     }
 
+    public function agenda_img_acceptor() {
+        $this->image_acceptor("file", "agenda");
+    }
+
     public function berita_img_acceptor() {
         $this->image_acceptor("file", "berita");        
     }

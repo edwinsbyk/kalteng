@@ -46,6 +46,7 @@ $(document).ready(() => {
 							$("input[name='edit_idberita']").val(loadMsg);
 							$("#edit_tanggal_berita").val(loadMsg);
 							$("#edit_link_gambar").val(loadMsg);
+							$("[name='edit_dibuat_oleh']").val(loadMsg);
 							tinymce.get('edit_isi_berita').setContent(loadMsg);
 						break;
 					case "preview_artikel":
@@ -57,6 +58,7 @@ $(document).ready(() => {
 							$("[name='edit-tanggal']").val(loadMsg);
 							$("[name='edit-image']").val(loadMsg);
 							$("[name='edit-id_artikel']").val(loadMsg);
+							$("[name='edit-dibuat-oleh']").val(loadMsg);
 							tinymce.get('edit-isi-artikel').setContent(loadMsg);
 						break;
 					case "edit_agenda":
@@ -65,6 +67,7 @@ $(document).ready(() => {
 							$("[name='edit_dtp_tgl_selesai']").val(loadMsg);
 							$("[name='edit_image']").val(loadMsg);
 							$("[name='edit_id_agenda']").val(loadMsg);
+							$("[name='edit_dibuat_oleh']").val(loadMsg);
 							tinymce.get('edit_isi_agenda').setContent(loadMsg);
 						break;
 					case "edit_testimoni":
@@ -89,6 +92,7 @@ $(document).ready(() => {
 							$("#edit_judul_berita").val(data.judul);
 							$("input[name='edit_idberita']").val(data.idberita);
 							$("#edit_tanggal_berita").val(data.tanggal);
+							$("[name='edit_dibuat_oleh']").val(data.name);
 							$("#edit_link_gambar").val(data.image);
 							tinymce.get('edit_isi_berita').setContent(data.isi);
 						break;
@@ -101,6 +105,7 @@ $(document).ready(() => {
 							$("[name='edit-tanggal']").val(data.tanggal);
 							$("[name='edit-image']").val(data.image);
 							$("[name='edit-id_artikel']").val(data.id_artikel);
+							$("[name='edit-dibuat-oleh']").val(data.name);
 							tinymce.get('edit-isi-artikel').setContent(data.isi);
 						break;
 					case "edit_agenda":
@@ -108,6 +113,7 @@ $(document).ready(() => {
 							$("[name='edit_dtp_tgl_mulai']").val(data.tanggal_mulai);
 							$("[name='edit_dtp_tgl_selesai']").val(data.tanggal_selesai);
 							$("[name='edit_image']").val(data.image);
+							$("[name='edit_dibuat_oleh']").val(data.name);
 							$("[name='edit_id_agenda']").val(data.id_agenda);
 							tinymce.get('edit_isi_agenda').setContent(data.isi);
 						break;

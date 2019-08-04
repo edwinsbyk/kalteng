@@ -34,7 +34,7 @@
                     <label class=" form-control-label">Dibuat oleh</label>
                 </div>
                 <div class="col-12 col-md-9">
-                    <input type="text" name="dibuat_oleh" disabled value="Syahid Nurrohim" class="form-control">
+                    <input type="text" name="dibuat_oleh" disabled value="<?= $this->session->userdata("user_name") ?>" class="form-control">
                 </div>
             </div>
 

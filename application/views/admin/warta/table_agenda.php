@@ -52,11 +52,12 @@
 </style>
 
 <?= $this->session->flashdata('message') ?>
-<table id="agendaTable" class="table table-striped" style="width:100%"> 
+<table id="agendaTable" class="table data_table table-striped" style="width:100%"> 
     <thead> 
         <tr> 
         <tr> 
-            <th>Judul</th> 
+            <th>Judul</th>
+            <th width="200">Author</th> 
             <th width="200">Tanggal Mulai</th>
             <th width="200">Tanggal Selesai</th>
             <th width="100">Action</th>
@@ -69,6 +70,7 @@
         ?>
             <tr>
                 <td><?= $d["judul"] ?></td>
+                <td><?= $d["name"] ?></td>
                 <td><?= $d["tanggal_mulai"] ?></td>
                 <td><?= $d["tanggal_selesai"] ?></td>
                 <td>

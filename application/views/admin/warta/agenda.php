@@ -38,7 +38,7 @@
               </button>
             </div>
             <div class="modal-body" style="overflow: auto;">
-                <form action="<?= base_url("admin/edit_agenda") ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <?php echo form_open_multipart(base_url("admin/edit_agenda"));?>
                     <div class="card-body card-block borders">
                         <div class="row form-group">
                             <div class="col col-md-3">
@@ -93,7 +93,7 @@
                                 <label class=" form-control-label">Dibuat oleh</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" name="edit_dibuat_oleh" disabled value="Syahid Nurrohim" class="form-control">
+                                <input type="text" name="edit_dibuat_oleh" disabled class="form-control">
                             </div>
                         </div>
 
@@ -103,7 +103,7 @@
                                 <label for="textarea-input" class=" form-control-label">Isi Agenda</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <textarea type="textarea" name="edit_isi_agenda" class="form-control tinyarea"></textarea>
+                                <textarea type="textarea" name="edit_isi_agenda" data-directory="<?= base_url("files/agenda_img_acceptor") ?>" class="form-control tinyarea"></textarea>
                             </div>
                         </div>
 

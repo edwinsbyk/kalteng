@@ -13,12 +13,15 @@ class ArtikelModel extends CI_Model {
     }
 
     public function display_data() {
-        return $this->db->get("tbl_artikel")->result_array();
+        $a = $this->session->userdata("role_id") != 1 ? " WHERE a.iduser=".$this->session->userdata("user_id") : "";
+        $sql = "SELECT a.*, u.name FROM tbl_artikel a LEFT JOIN user u ON a.iduser = u.id${a}";
+        return $this->db->query($sql)->result_array();
     }
 
     public function getDataByIndex($id)
     {
-        return $this->db->get_where("tbl_artikel", array('id_artikel' => $id))->result_array();
+        $sql = "SELECT a.*, u.name FROM tbl_artikel a LEFT JOIN user u ON a.iduser = u.id WHERE a.id_artikel = '$id'";
+        return $this->db->query($sql)->result_array();
     }
 
     public function update_data($data, $id) {

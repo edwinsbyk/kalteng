@@ -13,6 +13,7 @@
         <thead>
             <tr>
                 <th>Judul</th>
+                <th width="200">Author</th>
                 <th width="200">Tanggal</th>
                 <th width="100">Action</th>
             </tr>
@@ -23,6 +24,7 @@
              ?>
             <tr>
                 <td><?= $d->judul ?></td>
+                <td><?= $d->name ?></td>
                 <td><?= $d->tanggal ?></td>
                 <td>
                 <div class="table-data-feature">

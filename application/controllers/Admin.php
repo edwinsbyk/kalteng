@@ -107,22 +107,27 @@ class Admin extends CI_Controller
         $upload_file = $_FILES['setting-image']['name'];
         $this->load->model("SettingModel");
         if ($upload_file) {
+            $this->load->model("User_model");
+            $user_data = $this->User_model->__getUserWithEmail($this->session->userdata("email"));
+            $user_data["image"] != "default.png" && unlink(FCPATH."assets/admin/images/user_profile/".$user_data["image"]);
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['max_size']     = 2500;
             $config['upload_path'] = './assets/admin/images/user_profile/';
+            $ext = end(explode(".", $upload_file));
+            $config['file_name'] = strtolower($user_data["name"])."-pofile.".$ext;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
             !$this->upload->do_upload("setting-image") && throw_flash_redirect($this->upload->display_errors(), "danger", "admin/setting");
-            $this->load->model("User_model");
-            unlink(FCPATH."assets/admin/images/user_profile/".$this->User_model->__getUserWithEmail($this->session->userdata("email"))["image"]);
         }
         $email = $this->input->post("setting-email");
+        $name = $this->input->post("setting-nama");
         $data = array(
-            "name" => $this->input->post("setting-nama"),
+            "name" => $name,
             "email" => $email,
         );
         $data = $upload_file ? array_merge($data, ["image" => $file = $this->upload->data('file_name')]) : $data;
-        $this->session->set_userdata(array("email" => $email));
+        $email && $this->session->set_userdata(array("email" => $email));
+        $name && $this->session->set_userdata(array("user_name" => $name));
         $this->SettingModel->update_data($data, $this->session->userdata("user_id"))
             ? throw_flash_redirect("Data berhasil diubah", "success", "admin/setting")
             : throw_flash_redirect("Gagal mengubah data", "danger", "admin/setting");
@@ -150,7 +155,8 @@ class Admin extends CI_Controller
             "judul" => $this->input->post("judul_artikel"),
             "isi" => $this->input->post("isi_artikel"),
             "tanggal" => date("Y/m/d H:i:s"),
-            "image" => $this->input->post("image")
+            "image" => $this->input->post("image"),
+            "iduser" => $this->session->userdata("user_id")
         );
         $this->load->model("ArtikelModel");
         $this->ArtikelModel->tambah_data($data)
@@ -195,7 +201,8 @@ class Admin extends CI_Controller
             "isi"                 => $this->input->post("isi_agenda"),
             "tanggal_mulai"       => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_mulai"))->format("Y/m/d H:i"),
             "tanggal_selesai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_selesai"))->format("Y/m/d H:i"),
-            "image"               => $this->input->post("image")
+            "image"               => $this->input->post("image"),
+            "iduser"              => $this->session->userdata("user_id")
         );
         $this->load->model("Agenda_model");
         $this->Agenda_model->input_data($data)
@@ -256,7 +263,8 @@ class Admin extends CI_Controller
         $data = array(
             "nama"  => $this->input->post("nama"),
             "email"   => $this->input->post("email"),
-            "isi"   => $this->input->post("isi")
+            "isi"   => $this->input->post("isi"),
+            "iduser" => $this->session->userdata("user_id")
         );
 
         $this->load->model("Testimoni_model");
@@ -369,6 +377,7 @@ class Admin extends CI_Controller
             'isi'       => $this->input->post("isi-berita"),
             'tanggal'   => date("Y/m/d H:i:s"),
             'image'     => $this->input->post("image"),
+            "iduser"    => $this->session->userdata("user_id")
         );
 
         $this->load->model("Berita_model");

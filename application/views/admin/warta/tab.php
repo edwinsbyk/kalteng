@@ -88,6 +88,15 @@
 
                     <div class="row form-group">
                         <div class="col col-md-3">
+                            <label class=" form-control-label">Dibuat oleh</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <input type="text" name="edit_dibuat_oleh" disabled class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
                             <label for="textarea-input" class=" form-control-label">Isi Berita</label>
                         </div>
                         <div class="col-12 col-md-9">

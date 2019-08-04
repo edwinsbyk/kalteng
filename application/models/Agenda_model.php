@@ -5,12 +5,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Agenda_model extends CI_Model {
     public function getAgenda()
     {
-        return $this->db->get("tbl_agenda")->result_array();
+        $a = $this->session->userdata("role_id") != 1 ? " WHERE a.iduser=".$this->session->userdata("user_id") : "";
+        $sql = "SELECT a.*, u.name FROM tbl_agenda a LEFT JOIN user u ON a.iduser=u.id${a}";
+        return $this->db->query($sql)->result_array();
     }
 
     public function get_data_by_index($id)
     {
-        return $this->db->get_where("tbl_agenda", array('id_agenda' => $id))->result_array();
+        $sql = "SELECT a.*, u.name FROM tbl_agenda a LEFT JOIN user u ON a.iduser = u.id WHERE a.id_agenda = '$id'";
+        return $this->db->query($sql)->result_array();
     }
 
     public function input_data($data) {

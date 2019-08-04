@@ -5,12 +5,15 @@ class Berita_model extends CI_Model
 {
     public function getBerita()
     {
-        return $this->db->get("tbl_berita")->result();
+        $a = $this->session->userdata("role_id") != 1 ? " WHERE b.iduser=".$this->session->userdata("user_id") : "";
+        $sql = "SELECT b.*, u.name FROM tbl_berita b LEFT JOIN user u ON b.iduser = u.id${a}";
+        return $this->db->query($sql)->result();
     }
 
     public function get_data_by_index($id)
     {
-        return $this->db->get_where("tbl_berita", array('idberita' => $id))->result_array();
+        $sql = "SELECT b.*, u.name FROM tbl_berita b LEFT JOIN user u ON b.iduser = u.id WHERE b.idberita = '$id'";
+        return $this->db->query($sql)->result_array();
     }
 
     public function input_data($data) {

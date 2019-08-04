@@ -34,7 +34,7 @@
                     <label for="text-input" class=" form-control-label">Dibuat oleh</label>
                 </div>
                 <div class="col-12 col-md-9 date" >
-                    <input type='text' class="form-control" name="dibuat-oleh" placeholder="Syahid Nurrohim" disabled/>
+                    <input type='text' class="form-control" name="dibuat-oleh" placeholder="<?= $this->session->userdata("user_name") ?>" disabled/>
                 </div>
             </div>
 

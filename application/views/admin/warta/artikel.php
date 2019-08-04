@@ -95,7 +95,7 @@
                                 <label class=" form-control-label">Dibuat oleh</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" name="edit-dibuat-oleh" disabled value="Syahid Nurrohim" class="form-control">
+                                <input type="text" name="edit-dibuat-oleh" disabled class="form-control">
                             </div>
                         </div>
 
