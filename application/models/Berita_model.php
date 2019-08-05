@@ -41,7 +41,7 @@ class Berita_model extends CI_Model
             preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
             $d->image = count($image) == 0 
                 ? base_url("assets/img/berita/")."default.jpg" 
-                : base_url().explode("../", $image["src"])[1];
+                : $image["src"];
         }
         return $data;
     }
