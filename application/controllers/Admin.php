@@ -430,7 +430,7 @@ class Admin extends CI_Controller
     public function user()
     {
 
-        $this->load->model('userdata_model', 'data');
+        $this->load->model('Userdata_model', 'data');
         $data['data'] = $this->data->getUser();
         $this->loadAsset(["path" => "admin/user/user", "data" => $data]);
     }
@@ -1119,7 +1119,7 @@ class Admin extends CI_Controller
 
     public function edituser()
     {
-        $this->load->model('userdata_model', 'data');
+        $this->load->model('Userdata_model', 'data');
         $id = $this->input->post('id');
         $email = $this->input->post('email');
         $name = $this->input->post('name');
@@ -1139,7 +1139,7 @@ class Admin extends CI_Controller
 
     public function tambah_user()
     {
-        $this->load->model('userdata_model', 'data');
+        $this->load->model('Userdata_model', 'data');
 
         $email = $this->input->post('email');
         $name = $this->input->post('name');
@@ -1160,7 +1160,7 @@ class Admin extends CI_Controller
 
     public function editPassword()
     {
-        $this->load->model('userdata_model', 'data');
+        $this->load->model('Userdata_model', 'data');
         $id = $this->input->post('id');
         $email = $this->input->post('email');
         $name = $this->input->post('name');
@@ -1181,7 +1181,7 @@ class Admin extends CI_Controller
 
     public function deletedataUser()
     {
-        $this->load->model('userdata_model', 'delete_data');
+        $this->load->model('Userdata_model', 'delete_data');
         $id = $this->input->post('id');
 
         $this->delete_data->deletedataUser($id);
