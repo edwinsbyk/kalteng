@@ -372,6 +372,8 @@ class Admin extends CI_Controller
     //
     public function user()
     {
+
+
         $this->load->model('Userdata_model', 'data');
         $data['data'] = $this->data->getUser();
         $this->loadAsset(["path" => "admin/user/user", "data" => $data]);
@@ -988,6 +990,8 @@ class Admin extends CI_Controller
     public function tambah_user()
     {
         $this->load->model('Userdata_model', 'data');
+
+
         $email = $this->input->post('email');
         $name = $this->input->post('name');
         $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);

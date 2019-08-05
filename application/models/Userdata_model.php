@@ -1,16 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class userdata_model extends CI_Model
+class Userdata_model extends CI_Model
 {
 	public function getUser()
     {
-       $query = "SELECT * FROM user ";
-
-        // $query = "SELECT * FROM `tbl_pemenang_lelang`
-
-
-
+        $query = "SELECT * FROM user ";
         return $this->db->query($query)->result_array();
     }
 

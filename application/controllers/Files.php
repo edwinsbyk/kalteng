@@ -58,12 +58,13 @@ class Files extends CI_Controller
 
 
         if ($upload_file) {
-            $config['allowed_types'] = 'text|gif|jpg|png|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar';
+            $config['allowed_types'] = 'text|gif|jpg|jpeg|png|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar';
             // $config['allowed_types'] = '*';
             $config['max_size']     = 0;
             $config['upload_path'] = './assets/download/';
 
             $this->load->library('upload', $config);
+            $this->upload->initialize($config);
 
             if ($this->upload->do_upload('file_name')) {
 
