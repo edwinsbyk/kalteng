@@ -10,6 +10,13 @@
         </div>
     </div>
 </header>
+<style>
+    .image-d {
+        height: 220px;
+        object-fit: cover;
+        overflow: hidden;
+    }
+</style>
 <section class="section bg-gray">
     <div class="container">
         <div class="row gap-y">
@@ -17,7 +24,7 @@
             
             <div class="col-md-6 col-lg-4">
                 <div class="card d-block border hover-shadow-6 mb-6">
-                    <a href="#"><img class="card-img-top" src="<?= $row->image ?>" alt="Card image cap"></a>
+                    <a href="#" ><img class="card-img-top image-d" src="<?= $row->image ?>" alt="Card image cap"></a>
                     <div class="p-6 text-center">
                         <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Berita</a></p>
                         <h5 class="mb-0"><a href="<?= base_url("home/newsdemo") ?>?id=<?= $row->idberita ?>"><?= $row->judul ?></a></h5>
