@@ -38,8 +38,7 @@
       <div class="row">
         <div class="col-lg-8 mx-auto">
 
-          <p>Venenatis urna cursus eget nunc scelerisque viverra mauris. Risus feugiat in ante metus dictum at tempor
-            commodo ullamcorper. Sit amet mattis vulputate enim nulla. </p>
+          <p><?php echo $img ?></p>
 
           <ul>
             <li>Accumsan lacus vel facilisis volutpat est velit.</li>

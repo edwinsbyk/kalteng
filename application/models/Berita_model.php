@@ -29,6 +29,20 @@ class Berita_model extends CI_Model
         $this->db->where('idberita', $id);
         return $this->db->update('tbl_berita');
     }
+    public function getberitadetail($idberita){
+        $query = "SELECT * FROM tbl_berita WHERE idberita = $idberita) ";
+    }
+
+    public function getdetailberita($idberita){
+         $data = array();
+  $options = array('idberita' => $idberita);
+  $Q = $this->db->get_where('tbl_berita',$options,1);
+    if ($Q->num_rows() > 0){
+      $data = $Q->row_array();
+    }
+  $Q->free_result();
+  return $data;
+    }
 }
 
 ?>

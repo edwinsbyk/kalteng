@@ -3,13 +3,9 @@ class Home extends CI_Controller
 {
     public function __construct()
     {
-
         parent::__construct();
         // is_logged_in();
     }
-
-
-
     public function inject_resources($param)
     {
         $data = array(
@@ -22,7 +18,6 @@ class Home extends CI_Controller
                 "assets/plugin/carousel/css/owl.theme.default.min.css",
                 "assets/vendor/fontawesome-free/css/all.css",
                 "assets/plugin/carousel/css/owl.carousel.min.css",
-
             ),
             "js_list" => array(
                 "assets/vendor/jquery-easing/jquery.easing.min.js",
@@ -63,7 +58,6 @@ class Home extends CI_Controller
         $data['data'] = $this->data->getBidang();
         $this->inject_resources(["path" => 'home/index', "data" => $data]);
     }
-
     public function bidang()
     {   //Bidanghome_model.php
         $data['title'] = 'Bidang';
@@ -71,21 +65,23 @@ class Home extends CI_Controller
         $data['data'] = $this->data->getdataBidang();
         $this->inject_resources(["path" => "home/bidang", "data" => $data]);
     }
-
     public function datapu()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
         $data['title'] = 'Data PU';
         $this->inject_resources(["path" => "home/datapu", "data" => $data]);
     }
-
     public function berita()
-    {
-        $this->inject_resources(["path" => array('templates/berita_header', 'home/berita')]);
+
+    {   $this->load->model("Berita_model");
+        $data["data"] = $this->Berita_model->getBerita();
+         $this->inject_resources(["path" => 'home/berita', "data" => $data]);
+        
     }
+
     public function newsdemo()
-    {
+    {  
+        $this->input->get('id');
         $this->inject_resources(["path" => array('templates/berita_header', 'newsdemo/index')]);
     }
     public function pengumumanRup()
@@ -103,84 +99,66 @@ class Home extends CI_Controller
     }
     public function datapujembatan()
     {
-
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJembatan();
         $data['title'] = 'Data PU Jembatan';
-
         $this->inject_resources(["path" => 'home/data-pu/jembatan', "data" => $data]);
     }
     public function datapuembung()
     {
-
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataEmbung();
         $data['title'] = 'Data PU Embung';
-
         $this->inject_resources(["path" => 'home/data-pu/embung', "data" => $data]);
     }
     public function datapusumurbor()
     {
-
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSumurBor();
         $data['title'] = 'Data PU Sumur Bor';
-
         $this->inject_resources(["path" => 'home/data-pu/sumurbor', "data" => $data]);
     }
     public function datapublackspot()
     {
-
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataBlackSpot();
         $data['title'] = 'Data PU Black Spot';
-
         $this->inject_resources(["path" => 'home/data-pu/black-spot', "data" => $data]);
     }
     public function datapuspam()
     {
-
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSpam();
         $data['title'] = 'Data PU Spam';
-
         $this->inject_resources(["path" => 'home/data-pu/spam', "data" => $data]);
     }
     public function datapupotensidanau()
     {
-
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataDanau();
         $data['title'] = 'Data PU Potensi Danau';
-
         $this->inject_resources(["path" => 'home/data-pu/danau', "data" => $data]);
     }
     public function datapupotensirawa()
     {
-
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataRawa();
         $data['title'] = 'Data PU Potensi Rawa';
-
         $this->inject_resources(["path" => 'home/data-pu/rawa', "data" => $data]);
     }
     public function datapupotensisumurbor()
     {
-
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataPotensiSumurBor();
         $data['title'] = 'Data PU Potensi Sumur Bor';
-
         $this->inject_resources(["path" => 'home/data-pu/potensi-sumur-bor', "data" => $data]);
     }
     public function download()
     {
-
         $this->load->model('File_model', 'file');
         $data['data'] = $this->file->getFileList();
         $this->inject_resources(["path" => "home/download", "data" => $data]);
     }
-
     public function pengumumanlelang()
     {
         $this->load->model('Pengumuman_model', 'data');

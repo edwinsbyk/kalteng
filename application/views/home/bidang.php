@@ -1,17 +1,23 @@
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <section id="demos" class="overflow-hidden">
-
-      <div class="item text-white h-fullscreen text-lg-left w-100 position-relative">
-        <div class="content-slider" style="background-image: url('https://images3.alphacoders.com/823/82317.jpg')">
+<div class="row overflow-hidden">
+  
+      <div class="item text-white h-fullscreen text-center text-lg-left w-100 position-relative">
+        <div class="content-slider" style="background-image: url('https://media.beritagar.id/2016-08/995c7dde74c89bc6e20b16364264e9a8.jpg')">
           <div class="inner-content row align-items-center h-100">
             <div class="col-lg-12">
-              <h1>BIDANG</h1>
-              <p class="lead mt-5 mb-8">Pimpinan Kepala Bidang PU Kalimantan Tengah </p>
-              
+              <h1>BIDANG </h1>
+              <p class="lead mt-5 mb-8">Pekerjaan Umum </p>
+              <p class="gap-xy">
+                
+              </p>
             </div>
           </div>
         </div>
+      </div>
+     
+  </div>
 </div>
 </section>
 </div>
