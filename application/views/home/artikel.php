@@ -17,8 +17,17 @@
     </div>
 </header>
     <section class="section p-0" id="section-content">
-        <div class="container">
+        <div class="container"><br>
+  <div >
+        <form class="form-inline active-cyan-4" action="searchartikel?">
+  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+    aria-label="Search" name="id">
+  <i class="fas fa-search" aria-hidden="true"></i>
+</div><br>
             <div class="row">
+
+
+                
                 <div class="col-md-12 col-xl-12 mr-4 ml-4 row">
                     <?php foreach ($data as $row) : ?>
                         <article class="my-8 col-md-6">
@@ -43,7 +52,7 @@
                                 </div>
                             </div>
 
-                            <p class="text-justify">Together. Great. So good was saying, that can't first let called air divide stars male isn't i. Herb third let may fourth divide. Greater gathering land you'll i their beast have. She'd form sea it wherein fowl, spirit creeping living. Likeness creepeth you hath heaven. Likeness, moveth fruitful behold. Open evening a air us behold. Saying above moving second a subdue likeness after also second.</p>
+                           
 
                             <p class="text-center mt-7">
                                 <a class="btn btn-primary btn-round" href="<?= base_url("home/artikel/".$row->slug) ?>">Read more</a>

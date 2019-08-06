@@ -18,7 +18,16 @@
     }
 </style>
 <section class="section bg-gray">
-    <div class="container">
+
+    <div class="container"> 
+
+  <div > 
+        <form class="form-inline active-cyan-4" action="searchberita?" >
+  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+    aria-label="Search" name="id">
+  <i class="fas fa-search" aria-hidden="true"></i>
+</div><br><br>
+
         <div class="row gap-y">
             <?php foreach ($data as $row) : ?>
 
@@ -28,9 +37,9 @@
                         <div class="p-6 text-center">
                             <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Berita</a></p>
 
-                            <h5 class="mb-0"><a href="<?= base_url("home/newsdemo?id=") ?><?= $row->idberita ?>"><?= $row->judul ?></a></h5>
-
                             <h5 class="mb-0"><a href="<?= base_url("home/berita/") ?><?= $row->slug ?>"><?= $row->judul ?></a></h5>
+
+                            
 
                         </div>
                     </div>

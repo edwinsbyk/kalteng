@@ -3,13 +3,8 @@
         <div class="row align-items-center h-100">
 
             <div class="col-lg-6">
-                <h1>RUP (Rencana Umum Pengadaan)</h1>
-                <p class="lead mt-5 mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.</p>
-                <p class="gap-xy">
-                    <a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
-                    <a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
-                </p>
+                <h1>Pengumuman Lelang</h1>
+                <p class="lead mt-5 mb-8">Pekerjaan Umum Kalimantan Tengah</p>
             </div>
 </header>
 

@@ -74,4 +74,11 @@ class Berita_model extends CI_Model
         }
         return $this->db->query($sql)->result();
     }
+
+    public function searchrberita($search)
+    {
+
+        $sql = "SELECT* FROM tbl_berita WHERE judul LIKE '%$search%' OR isi LIKE '%$search%' ";
+        return $this->db->query($sql)->result();
+    }
 }

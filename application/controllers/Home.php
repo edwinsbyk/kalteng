@@ -207,6 +207,41 @@ class Home extends CI_Controller
         $data["data"] = $this->Agenda_model->get_list_agenda_for_visitor();
         $this->inject_resources(["path" => 'home/agenda', "data" => $data]);
     }
+     public function searchagenda()
+    {   
+         $search = $this->input->get('id');
+       
+
+        $this->load->model("Agenda_model");
+        $data["data"] =  $this->Agenda_model->searchagenda($search);
+
+        // $data["data"] = $this->Agenda_model->searchagenda();
+        $this->inject_resources(["path" => 'home/agenda', "data" => $data]);
+    }
+      public function searchartikel()
+    {   
+         $search = $this->input->get('id');
+       
+
+        $this->load->model("ArtikelModel");
+        $data["data"] =  $this->ArtikelModel->searchartikel($search);
+
+        // $data["data"] = $this->Agenda_model->searchagenda();
+        $this->inject_resources(["path" => 'home/artikel', "data" => $data]);
+    }
+    
+    public function searchberita()
+    {
+
+         $search = $this->input->get('id');
+       
+
+        $this->load->model("Berita_model");
+        $data["data"] =  $this->Berita_model->searchrberita($search);
+
+        // $data["data"] = $this->Agenda_model->searchagenda();
+        $this->inject_resources(["path" => 'home/berita', "data" => $data]);
+    }
 
     public function agendademo()
     {

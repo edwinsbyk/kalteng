@@ -42,4 +42,11 @@ class Agenda_model extends CI_Model {
         $sql = "SELECT b.*, u.name FROM tbl_agenda b LEFT JOIN user u ON b.iduser = u.id WHERE b.id_agenda = '$id'";
         return $this->db->query($sql)->result_array();
     }
+
+    public function searchagenda($search)
+    {
+        $sql = "SELECT* FROM tbl_agenda WHERE judul LIKE '%$search%' OR isi LIKE '%$search%'";
+        return $this->db->query($sql)->result();
+    }
+
 }
