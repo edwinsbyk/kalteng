@@ -19,7 +19,7 @@ class User_model extends CI_Model
                         'user_name'     => $user["name"]
                     ];
                     $this->session->set_userdata($data);
-                    redirect($user['role_id'] == 1 ? 'admin' : 'user');
+                    redirect('admin');
                 } else {
                     throw_flash_redirect('Wrong password', 'danger', 'auth');
                 }

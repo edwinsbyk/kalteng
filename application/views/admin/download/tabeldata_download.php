@@ -19,7 +19,7 @@
                     <td>
                         <div class="table-data-feature">
                             <a href="#" class="item" data-toggle="modal" data-target="#modal_delete<?= $d['id_file']; ?>"><i class="zmdi zmdi-delete"></i></a>
-                            <a href="<?php echo base_url('files/download/') ?><?= $d['id_file'] ?>" target="_self" class="item"><i class="zmdi zmdi-download"></i></a>
+                            <a href="<?php echo base_url('files/download/') ?><?= $d['id_file'] ?>" target="_blank" class="item"><i class="zmdi zmdi-download"></i></a>
                         </div>
                     </td>
                 </tr>

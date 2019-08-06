@@ -1,22 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
-
-
 class Admin extends CI_Controller
 {
     public function __construct()
     {
-
         parent::__construct();
-
         is_logged_in();
     }
-
-
     public function loadAsset($param)
     {
-
         $this->load->model("Menu_model", "menu");
         $data = [
             "title" => isset($param["title"]) ? $param["title"] : "Dashboard",
@@ -67,20 +59,17 @@ class Admin extends CI_Controller
         $this->load->model("DashboardModel");
         $this->loadAsset(["path" => "admin/index", "data" => ["data" => $this->DashboardModel->get_dashboard_info()[0]]]);
     }
-
     public function artikel()
     {
         $this->load->model("ArtikelModel");
         $this->loadAsset(["path" => "admin/warta/artikel", "data" => ["data" => $this->ArtikelModel->display_data()]]);
     }
-
     public function setting()
     {
         $this->load->model("SettingModel");
         $data["data"] = $this->SettingModel->get_data($this->session->userdata("user_id"));
         $this->loadAsset(["path" => "admin/setting/setting", "data" => $data]);
     }
-
     public function change_account_password()
     {
         $p2 = $this->input->post("newpassword");
@@ -101,7 +90,6 @@ class Admin extends CI_Controller
             ? throw_flash_redirect("Password berhasil diubah", "success", "admin/setting")
             : throw_flash_redirect("Tidak dapat mengubah password", "danger", "admin/setting");
     }
-
     public function change_account_setting()
     {
         $upload_file = $_FILES['setting-image']['name'];
@@ -132,7 +120,6 @@ class Admin extends CI_Controller
             ? throw_flash_redirect("Data berhasil diubah", "success", "admin/setting")
             : throw_flash_redirect("Gagal mengubah data", "danger", "admin/setting");
     }
-
     public function rup()
     {
         $this->load->model('Pengumuman_model', 'data');
@@ -140,14 +127,12 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/pengumuman/rup", "data" => $data]);
         $this->load->view('admin/pengumuman/editdataRUP-modal');
     }
-
     public function get_data_article_by_id()
     {
         $this->load->model("ArtikelModel");
         $data = $this->ArtikelModel->getDataByIndex($this->input->get("id"));
         echo json_encode($data);
     }
-
     public function add_article()
     {
         $data = array(
@@ -163,7 +148,6 @@ class Admin extends CI_Controller
             ? throw_flash_redirect("Artikel berhasil ditambahkan", "success", "admin/artikel")
             : throw_flash_redirect("Gagal menambahkan artikel", "danger", "admin/artikel");
     }
-
     public function edit_artikel()
     {
         // $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
@@ -173,26 +157,22 @@ class Admin extends CI_Controller
             "tanggal" => date("Y/m/d H:i:s"),
             "image" => $this->input->post("edit-image"),
         );
-
         $this->load->model("ArtikelModel");
         echo $this->ArtikelModel->update_data($data, $this->input->post("edit-id_artikel"))
             ? throw_flash_redirect("Artikel berhasil diubah", "success", "admin/artikel")
             : throw_flash_redirect("Gagal merubah artikel", "danger", "admin/artikel");
     }
-
     public function delete_article()
     {
         $this->load->model("ArtikelModel");
         echo $this->ArtikelModel->delete_data($this->input->post("id"));
     }
-
     public function agenda()
     {
         $this->load->model("Agenda_model");
         $data['wk'] = $this->Agenda_model->getAgenda();
         $this->loadAsset(["path" => "admin/warta/agenda", "data" => $data]);
     }
-
     public function tambah_agenda()
     {
         $data = array(
@@ -209,7 +189,6 @@ class Admin extends CI_Controller
             ? throw_flash_redirect("Agenda berhasil ditambahkan", "success", "admin/agenda")
             : throw_flash_redirect("Gagal menambahkan agenda", "danger", "admin/agenda");
     }
-
     public function get_data_agenda_by_id()
     {
         $this->load->model("Agenda_model");
@@ -218,10 +197,8 @@ class Admin extends CI_Controller
         $data[0]["tanggal_selesai"] = DateTime::createFromFormat("Y-m-d H:i:s", $data[0]["tanggal_selesai"])->format("d/m/Y H:i");
         echo json_encode($data);
     }
-
     public function edit_agenda()
     {
-
         $data = array(
             "iduser"            => 1,
             "judul"             => $this->input->post("edit_judul_agenda"),
@@ -229,35 +206,29 @@ class Admin extends CI_Controller
             "tanggal_mulai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("edit_dtp_tgl_mulai"))->format("Y/m/d H:i"),
             "tanggal_selesai"   => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("edit_dtp_tgl_selesai"))->format("Y/m/d H:i"),
             "image"             => $this->input->post("edit_image"),
-
         );
-
         $this->load->model("Agenda_model");
         echo $this->Agenda_model->update_data($data, $this->input->post("edit_id_agenda"))
             ? throw_flash_redirect("Agenda berhasil diubah", "success", "admin/agenda")
             : throw_flash_redirect("Gagal merubah agenda", "danger", "admin/agenda");
     }
-
     public function delete_agenda()
     {
         $this->load->model("Agenda_model");
         echo $this->Agenda_model->delete_data_by_id($this->input->post("id"));
     }
-
     public function testimoni()
     {
         $this->load->model("Testimoni_model");
         $data["data"] = $this->Testimoni_model->display_data();
         $this->loadAsset(["path" => "admin/warta/testimoni", "data" => $data]);
     }
-
     public function get_data_testimoni_by_id()
     {
         $this->load->model("Testimoni_model");
         $data = $this->Testimoni_model->getDataByIndex($this->input->get("id"));
         echo json_encode($data);
     }
-
     public function tambah_testimoni()
     {
         $data = array(
@@ -266,13 +237,11 @@ class Admin extends CI_Controller
             "isi"   => $this->input->post("isi"),
             "iduser" => $this->session->userdata("user_id")
         );
-
         $this->load->model("Testimoni_model");
         echo $this->Testimoni_model->tambah_data($data)
             ? throw_flash_redirect("Testimoni berhasil ditambahkan", "success", "admin/testimoni")
             : throw_flash_redirect("Gagal menambahkan data", "danger", "admin/testimoni");
     }
-
     public function edit_testimoni()
     {
         $data = array(
@@ -280,79 +249,61 @@ class Admin extends CI_Controller
             "email"     => $this->input->post("edit_email"),
             "isi"       => $this->input->post("edit_isi")
         );
-
         $this->load->model("Testimoni_model");
         echo $this->Testimoni_model->update_data($data, $this->input->post("edit_id_testimoni"))
             ? throw_flash_redirect("Testimoni berhasil diubah", "success", "admin/testimoni")
             : throw_flash_redirect("Gagal merubah berita", "danger", "admin/testimoni");
     }
-
     public function delete_testimoni()
     {
         $this->load->model("Testimoni_model");
         echo $this->Testimoni_model->delete_data($this->input->post("id"));
     }
-
     public function pegawai()
     {
-
         $this->load->model('Pegawai_model', 'data');
         $this->load->model('Jabatan_model', 'jabatan');
         $data['data'] = $this->data->getPegawai();
         $data['data_jabatan'] = $this->jabatan->getJabatan();
-
-
         $this->load->model('Bidang_model', 'bidang');
         $data['data_pegawai'] = $this->bidang->getBidang();
-
-
         $this->load->model('Pegawai_model', 'datajabatan');
         $data['datajabatan'] = $this->data->getPegawaiJabatan();
-
-
         $this->load->model('Pegawai_model', 'data');
         $data['data'] = $this->data->getPegawai();
         $this->load->model('Bidang_model', 'bidang');
         $data['data_pegawai'] = $this->bidang->getBidang();
-
         $this->loadAsset(["path" => "admin/pegawai/pegawai", "data" => $data]);
     }
-
     public function pegawaibidang()
     {
         $this->load->model('Pegawai_model', 'data');
         $data['data'] = $this->data->getPegawaibidang();
         $this->loadAsset(["path" => "admin/pegawaibidang/bidang", "data" => $data]);
     }
-
-
     public function bidang()
     {
         $this->load->model('Bidang_model', 'data');
         $data['data'] = $this->data->getBidang();
         $this->loadAsset(["path" => "admin/bidang/bidang", "data" => $data]);
     }
-
     public function berita()
     {
         $this->load->model("Berita_model");
         $data["data"] = $this->Berita_model->getBerita();
         $this->loadAsset(["path" => "admin/warta/tab", "data" => $data]);
     }
-
     public function get_data_berita_by_id()
     {
         $this->load->model("Berita_model");
         $data = $this->Berita_model->get_data_by_index($this->input->get("id"));
         echo json_encode($data);
     }
-
     public function delete_berita()
     {
         $this->load->model("Berita_model");
         echo $this->Berita_model->delete_data_by_id($this->input->post("id"));
     }
-
     public function edit_berita()
     {
         // $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
@@ -368,7 +319,6 @@ class Admin extends CI_Controller
             ? throw_flash_redirect("Berita berhasil diubah", "success", "admin/berita")
             : throw_flash_redirect("Gagal merubah berita", "danger", "admin/berita");
     }
-
     public function tambah_berita()
     {
         // $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
@@ -381,13 +331,11 @@ class Admin extends CI_Controller
             'image'     => $this->input->post("image"),
             "iduser"    => $this->session->userdata("user_id")
         );
-
         $this->load->model("Berita_model");
         $this->Berita_model->input_data($data)
             ? throw_flash_redirect("Berhasil menambah berita", "success", "admin/berita")
             : throw_flash_redirect("Gagal menambah berita", "danger", "admin/berita");
     }
-
     public function pengumuman_lelang()
     {
         $this->load->model('Pengumuman_model', 'data');
@@ -406,16 +354,13 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
         redirect('admin/pengumuman_lelang');
     }
-
     public function pemenang_lelang()
     {
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getPemenangLelang();
         $data['data_pengumuman'] = $this->data->getPengumumanLelang();
-
         $this->loadAsset(["path" => "admin/pengumuman/pemenang_lelang", "data" => $data]);
     }
-
     public function tambah_pemenang_lelang()
     {
         $this->load->model('Pengumuman_model');
@@ -426,24 +371,21 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
         redirect('admin/pemenang_lelang');
     }
-
     //
-
     public function user()
     {
 
-        $this->load->model('userdata_model', 'data');
+
+        $this->load->model('Userdata_model', 'data');
         $data['data'] = $this->data->getUser();
         $this->loadAsset(["path" => "admin/user/user", "data" => $data]);
     }
-
     public function datapuJalan()
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJalan();
         $this->loadAsset(["path" => "admin/datapu/jalan/jalan", "data" => $data]);
     }
-
     function tambahdataJalan()
     {
         $data = [
@@ -458,7 +400,6 @@ class Admin extends CI_Controller
         redirect('admin/datapujalan');
         $this->loadAsset(["path" => "admin/datapu/jalan/jalan"]);
     }
-
     function editdataJalan()
     {
         $this->load->model('Datapu_model', 'data_edit');
@@ -485,7 +426,6 @@ class Admin extends CI_Controller
         redirect('admin/datapujalan');
         $this->loadAsset(["path" => "admin/datapu/jalan/jalan"]);
     }
-
     public function datapuJembatan()
     {
         $this->load->model('Datapu_model', 'data');
@@ -493,7 +433,6 @@ class Admin extends CI_Controller
         $this->loadAsset(["path" => "admin/datapu/jembatan/jembatan", "data" => $data]);
         // $this->loadAsset(["path" => "admin/datapu/jalan", "data" => $data]);
     }
-
     public function tambahdataJembatan()
     {
         $data = [
@@ -507,7 +446,6 @@ class Admin extends CI_Controller
         redirect('admin/datapujembatan');
         $this->loadAsset(["path" => "admin/datapu/jalan/jalan"]);
     }
-
     public function editdataJembatan()
     {
         $data = [
@@ -517,7 +455,6 @@ class Admin extends CI_Controller
             'lebar' => $this->input->post('lebar')
         ];
         $id = $this->input->post('id');
-
         $this->db->where('id_jembatan', $id);
         $this->db->update('tbl_jembatan', $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
@@ -526,13 +463,11 @@ class Admin extends CI_Controller
     function deletedataJembatan()
     {
         $id = $this->input->post('id');
-
         $this->db->where('id_jembatan', $id);
         $this->db->delete('tbl_jembatan');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/datapujembatan');
     }
-
     public function datapuEmbung()
     {
         $this->load->model('Datapu_model', 'data');
@@ -551,7 +486,6 @@ class Admin extends CI_Controller
             'ternak' => $this->input->post('ternak'),
             'irigasi' => $this->input->post('irigasi'),
         ];
-
         $this->db->insert('tbl_embung', $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/datapuembung');
@@ -567,17 +501,14 @@ class Admin extends CI_Controller
             'irigasi' => $this->input->post('irigasi'),
         ];
         $id = $this->input->post('id');
-
         $this->db->where('id_embung', $id);
         $this->db->update('tbl_embung', $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/datapuembung');
     }
-
     function deletedataEmbung()
     {
         $id = $this->input->post('id');
-
         $this->db->where('id_embung', $id);
         $this->db->delete('tbl_embung');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
@@ -598,7 +529,6 @@ class Admin extends CI_Controller
             'air_baku' => $this->input->post('air_baku'),
             'irigasi' => $this->input->post('irigasi')
         ];
-
         $this->db->insert('tbl_sumurbor', $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
         redirect('admin/datapuSumurBor');
@@ -618,7 +548,6 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/datapuSumurBor');
     }
-
     public function deletedataSumurBor()
     {
         $id = $this->input->post('id');
@@ -627,7 +556,6 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/datapuSumurBor');
     }
-
     public function datapuBlackSpot()
     {
         $this->load->model('Datapu_model', 'data');
@@ -667,14 +595,12 @@ class Admin extends CI_Controller
     function deletedataBlackSpot()
     {
         $id = $this->input->post('id');
-
         $this->db->where('id_black_spot', $id);
         $this->db->delete('tbl_black_spot');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/datapuBlackSpot');
         $this->loadAsset(["path" => "admin/datapu/black-spot/black-spot"]);
     }
-
     public function datapuSpam()
     {
         $this->load->model('Datapu_model', 'data');
@@ -703,14 +629,12 @@ class Admin extends CI_Controller
             'kapasitas' => $this->input->post('kapasitas'),
             'pelayanan' => $this->input->post('pelayanan'),
         ];
-
         $id = $this->input->post('id');
         $this->db->where('id_spam', $id);
         $this->db->update('tbl_spam', $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/datapuSpam');
     }
-
     public function deletedataSpam()
     {
         $id = $this->input->post('id');
@@ -719,7 +643,6 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/datapuSpam');
     }
-
     public function datapuPotensiDanau()
     {
         $this->load->model('Datapu_model', 'data');
@@ -754,24 +677,20 @@ class Admin extends CI_Controller
             'penduduk' => $this->input->post('penduduk'),
             'irigasi' => $this->input->post('irigasi')
         ];
-
         $id = $this->input->post('id');
         $this->db->where('id_danau', $id);
         $this->db->update('tbl_danau', $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/datapuPotensiDanau');
     }
-
     public function deletedataPotensiDanau()
     {
-
         $id = $this->input->post('id');
         $this->db->where('id_danau', $id);
         $this->db->delete('tbl_danau');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/datapuPotensiDanau');
     }
-
     public function datapuPotensiRawa()
     {
         $this->load->model('Datapu_model', 'data');
@@ -780,7 +699,6 @@ class Admin extends CI_Controller
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-rawa');
     }
-
     public function tambahdataPotensiRawa()
     {
         $data = [
@@ -796,7 +714,6 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambah. </div>');
         redirect('admin/datapuPotensiRawa');
     }
-
     public function editdataPotensiRawa()
     {
         $data = [
@@ -816,14 +733,12 @@ class Admin extends CI_Controller
     }
     public function deletedataPotensiRawa()
     {
-
         $id = $this->input->post('id');
         $this->db->where('id_rawa', $id);
         $this->db->delete('tbl_rawa');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/datapuPotensiRawa');
     }
-
     public function datapuPotensiSumurBor()
     {
         $this->load->model('Datapu_model', 'data');
@@ -832,7 +747,6 @@ class Admin extends CI_Controller
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-sumur-bor');
     }
-
     public function tambahdataPotensiSumurBor()
     {
         $data = [
@@ -865,28 +779,20 @@ class Admin extends CI_Controller
     }
     public function deletedataPotensiSumurBor()
     {
-
         $id = $this->input->post('id');
         $this->db->where('id_sumur', $id);
         $this->db->delete('tbl_potensi_sumur_bor');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/datapuPotensiSumurBor');
     }
-
     public function tambahpegawai()
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSumurBor();
         $this->loadAsset(["path" => "admin/pegawai/tambahpegawai", "data" => $data]);
     }
-
-
-
-
-
     public function tambah_rup()
     {
-
         $this->load->model('Pengumuman_model');
         $kegiatan = $this->input->post('kegiatan');
         $lokasi = $this->input->post('lokasi');
@@ -896,7 +802,6 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> User profile sudah diubah. </div>');
         redirect('admin/rup');
     }
-
     function editdataRup()
     {
         $this->load->model('Pengumuman_model', 'data_edit');
@@ -905,18 +810,15 @@ class Admin extends CI_Controller
         $lokasi = $this->input->post('lokasi');
         $pagu = $this->input->post('pagu');
         $metode = $this->input->post('metode');
-
         $this->data_edit->editDataRUP($id, $kegiatan, $lokasi, $pagu, $metode);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/rup');
         $this->loadAsset(["path" => "admin/pengumuman/rup"]);
     }
-
     function deletedataRUP()
     {
         $this->load->model('Pengumuman_model', 'delete_data');
         $id = $this->input->post('id');
-
         $this->delete_data->deletedataRUP($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/rup');
@@ -931,7 +833,6 @@ class Admin extends CI_Controller
         $no_sk = $this->input->post('no_sk');
         $nama_paket = $this->input->post('nama_paket');
         $pagu = $this->input->post('pagu');
-
         $this->data_edit->editdataPengumuman($id, $tanggal, $batas, $no_sk, $nama_paket, $pagu);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/pengumuman_lelang');
@@ -941,7 +842,6 @@ class Admin extends CI_Controller
     {
         $this->load->model('Pengumuman_model', 'delete_data');
         $id = $this->input->post('id');
-
         $this->delete_data->deletedataPengumuman($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/pengumuman_lelang');
@@ -954,8 +854,6 @@ class Admin extends CI_Controller
         $id_pengumuman_lelang = $this->input->post('id_pengumuman_lelang');
         $pemenang = $this->input->post('pemenang');
         $hps = $this->input->post('hps');
-
-
         $this->data_edit->editdataPemenang($id, $id_pengumuman_lelang, $pemenang, $hps);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/pemenang_lelang');
@@ -963,74 +861,56 @@ class Admin extends CI_Controller
     }
     function deletedataPemenang()
     {
-
         $this->load->model('Pengumuman_model', 'delete_data');
         $id = $this->input->post('id');
-
         $this->delete_data->deletedataPemenang($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/pemenang_lelang');
         $this->loadAsset(["path" => "admin/pengumuman/pemenang_lelang"]);
     }
-
     function Tambah_bidang()
     {
         $this->load->model('Bidang_model', 'data');
         $bidang = $this->input->post('bidang');
         $alamat_kantor = $this->input->post('alamat_kantor');
-
         $this->data->tambahdataBidang($bidang, $alamat_kantor);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/bidang');
         $this->loadAsset(["path" => "admin/bidang/bidang"]);
     }
-
     function editdataBidang()
     {
-
         $this->load->model('Bidang_model', 'data');
         $id = $this->input->post('id_bidang');
         $bidang = $this->input->post('bidang');
         $alamat_kantor = $this->input->post('alamat_kantor');
-
         $this->data->editdataBidang($id, $bidang, $alamat_kantor);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/bidang');
         $this->loadAsset(["path" => "admin/bidang/bidang"]);
     }
-
     function deletedataBidang()
     {
-
         $this->load->model('Bidang_model', 'delete_data');
         $id = $this->input->post('id_bidang');
-
         $this->delete_data->deletedataBidang($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/bidang');
         $this->loadAsset(["path" => "admin/bidang/bidang"]);
     }
-
     function tambah_pegawai()
     {
         $this->load->model('Pegawai_model', 'data');
         $nip = $this->input->post('nip');
         $nama = $this->input->post('nama');
         $alamat = $this->input->post('alamat');
-
-
-
         $id_bidang = $this->input->post('id_bidang');
         $jabatan = $this->input->post('jabatan');
-
-
-
         $this->data->tambahdataPegawai($id_bidang, $jabatan, $nip, $nama, $alamat);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambahkan. </div>');
         redirect('admin/pegawai');
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
     }
-
     public function editPegawai()
     {
         $this->load->model('Pegawai_model', 'data');
@@ -1038,29 +918,22 @@ class Admin extends CI_Controller
         $nip = $this->input->post('nip');
         $nama = $this->input->post('nama');
         $alamat = $this->input->post('alamat');
-
-
-
         $id_bidang = $this->input->post('id_bidang');
         $jabatan = $this->input->post('jabatan');
-
         $this->data->editdataPegawai($id_pegawai, $id_bidang, $jabatan, $nip, $nama, $alamat);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/pegawai');
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
     }
-
     public function deletedataPegawai()
     {
         $this->load->model('Pegawai_model', 'delete_data');
         $id_pegawai = $this->input->post('id_pegawai');
-
         $this->delete_data->deletedataPegawai($id_pegawai);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/pegawai');
         $this->loadAsset(["path" => "admin/pegawai/pegawai"]);
     }
-
     public function jabatan()
     {
         $this->load->model('Jabatan_model', 'data');
@@ -1069,36 +942,25 @@ class Admin extends CI_Controller
     }
     public function Tambah_jabatan()
     {
-
         $this->load->model('Jabatan_model', 'data');
         $jabatan = $this->input->post('jabatan');
-
-
-
         $this->data->tambahdataJabatan($jabatan);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah ditambahkan. </div>');
         redirect('admin/jabatan');
         $this->loadAsset(["path" => "admin/jabatan/jabatan"]);
     }
-
     public function editdataJabatan()
     {
-
         $this->load->model('Jabatan_model', 'data');
         $id_jabatan = $this->input->post('id_jabatan');
         $jabatan = $this->input->post('jabatan');
-
-
-
         $this->data->editdataJabatan($id_jabatan, $jabatan);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/jabatan');
         $this->loadAsset(["path" => "admin/jabatan/jabatan"]);
     }
-
     public function deletedataJabatan()
     {
-
         $this->load->model('Jabatan_model', 'data');
         $id_jabatan = $this->input->post('id_jabatan');
         $this->data->deletedataJabatan($id_jabatan);
@@ -1106,86 +968,64 @@ class Admin extends CI_Controller
         redirect('admin/jabatan');
         $this->loadAsset(["path" => "admin/jabatan/jabatan"]);
     }
-
-
     public function download()
     {
         $this->load->model('File_model', 'data');
         $data['data'] = $this->data->getfileList();
         $this->loadAsset(["path" => "admin/download/download", "data" => $data]);
     }
-
-
-
-
-
     public function edituser()
     {
-        $this->load->model('userdata_model', 'data');
+        $this->load->model('Userdata_model', 'data');
         $id = $this->input->post('id');
         $email = $this->input->post('email');
         $name = $this->input->post('name');
         $password = $this->input->post('password');
-
         $image = $this->input->post('image');
         $role_id = $this->input->post('role_id');
         $is_active = $this->input->post('is_active');
-
-
-
         $this->data->editdataUser($id, $email, $name, $password, $image, $role_id, $is_active);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/user');
         $this->loadAsset(["path" => "admin/user/user"]);
     }
-
     public function tambah_user()
     {
-        $this->load->model('userdata_model', 'data');
+        $this->load->model('Userdata_model', 'data');
+
 
         $email = $this->input->post('email');
         $name = $this->input->post('name');
         $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
-
         $image = $this->input->post('image');
         $role_id = $this->input->post('role_id');
         $is_active = $this->input->post('is_active');
         $date_created = time();
-
-
-
         $this->data->tambahdataUser($email, $name, $password, $image, $role_id, $is_active, $date_created);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/user');
         $this->loadAsset(["path" => "admin/user/user"]);
     }
-
     public function editPassword()
     {
-        $this->load->model('userdata_model', 'data');
+        $this->load->model('Userdata_model', 'data');
         $id = $this->input->post('id');
         $email = $this->input->post('email');
         $name = $this->input->post('name');
         $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
-
         $image = $this->input->post('image');
         $role_id = $this->input->post('role_id');
         $is_active = $this->input->post('is_active');
         $date_created = $this->input->post('date_created');
-
-
-
         $this->data->editpasswordUser($id, $email, $name, $password, $image, $role_id, $is_active, $date_created);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah diubah. </div>');
         redirect('admin/user');
         $this->loadAsset(["path" => "admin/user/user"]);
     }
-
     public function deletedataUser()
     {
-        $this->load->model('userdata_model', 'delete_data');
+        $this->load->model('Userdata_model', 'delete_data');
         $id = $this->input->post('id');
-
         $this->delete_data->deletedataUser($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data sudah dihapus. </div>');
         redirect('admin/user');

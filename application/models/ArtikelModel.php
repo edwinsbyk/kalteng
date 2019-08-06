@@ -24,6 +24,11 @@ class ArtikelModel extends CI_Model {
         return $this->db->query($sql)->result_array();
     }
 
+    public function increment_visitor() {
+        $sql = "UPDATE tbl_artikel SET visitor = visitor + 1";
+        $this->db->query($sql);
+    }
+
     public function update_data($data, $id) {
         $this->db->set($data, FALSE);
         $this->db->where('id_artikel', $id);

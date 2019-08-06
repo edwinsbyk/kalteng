@@ -23,10 +23,10 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <?php $this->load->view('admin/user/tabelUser',$data) ?>
+                    <?php $this->load->view('admin/user/tabeluser',$data) ?>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <?php $this->load->view('admin/user/tambahUser',$data) ?>
+                    <?php $this->load->view('admin/user/tambahuser',$data) ?>
                 </div>
             </div>
         </div>

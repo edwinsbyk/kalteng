@@ -8,7 +8,7 @@
   <div class="large-12 columns overflow-hidden w-100">
     <div class="owl-carousel owl-theme">
       <div class="item text-white h-fullscreen text-center text-lg-left w-100 position-relative">
-        <div class="content-slider" style="background-image: url('https://images3.alphacoders.com/823/82317.jpg')">
+        <div class="content-slider" style="background-image: url('https://fakta.news/wp-content/uploads/2018/02/Rel-kereta-api-Kalteng.jpg')">
           <div class="inner-content row align-items-center h-100">
             <div class="col-lg-6">
               <h1>SELAMAT DATANG </h1>
@@ -16,15 +16,14 @@
                 DINAS PEKERJAAN UMUM DAN PENATAAN RUANG
                 PEMERINTAH PROVINSI KALIMANTAN TENGAH</p>
               <p class="gap-xy">
-                <a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
-                <a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
+                
               </p>
             </div>
           </div>
         </div>
       </div>
       <div class="item text-white h-fullscreen text-center text-lg-left w-100 position-relative">
-        <div class="content-slider" style="background-image: url('https://cdn.pixabay.com/photo/2017/02/07/16/47/kingfisher-2046453_960_720.jpg')">
+        <div class="content-slider" style="background-image: url('https://cdns.klimg.com/merdeka.com/i/w/news/2019/01/19/1041478/670x335/kementerian-perhubungan-mulai-pembangunan-bandara-di-kalimantan-tengah.jpg')">
           <div class="inner-content row align-items-center h-100">
             <div class="col-lg-6">
               <h1>SELAMAT DATANG </h1>
@@ -32,15 +31,14 @@
                 DINAS PEKERJAAN UMUM DAN PENATAAN RUANG
                 PEMERINTAH PROVINSI KALIMANTAN TENGAH</p>
               <p class="gap-xy">
-                <a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
-                <a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
+                
               </p>
             </div>
           </div>
         </div>
       </div>
       <div class="item text-white h-fullscreen text-center text-lg-left w-100 position-relative">
-        <div class="content-slider" style="background-image: url('https://cdn.pixabay.com/photo/2019/04/04/17/49/eye-4103308_960_720.jpg')">
+        <div class="content-slider" style="background-image: url('https://sgcdn.antaranews.com/cache/800x533/2019/06/25/IMG-20190625-WA0024_1.jpg')">
           <div class="inner-content row align-items-center h-100">
             <div class="col-lg-6">
               <h1>SELAMAT DATANG </h1>
@@ -48,8 +46,7 @@
                 DINAS PEKERJAAN UMUM DAN PENATAAN RUANG
                 PEMERINTAH PROVINSI KALIMANTAN TENGAH</p>
               <p class="gap-xy">
-                <a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
-                <a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
+                
               </p>
             </div>
           </div>
@@ -184,7 +181,6 @@
       // mouseDrag: false,
       autoplay: true,
       autoplaySpeed: 1000,
-      lazyLoad: true,
       autoplayTimeout: 7000,
       animateOut: 'fadeOut',
       animateIn: 'fadeOut',
