@@ -321,12 +321,13 @@ class Admin extends CI_Controller
     }
     public function tambah_berita()
     {
-        // $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
+        $j = $this->input->post("judul-berita")."-".strrev(date("dmHis"));
+        $t = implode("_", array_filter(preg_split('/\s{1,}|-|\|/', strtolower($j)), function($x){ return !!$x; }));
+
         $data = array(
-            'iduser'    => 1,
             'judul'     => $this->input->post("judul-berita"),
             'isi'       => $this->input->post("isi-berita"),
-            'slug'      => url_title($this->input->post('judul'), 'dash', true),
+            'slug'      => $t,
             'tanggal'   => date("Y/m/d H:i:s"),
             'image'     => $this->input->post("image"),
             "iduser"    => $this->session->userdata("user_id")
