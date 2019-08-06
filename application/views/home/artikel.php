@@ -18,10 +18,9 @@
 </header>
     <section class="section p-0" id="section-content">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-xl-12 mr-4 ml-4 row">
-                    <?php foreach ($data as $row) : ?>
-                        <article class="my-8 col-md-6">
+                <div class="col-md-10 col-xl-8 mx-auto">
+                <?php foreach ($data as $row) : ?>
+                        <article class="my-8">
                             <header class="text-center mb-7">
                             <p><a class="small-4 text-lighter text-uppercase ls-2 fw-600" href="#">Artikel</a></p>
                             <h3><a href="post-2.html"><?= $row->judul ?></a></h3>
@@ -43,7 +42,7 @@
                                 </div>
                             </div>
 
-                            <p class="text-justify">Together. Great. So good was saying, that can't first let called air divide stars male isn't i. Herb third let may fourth divide. Greater gathering land you'll i their beast have. She'd form sea it wherein fowl, spirit creeping living. Likeness creepeth you hath heaven. Likeness, moveth fruitful behold. Open evening a air us behold. Saying above moving second a subdue likeness after also second.</p>
+                            <p class="text-justify"><?= substr($row->isi, 0, 390) ?><a href="<?= base_url("home/artikel/".$row->slug) ?>"><br>selengkapnya...</a></p>
 
                             <p class="text-center mt-7">
                                 <a class="btn btn-primary btn-round" href="<?= base_url("home/artikel/".$row->slug) ?>">Read more</a>
@@ -51,7 +50,6 @@
                             </div>
                         </article>
                     <?php endforeach ; ?>
-            </div>
         </div>
     </div>
 </section>

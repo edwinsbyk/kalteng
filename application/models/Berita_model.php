@@ -44,10 +44,7 @@ class Berita_model extends CI_Model
         $this->db->limit(9);
         $data = $this->db->get("tbl_berita")->result();
         foreach ($data as $d) {
-            preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
-            $d->image = count($image) == 0
-                ? base_url("assets/img/berita/") . "default.jpg"
-                : $image["src"];
+            select_img_f_index($d);
         }
         return $data;
     }
@@ -72,6 +69,8 @@ class Berita_model extends CI_Model
         } else {
             $sql = "SELECT * FROM `tbl_berita` WHERE `slug`='$slug'";
         }
-        return $this->db->query($sql)->result();
+        $data = $this->db->query($sql)->result();
+        select_img_f_index($data[0]);
+        return $data;
     }
 }
