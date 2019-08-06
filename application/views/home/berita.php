@@ -20,21 +20,6 @@
 <section class="section bg-gray">
     <div class="container">
         <div class="row gap-y">
-            <<<<<<< HEAD <?php foreach ($data as $d) : ?> <div class="col-md-6 col-lg-4">
-                    <div class="card d-block border hover-shadow-6 mb-6">
-                        <a href="#"><img class="card-img-top" src="<?= $d['image'] ?>" alt="Card image cap"></a>
-                        <div class="p-6 text-center">
-                            <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Berita</a></p>
-                            <h5 class="mb-0"><a href="<?= base_url('home/berita/') ?><?= $d['slug'] ?>"><?= $d['judul'] ?></a></h5>
-                        </div>
-                    </div>
-            </div>
-
-        <?php endforeach; ?>
-
-
-
-        =======
         <?php foreach ($data as $row) : ?>
 
             <div class="col-md-6 col-lg-4">
@@ -47,7 +32,6 @@
                 </div>
             </div>
         <?php endforeach; ?>
-        >>>>>>> 31c6276492a0d81ca6ae4a3b52b981cc89af3ce3
     </div>
     <nav class="flexbox mt-6">
         <a class="btn btn-white disabled"><i class="ti-arrow-left fs-9 mr-2"></i> Newer</a>
