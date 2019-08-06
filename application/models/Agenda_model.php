@@ -26,9 +26,18 @@ class Agenda_model extends CI_Model {
         return $this->db->update('tbl_agenda');
     }
 
-     public function get_list_agenda_for_visitor() {
-        $this->db->limit(9);
-        $data = $this->db->get("tbl_agenda")->result();
+     public function get_list_agenda_for_visitor($page = 0, $limit = 0) {
+        $offset = $page*$limit;
+        $sql = "SELECT tb.*, cnt.jml_row 
+                FROM tbl_agenda tb 
+                JOIN (
+                    SELECT count(*) 
+                    AS jml_row 
+                    FROM tbl_agenda
+                ) AS cnt 
+                LIMIT $limit 
+                OFFSET $offset";
+        $data = $this->db->query($sql)->result();
         foreach ($data as $d) {
             preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
             $d->image = count($image) == 0 

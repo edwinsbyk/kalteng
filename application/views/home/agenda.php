@@ -35,8 +35,7 @@
         <?php endforeach ; ?>
         </div>
         <nav class="flexbox mt-6">
-            <a class="btn btn-white disabled"><i class="ti-arrow-left fs-9 mr-2"></i> Newer</a>
-            <a class="btn btn-white" href="#">Older <i class="ti-arrow-right fs-9 ml-2"></i></a>
+            <?= create_pagination($limit, $data[0]->jml_row, $this->input->get("page")) ?>
         </nav>
     </div>
 </section>

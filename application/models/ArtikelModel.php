@@ -34,9 +34,18 @@ class ArtikelModel extends CI_Model {
         $this->db->where('id_artikel', $id);
         return $this->db->update('tbl_artikel');
     }
-    public function get_list_artikel_for_visitor() {
-        $this->db->limit(9);
-        $data = $this->db->get("tbl_artikel")->result();
+    public function get_list_artikel_for_visitor($page = 0, $limit = 0) {
+        $offset = $page*$limit;
+        $sql = "SELECT tb.*, cnt.jml_row 
+                FROM tbl_artikel tb 
+                JOIN (
+                    SELECT count(*) 
+                    AS jml_row 
+                    FROM tbl_artikel
+                ) AS cnt 
+                LIMIT $limit 
+                OFFSET $offset";
+        $data = $this->db->query($sql)->result();
         foreach ($data as $d) {
             select_img_f_index($d);
         }
