@@ -50,14 +50,20 @@
       </section>
 
 
+
+
+
       <?php
       $login = (base_url('auth'));
       $logout = (base_url('auth/logout'));
+      $dashboard = (base_url('auth'));
+
 
       if ($this->session->userdata('email') == null) {
         $stat = ('<a class="btn btn-xs btn-round btn-success" href="' . $login . '">Login</a>');
       } else {
-        $stat = ('<a class="btn btn-xs btn-round btn-success" href="' . $logout . '">Logout</a>');
+        $stat = ('<a class="btn btn-xs btn-round btn-outline-success d-none d-lg-inline-block mr-2" href="' . $logout . '">Logout</a>
+          <a class="btn btn-xs btn-round btn-success" href="' . $dashboard . '">Dashboard</a>');
       }
       echo $stat;
       ?>

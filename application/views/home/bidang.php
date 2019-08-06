@@ -1,8 +1,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-<section id="demos" class="overflow-hidden">
-<div class="row overflow-hidden">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <section id="demos" class="overflow-hidden">
+    <div class="row overflow-hidden">
+
       <div class="item text-white h-fullscreen text-center text-lg-left w-100 position-relative">
         <div class="content-slider" style="background-image: url('https://media.beritagar.id/2016-08/995c7dde74c89bc6e20b16364264e9a8.jpg')">
           <div class="inner-content row align-items-center h-100">
@@ -10,18 +10,18 @@
               <h1>BIDANG </h1>
               <p class="lead mt-5 mb-8">Pekerjaan Umum </p>
               <p class="gap-xy">
-                
+
               </p>
             </div>
           </div>
         </div>
       </div>
-     
+
+    </div>
+    </div>
+  </section>
   </div>
-</div>
-</section>
-</div>
-<!--
+  <!--
 
 
 <header class="header text-white" style="background-image: url(../assets/img/bg/1.jpg)" data-overlay="7">
@@ -46,12 +46,12 @@
 </header>/.header -->
 
 
-<!-- Main Content -->
-<main class="main-content">
+  <!-- Main Content -->
+  <main class="main-content">
 
 
 
-  <!-- <section class="section">
+    <!-- <section class="section">
     <div class="container">
       <header class="section-header">
         <h2>Kualifikasi</h2>
@@ -94,42 +94,44 @@
 
     </div>
   </section> -->
-  <section class="section" id="section-open-positions">
-    <div class="container">
-      <header class="section-header">
-        <h2>Struktur bidang</h2>
-      </header>
+    <section class="section" id="section-open-positions">
+      <div class="container">
+        <header class="section-header">
+          <h2>Struktur bidang</h2>
+        </header>
 
 
-      <div class="accordion accordion-connected shadow-5" id="accordion-job">
+        <div class="accordion accordion-connected shadow-5" id="accordion-job">
 
-        <?php foreach ($data as $row) : ?>
+          <?php foreach ($data as $row) : ?>
 
-        <div class="card">
-          <h6 class="card-title">
-            <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-binaa-<?= $row['id_pegawai']  ?>">
-              <strong class="mr-auto"><td><?= $row['bidang']  ?></td></strong>
-              <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
-            </a>
-          </h6>
-          <div id="collapse-binaa-<?= $row['id_pegawai']  ?>" class="collapse" data-parent="#accordion-job">
-            <div class="card-body">
-              <strong>KEPALA <?= $row['bidang']  ?></strong><br>
-               Nama : <?= $row['nama']  ?> <br>
-              Nip : <?= $row['nip']  ?> <br>
-              Alamat : <?= $row['alamat_kantor']  ?> <br>
-              <!-- <hr class="w-100px"> -->
+            <div class="card">
+              <h6 class="card-title">
+                <a class="d-flex align-items-center collapsed" data-toggle="collapse" href="#collapse-binaa-<?= $row['id_pegawai']  ?>">
+                  <strong class="mr-auto">
+                    <td><?= $row['bidang']  ?></td>
+                  </strong>
+                  <!-- <span class="small text-lighter">Yogyakarta <i class="fa fa-map-marker ml-2"></i></span> -->
+                </a>
+              </h6>
+              <div id="collapse-binaa-<?= $row['id_pegawai']  ?>" class="collapse" data-parent="#accordion-job">
+                <div class="card-body">
+                  <strong>KEPALA <?= $row['bidang']  ?></strong><br>
+                  Nama : <?= $row['nama']  ?> <br>
+                  Nip : <?= $row['nip']  ?> <br>
+                  Alamat : <?= $row['alamat_kantor']  ?> <br>
+                  <!-- <hr class="w-100px"> -->
+                </div>
+              </div>
             </div>
-          </div>
+
+
+          <?php endforeach; ?>
+
+
         </div>
-
-
-         <?php endforeach; ?>
-
-
-    </div>
-    <hr>
-    <!-- <div class="container">
+        <hr>
+        <!-- <div class="container">
 
       <h2 class="text-center">Manemukan pekerjaan yang sesuai dengan anda? Hubungi kami</h2>
 
@@ -153,26 +155,26 @@
       </form>
 
     </div> -->
-  </section>
+    </section>
 
 
-</main><!-- /.main-content -->
-<script>
-  $(document).ready(function() {
-    var owl = $('.owl-carousel');
-    owl.owlCarousel({
-      loop:true,
-      // touchDrag: false,
-      dotClass: 'owl-dot',
-      dotsClass: 'owl-dots',
-      dots: true,
-      // mouseDrag: false,
-      autoplay: true,
-      autoplaySpeed: 1000,
-      autoplayTimeout: 7000,
-      animateOut: 'fadeOut',
-      animateIn: 'fadeOut',
-      items:1
+  </main><!-- /.main-content -->
+  <script>
+    $(document).ready(function() {
+      var owl = $('.owl-carousel');
+      owl.owlCarousel({
+        loop: true,
+        // touchDrag: false,
+        dotClass: 'owl-dot',
+        dotsClass: 'owl-dots',
+        dots: true,
+        // mouseDrag: false,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        autoplayTimeout: 7000,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeOut',
+        items: 1
+      })
     })
-  })
-</script>
+  </script>
