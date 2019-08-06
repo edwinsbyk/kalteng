@@ -374,8 +374,7 @@ class Admin extends CI_Controller
     //
     public function user()
     {
-
-
+        $this->session->userdata("role_id") != 1 && redirect("admin");
         $this->load->model('Userdata_model', 'data');
         $data['data'] = $this->data->getUser();
         $this->loadAsset(["path" => "admin/user/user", "data" => $data]);
