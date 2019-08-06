@@ -74,6 +74,9 @@ class Home extends CI_Controller
     }
     public function berita($slug = null)
     {
+        $a = $this->input->get("search");
+        // var_dump($a);
+        // die;
         $this->load->model("Berita_model");
         if (!$slug) {
             $data["data"] = $this->Berita_model->get_list_berita_for_visitor();

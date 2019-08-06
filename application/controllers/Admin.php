@@ -314,7 +314,6 @@ class Admin extends CI_Controller
         $data = array(
             "judul" => $this->input->post("judul-berita"),
             "isi" => $this->input->post("isi-berita"),
-            'slug'      => url_title($this->input->post('judul'), 'dash', true),
             "tanggal" => date("Y/m/d H:i:s"),
             "image" => $this->input->post("image"),
         );

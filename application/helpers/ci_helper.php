@@ -28,6 +28,15 @@ function generate_slug_string($string, $tail) {
     return implode($tail, array_filter(preg_split('/\s{1,}|-|\||:|\[|\]|\<|\>|\?|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\~/', strtolower($string)), function($x){ return !!$x; }));
 }
 
+function select_img_f_index(&$data) {
+    preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $data->isi, $image);
+    if (count($image) == 0) {
+        $data->image = base_url("assets/img/berita/") . "default.jpg";
+    } else {
+        $data->image = explode("../", $image["src"]) ? base_url().explode("../", $image["src"])[1] : $image["src"];
+    }
+}
+
 function check_access($role_id, $menu_id)
 {
 

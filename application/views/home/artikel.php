@@ -17,6 +17,7 @@
     </div>
 </header>
     <section class="section p-0" id="section-content">
+
         <div class="container"><br>
   <div >
         <form class="form-inline active-cyan-4" action="searchartikel?">
@@ -51,8 +52,7 @@
                                 <a class="text-inherit ml-5" href="#"><i class="fa fa-comments pr-1 opacity-60"></i> 6</a>
                                 </div>
                             </div>
-
-                           
+                            <p class="text-justify"><?= substr($row->isi, 0, 390) ?></p>
 
                             <p class="text-center mt-7">
                                 <a class="btn btn-primary btn-round" href="<?= base_url("home/artikel/".$row->slug) ?>">Read more</a>
@@ -60,7 +60,6 @@
                             </div>
                         </article>
                     <?php endforeach ; ?>
-            </div>
         </div>
     </div>
 </section>

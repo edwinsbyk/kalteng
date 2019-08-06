@@ -38,22 +38,22 @@ class ArtikelModel extends CI_Model {
         $this->db->limit(9);
         $data = $this->db->get("tbl_artikel")->result();
         foreach ($data as $d) {
-            preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
-            $d->image = count($image) == 0 
-                ? base_url("assets/img/artikel/")."default.jpg" 
-                : base_url().explode("../", $image["src"])[1];
+            select_img_f_index($d);
         }
         return $data;
     }
 
     public function get_detail_artikel($slug) {
-        return $this->db->get_where("tbl_artikel", array("slug" => $slug))->result_array();
+        $data = $this->db->get_where("tbl_artikel", array("slug" => $slug))->result();
+        select_img_f_index($data[0]);
+        return $data;
     }
 
     public function get_data_by_index($id)
     {
         $sql = "SELECT b.*, u.name FROM tbl_artikel b LEFT JOIN user u ON b.iduser = u.id WHERE b.id_artikel = '$id'";
-        return $this->db->query($sql)->result_array();
+        $data = $this->db->query($sql)->result_array();
+        return $data;
     }
     public function searchartikel($search)
     {
