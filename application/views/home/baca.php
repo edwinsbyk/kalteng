@@ -37,10 +37,6 @@
 
 
 
-      <div class="text-center my-6">
-        <img class="rounded-md" src="<?= base_url('assets/') ?>img/bg/11.jpg" alt="...">
-      </div>
-
 
 
       <div class="row">

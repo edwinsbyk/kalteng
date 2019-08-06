@@ -1,4 +1,5 @@
 <?php
+error_reporting();
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Berita_model extends CI_Model

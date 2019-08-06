@@ -1,5 +1,5 @@
 <?php 
-
+error_reporting();
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Agenda_model extends CI_Model {
@@ -10,11 +10,7 @@ class Agenda_model extends CI_Model {
         return $this->db->query($sql)->result_array();
     }
 
-    public function get_data_by_index($id)
-    {
-        $sql = "SELECT a.*, u.name FROM tbl_agenda a LEFT JOIN user u ON a.iduser = u.id WHERE a.id_agenda = '$id'";
-        return $this->db->query($sql)->result_array();
-    }
+   
 
     public function input_data($data) {
 		return $this->db->insert('tbl_agenda', $data);
@@ -28,5 +24,22 @@ class Agenda_model extends CI_Model {
         $this->db->set($data, FALSE);
         $this->db->where('id_agenda', $id);
         return $this->db->update('tbl_agenda');
+    }
+
+     public function get_list_agenda_for_visitor() {
+        $this->db->limit(9);
+        $data = $this->db->get("tbl_agenda")->result();
+        foreach ($data as $d) {
+            preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
+            $d->image = count($image) == 0 
+                ? base_url("assets/img/agenda/")."default.jpg" 
+                : base_url().explode("../", $image["src"])[1];
+        }
+        return $data;
+    }
+     public function get_data_by_index($id)
+    {
+        $sql = "SELECT b.*, u.name FROM tbl_agenda b LEFT JOIN user u ON b.iduser = u.id WHERE b.id_agenda = '$id'";
+        return $this->db->query($sql)->result_array();
     }
 }

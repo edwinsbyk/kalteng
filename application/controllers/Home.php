@@ -59,10 +59,6 @@ class Home extends CI_Controller
         $this->inject_resources(["path" => 'home/index', "data" => $data]);
     }
 
-    public function artikel() {
-        $this->inject_resources(["path" => "home/artikel"]);
-    }
-
     public function bidang()
     {   //Bidanghome_model.php
         $data['title'] = 'Bidang';
@@ -180,5 +176,40 @@ class Home extends CI_Controller
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getPemenangLelang();
         $this->inject_resources(["path" => 'pengumuman/pemenanglelang', "data" => $data]);
+    }
+
+    public function artikel()
+    {
+        $this->load->model("ArtikelModel");
+        $data["data"] = $this->ArtikelModel->get_list_artikel_for_visitor();
+        $this->inject_resources(["path" => 'home/artikel', "data" => $data]);
+    }
+
+    public function artikeldemo()
+    {
+        $this->load->model("ArtikelModel");
+        $data["data"] = $this->ArtikelModel->get_data_by_index($this->input->get('id'))[0];
+
+        $this->inject_resources(["path" => array('templates/berita_header', 'artikeldemo/index'), "data" => $data]);
+    }
+    public function agenda()
+    {
+        $this->load->model("Agenda_model");
+        $data["data"] = $this->Agenda_model->get_list_agenda_for_visitor();
+        $this->inject_resources(["path" => 'home/agenda', "data" => $data]);
+    }
+
+    public function agendademo()
+    {
+        $this->load->model("Agenda_model");
+        $data["data"] = $this->Agenda_model->get_data_by_index($this->input->get('id'))[0];
+
+        $this->inject_resources(["path" => array('templates/berita_header', 'agendademo/index'), "data" => $data]);
+    }
+    public function testimoni()
+    {
+        $this->load->model("Testimoni_model");
+        $data["data"] = $this->Testimoni_model->get_list_testimoni_for_visitor();
+        $this->inject_resources(["path" => 'home/testimoni', "data" => $data]);
     }
 }
