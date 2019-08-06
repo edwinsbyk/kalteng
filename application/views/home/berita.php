@@ -17,33 +17,20 @@
         overflow: hidden;
     }
 </style>
-<section class="section bg-gray">
-
+<section class="section p-0">
     <div class="container"> 
-
-  <div > 
-        <form class="form-inline active-cyan-4" action="searchberita?" >
-  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-    aria-label="Search" name="id">
-  <i class="fas fa-search" aria-hidden="true"></i>
-</div><br><br>
-
+        <form class="form-inline active-cyan-4 mt-7 d-flex justify-content-center" action="searchberita?" >
+            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" name="id">
+            <i class="fas fa-search" aria-hidden="true"></i>
+        </form>    
         <div class="row gap-y">
             <?php foreach ($data as $row) : ?>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4 my-7">
                     <div class="card d-block border hover-shadow-6 mb-6">
                         <a href="#"><img class="card-img-top image-d" src="<?= $row->image ?>" alt="Card image cap"></a>
                         <div class="p-6 text-center">
                             <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Berita</a></p>
-<<<<<<< HEAD
                             <h5 class="mb-0"><a href="<?= base_url("home/berita/") ?><?= $row->slug ?>"><?= $row->judul ?></a></h5>
-=======
-
-                            <h5 class="mb-0"><a href="<?= base_url("home/berita/") ?><?= $row->slug ?>"><?= $row->judul ?></a></h5>
-
-                            
-
->>>>>>> 47c274d254dd2ef56252b2b0fd04d7a0a5630e69
                         </div>
                     </div>
                 </div>
