@@ -80,14 +80,23 @@ class Home extends CI_Controller
         $this->inject_resources(["path" => "home/datapu", "data" => $data]);
     }
 
-    public function berita()
+    public function berita($slug = null)
     {
-        $this->inject_resources(["path" => array('templates/berita_header', 'home/berita')]);
+        $slug = htmlspecialchars($slug);
+        $this->load->model("Berita_model");
+        $data["data"] = $this->Berita_model->getListBerita();
+        $data["detail"] = $this->Berita_model->getDetailBerita($slug);
+
+        if (!$slug) {
+            $this->inject_resources(["path" => 'home/berita', "data" => $data]);
+        } else {
+            $this->inject_resources(["path" => 'home/baca', "data" => $data]);
+        }
     }
-    public function newsdemo()
-    {
-        $this->inject_resources(["path" => array('templates/berita_header', 'newsdemo/index')]);
-    }
+    // public function newsdemo()
+    // {
+    //     $this->inject_resources(["path" => array('templates/berita_header', 'newsdemo/index')]);
+    // }
     public function pengumumanRup()
     {
         $this->load->model('Pengumuman_model', 'data');
