@@ -235,7 +235,7 @@ class Admin extends CI_Controller
             "nama"  => $this->input->post("nama"),
             "email"   => $this->input->post("email"),
             "isi"   => $this->input->post("isi"),
-            "iduser" => $this->session->userdata("user_id")
+            
         );
         $this->load->model("Testimoni_model");
         echo $this->Testimoni_model->tambah_data($data)
