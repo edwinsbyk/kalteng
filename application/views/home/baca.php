@@ -1,4 +1,4 @@
-<header class="header text-white h-fullscreen pb-80" style="background-image: url(<?= $detail->image ?>);" detail-overlay="9">
+<header class="header text-white h-fullscreen pb-80" style="background-image: url(<?= $detail->image ?>);" data-overlay="9">
   <div class="container text-center">
 
     <div class="row h-100">
@@ -37,10 +37,6 @@
       </div>
 
 
-
-      <div class="text-center my-6">
-        <img class="rounded-md" src="<?= base_url('assets/') ?>img/bg/11.jpg" alt="...">
-      </div>
 
 
 

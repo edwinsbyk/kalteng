@@ -27,7 +27,7 @@
                         <a href="#"><img class="card-img-top image-d" src="<?= $row->image ?>" alt="Card image cap"></a>
                         <div class="p-6 text-center">
                             <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Berita</a></p>
-                            <h5 class="mb-0"><a href="<?= base_url("home/berita/") ?><?= $row->idberita ?>"><?= $row->judul ?></a></h5>
+                            <h5 class="mb-0"><a href="<?= base_url("home/berita/") ?><?= $row->slug ?>"><?= $row->judul ?></a></h5>
                         </div>
                     </div>
                 </div>
