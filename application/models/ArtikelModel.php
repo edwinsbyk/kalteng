@@ -45,9 +45,15 @@ class ArtikelModel extends CI_Model {
         }
         return $data;
     }
-     public function get_data_by_index($id)
+
+    public function get_detail_artikel($slug) {
+        return $this->db->get_where("tbl_artikel", array("slug" => $slug))->result_array();
+    }
+
+    public function get_data_by_index($id)
     {
         $sql = "SELECT b.*, u.name FROM tbl_artikel b LEFT JOIN user u ON b.iduser = u.id WHERE b.id_artikel = '$id'";
         return $this->db->query($sql)->result_array();
     }
+
 }

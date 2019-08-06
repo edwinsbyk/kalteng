@@ -58,6 +58,7 @@ class Home extends CI_Controller
         $data['data'] = $this->data->getBidang();
         $this->inject_resources(["path" => 'home/index', "data" => $data]);
     }
+
     public function bidang()
     {   //Bidanghome_model.php
         $data['title'] = 'Bidang';
@@ -79,7 +80,9 @@ class Home extends CI_Controller
             $this->inject_resources(["path" => 'home/berita', "data" => $data]);
         } else {
             $data["detail"] = $this->Berita_model->getDetailBerita($slug)[0];
-            $this->inject_resources(["path" => 'home/baca', "data" => $data]);
+            $data["detail"] 
+                ? $this->inject_resources(["path" => 'home/baca', "data" => $data])
+                : redirect("home/berita");
         }
     }
 
@@ -177,11 +180,18 @@ class Home extends CI_Controller
         $this->inject_resources(["path" => 'pengumuman/pemenanglelang', "data" => $data]);
     }
 
-    public function artikel()
+    public function artikel($slug = null)
     {
         $this->load->model("ArtikelModel");
-        $data["data"] = $this->ArtikelModel->get_list_artikel_for_visitor();
-        $this->inject_resources(["path" => 'home/artikel', "data" => $data]);
+        if (!$slug) {
+            $data["data"] = $this->ArtikelModel->get_list_artikel_for_visitor();
+            $this->inject_resources(["path" => 'home/artikel', "data" => $data]);
+        } else {
+            $data["data"] = $this->ArtikelModel->get_detail_artikel($slug)[0];
+            $data["data"] 
+            ? $this->inject_resources(["path" => array('templates/berita_header', 'artikeldemo/index'), "data" => $data])
+            : redirect("home/artikel");    
+        }
     }
 
     public function artikeldemo()

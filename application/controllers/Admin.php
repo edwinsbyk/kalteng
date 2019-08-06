@@ -135,12 +135,14 @@ class Admin extends CI_Controller
     }
     public function add_article()
     {
+        $j = $this->input->post("judul_artikel")."-".strrev(date("dmHis"));
+        $t = generate_slug_string($j, "-");
         $data = array(
-            "iduser" => 1,
             "judul" => $this->input->post("judul_artikel"),
             "isi" => $this->input->post("isi_artikel"),
             "tanggal" => date("Y/m/d H:i:s"),
             "image" => $this->input->post("image"),
+            "slug" => $t,
             "iduser" => $this->session->userdata("user_id")
         );
         $this->load->model("ArtikelModel");
@@ -175,13 +177,15 @@ class Admin extends CI_Controller
     }
     public function tambah_agenda()
     {
+        $j = $this->input->post("judul_agenda")."-".strrev(date("His"));
+        $t = generate_slug_string($j, "-");
         $data = array(
-            "iduser"              => 1,
             "judul"               => $this->input->post("judul_agenda"),
             "isi"                 => $this->input->post("isi_agenda"),
             "tanggal_mulai"       => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_mulai"))->format("Y/m/d H:i"),
             "tanggal_selesai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_selesai"))->format("Y/m/d H:i"),
             "image"               => $this->input->post("image"),
+            "slug"                => $t,
             "iduser"              => $this->session->userdata("user_id")
         );
         $this->load->model("Agenda_model");
@@ -321,12 +325,13 @@ class Admin extends CI_Controller
     }
     public function tambah_berita()
     {
-        // $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
+        $j = $this->input->post("judul-berita")."-".strrev(date("dmHis"));
+        $t = generate_slug_string($j, "-");
+
         $data = array(
-            'iduser'    => 1,
             'judul'     => $this->input->post("judul-berita"),
             'isi'       => $this->input->post("isi-berita"),
-            'slug'      => url_title($this->input->post('judul'), 'dash', true),
+            'slug'      => $t,
             'tanggal'   => date("Y/m/d H:i:s"),
             'image'     => $this->input->post("image"),
             "iduser"    => $this->session->userdata("user_id")
