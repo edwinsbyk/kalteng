@@ -46,7 +46,7 @@
                             <p class="text-justify">Together. Great. So good was saying, that can't first let called air divide stars male isn't i. Herb third let may fourth divide. Greater gathering land you'll i their beast have. She'd form sea it wherein fowl, spirit creeping living. Likeness creepeth you hath heaven. Likeness, moveth fruitful behold. Open evening a air us behold. Saying above moving second a subdue likeness after also second.</p>
 
                             <p class="text-center mt-7">
-                                <a class="btn btn-primary btn-round" href="<?= base_url("home/artikeldemo") ?>?id=<?= $row->id_artikel ?>">Read more</a>
+                                <a class="btn btn-primary btn-round" href="<?= base_url("home/artikel/".$row->slug) ?>">Read more</a>
                             </p>
                             </div>
                         </article>

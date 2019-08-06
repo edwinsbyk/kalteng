@@ -24,6 +24,10 @@ function throw_flash_redirect($message, $status, $url)
     redirect($url);
 }
 
+function generate_slug_string($string, $tail) {
+    return implode($tail, array_filter(preg_split('/\s{1,}|-|\||:|\[|\]|\<|\>|\?|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\~/', strtolower($string)), function($x){ return !!$x; }));
+}
+
 function check_access($role_id, $menu_id)
 {
 
