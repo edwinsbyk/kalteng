@@ -1,5 +1,5 @@
 <?php 
-error_reporting();
+error_reporting(1);
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class ArtikelModel extends CI_Model {
@@ -63,6 +63,12 @@ class ArtikelModel extends CI_Model {
         $sql = "SELECT b.*, u.name FROM tbl_artikel b LEFT JOIN user u ON b.iduser = u.id WHERE b.id_artikel = '$id'";
         $data = $this->db->query($sql)->result_array();
         return $data;
+    }
+    public function searchartikel($search)
+    {
+
+        $sql = "SELECT* FROM tbl_artikel WHERE judul LIKE '%$search%' OR isi LIKE '%$search%'";
+        return $this->db->query($sql)->result();
     }
 
 }

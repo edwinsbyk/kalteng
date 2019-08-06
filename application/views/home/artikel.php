@@ -17,6 +17,7 @@
     </div>
 </header>
     <section class="section p-0" id="section-content">
+<<<<<<< HEAD
         <div class="container">
             <div class="col-md-10 col-xl-8 mx-auto">
                 <?php foreach ($data as $row) : ?>
@@ -39,6 +40,48 @@
                             <div class="col-auto ml-auto">
                             <span><i class="fa fa-eye pr-1 opacity-60"></i> 28</span>
                             <a class="text-inherit ml-5" href="#"><i class="fa fa-comments pr-1 opacity-60"></i> 6</a>
+=======
+
+        <div class="container"><br>
+  <div >
+        <form class="form-inline active-cyan-4" action="searchartikel?">
+  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+    aria-label="Search" name="id">
+  <i class="fas fa-search" aria-hidden="true"></i>
+</div><br>
+            <div class="row">
+
+
+                
+                <div class="col-md-12 col-xl-12 mr-4 ml-4 row">
+                    <?php foreach ($data as $row) : ?>
+                        <article class="my-8 col-md-6">
+                            <header class="text-center mb-7">
+                            <p><a class="small-4 text-lighter text-uppercase ls-2 fw-600" href="#">Artikel</a></p>
+                            <h3><a href="post-2.html"><?= $row->judul ?></a></h3>
+                            </header>
+
+                            <a href="post-2.html"><img class="rounded-md" src="<?= $row->image ?>" alt="..."></a>
+
+                            <div class="card-body">
+                            <div class="row mb-5 small-2 text-lighter">
+                                <div class="col-auto">
+                                <a class="text-inherit" href="#">by Hossein</a>
+                                <span class="align-middle px-1">&bull;</span>
+                                <time datetime="2018-05-15T19:00">3 days ago</time>
+                                </div>
+
+                                <div class="col-auto ml-auto">
+                                <span><i class="fa fa-eye pr-1 opacity-60"></i> 28</span>
+                                <a class="text-inherit ml-5" href="#"><i class="fa fa-comments pr-1 opacity-60"></i> 6</a>
+                                </div>
+                            </div>
+                            <p class="text-justify"><?= substr($row->isi, 0, 390) ?></p>
+
+                            <p class="text-center mt-7">
+                                <a class="btn btn-primary btn-round" href="<?= base_url("home/artikel/".$row->slug) ?>">Read more</a>
+                            </p>
+>>>>>>> 47c274d254dd2ef56252b2b0fd04d7a0a5630e69
                             </div>
                         </div>
 

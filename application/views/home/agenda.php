@@ -20,6 +20,12 @@
 </style>
 <section class="section bg-gray">
     <div class="container">
+        <div >
+        <form class="form-inline active-cyan-4" action="searchagenda?">
+  <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+    aria-label="Search" name="id">
+  <i class="fas fa-search" aria-hidden="true"></i>
+</div><br>
         <div class="row gap-y">
         <?php foreach ($data as $row) : ?>
             
@@ -41,3 +47,4 @@
 </section>
 
 </div>
+</form>
