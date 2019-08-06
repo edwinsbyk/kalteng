@@ -7,7 +7,7 @@ class Berita_model extends CI_Model
     public function getBerita()
     {
         $a = $this->session->userdata("role_id") != 1 ? " WHERE b.iduser=" . $this->session->userdata("user_id") : "";
-        $sql = "SELECT b.*, u.name FROM tbl_berita b LEFT JOIN user u ON b.iduser = u.id${a}";
+        $sql = "SELECT b.*, u.name FROM tbl_berita b LEFT JOIN user u ON b.iduser = u.id";
         return $this->db->query($sql)->result();
     }
 
