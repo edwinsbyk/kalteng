@@ -5,7 +5,7 @@ class Menu_model extends CI_Model
 {
     public function __getMenu()
     {
-        $menu = $this->db->query("SELECT * FROM tbl_menu ORDER BY module_order ASC")->result_array();
+        $menu = $this->db->query("SELECT * FROM tbl_menu WHERE role LIKE '%".$this->session->userdata('role_id')."%' ORDER BY module_order ASC")->result_array();
         $list_menu = array();
         foreach ($menu as $m) {
             $sql = "SELECT * FROM tbl_sub_menu WHERE module_parent='".$m['module_parent']."' ORDER BY module_order ASC";

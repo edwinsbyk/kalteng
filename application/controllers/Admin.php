@@ -86,7 +86,7 @@ class Admin extends CI_Controller
         }
         $p3 = password_hash($p3, PASSWORD_DEFAULT);
         $this->load->model("SettingModel");
-        $this->SettingModel->update_data(["password" => $p3], $this->session->userdata("user_id")) 
+        $this->SettingModel->update_data(["password" => $p3], $this->session->userdata("user_id"))
             ? throw_flash_redirect("Password berhasil diubah", "success", "admin/setting")
             : throw_flash_redirect("Tidak dapat mengubah password", "danger", "admin/setting");
     }
@@ -97,12 +97,12 @@ class Admin extends CI_Controller
         if ($upload_file) {
             $this->load->model("User_model");
             $user_data = $this->User_model->__getUserWithEmail($this->session->userdata("email"));
-            $user_data["image"] != "default.png" && unlink(FCPATH."assets/admin/images/user_profile/".$user_data["image"]);
+            $user_data["image"] != "default.png" && unlink(FCPATH . "assets/admin/images/user_profile/" . $user_data["image"]);
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['max_size']     = 2500;
             $config['upload_path'] = './assets/admin/images/user_profile/';
             $ext = end(explode(".", $upload_file));
-            $config['file_name'] = strtolower($user_data["name"])."-pofile.".$ext;
+            $config['file_name'] = strtolower($user_data["name"]) . "-pofile." . $ext;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
             !$this->upload->do_upload("setting-image") && throw_flash_redirect($this->upload->display_errors(), "danger", "admin/setting");
@@ -221,7 +221,7 @@ class Admin extends CI_Controller
     {
         $this->load->model("Testimoni_model");
         $data["data"] = $this->Testimoni_model->display_data();
-        $this->loadAsset(["path" => "admin/warta/testimoni", "data"=> $data]);
+        $this->loadAsset(["path" => "admin/warta/testimoni", "data" => $data]);
     }
     public function get_data_testimoni_by_id()
     {
@@ -310,6 +310,7 @@ class Admin extends CI_Controller
         $data = array(
             "judul" => $this->input->post("judul-berita"),
             "isi" => $this->input->post("isi-berita"),
+            'slug'      => url_title($this->input->post('judul'), 'dash', true),
             "tanggal" => date("Y/m/d H:i:s"),
             "image" => $this->input->post("image"),
         );
@@ -325,6 +326,7 @@ class Admin extends CI_Controller
             'iduser'    => 1,
             'judul'     => $this->input->post("judul-berita"),
             'isi'       => $this->input->post("isi-berita"),
+            'slug'      => url_title($this->input->post('judul'), 'dash', true),
             'tanggal'   => date("Y/m/d H:i:s"),
             'image'     => $this->input->post("image"),
             "iduser"    => $this->session->userdata("user_id")
@@ -372,8 +374,7 @@ class Admin extends CI_Controller
     //
     public function user()
     {
-
-
+        $this->session->userdata("role_id") != 1 && redirect("admin");
         $this->load->model('Userdata_model', 'data');
         $data['data'] = $this->data->getUser();
         $this->loadAsset(["path" => "admin/user/user", "data" => $data]);
