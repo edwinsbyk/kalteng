@@ -33,33 +33,36 @@ class Berita_model extends CI_Model
         return $this->db->update('tbl_berita');
     }
 
-    public function getberitadetail($idberita){
+    public function getberitadetail($idberita)
+    {
         $query = "SELECT * FROM tbl_berita WHERE idberita = $idberita) ";
     }
 
-    public function get_list_berita_for_visitor() {
+    public function get_list_berita_for_visitor()
+    {
         $this->db->limit(9);
         $data = $this->db->get("tbl_berita")->result();
         foreach ($data as $d) {
             preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
-            $d->image = count($image) == 0 
-                ? base_url("assets/img/berita/")."default.jpg" 
+            $d->image = count($image) == 0
+                ? base_url("assets/img/berita/") . "default.jpg"
                 : $image["src"];
         }
         return $data;
     }
 
-    public function getdetailberita($idberita) {
-        $data = array();
-        $options = array('idberita' => $idberita);
-        $Q = $this->db->get_where('tbl_berita',$options,1);
-        if ($Q->num_rows() > 0){
-            $data = $Q->row_array();
-        }
-        $Q->free_result();
-        return $data;
-    }
-}
+    // public function getdetailberita($idberita)
+    // {
+    //     $data = array();
+    //     $options = array('idberita' => $idberita);
+    //     $Q = $this->db->get_where('tbl_berita', $options, 1);
+    //     if ($Q->num_rows() > 0) {
+    //         $data = $Q->row_array();
+    //     }
+    //     $Q->free_result();
+    //     return $data;
+    // }
+
 
     public function getDetailBerita($slug = null)
     {

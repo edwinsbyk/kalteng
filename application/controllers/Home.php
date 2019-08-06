@@ -71,11 +71,16 @@ class Home extends CI_Controller
         $data['title'] = 'Data PU';
         $this->inject_resources(["path" => "home/datapu", "data" => $data]);
     }
-    public function berita()
+    public function berita($slug = null)
     {
         $this->load->model("Berita_model");
-        $data["data"] = $this->Berita_model->get_list_berita_for_visitor();
-        $this->inject_resources(["path" => 'home/berita', "data" => $data]);
+        if (!$slug) {
+            $data["data"] = $this->Berita_model->get_list_berita_for_visitor();
+            $this->inject_resources(["path" => 'home/berita', "data" => $data]);
+        } else {
+            $data["detail"] = $this->Berita_model->getDetailBerita($slug)[0];
+            $this->inject_resources(["path" => 'home/baca', "data" => $data]);
+        }
     }
 
     public function newsdemo()
