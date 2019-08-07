@@ -45,8 +45,8 @@ function create_pagination($limit, $row, $page) {
     $prev_disabled = $page == 0 || !isset($page) ? "disabled" : "";
     $next_disabled = ($page+1) * $limit >= $row ? "disabled" : "";
     $next_href = ($page+1) * $limit >= $row ? "#" :  base_url(uri_string())."?page=".($page+1);
-    $data = "<a class='btn btn-white $prev_disabled' href='$prev_href'><i class='ti-arrow-left fs-9 mr-2'></i>Older</a>
-             <a class='btn btn-white $next_disabled' href='$next_href'>Newer <i class='ti-arrow-right fs-9 ml-2'></i></a>";
+    $data = "<a class='btn btn-white mb-8 $prev_disabled' href='$prev_href'><i class='ti-arrow-left fs-9 mr-2'></i>Older</a>
+             <a class='btn btn-white mb-8 $next_disabled' href='$next_href'>Newer <i class='ti-arrow-right fs-9 ml-2'></i></a>";
     return $data;
 }
 

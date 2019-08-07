@@ -60,18 +60,19 @@ class Files extends CI_Controller
 
 
         if ($upload_file) {
-            $config['allowed_types'] = 'text|gif|jpg|jpeg|png|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar';
-            // $config['allowed_types'] = '*';
-            $config['max_size']     = 0;
+            // $config['allowed_types'] = 'text|gif|jpg|jpeg|png|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar|mkv';
+            $config['allowed_types'] = '*';
+            $config['max_size'] = 0;
             $config['upload_path'] = './assets/download/';
 
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
 
             if ($this->upload->do_upload('file_name')) {
-                $file = $this->upload->data('file_name');
-                $this->db->set('nama_file', $file);
+                $file = $this->upload->data();
+                $this->db->set('nama_file', $file["file_name"]);
                 $this->db->set('keterangan', $keterangan);
+                $this->db->set('size', $file["file_size"]);
                 $this->db->insert('tbl_file_download');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your profile has been updated.</div>');
                 redirect('admin/download');

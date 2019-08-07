@@ -6,6 +6,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Keterangan</th>
                 <th scope="col">Nama File</th>
+                <th scope="col">Ukuran File</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -16,6 +17,7 @@
                     <td><?= $i; ?></td>
                     <td><?= $d['keterangan']; ?></td>
                     <td><?= $d['nama_file'] ?></td>
+                    <td><?= number_format((float)$d['size']/1024, 2, '.', '') ?> MB</td>
                     <td>
                         <div class="table-data-feature">
                             <a href="#" class="item" data-toggle="modal" data-target="#modal_delete<?= $d['id_file']; ?>"><i class="zmdi zmdi-delete"></i></a>

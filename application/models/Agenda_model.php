@@ -26,15 +26,17 @@ class Agenda_model extends CI_Model {
         return $this->db->update('tbl_agenda');
     }
 
-     public function get_list_agenda_for_visitor($page = 0, $limit = 0) {
+     public function get_list_agenda_for_visitor($page = 0, $limit = 0, $search = NULL) {
         $offset = $page*$limit;
+        $a = $search ? "WHERE judul LIKE '%$search%' OR isi LIKE '%$search%'" : "";
         $sql = "SELECT tb.*, cnt.jml_row 
-                FROM tbl_agenda tb 
+                FROM tbl_agenda tb
                 JOIN (
                     SELECT count(*) 
                     AS jml_row 
-                    FROM tbl_agenda
+                    FROM tbl_agenda 
                 ) AS cnt 
+                ${a}
                 LIMIT $limit 
                 OFFSET $offset";
         $data = $this->db->query($sql)->result();
@@ -46,7 +48,14 @@ class Agenda_model extends CI_Model {
         }
         return $data;
     }
-     public function get_data_by_index($id)
+
+    public function get_detail_agenda($slug) {
+        $data = $this->db->get_where("tbl_agenda", ["slug" => $slug])->result();
+        select_img_f_index($data[0]);
+        return $data;
+    }
+
+    public function get_data_by_index($id)
     {
         $sql = "SELECT b.*, u.name FROM tbl_agenda b LEFT JOIN user u ON b.iduser = u.id WHERE b.id_agenda = '$id'";
         return $this->db->query($sql)->result_array();
