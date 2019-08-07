@@ -5,10 +5,15 @@ defined("BASEPATH") or exit("Access forbidden");
 class DashboardModel extends CI_Model {
     public function get_dashboard_info() {
         $sql = "SELECT
+                (select count(*) from user) as user,
+                (select count(*) from tbl_pegawai) as pegawai,
                 (select count(*) from tbl_artikel) as artikel,
                 (select count(*) from tbl_berita b) as berita,
-                (select count(*) from tbl_pegawai) as pegawai,
-                (select count(*) from tbl_bidang) as bidang
+                
+                (select count(*) from tbl_bidang) as bidang,
+                (select count(*) from tbl_file_download) as download,
+                (select count(*) from tbl_rup) as RUP
+
             from dual";
         $data = $this->db->query($sql)->result_array();
         // $fixed_data = array();
