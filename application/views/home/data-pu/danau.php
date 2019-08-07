@@ -26,7 +26,6 @@
 								<th class="bg-color-5">Kapasitas<br />(m<sup>3</sup>)</th>
 								<th class="bg-color-5">Penduduk<br />(jiwa)</th>
 								<th class="bg-color-5">Irigasi<br />(Ha)</th>
-								<th class="bg-color-5">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -41,13 +40,6 @@
 									<td><?= $d['kapasitas']; ?></td>
 									<td><?= $d['penduduk']; ?></td>
 									<td><?= $d['irigasi']; ?></td>
-									<td>
-										<div class="table-data-feature">
-											<a href="#" class="item" data-toggle="modal" data-target="#modal_edit<?= $d['id_danau']; ?>"><i class="zmdi zmdi-edit"></i></a>
-											<a href="#" class="item" data-toggle="modal" data-target="#modal_delete<?= $d['id_danau']; ?>"><i class="zmdi zmdi-delete"></i></a>
-
-										</div>
-									</td>
 								</tr>
 								<?php $i++; ?>
 							<?php endforeach; ?>
