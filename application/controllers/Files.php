@@ -88,7 +88,6 @@ class Files extends CI_Controller
         if ($id) {
             $nama_file = $this->file->filename($id);
             force_download(FCPATH . 'assets/download/' . $nama_file[0]["nama_file"], NULL);
-            redirect('admin/download');
         } else {
             redirect('admin/download');
         }
