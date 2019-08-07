@@ -114,7 +114,7 @@ class Admin extends CI_Controller
             $config['max_size']     = $max_file_size;
             $config['upload_path'] = './assets/admin/images/user_profile/';
             $ext = end(explode(".", $upload_file));
-            $config['file_name'] = strtolower($user_data["name"]) . "-" . $user_data["id"] . "-profile." . $ext;
+            $config['file_name'] = "user" . "-" . $user_data["id"] . "-profile." . $ext;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
             !$this->upload->do_upload("setting-image") && throw_flash_redirect($this->upload->display_errors(), "danger", "admin/setting");
