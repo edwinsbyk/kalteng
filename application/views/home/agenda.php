@@ -31,15 +31,16 @@
         if (count($data)) {
         foreach ($data as $row) : 
         ?>
-            <div class="col-md-6 col-lg-4">
-                <div class="card d-block border hover-shadow-6 mb-6">
-                    <a href="#" ><img class="card-img-top image-d" src="<?= $row->image ?>" alt="Card image cap"></a>
-                    <div class="p-6 text-center">
-                        <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Berita</a></p>
-                        <h5 class="mb-0"><a href="<?= base_url("home/agenda/".$row->slug) ?>"><?= $row->judul ?></a></h5>
+            
+            <div class="col-md-6 col-lg-4 my-7">
+                    <div class="card d-block border hover-shadow-6 mb-6">
+                        <a href="#"><img class="card-img-top image-d" src="<?= $row->image ?>" alt="Card image cap"></a>
+                        <div class="p-6 text-center">
+                            <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Berita</a></p>
+                            <h5 class="mb-0"><a href="<?= base_url("home/agenda/") ?><?= $row->slug ?>"><?= $row->judul ?></a></h5>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php endforeach; ?>
         </div>
         <nav class="flexbox mt-6">
@@ -49,7 +50,7 @@
             <div class="jumbotron jumbotron-fluid p-8 w-100">
             <div class="container">
                 <h1 class="display-4">404 not found</h1>
-                <p class="lead">Tidak ditemukan data dengan kata kunci "<?= $this->input->get('cari'); ?>"</p>
+                <p class="lead">Tidak ditemukan data dengan kata kunci <?= $this->input->get('cari'); ?></p>
             </div>
             </div>
         <?php } ?>
