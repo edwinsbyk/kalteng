@@ -93,6 +93,15 @@ class Admin extends CI_Controller
     public function change_account_setting()
     {
         $upload_file = $_FILES['setting-image']['name'];
+        $file_size = $_FILES['setting-image']['size'];
+
+        if(($file_size / 1024) > 2500)
+        {
+            throw_flash_redirect("Ukuran file melebihi batas!", "danger", "admin/setting");
+            return false;
+        }
+
+
         $this->load->model("SettingModel");
         if ($upload_file) {
             $this->load->model("User_model");
