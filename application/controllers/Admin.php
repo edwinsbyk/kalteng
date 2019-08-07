@@ -93,16 +93,28 @@ class Admin extends CI_Controller
     public function change_account_setting()
     {
         $upload_file = $_FILES['setting-image']['name'];
+        $file_size = $_FILES['setting-image']['size'];
+
+        // MAX FILE SIZE
+        $max_file_size = 2500; // in KiloBytes
+
+        if(($file_size / 1024) > $max_file_size)
+        {
+            throw_flash_redirect("Ukuran file melebihi batas!", "danger", "admin/setting");
+            return false;
+        }
+
+
         $this->load->model("SettingModel");
         if ($upload_file) {
             $this->load->model("User_model");
             $user_data = $this->User_model->__getUserWithEmail($this->session->userdata("email"));
             $user_data["image"] != "default.png" && unlink(FCPATH . "assets/admin/images/user_profile/" . $user_data["image"]);
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size']     = 2500;
+            $config['max_size']     = $max_file_size;
             $config['upload_path'] = './assets/admin/images/user_profile/';
             $ext = end(explode(".", $upload_file));
-            $config['file_name'] = strtolower($user_data["name"]) . "-pofile." . $ext;
+            $config['file_name'] = "user" . "-" . $user_data["id"] . "-profile." . $ext;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
             !$this->upload->do_upload("setting-image") && throw_flash_redirect($this->upload->display_errors(), "danger", "admin/setting");

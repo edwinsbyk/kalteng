@@ -1,15 +1,14 @@
-
 <header class="header text-white h-fullscreen pb-80" style="background-image: url(<?= base_url('assets/') ?>img/thumb/5.jpg);" data-overlay="9">
     <div class="container text-center">
         <div class="row h-100">
             <div class="col-lg-8 mx-auto align-self-center">
                 <p class="opacity-70 text-uppercase small ls-1"></p>
                 <h1 class="display-4 mt-7 mb-8">Agenda Kegiatan Seputar Pekerjaan Umum Kalimantan Tengah</h1>
-            <div class="col-12 align-self-end text-center">
-                <a class="scroll-down-1 scroll-down-white" href="#section-content"><span></span></a>
+                <div class="col-12 align-self-end text-center">
+                    <a class="scroll-down-1 scroll-down-white" href="#section-content"><span></span></a>
+                </div>
             </div>
         </div>
-    </div>
 </header>
 <style>
     .image-d {
@@ -41,8 +40,7 @@
                         <h5 class="mb-0"><a href="<?= base_url("home/agenda/".$row->slug) ?>"><?= $row->judul ?></a></h5>
                     </div>
                 </div>
-            </div>
-        <?php endforeach ; ?>
+            <?php endforeach; ?>
         </div>
         <nav class="flexbox mt-6">
             <?= create_pagination($limit, $data[0]->jml_row, $this->input->get("page")) ?>

@@ -54,11 +54,7 @@ class Files extends CI_Controller
     public function do_upload()
     {
         $keterangan = $this->input->post('keterangan');
-
-        //jika ada gambar yang akan di upload
         $upload_file = $_FILES['file_name']['name'];
-
-
         if ($upload_file) {
             // $config['allowed_types'] = 'text|gif|jpg|jpeg|png|zip|rar|pdf|doc|docx|xlsx|xls|csv|tar|mkv';
             $config['allowed_types'] = '*';
