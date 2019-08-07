@@ -39,7 +39,7 @@ $ci->load->helper('url');
 			<p class="lead"></p>
 			<br>
 			<button class="btn btn-secondary w-150 mr-2" type="button" onclick="window.history.back();">Kembali</button>
-			<a class="btn btn-secondary w-150" href="<?= base_url('home') ?>">Return Home</a>
+			<a class="btn btn-secondary w-150" href="<?= base_url('home') ?>">Beranda</a>
 
 		</div>
 	</main><!-- /.main-content -->
