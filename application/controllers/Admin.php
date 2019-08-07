@@ -332,7 +332,7 @@ class Admin extends CI_Controller
             'isi'       => $this->input->post("isi-berita"),
             'slug'      => $t,
             'tanggal'   => date("Y/m/d H:i:s"),
-            'image'     => $this->input->post("image"),
+            
             "iduser"    => $this->session->userdata("user_id")
         );
         $this->load->model("Berita_model");

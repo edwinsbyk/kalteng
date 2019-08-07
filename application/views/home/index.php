@@ -105,43 +105,43 @@
             
           <div class="row gap-y">
                 <div class="col-6 col-md-4 col-xl-4">
-                    <a class="card card-body border hover-shadow-6 text-center py-6" href="<?= base_url('home/datapujalan') ?>">
+                    <a class="card card-body border hover-shadow-6 text-center py-6" >
                         <p style="color: #5edfff"><i class="fas fa-tint lead-7"></i></p>
                         <h6 class="mb-0"><strong>BIDANG SUMBER DAYA AIR</strong></h6>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-xl-4">
-                    <a class="card card-body border hover-shadow-6 text-center py-6" href="<?= base_url('home/datapujembatan') ?>">
+                    <a class="card card-body border hover-shadow-6 text-center py-6" >
                         <p style="color: #eb4a62"><i class="fas fa-archway lead-7"></i></p>
                         <h6 class="mb-0"><strong>BIDANG BINA MARGA</strong></h6>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-xl-4">
-                    <a class="card card-body border hover-shadow-6 text-center py-6" href="<?= base_url('home/datapuembung') ?>">
+                    <a class="card card-body border hover-shadow-6 text-center py-6" >
                         <p style="color: #f69a3e"><i class="fas fa-magic lead-7"></i></p>
                         <h6 class="mb-0"><strong>BIDANG CIPTA KARYA</strong></h6>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-xl-4">
-                    <a class="card card-body border hover-shadow-6 text-center py-6" href="<?= base_url('home/datapusumurbor') ?>">
+                    <a class="card card-body border hover-shadow-6 text-center py-6" >
                         <p style=" color: #c05c7e"><i class="fas fa-home lead-7"></i></p>
                         <h6 class="mb-0"><strong>BIDANG PENATAAN RUANG</strong></h6>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-xl-4">
-                    <a class="card card-body border hover-shadow-6 text-center py-6" href="<?= base_url('home/datapublackspot') ?>">
+                    <a class="card card-body border hover-shadow-6 text-center py-6" >
                         <p style=" color: #f0c93e"><i class="fas fa-wrench lead-7"></i></p>
                         <h6 class="mb-0"><strong>BIDANG JASA KONSTRUKSI</strong></h6>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-xl-4">
-                    <a class="card card-body border hover-shadow-6 text-center py-6" href="<?= base_url('home/datapuspam') ?>">
+                    <a class="card card-body border hover-shadow-6 text-center py-6" >
                         <p style="color: #736764"><i class="fas fa-graduation-cap lead-7"></i></p>
                         <h6 class="mb-0"><strong>SEKERTARIS DINAS</strong></h6>
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-xl-4">
-                    <a class="card card-body border hover-shadow-6 text-center py-6" href="<?= base_url('home/datapupotensidanau') ?>">
+                    <a class="card card-body border hover-shadow-6 text-center py-6" >
                         <p style="color: #1656B5"><i class="fas fa-vial lead-7"></i></p>
                         <h6 class="mb-0"><strong>UPT LABORATURIUM</strong></h6>
                     </a>

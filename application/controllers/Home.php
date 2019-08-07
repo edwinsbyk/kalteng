@@ -251,7 +251,7 @@ class Home extends CI_Controller
         $this->load->model("Agenda_model");
         $data["data"] = $this->Agenda_model->get_data_by_index($this->input->get('id'))[0];
 
-        $this->inject_resources(["path" => array('templates/berita_header', 'agendademo/index'), "data" => $data]);
+        $this->inject_resources(["path" => array('templates/artikel_header', 'agendademo/index'), "data" => $data]);
     }
     public function testimoni()
     {

@@ -30,10 +30,7 @@ class Agenda_model extends CI_Model {
         $this->db->limit(9);
         $data = $this->db->get("tbl_agenda")->result();
         foreach ($data as $d) {
-            preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
-            $d->image = count($image) == 0 
-                ? base_url("assets/img/agenda/")."default.jpg" 
-                : base_url().explode("../", $image["src"])[1];
+            select_img_f_index($d);
         }
         return $data;
     }
@@ -46,7 +43,9 @@ class Agenda_model extends CI_Model {
     public function searchagenda($search)
     {
         $sql = "SELECT* FROM tbl_agenda WHERE judul LIKE '%$search%' OR isi LIKE '%$search%'";
-        return $this->db->query($sql)->result();
+        $data = $this->db->query($sql)->result();
+        select_img_f_index($data[0]);
+        return $data;
     }
 
 }
