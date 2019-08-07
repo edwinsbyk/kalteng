@@ -20,48 +20,49 @@
                         <div class="headline ">
                             <h2 class="text-light bg-dark">Kontak Info</h2>
                         </div>
-                        <ul class="list-unstyled latest-list">
-                            <li>
-                                <a href="#" class="text-light bg-dark">Alamat</a>
-                                <small class="text-light bg-dark">Jl. S. Parman No.3, Palangka, Kec. Jekan Raya, Kota Palangka Raya, Kalimantan Tengah 73111
-                                    | Dinas Pekerjaan Umum dan Penataan Ruang Provinsi Kalteng |</small>
-                            </li>
-                            <li>
-                                <a href="#" class="text-light bg-dark">Telp.</a>
-                                <small class="text-light bg-dark">(0536) 3235336</small>
-                            </li>
-                            <li>
-                                <a href="#" class="text-light bg-dark"> Email</a>
-                                <small class="text-light bg-dark">diskominfo@kalteng.go.id</small>
-                            </li>
-                        </ul>
                     </div>
+                    <!--/col-md-3-->
+                    <!-- End Latest -->
+
+                    <!-- Link List -->
+
                 </div>
-                <!--/col-md-3-->
-                <!-- End Latest -->
+                <!--/footer-->
 
-                <!-- Link List -->
-
-            </div>
-            <!--/footer-->
-
-            <div class="copyright">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="p-3 mb-2 bg-dark text-white">
-                                2019 © PEMERINTAH PROVINSI KALIMANTAN TENGAH
-                            </p>
+                <div class="copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="p-3 mb-2 bg-dark text-white">
+                                    <?= (int) date('Y') ?> © PEMERINTAH PROVINSI KALIMANTAN TENGAH
+                                </p>
+                            </div>
                         </div>
+                        <!--/col-md-3-->
+                        <!-- End Latest -->
 
+                        <!-- Link List -->
 
                     </div>
+                    <!--/footer-->
+
+                    <div class="copyright">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="p-3 mb-2 bg-dark text-white">
+                                        2019 © PEMERINTAH PROVINSI KALIMANTAN TENGAH
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--/copyright-->
                 </div>
-            </div>
-            <!--/copyright-->
-        </div>
 
 
-        <?php foreach ($js_list as $js) { ?>
-            <script src="<?= base_url($js) ?>"></script>
-        <?php } ?>
+                <?php foreach ($js_list as $js) { ?>
+                    <script src="<?= base_url($js) ?>"></script>
+                <?php } ?>
