@@ -95,7 +95,10 @@ class Admin extends CI_Controller
         $upload_file = $_FILES['setting-image']['name'];
         $file_size = $_FILES['setting-image']['size'];
 
-        if(($file_size / 1024) > 2500)
+        // MAX FILE SIZE
+        $max_file_size = 2500; // in KiloBytes
+
+        if(($file_size / 1024) > $max_file_size)
         {
             throw_flash_redirect("Ukuran file melebihi batas!", "danger", "admin/setting");
             return false;
@@ -108,7 +111,7 @@ class Admin extends CI_Controller
             $user_data = $this->User_model->__getUserWithEmail($this->session->userdata("email"));
             $user_data["image"] != "default.png" && unlink(FCPATH . "assets/admin/images/user_profile/" . $user_data["image"]);
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size']     = 2500;
+            $config['max_size']     = $max_file_size;
             $config['upload_path'] = './assets/admin/images/user_profile/';
             $ext = end(explode(".", $upload_file));
             $config['file_name'] = strtolower($user_data["name"]) . "-" . $user_data["id"] . "-profile." . $ext;
