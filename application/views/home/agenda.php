@@ -27,12 +27,8 @@
 </div><br>
         <div class="row gap-y">
         
-        <?php 
-        if (count($data)) {
-        foreach ($data as $row) : 
-        ?>
-            
-            <div class="col-md-6 col-lg-4 my-7">
+        <?php if (count($data)) { foreach ($data as $row) : ?>
+            <div class="col-md-6 col-lg-4">
                     <div class="card d-block border hover-shadow-6 mb-6">
                         <a href="#"><img class="card-img-top image-d" src="<?= $row->image ?>" alt="Card image cap"></a>
                         <div class="p-6 text-center">

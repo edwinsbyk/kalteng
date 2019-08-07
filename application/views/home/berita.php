@@ -19,22 +19,27 @@
 </style>
 <section class="section p-0">
     <div class="container"> 
-        <form class="form-inline active-cyan-4 mt-7 d-flex justify-content-center" method="get" >
+        <form class="form-inline active-cyan-4 mt-7 mb-7 d-flex justify-content-center" method="get" >
             <input class="form-control form-control-sm mr-3 w-75" type="text" name="cari" placeholder="Search" aria-label="Search" name="id">
             <i class="fas fa-search" aria-hidden="true"></i>
         </form>    
         <div class="row gap-y">
             <?php if (count($data)) {
                 foreach ($data as $row) : ?>
-                <div class="col-md-6 col-lg-4 my-7">
-                    <div class="card d-block border hover-shadow-6 mb-6">
-                        <a href="#"><img class="card-img-top image-d" src="<?= $row->image ?>" alt="Card image cap"></a>
-                        <div class="p-6 text-center">
-                            <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Berita</a></p>
-                            <h5 class="mb-0"><a href="<?= base_url("home/berita/") ?><?= $row->slug ?>"><?= $row->judul ?></a></h5>
+                    <div class="card hover-shadow-7 my-5 col-md-12 p-0">
+                        <div class="row ">
+                            <div class="col-md-4">
+                                <a href="blog-single.html"><img class="fit-cover w-100 position-absolute h-100" src="<?= $row->image ?>" alt="<?= $row->judul ?>"></a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="p-7">
+                                <h4><?= $row->judul ?></h4>
+                                <p><?= cut_string($row->isi) ?></p>
+                                <a class="small ls-1" href="<?= base_url("home/berita/") ?><?= $row->slug ?>">Read More <span class="pl-1">&xrarr;</span></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
             <?php endforeach; ?>
         </div>
         <nav class="flexbox mt-6">

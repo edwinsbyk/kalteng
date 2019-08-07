@@ -43,6 +43,10 @@ function select_img_f_index(&$data) {
     }
 }
 
+function cut_string($string) {
+    return substr(strip_tags($string), 0, 145)."...";
+}
+
 function create_pagination($limit, $row, $page) {
     $page*$limit > $row && redirect(base_url(uri_string()));
     $cari = get_instance()->input->get("cari");

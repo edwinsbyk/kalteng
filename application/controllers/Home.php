@@ -74,7 +74,7 @@ class Home extends CI_Controller
     }
     public function berita($slug = null)
     {
-        $limit = 9;
+        $limit = 4;
 
         $search = $this->input->get("cari");
         $page = $this->input->get("page");
@@ -85,8 +85,8 @@ class Home extends CI_Controller
             $data["limit"] = $limit;
             $this->inject_resources(["path" => 'home/berita', "data" => $data]);
         } else {
-            $data["data"] = $this->Berita_model->getDetailBerita($slug)[0];
-            $this->inject_resources(["path" => array('templates/berita_header', 'newsdemo/index'), "data" => $data]);
+            $data["detail"] = $this->Berita_model->getDetailBerita($slug)[0];
+            $this->inject_resources(["path" => 'home/baca', "data" => $data]);
         }
     }
 
@@ -179,7 +179,8 @@ class Home extends CI_Controller
     }
 
     public function artikel($slug = null)
-    {  $limit = 3;
+    {  
+        $limit = 3;
 
         $search = $this->input->get("cari");
         $page = $this->input->get("page");
@@ -190,14 +191,14 @@ class Home extends CI_Controller
             $data["limit"] = $limit;
             $this->inject_resources(["path" => 'home/artikel', "data" => $data]);
         } else {
-            $data["data"] = $this->ArtikelModel->get_detail_artikel($slug)[0];
-            $this->inject_resources(["path" => array('templates/berita_header', 'artikeldemo/index'), "data" => $data]);
+            $data["detail"] = $this->ArtikelModel->get_detail_artikel($slug)[0];
+            $this->inject_resources(["path" => 'home/baca', "data" => $data]);
         }
     }
 
     public function agenda($slug = null)
     {
-        $limit = 9;
+        $limit = 4;
 
         $search = $this->input->get("cari");
         $page = $this->input->get("page");
@@ -212,52 +213,6 @@ class Home extends CI_Controller
             $this->inject_resources(["path" => array('templates/berita_header', 'agendademo/index'), "data" => $data]);
         }
     }
-
-    public function searchagenda()
-    {   
-         $search = $this->input->get('id');
-       
-
-        $this->load->model("Agenda_model");
-        $data["data"] =  $this->Agenda_model->searchagenda($search);
-
-        // $data["data"] = $this->Agenda_model->searchagenda();
-        $this->inject_resources(["path" => 'home/agenda', "data" => $data]);
-    }
-      public function searchartikel()
-    {   
-         $search = $this->input->get('id');
-       
-
-        $this->load->model("ArtikelModel");
-        $data["data"] =  $this->ArtikelModel->searchartikel($search);
-
-        // $data["data"] = $this->Agenda_model->searchagenda();
-        $this->inject_resources(["path" => 'home/artikel', "data" => $data]);
-    }
-    
-    public function searchberita()
-    {
-
-         $search = $this->input->get('id');
-       
-
-        $this->load->model("Berita_model");
-        $data["data"] =  $this->Berita_model->searchrberita($search);
-
-        // $data["data"] = $this->Agenda_model->searchagenda();
-        $this->inject_resources(["path" => 'home/berita', "data" => $data]);
-    }
-
-
-    public function agendademo()
-    {
-        $this->load->model("Agenda_model");
-        $data["data"] = $this->Agenda_model->get_data_by_index($this->input->get('id'))[0];
-
-        $this->inject_resources(["path" => array('templates/artikel_header', 'agendademo/index'), "data" => $data]);
-    }
-
 
     public function testimoni()
     {

@@ -19,7 +19,7 @@
         <section class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 mx-auto">
+                    <div class="col-lg-12 mx-auto">
                         <table class="table table-hover data_table">
                             <thead class="thead-dark">
                                 <tr>

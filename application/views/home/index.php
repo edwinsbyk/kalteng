@@ -63,33 +63,38 @@
       | Products
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
       !-->
-  <section class="section">
-    <div class="container">
-      <header class="d-flex flex-column align-items-center">
-        <h2>Website Dinas Pekerjaan Umum Kalimantan Tengah</h2>
-        <p>Media penyebaran informasi dan komunikasi Dinas Pekerjaan Umum dan Penataan Ruang pemerintah Provinsi Kalimantan Tengah dengan masyarakat.</p>
-        <hr>
+      <section id="lity" class="section pb-0">
+        <div class="container">
+          <div class="row gap-y align-items-center">
+            <div class="col-lg-5 mr-auto">
+              <h2>Website Dinas Pekerjaan Umum Kalimantan Tengah</h2>
+              <br>
+              <p class="lead-2">Media penyebaran informasi dan komunikasi Dinas Pekerjaan Umum dan Penataan Ruang pemerintah Provinsi Kalimantan Tengah dengan masyarakat.</p>
+              <p></p>
+            </div>
+            <div class="col-lg-6">
+              <div class="gallery gallery-4-type4">
+                <a class="gallery-item" href="#">
+                  <img src="<?php echo base_url(); ?>assets/img/bangunkereta.jpg" alt="..." data-provide="lightbox">
+                </a>
+                <div class="gallery-item-group">
+                  <a class="gallery-item" href="#">
+                    <img src="<?php echo base_url(); ?>assets/img/bangunjalan.jpg" alt="..." data-provide="lightbox">
+                  </a>
+                  <a class="gallery-item" href="#">
+                    <img src="<?php echo base_url(); ?>assets/img/bangunjalan2.jpg" alt="..." data-provide="lightbox">
+                  </a>
+                </div>
+              </div>
 
-        <div class="row">
-          <div class="col-lg-4">
-            <section class="card">
-              <img src="<?php echo base_url(); ?>assets/img/bangunjalan.jpg">
-            </section>
-          </div>
-          <div class="col-lg-4">
-            <section class="card">
-              <img src="<?php echo base_url(); ?>assets/img/bangunjalan2.jpg">
-            </section>
-          </div>
-          <div class="col-lg-4">
-            <section class="card">
-              <img src="<?php echo base_url(); ?>assets/img/bangunkereta.jpg">
-            </section>
+            </div>
+
           </div>
         </div>
+      </section>
 
-      </header>
-      <br><br>
+  <section class="section">
+    <div class="container">
 
       <div class="row">
         <div class="col-md-7 mr-auto offset-md-7 mb-6 col-sm-7 ml-auto">
