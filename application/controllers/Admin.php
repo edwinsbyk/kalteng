@@ -153,7 +153,7 @@ class Admin extends CI_Controller
             "judul" => $this->input->post("judul_artikel"),
             "isi" => $this->input->post("isi_artikel"),
             "tanggal" => date("Y/m/d H:i:s"),
-            "image" => $this->input->post("image"),
+            
             "slug" => $t,
             "iduser" => $this->session->userdata("user_id")
         );
@@ -196,7 +196,7 @@ class Admin extends CI_Controller
             "isi"                 => $this->input->post("isi_agenda"),
             "tanggal_mulai"       => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_mulai"))->format("Y/m/d H:i"),
             "tanggal_selesai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_selesai"))->format("Y/m/d H:i"),
-            "image"               => $this->input->post("image"),
+           
             "slug"                => $t,
             "iduser"              => $this->session->userdata("user_id")
         );
