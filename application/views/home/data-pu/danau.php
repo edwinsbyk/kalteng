@@ -16,7 +16,7 @@
 			<div class="row">
 				<div class="col-lg mx-auto">
 					<table class="table table-hover data_table">
-						<thead>
+						<thead class="thead-dark">
 							<tr>
 								<th class="bg-color-5" width="50">No</th>
 								<th class="bg-color-5">Nama</th>
