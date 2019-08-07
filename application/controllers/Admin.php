@@ -104,7 +104,6 @@ class Admin extends CI_Controller
             return false;
         }
 
-
         $this->load->model("SettingModel");
         if ($upload_file) {
             $this->load->model("User_model");
@@ -114,7 +113,8 @@ class Admin extends CI_Controller
             $config['max_size']     = $max_file_size;
             $config['upload_path'] = './assets/admin/images/user_profile/';
             $ext = end(explode(".", $upload_file));
-            $config['file_name'] = "user" . "-" . $user_data["id"] . "-profile." . $ext;
+            $image_file_name = "user" . "-" . $user_data["id"] . "-profile." . $ext;
+            $config['file_name'] = $image_file_name;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
             !$this->upload->do_upload("setting-image") && throw_flash_redirect($this->upload->display_errors(), "danger", "admin/setting");
@@ -125,9 +125,12 @@ class Admin extends CI_Controller
             "name" => $name,
             "email" => $email,
         );
+        
         $data = $upload_file ? array_merge($data, ["image" => $file = $this->upload->data('file_name')]) : $data;
         $email && $this->session->set_userdata(array("email" => $email));
         $name && $this->session->set_userdata(array("user_name" => $name));
+        $upload_file && $this->session->set_userdata(array("user_image"=> $image_file_name));
+
         $this->SettingModel->update_data($data, $this->session->userdata("user_id"))
             ? throw_flash_redirect("Data berhasil diubah", "success", "admin/setting")
             : throw_flash_redirect("Gagal mengubah data", "danger", "admin/setting");

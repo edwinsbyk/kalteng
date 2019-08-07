@@ -16,7 +16,8 @@ class User_model extends CI_Model
                         'email'         => $user['email'], 
                         'role_id'       => $user['role_id'], 
                         'user_id'       => $user["id"],
-                        'user_name'     => $user["name"]
+                        'user_name'     => $user["name"],
+                        'user_image'    => $user['image']
                     ];
                     $this->session->set_userdata($data);
                     redirect('admin');
