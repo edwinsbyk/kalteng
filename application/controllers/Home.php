@@ -74,12 +74,15 @@ class Home extends CI_Controller
     }
     public function berita($slug = null)
     {
+        $limit = 9;
+
         $a = $this->input->get("search");
-        // var_dump($a);
-        // die;
+        $page = $this->input->get("page");
+        $page = isset($page) ? $page < 0 ? redirect("home/berita") : $this->input->get("page") : 0;
         $this->load->model("Berita_model");
         if (!$slug) {
-            $data["data"] = $this->Berita_model->get_list_berita_for_visitor();
+            $data["data"] = $this->Berita_model->get_list_berita_for_visitor($page, $limit);
+            $data["limit"] = $limit;
             $this->inject_resources(["path" => 'home/berita', "data" => $data]);
         } else {
             $data["detail"] = $this->Berita_model->getDetailBerita($slug)[0];
@@ -89,12 +92,6 @@ class Home extends CI_Controller
         }
     }
 
-    public function newsdemo()
-    {
-        $this->load->model("Berita_model");
-        $data["data"] = $this->Berita_model->get_data_by_index($this->input->get('id'))[0];
-        $this->inject_resources(["path" => array('templates/berita_header', 'newsdemo/index'), "data" => $data]);
-    }
     public function pengumumanRup()
     {
         $this->load->model('Pengumuman_model', 'data');
@@ -185,9 +182,14 @@ class Home extends CI_Controller
 
     public function artikel($slug = null)
     {
+        $limit = 2;
+
+        $page = $this->input->get("page");
+        $page = isset($page) ? $page < 0 ? redirect("home/artikel") : $this->input->get("page") : 0;
         $this->load->model("ArtikelModel");
         if (!$slug) {
-            $data["data"] = $this->ArtikelModel->get_list_artikel_for_visitor();
+            $data["data"] = $this->ArtikelModel->get_list_artikel_for_visitor($page, $limit);
+            $data["limit"] = $limit;
             $this->inject_resources(["path" => 'home/artikel', "data" => $data]);
         } else {
             $data["data"] = $this->ArtikelModel->get_detail_artikel($slug)[0];
@@ -197,20 +199,25 @@ class Home extends CI_Controller
         }
     }
 
-    public function artikeldemo()
+    public function agenda($slug = null)
     {
-        $this->load->model("ArtikelModel");
-        $data["data"] = $this->ArtikelModel->get_data_by_index($this->input->get('id'))[0];
+        $limit = 9;
 
-        $this->inject_resources(["path" => array('templates/berita_header', 'artikeldemo/index'), "data" => $data]);
-    }
-    public function agenda()
-    {
+        $search = $this->input->get("cari");
+        $page = $this->input->get("page");
+        $page = isset($page) ? $page < 0 ? redirect("home/agenda") : $this->input->get("page") : 0;
         $this->load->model("Agenda_model");
-        $data["data"] = $this->Agenda_model->get_list_agenda_for_visitor();
-        $this->inject_resources(["path" => 'home/agenda', "data" => $data]);
+        if (!$slug) {
+            $data["data"] = $this->Agenda_model->get_list_agenda_for_visitor($page, $limit, $search);
+            $data["limit"] = $limit;
+            $this->inject_resources(["path" => 'home/agenda', "data" => $data]);
+        } else {
+            $data["data"] = $this->Agenda_model->get_detail_agenda($slug)[0];
+            $this->inject_resources(["path" => array('templates/berita_header', 'agendademo/index'), "data" => $data]);
+        }
     }
-     public function searchagenda()
+
+    public function searchagenda()
     {   
          $search = $this->input->get('id');
        
@@ -246,6 +253,7 @@ class Home extends CI_Controller
         $this->inject_resources(["path" => 'home/berita', "data" => $data]);
     }
 
+
     public function agendademo()
     {
         $this->load->model("Agenda_model");
@@ -253,6 +261,8 @@ class Home extends CI_Controller
 
         $this->inject_resources(["path" => array('templates/artikel_header', 'agendademo/index'), "data" => $data]);
     }
+
+
     public function testimoni()
     {
         $this->load->model("Testimoni_model");

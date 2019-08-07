@@ -39,10 +39,19 @@ class Berita_model extends CI_Model
         $query = "SELECT * FROM tbl_berita WHERE idberita = $idberita) ";
     }
 
-    public function get_list_berita_for_visitor()
+    public function get_list_berita_for_visitor($page = 0, $limit = 0)
     {
-        $this->db->limit(9);
-        $data = $this->db->get("tbl_berita")->result();
+        $offset = $page*$limit;
+        $sql = "SELECT tb.*, cnt.jml_row 
+                FROM tbl_berita tb 
+                JOIN (
+                    SELECT count(*) 
+                    AS jml_row 
+                    FROM tbl_berita
+                ) AS cnt 
+                LIMIT $limit 
+                OFFSET $offset";
+        $data = $this->db->query($sql)->result();
         foreach ($data as $d) {
             select_img_f_index($d);
         }
