@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <p class="p-3 mb-2 bg-dark text-white">
-                            2019 © PEMERINTAH PROVINSI KALIMANTAN TENGAH 
+                            <?=  (int)date('Y') ?> © PEMERINTAH PROVINSI KALIMANTAN TENGAH 
                         </p>
                     </div>
 
