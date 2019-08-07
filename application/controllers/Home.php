@@ -74,21 +74,19 @@ class Home extends CI_Controller
     }
     public function berita($slug = null)
     {
-        $limit = 9;
+           $limit = 9;
 
-        $a = $this->input->get("search");
+        $search = $this->input->get("cari");
         $page = $this->input->get("page");
         $page = isset($page) ? $page < 0 ? redirect("home/berita") : $this->input->get("page") : 0;
         $this->load->model("Berita_model");
         if (!$slug) {
-            $data["data"] = $this->Berita_model->get_list_berita_for_visitor($page, $limit);
+            $data["data"] = $this->Berita_model->get_list_berita_for_visitor($page, $limit, $search);
             $data["limit"] = $limit;
-            $this->inject_resources(["path" => 'home/berita', "data" => $data]);
+            $this->inject_resources(["path" => 'home/agenda', "data" => $data]);
         } else {
-            $data["detail"] = $this->Berita_model->getDetailBerita($slug)[0];
-            $data["detail"] 
-                ? $this->inject_resources(["path" => 'home/baca', "data" => $data])
-                : redirect("home/berita");
+            $data["data"] = $this->Berita_model->getDetailBerita($slug)[0];
+            $this->inject_resources(["path" => array('templates/berita_header', 'newsdemo/index'), "data" => $data]);
         }
     }
 
@@ -181,21 +179,19 @@ class Home extends CI_Controller
     }
 
     public function artikel($slug = null)
-    {
-        $limit = 2;
+    {  $limit = 3;
 
+        $search = $this->input->get("cari");
         $page = $this->input->get("page");
         $page = isset($page) ? $page < 0 ? redirect("home/artikel") : $this->input->get("page") : 0;
         $this->load->model("ArtikelModel");
         if (!$slug) {
-            $data["data"] = $this->ArtikelModel->get_list_artikel_for_visitor($page, $limit);
+            $data["data"] = $this->ArtikelModel->get_list_artikel_for_visitor($page, $limit, $search);
             $data["limit"] = $limit;
             $this->inject_resources(["path" => 'home/artikel', "data" => $data]);
         } else {
             $data["data"] = $this->ArtikelModel->get_detail_artikel($slug)[0];
-            $data["data"] 
-            ? $this->inject_resources(["path" => array('templates/berita_header', 'artikeldemo/index'), "data" => $data])
-            : redirect("home/artikel");    
+            $this->inject_resources(["path" => array('templates/berita_header', 'artikeldemo/index'), "data" => $data]);
         }
     }
 

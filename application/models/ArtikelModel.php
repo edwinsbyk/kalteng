@@ -34,15 +34,17 @@ class ArtikelModel extends CI_Model {
         $this->db->where('id_artikel', $id);
         return $this->db->update('tbl_artikel');
     }
-    public function get_list_artikel_for_visitor($page = 0, $limit = 0) {
+   public function get_list_artikel_for_visitor($page = 0, $limit = 0, $search = NULL) {
         $offset = $page*$limit;
+        $a = $search ? "WHERE judul LIKE '%$search%' OR isi LIKE '%$search%'" : "";
         $sql = "SELECT tb.*, cnt.jml_row 
-                FROM tbl_artikel tb 
+                FROM tbl_artikel tb
                 JOIN (
                     SELECT count(*) 
                     AS jml_row 
-                    FROM tbl_artikel
+                    FROM tbl_artikel 
                 ) AS cnt 
+                ${a}
                 LIMIT $limit 
                 OFFSET $offset";
         $data = $this->db->query($sql)->result();
