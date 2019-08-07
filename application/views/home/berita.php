@@ -19,12 +19,13 @@
 </style>
 <section class="section p-0">
     <div class="container"> 
-        <form class="form-inline active-cyan-4 mt-7 d-flex justify-content-center" action="searchberita?" >
-            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" name="id">
+        <form class="form-inline active-cyan-4 mt-7 d-flex justify-content-center" method="get" >
+            <input class="form-control form-control-sm mr-3 w-75" type="text" name="cari" placeholder="Search" aria-label="Search" name="id">
             <i class="fas fa-search" aria-hidden="true"></i>
         </form>    
         <div class="row gap-y">
-            <?php foreach ($data as $row) : ?>
+            <?php if (count($data)) {
+                foreach ($data as $row) : ?>
                 <div class="col-md-6 col-lg-4 my-7">
                     <div class="card d-block border hover-shadow-6 mb-6">
                         <a href="#"><img class="card-img-top image-d" src="<?= $row->image ?>" alt="Card image cap"></a>
@@ -39,7 +40,14 @@
         <nav class="flexbox mt-6">
             <?= create_pagination($limit, $data[0]->jml_row, $this->input->get("page")) ?>
         </nav>
+        <?php } else { ?>
+            <div class="jumbotron jumbotron-fluid p-8 w-100">
+            <div class="container">
+                <h1 class="display-4">404 not found</h1>
+                <p class="lead">Tidak ditemukan data dengan kata kunci <?= $this->input->get('cari'); ?></p>
+            </div>
+            </div>
+        <?php } ?>
     </div>
 </section>
-
 </div>

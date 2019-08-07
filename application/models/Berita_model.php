@@ -48,6 +48,7 @@ class Berita_model extends CI_Model
                     SELECT count(*) 
                     AS jml_row 
                     FROM tbl_berita 
+                    ${a}
                 ) AS cnt 
                 ${a}
                 LIMIT $limit 

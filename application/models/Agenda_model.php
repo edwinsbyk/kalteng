@@ -35,13 +35,17 @@ class Agenda_model extends CI_Model {
                     SELECT count(*) 
                     AS jml_row 
                     FROM tbl_agenda 
+                    ${a}
                 ) AS cnt 
                 ${a}
                 LIMIT $limit 
                 OFFSET $offset";
         $data = $this->db->query($sql)->result();
         foreach ($data as $d) {
-            select_img_f_index($d);
+            preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
+            $d->image = count($image) == 0 
+                ? base_url("assets/img/agenda/")."default.jpg" 
+                : base_url().explode("../", $image["src"])[1];
         }
         return $data;
     }
@@ -61,9 +65,7 @@ class Agenda_model extends CI_Model {
     public function searchagenda($search)
     {
         $sql = "SELECT* FROM tbl_agenda WHERE judul LIKE '%$search%' OR isi LIKE '%$search%'";
-        $data = $this->db->query($sql)->result();
-        select_img_f_index($data[0]);
-        return $data;
+        return $this->db->query($sql)->result();
     }
 
 }

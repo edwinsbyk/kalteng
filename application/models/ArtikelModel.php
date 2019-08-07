@@ -43,6 +43,7 @@ class ArtikelModel extends CI_Model {
                     SELECT count(*) 
                     AS jml_row 
                     FROM tbl_artikel 
+                    ${a}
                 ) AS cnt 
                 ${a}
                 LIMIT $limit 

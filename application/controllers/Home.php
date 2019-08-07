@@ -74,7 +74,7 @@ class Home extends CI_Controller
     }
     public function berita($slug = null)
     {
-           $limit = 9;
+        $limit = 9;
 
         $search = $this->input->get("cari");
         $page = $this->input->get("page");
@@ -83,7 +83,7 @@ class Home extends CI_Controller
         if (!$slug) {
             $data["data"] = $this->Berita_model->get_list_berita_for_visitor($page, $limit, $search);
             $data["limit"] = $limit;
-            $this->inject_resources(["path" => 'home/agenda', "data" => $data]);
+            $this->inject_resources(["path" => 'home/berita', "data" => $data]);
         } else {
             $data["data"] = $this->Berita_model->getDetailBerita($slug)[0];
             $this->inject_resources(["path" => array('templates/berita_header', 'newsdemo/index'), "data" => $data]);
