@@ -28,6 +28,28 @@ function generate_slug_string($string, $tail) {
     return implode($tail, array_filter(preg_split('/\s{1,}|-|\||:|\[|\]|\<|\>|\?|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\~/', strtolower($string)), function($x){ return !!$x; }));
 }
 
+function select_img_f_index(&$data) {
+    preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $data->isi, $image);
+    if (count($image) == 0) {
+        $data->image = base_url("assets/img/berita/") . "default.jpg";
+    } else {
+        $data->image = count(explode("../", $image["src"])) > 1 
+            ? base_url().explode("../", $image["src"])[1] 
+            : $image["src"];
+    }
+}
+
+function create_pagination($limit, $row, $page) {
+    $page*$limit > $row && redirect(base_url(uri_string()));
+    $prev_href = $page == 0 || !isset($page) ? "#" : base_url(uri_string())."?page=".($page-1);
+    $prev_disabled = $page == 0 || !isset($page) ? "disabled" : "";
+    $next_disabled = ($page+1) * $limit >= $row ? "disabled" : "";
+    $next_href = ($page+1) * $limit >= $row ? "#" :  base_url(uri_string())."?page=".($page+1);
+    $data = "<a class='btn btn-white $prev_disabled' href='$prev_href'><i class='ti-arrow-left fs-9 mr-2'></i>Older</a>
+             <a class='btn btn-white $next_disabled' href='$next_href'>Newer <i class='ti-arrow-right fs-9 ml-2'></i></a>";
+    return $data;
+}
+
 function check_access($role_id, $menu_id)
 {
 

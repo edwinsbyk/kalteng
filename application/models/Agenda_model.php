@@ -26,9 +26,18 @@ class Agenda_model extends CI_Model {
         return $this->db->update('tbl_agenda');
     }
 
-     public function get_list_agenda_for_visitor() {
-        $this->db->limit(9);
-        $data = $this->db->get("tbl_agenda")->result();
+     public function get_list_agenda_for_visitor($page = 0, $limit = 0) {
+        $offset = $page*$limit;
+        $sql = "SELECT tb.*, cnt.jml_row 
+                FROM tbl_agenda tb 
+                JOIN (
+                    SELECT count(*) 
+                    AS jml_row 
+                    FROM tbl_agenda
+                ) AS cnt 
+                LIMIT $limit 
+                OFFSET $offset";
+        $data = $this->db->query($sql)->result();
         foreach ($data as $d) {
             preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
             $d->image = count($image) == 0 
@@ -42,4 +51,11 @@ class Agenda_model extends CI_Model {
         $sql = "SELECT b.*, u.name FROM tbl_agenda b LEFT JOIN user u ON b.iduser = u.id WHERE b.id_agenda = '$id'";
         return $this->db->query($sql)->result_array();
     }
+
+    public function searchagenda($search)
+    {
+        $sql = "SELECT* FROM tbl_agenda WHERE judul LIKE '%$search%' OR isi LIKE '%$search%'";
+        return $this->db->query($sql)->result();
+    }
+
 }
