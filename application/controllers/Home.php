@@ -253,6 +253,16 @@ class Home extends CI_Controller
         $this->inject_resources(["path" => 'home/berita', "data" => $data]);
     }
 
+
+    public function agendademo()
+    {
+        $this->load->model("Agenda_model");
+        $data["data"] = $this->Agenda_model->get_data_by_index($this->input->get('id'))[0];
+
+        $this->inject_resources(["path" => array('templates/artikel_header', 'agendademo/index'), "data" => $data]);
+    }
+
+
     public function testimoni()
     {
         $this->load->model("Testimoni_model");
