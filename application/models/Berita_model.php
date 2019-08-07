@@ -1,4 +1,5 @@
 <?php
+error_reporting();
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Berita_model extends CI_Model
@@ -6,7 +7,7 @@ class Berita_model extends CI_Model
     public function getBerita()
     {
         $a = $this->session->userdata("role_id") != 1 ? " WHERE b.iduser=" . $this->session->userdata("user_id") : "";
-        $sql = "SELECT b.*, u.name FROM tbl_berita b LEFT JOIN user u ON b.iduser = u.id${a}";
+        $sql = "SELECT b.*, u.name FROM tbl_berita b LEFT JOIN user u ON b.iduser = u.id";
         return $this->db->query($sql)->result();
     }
 
@@ -33,33 +34,43 @@ class Berita_model extends CI_Model
         return $this->db->update('tbl_berita');
     }
 
-    public function getberitadetail($idberita){
+    public function getberitadetail($idberita)
+    {
         $query = "SELECT * FROM tbl_berita WHERE idberita = $idberita) ";
     }
 
-    public function get_list_berita_for_visitor() {
-        $this->db->limit(9);
-        $data = $this->db->get("tbl_berita")->result();
+  public function get_list_berita_for_visitor($page = 0, $limit = 0, $search = NULL) {
+        $offset = $page*$limit;
+        $a = $search ? "WHERE judul LIKE '%$search%' OR isi LIKE '%$search%'" : "";
+        $sql = "SELECT tb.*, cnt.jml_row 
+                FROM tbl_berita tb
+                JOIN (
+                    SELECT count(*) 
+                    AS jml_row 
+                    FROM tbl_berita 
+                ) AS cnt 
+                ${a}
+                LIMIT $limit 
+                OFFSET $offset";
+        $data = $this->db->query($sql)->result();
         foreach ($data as $d) {
-            preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
-            $d->image = count($image) == 0 
-                ? base_url("assets/img/berita/")."default.jpg" 
-                : $image["src"];
+            select_img_f_index($d);
         }
         return $data;
     }
 
-    public function getdetailberita($idberita) {
-        $data = array();
-        $options = array('idberita' => $idberita);
-        $Q = $this->db->get_where('tbl_berita',$options,1);
-        if ($Q->num_rows() > 0){
-            $data = $Q->row_array();
-        }
-        $Q->free_result();
-        return $data;
-    }
-}
+    // public function getdetailberita($idberita)
+    // {
+    //     $data = array();
+    //     $options = array('idberita' => $idberita);
+    //     $Q = $this->db->get_where('tbl_berita', $options, 1);
+    //     if ($Q->num_rows() > 0) {
+    //         $data = $Q->row_array();
+    //     }
+    //     $Q->free_result();
+    //     return $data;
+    // }
+
 
     public function getDetailBerita($slug = null)
     {
@@ -68,6 +79,15 @@ class Berita_model extends CI_Model
         } else {
             $sql = "SELECT * FROM `tbl_berita` WHERE `slug`='$slug'";
         }
+        $data = $this->db->query($sql)->result();
+        select_img_f_index($data[0]);
+        return $data;
+    }
+
+    public function searchrberita($search)
+    {
+
+        $sql = "SELECT* FROM tbl_berita WHERE judul LIKE '%$search%' OR isi LIKE '%$search%' ";
         return $this->db->query($sql)->result();
     }
 }

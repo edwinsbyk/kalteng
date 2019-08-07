@@ -12,6 +12,12 @@ class File_model extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
+    function update_data($data, $id) {
+        $this->db->set($data);
+        $this->db->where('id_file', $id);
+        return $this->db->update('tbl_file_download');
+    }
+
     function filename($id)
     {
 

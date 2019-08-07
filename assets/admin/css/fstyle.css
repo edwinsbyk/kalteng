@@ -1,3 +1,6 @@
+.section {
+    background-color: #00000008;
+}
 .slide-img {
     position: absolute;
     top: 0;

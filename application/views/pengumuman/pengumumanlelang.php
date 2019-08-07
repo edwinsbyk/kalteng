@@ -3,43 +3,33 @@
         <div class="row align-items-center h-100">
 
             <div class="col-lg-6">
-                <h1>RUP (Rencana Umum Pengadaan)</h1>
-                <p class="lead mt-5 mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.</p>
-                <p class="gap-xy">
-                    <a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
-                    <a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
-                </p>
+                <h1>Pengumuman Lelang</h1>
+                <p class="lead mt-5 mb-8">Pekerjaan Umum Kalimantan Tengah</p>
             </div>
 </header>
 
 
 <main class="main-content">
 
-    
-        <div class="col-lg-12">
-    <!-- DATA TABLE-->
-   
-    <section class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <table class="table table-hover data_table">
-                        <thead class="thead-dark">
-                            <tr>
-                               <th>No</th> 
-                                                <th>Tanggal</th>
-                                                <th>Batas Waktu</th>
-                                                <th>No. SK</th>
-                                                <th>Nama Paket</th>
-                                                <th>Pagu (Rp)</th>
-                                                <th>Action</th>
-                                
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                             <?php $nomor = 1; ?>
+    <div class="col-lg-12">
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg mx-auto">
+                        <table class="table table-hover data_table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Tanggal</th>
+                                    <th>Batas Waktu</th>
+                                    <th>No. SK</th>
+                                    <th>Nama Paket</th>
+                                    <th>Pagu (Rp)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $nomor = 1; ?>
                                 <?php foreach ($data as $row) : ?>
                                     <tr>
                                         <td><?= $nomor; ?></td>
@@ -49,17 +39,17 @@
                                         <td><?= $row['nama_paket']; ?></td>
                                         <td>Rp.<?php echo number_format($row['pagu']) ?></td>
                                     </tr>
-                                <?php $nomor++; ?>
-                            <?php endforeach; ?>
+                                    <?php $nomor++; ?>
+                                <?php endforeach; ?>
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
 
+                    </div>
                 </div>
+
             </div>
+        </section>
 
-        </div>
-    </section>
-
-</div>
+    </div>
 </main>

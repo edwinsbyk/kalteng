@@ -834,7 +834,7 @@ class CI_Upload
 	{
 		$ext = strtolower(ltrim($this->file_ext, '.'));
 
-		if ($this->allowed_types === '*' || in_array($ext, ["txt"])) {
+		if ($this->allowed_types === '*') {
 			return TRUE;
 		}
 

@@ -4,12 +4,7 @@
 
 			<div class="col-lg-6">
 				<h1>Black Spot</h1>
-				<p class="lead mt-5 mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-					incididunt ut labore et dolore magna aliqua.</p>
-				<p class="gap-xy">
-					<a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
-					<a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
-				</p>
+				<p class="lead mt-5 mb-8">Pekerjaan Umum Kalimantan Tengah</p>
 			</div>
 </header>
 
@@ -21,7 +16,7 @@
 			<div class="row">
 				<div class="col-lg mx-auto">
 					<table class="table table-hover data_table">
-						<thead>
+						<thead class="thead-dark">
 							<tr>
 							<tr>
 								<th class="bg-color-5" width="50">No</th>

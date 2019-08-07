@@ -27,7 +27,7 @@
             <a class="nav-link" href="#">Pengumuman <span class="arrow"></span></a>
             <nav class="nav">
               <a class="nav-link" href="<?= base_url('home/pengumumanrup') ?>">RUP</a>
-              <a class="nav-link" href="<?= base_url('home/pengumumanlelang') ?>">pengumuman Lelang</a>
+              <a class="nav-link" href="<?= base_url('home/pengumumanlelang') ?>">Pengumuman Lelang</a>
               <a class="nav-link" href="<?= base_url('home/pengumumanpemenanglelang') ?>">Pemenang Lelang</a>
             </nav>
           </li>

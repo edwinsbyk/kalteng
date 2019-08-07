@@ -17,8 +17,7 @@ class Admin extends CI_Controller
             "list_css_plugins" => array(
                 'assets/admin/css/font-face.css',
                 'assets/admin/css/style.css',
-                'assets/admin/vendor/font-awesome-4.7/css/font-awesome.min.css',
-                'assets/admin/vendor/font-awesome-5/css/fontawesome-all.min.css',
+                'assets/vendor/fontawesome-free/css/all.min.css',
                 'assets/admin/vendor/mdi-font/css/material-design-iconic-font.min.css',
                 'assets/admin/vendor/bootstrap-4.1/bootstrap.min.css',
                 'assets/admin/vendor/animsition/animsition.min.css',
@@ -93,16 +92,28 @@ class Admin extends CI_Controller
     public function change_account_setting()
     {
         $upload_file = $_FILES['setting-image']['name'];
+        $file_size = $_FILES['setting-image']['size'];
+
+        // MAX FILE SIZE
+        $max_file_size = 2500; // in KiloBytes
+
+        if(($file_size / 1024) > $max_file_size)
+        {
+            throw_flash_redirect("Ukuran file melebihi batas!", "danger", "admin/setting");
+            return false;
+        }
+
+
         $this->load->model("SettingModel");
         if ($upload_file) {
             $this->load->model("User_model");
             $user_data = $this->User_model->__getUserWithEmail($this->session->userdata("email"));
             $user_data["image"] != "default.png" && unlink(FCPATH . "assets/admin/images/user_profile/" . $user_data["image"]);
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size']     = 2500;
+            $config['max_size']     = $max_file_size;
             $config['upload_path'] = './assets/admin/images/user_profile/';
             $ext = end(explode(".", $upload_file));
-            $config['file_name'] = strtolower($user_data["name"]) . "-pofile." . $ext;
+            $config['file_name'] = "user" . "-" . $user_data["id"] . "-profile." . $ext;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
             !$this->upload->do_upload("setting-image") && throw_flash_redirect($this->upload->display_errors(), "danger", "admin/setting");
@@ -135,12 +146,14 @@ class Admin extends CI_Controller
     }
     public function add_article()
     {
+        $j = $this->input->post("judul_artikel")."-".strrev(date("dmHis"));
+        $t = generate_slug_string($j, "-");
         $data = array(
-            "iduser" => 1,
             "judul" => $this->input->post("judul_artikel"),
             "isi" => $this->input->post("isi_artikel"),
             "tanggal" => date("Y/m/d H:i:s"),
-            "image" => $this->input->post("image"),
+            
+            "slug" => $t,
             "iduser" => $this->session->userdata("user_id")
         );
         $this->load->model("ArtikelModel");
@@ -175,13 +188,15 @@ class Admin extends CI_Controller
     }
     public function tambah_agenda()
     {
+        $j = $this->input->post("judul_agenda")."-".strrev(date("His"));
+        $t = generate_slug_string($j, "-");
         $data = array(
-            "iduser"              => 1,
             "judul"               => $this->input->post("judul_agenda"),
             "isi"                 => $this->input->post("isi_agenda"),
             "tanggal_mulai"       => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_mulai"))->format("Y/m/d H:i"),
             "tanggal_selesai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_selesai"))->format("Y/m/d H:i"),
-            "image"               => $this->input->post("image"),
+           
+            "slug"                => $t,
             "iduser"              => $this->session->userdata("user_id")
         );
         $this->load->model("Agenda_model");
@@ -235,7 +250,7 @@ class Admin extends CI_Controller
             "nama"  => $this->input->post("nama"),
             "email"   => $this->input->post("email"),
             "isi"   => $this->input->post("isi"),
-            "iduser" => $this->session->userdata("user_id")
+            
         );
         $this->load->model("Testimoni_model");
         echo $this->Testimoni_model->tambah_data($data)
@@ -310,7 +325,6 @@ class Admin extends CI_Controller
         $data = array(
             "judul" => $this->input->post("judul-berita"),
             "isi" => $this->input->post("isi-berita"),
-            'slug'      => url_title($this->input->post('judul'), 'dash', true),
             "tanggal" => date("Y/m/d H:i:s"),
             "image" => $this->input->post("image"),
         );
@@ -321,14 +335,15 @@ class Admin extends CI_Controller
     }
     public function tambah_berita()
     {
-        // $date = DateTime::createFromFormat('d-m-Y', $this->input->post("tanggal"));
+        $j = $this->input->post("judul-berita")."-".strrev(date("dmHis"));
+        $t = generate_slug_string($j, "-");
+
         $data = array(
-            'iduser'    => 1,
             'judul'     => $this->input->post("judul-berita"),
             'isi'       => $this->input->post("isi-berita"),
-            'slug'      => url_title($this->input->post('judul'), 'dash', true),
+            'slug'      => $t,
             'tanggal'   => date("Y/m/d H:i:s"),
-            'image'     => $this->input->post("image"),
+            
             "iduser"    => $this->session->userdata("user_id")
         );
         $this->load->model("Berita_model");
@@ -973,6 +988,18 @@ class Admin extends CI_Controller
         $data['data'] = $this->data->getfileList();
         $this->loadAsset(["path" => "admin/download/download", "data" => $data]);
     }
+
+    public function edit_file() {
+        $this->load->model("File_model");
+        $data = array(
+            "keterangan"    => $this->input->post("keterangan"),
+            "publik"        => $this->input->post("public_mode") == "on" ? 1 : 0,
+        );
+        $this->File_model->update_data($data, $this->input->post("id_file")) 
+            ? throw_flash_redirect("Berhasil update data", "success", "admin/download") 
+            : throw_flash_redirect("Tidak dapat mengupdate data", "danger", "admin/download");
+    }
+
     public function edituser()
     {
         $this->load->model('Userdata_model', 'data');

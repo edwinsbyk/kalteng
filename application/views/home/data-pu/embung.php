@@ -4,12 +4,7 @@
 
 			<div class="col-lg-6">
 				<h1>Embung</h1>
-				<p class="lead mt-5 mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-					incididunt ut labore et dolore magna aliqua.</p>
-				<p class="gap-xy">
-					<a class="btn btn-round btn-outline-light mw-150" href="#">At imperdiet</a>
-					<a class="btn btn-round btn-light mw-150" href="#">At imperdiet</a>
-				</p>
+				<p class="lead mt-5 mb-8">Pekerjaan Umum Kalimantan Tengah</p>
 			</div>
 </header>
 
@@ -21,7 +16,7 @@
 			<div class="row">
 				<div class="col-lg mx-auto">
 					<table class="data_table table table-hover ">
-						<thead>
+						<thead class="thead-dark">
 							<tr>
 								<th scope="col">No</th>
 								<th scope="col">Nama</th>
