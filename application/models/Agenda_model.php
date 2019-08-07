@@ -42,10 +42,7 @@ class Agenda_model extends CI_Model {
                 OFFSET $offset";
         $data = $this->db->query($sql)->result();
         foreach ($data as $d) {
-            preg_match('/<img.+src=[\'"](?P<src>.+?)[\'"].*>/i', $d->isi, $image);
-            $d->image = count($image) == 0 
-                ? base_url("assets/img/agenda/")."default.jpg" 
-                : base_url().explode("../", $image["src"])[1];
+            select_img_f_index($d);
         }
         return $data;
     }
