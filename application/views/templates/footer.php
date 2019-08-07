@@ -1,31 +1,57 @@
 <!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="row gap-y align-items-center">
+<div class="footer-v1 bg-dark">
+        <div class="footer bg-dark">
+            <div class="container">
+                <div class="row">
+                    <!-- About -->
+                    <div class="col-md-6 md-margin-bottom-40">
+                        <div class="headline"><h2 class="text-light bg-dark">Tentang Kalteng</h2></div>
+                        <img src="//4.bp.blogspot.com/-a0rStfWG9nM/UNmcMwUsGwI/AAAAAAAAIwc/AcCmv02dmiI/s1600/LOGO+PROVINSI+KALIMANTAN+TENGAH.png" alt="Logo" style="height: 75px; float: left; margin-right: 5px; margin-bottom: 5px;">
+                        <p class="text-light bg-dark"><b class="text-light bg-dark">Kalimantan Tengah</b> adalah salah satu provinsi di Indonesia yang terletak di Pulau Kalimantan. Ibukotanya adalah Kota Palangka Raya. Kalimantan Tengah memiliki luas 157.983 km².</p>
+                    </div><!--/col-md-3-->
+                    <!-- End About -->
 
-            <div class="col-6 col-lg-3">
-                <a href="index.html"><img src="<?= base_url('assets/'); ?>img/logo.png" alt="logo" width="80" height="80"></a>
-            </div>
+                    <!-- Latest -->
+                    <div class="col-md-6 md-margin-bottom-40">
+                        <div class="posts">
+                            <div class="headline " ><h2 class="text-light bg-dark">Kontak Info</h2></div>
+                            <ul class="list-unstyled latest-list">
+                                <li>
+                                    <a href="#" class="text-light bg-dark">Alamat</a>
+                                    <small class="text-light bg-dark">Jl. S. Parman No.3, Palangka, Kec. Jekan Raya, Kota Palangka Raya, Kalimantan Tengah 73111
+                                | Dinas Pekerjaan Umum dan Penataan Ruang Provinsi Kalteng |</small>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-light bg-dark">Telp.</a>
+                                    <small class="text-light bg-dark">(0536) 3235336</small>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-light bg-dark"> Email</a>
+                                    <small class="text-light bg-dark">diskominfo@kalteng.go.id</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--/col-md-3-->
+                    <!-- End Latest -->
 
-            <div class="col-6 col-lg-3 text-right order-lg-last">
-                <div class="social">
+                    <!-- Link List -->
+                   
+        </div><!--/footer-->
 
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="p-3 mb-2 bg-dark text-white">
+                            2019 © PEMERINTAH PROVINSI KALIMANTAN TENGAH 
+                        </p>
+                    </div>
+
+                   
                 </div>
             </div>
-
-            <div class="col-lg-6">
-                <div class="nav navbar navbar-brand nav-bold nav-uppercase navbar-expand-lg">
-                    <a class="nav-link" href="<?= base_url('home/'); ?>">Home</a>
-                    <a class="nav-link" href="<?= base_url('home/bidang'); ?>">Bidang</a>
-                    <a class="nav-link" href="<?= base_url('home/warta'); ?>">Warta</a>
-                    <a class="nav-link" href="<?= base_url('home/pengumuman'); ?>">Pengumuman</a>
-                    <a class="nav-link" href="<?= base_url('home/datapu') ?>">Data PU</a>
-                    <a class="nav-link" href="<?= base_url('home/download'); ?>">Download</a>
-                </div>
-            </div>
-        </div>
+        </div><!--/copyright-->
     </div>
-</footer><!-- /.footer -->
 
 
 <?php foreach ($js_list as $js) { ?>
