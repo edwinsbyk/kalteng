@@ -28,5 +28,9 @@ foreach ($data as $row) : ?>
             </div>
         </div>
     </div>
+</form>
+</div>
+</div>
+</div>
 
 <?php endforeach; ?>
