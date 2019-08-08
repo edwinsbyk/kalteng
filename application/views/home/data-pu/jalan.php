@@ -14,9 +14,9 @@
 	<section class="section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 mx-auto">
+				<div class="col-lg-12 mx-auto">
 					<table class="table table-hover data_table">
-						<thead>
+						<thead class="thead-dark">
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Ruas</th>

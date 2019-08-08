@@ -21,7 +21,16 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="form-group row">
+                        <div class="col-sm-2">Public File</div>
+                        <div class="col-sm-10">
+                            <label class="switch switch-text switch-primary switch-pill">
+                            <input type="checkbox" class="switch-input" name="public_mode" checked="true">
+                            <span data-on="ON" size="lg" data-off="OFF" class="switch-label"></span>
+                            <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
                     <div class="form-group row justify-content-end">
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Upload</button>

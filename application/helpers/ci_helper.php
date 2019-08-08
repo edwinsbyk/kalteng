@@ -17,6 +17,10 @@ function is_logged_in()
     }
 }
 
+function hex_to_rgb($hex) {
+    return implode(", ", sscanf($hex, "#%02x%02x%02x"));
+}
+
 function throw_flash_redirect($message, $status, $url)
 {
     $self = get_instance();
@@ -39,14 +43,20 @@ function select_img_f_index(&$data) {
     }
 }
 
+function cut_string($string) {
+    return substr(strip_tags($string), 0, 145)."...";
+}
+
 function create_pagination($limit, $row, $page) {
     $page*$limit > $row && redirect(base_url(uri_string()));
-    $prev_href = $page == 0 || !isset($page) ? "#" : base_url(uri_string())."?page=".($page-1);
+    $cari = get_instance()->input->get("cari");
+    $cari = isset($cari) ? "&cari=".$cari : "";
+    $prev_href = $page == 0 || !isset($page) ? "#" : base_url(uri_string())."?page=".($page-1).$cari;
     $prev_disabled = $page == 0 || !isset($page) ? "disabled" : "";
     $next_disabled = ($page+1) * $limit >= $row ? "disabled" : "";
-    $next_href = ($page+1) * $limit >= $row ? "#" :  base_url(uri_string())."?page=".($page+1);
-    $data = "<a class='btn btn-white $prev_disabled' href='$prev_href'><i class='ti-arrow-left fs-9 mr-2'></i>Older</a>
-             <a class='btn btn-white $next_disabled' href='$next_href'>Newer <i class='ti-arrow-right fs-9 ml-2'></i></a>";
+    $next_href = ($page+1) * $limit >= $row ? "#" :  base_url(uri_string())."?page=".($page+1).$cari;
+    $data = "<a class='btn btn-white mb-8 $prev_disabled' href='$prev_href'><i class='ti-arrow-left fs-9 mr-2'></i>Older</a>
+             <a class='btn btn-white mb-8 $next_disabled' href='$next_href'>Newer <i class='ti-arrow-right fs-9 ml-2'></i></a>";
     return $data;
 }
 
