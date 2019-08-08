@@ -17,12 +17,24 @@
         object-fit: cover;
         overflow: hidden;
     }
+
+    .shadow {
+        margin: 10px;
+    }
+
+    .rounded-card{
+        border-radius: .5rem;
+    }
+
+    /* .container{
+        display: flex;
+    } */
 </style>
 <section class="section bg-gray">
     <div class="container">
-        <div class="row gap-y text-center">
+        <div class="row gap-y justify-content-center text-center">
 <?php foreach ($data as $row) : ?>
-            <div class="col-lg-4">
+            <div class="col-lg-5 shadow bg-white rounded-card">
               <blockquote class="blockquote">
                 <div><small>From : <?= $row->email ?> </small></div>
                 <br>
@@ -33,11 +45,6 @@
             <?php endforeach ; ?>
 
           </div>
-
-        <nav class="flexbox mt-6">
-            <a class="btn btn-white disabled"><i class="ti-arrow-left fs-9 mr-2"></i> Newer</a>
-            <a class="btn btn-white" href="#">Older <i class="ti-arrow-right fs-9 ml-2"></i></a>
-        </nav>
     </div>
 </section>
 

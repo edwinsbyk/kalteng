@@ -38,6 +38,7 @@ class Agenda_model extends CI_Model {
                     ${a}
                 ) AS cnt 
                 ${a}
+                ORDER BY tb.id_agenda DESC
                 LIMIT $limit 
                 OFFSET $offset";
         $data = $this->db->query($sql)->result();

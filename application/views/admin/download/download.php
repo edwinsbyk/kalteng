@@ -9,15 +9,15 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Jembatan</h4>
+                    <h4>Files</h4>
                 </div>
                 <div class="card-body">
                     <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#table" role="tab" aria-controls="home" aria-selected="true">Data PU Jalan</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#table" role="tab" aria-controls="home" aria-selected="true">Files</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#tambah" role="tab" aria-controls="profile" aria-selected="false">Tambah Data</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#tambah" role="tab" aria-controls="profile" aria-selected="false">Tambah File</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">

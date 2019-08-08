@@ -9,12 +9,12 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Data PU Sumur Bor</h4>
+                    <h4>Data PU Potensi Sumur Bor</h4>
                 </div>
                 <div class="card-body">
                     <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#table" role="tab" aria-controls="home" aria-selected="true">Tabel Data PU Sumur Bor</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#table" role="tab" aria-controls="home" aria-selected="true">Tabel Data PU Potensi Sumur Bor</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#tambah" role="tab" aria-controls="profile" aria-selected="false">Tambah Data</a>

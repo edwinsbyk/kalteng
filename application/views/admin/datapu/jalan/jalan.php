@@ -9,7 +9,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Jembatan</h4>
+                    <h4>Data PU Jalan</h4>
                 </div>
                 <div class="card-body">
                     <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
