@@ -61,13 +61,13 @@ class Admin extends CI_Controller
     public function artikel()
     {
         $this->load->model("ArtikelModel");
-        $this->loadAsset(["path" => "admin/warta/artikel", "data" => ["data" => $this->ArtikelModel->display_data()]]);
+        $this->loadAsset(["path" => "admin/warta/artikel", "data" => ["data" => $this->ArtikelModel->display_data()], "title" => "Artikel"]);
     }
     public function setting()
     {
         $this->load->model("SettingModel");
         $data["data"] = $this->SettingModel->get_data($this->session->userdata("user_id"));
-        $this->loadAsset(["path" => "admin/setting/setting", "data" => $data]);
+        $this->loadAsset(["path" => "admin/setting/setting", "data" => $data, "title" => "Settings"]);
     }
     public function change_account_password()
     {
@@ -138,7 +138,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getDataRUP();
-        $this->loadAsset(["path" => "admin/pengumuman/rup", "data" => $data]);
+        $this->loadAsset(["path" => "admin/pengumuman/rup", "data" => $data,"title" => "RUP"]);
         $this->load->view('admin/pengumuman/editdataRUP-modal');
     }
     public function get_data_article_by_id()
@@ -187,7 +187,7 @@ class Admin extends CI_Controller
     {
         $this->load->model("Agenda_model");
         $data['wk'] = $this->Agenda_model->getAgenda();
-        $this->loadAsset(["path" => "admin/warta/agenda", "data" => $data]);
+        $this->loadAsset(["path" => "admin/warta/agenda", "data" => $data, "title" => "Agenda"]);
     }
     public function tambah_agenda()
     {
@@ -239,7 +239,7 @@ class Admin extends CI_Controller
     {
         $this->load->model("Testimoni_model");
         $data["data"] = $this->Testimoni_model->display_data();
-        $this->loadAsset(["path" => "admin/warta/testimoni", "data" => $data]);
+        $this->loadAsset(["path" => "admin/warta/testimoni", "data" => $data, "title" => "Testimoni"]);
     }
     public function get_data_testimoni_by_id()
     {
@@ -291,25 +291,25 @@ class Admin extends CI_Controller
         $data['data'] = $this->data->getPegawai();
         $this->load->model('Bidang_model', 'bidang');
         $data['data_pegawai'] = $this->bidang->getBidang();
-        $this->loadAsset(["path" => "admin/pegawai/pegawai", "data" => $data]);
+        $this->loadAsset(["path" => "admin/pegawai/pegawai", "data" => $data, "title" => "Pegawai"]);
     }
     public function pegawaibidang()
     {
         $this->load->model('Pegawai_model', 'data');
         $data['data'] = $this->data->getPegawaibidang();
-        $this->loadAsset(["path" => "admin/pegawaibidang/bidang", "data" => $data]);
+        $this->loadAsset(["path" => "admin/pegawaibidang/bidang", "data" => $data, "title" => "Pegawai Bidang"]);
     }
     public function bidang()
     {
         $this->load->model('Bidang_model', 'data');
         $data['data'] = $this->data->getBidang();
-        $this->loadAsset(["path" => "admin/bidang/bidang", "data" => $data]);
+        $this->loadAsset(["path" => "admin/bidang/bidang", "data" => $data, "title" => "Bidang"]);
     }
     public function berita()
     {
         $this->load->model("Berita_model");
         $data["data"] = $this->Berita_model->getBerita();
-        $this->loadAsset(["path" => "admin/warta/tab", "data" => $data]);
+        $this->loadAsset(["path" => "admin/warta/tab", "data" => $data, "title" => "Berita"]);
     }
     public function get_data_berita_by_id()
     {
@@ -358,7 +358,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getPengumumanLelang();
-        $this->loadAsset(["path" => "admin/pengumuman/pengumuman_lelang", "data" => $data]);
+        $this->loadAsset(["path" => "admin/pengumuman/pengumuman_lelang", "data" => $data, "title" => "Pengumuman Lelang"]);
     }
     public function tambahpengumuman()
     {
@@ -377,7 +377,7 @@ class Admin extends CI_Controller
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getPemenangLelang();
         $data['data_pengumuman'] = $this->data->getPengumumanLelang();
-        $this->loadAsset(["path" => "admin/pengumuman/pemenang_lelang", "data" => $data]);
+        $this->loadAsset(["path" => "admin/pengumuman/pemenang_lelang", "data" => $data, "title" => "Pemenang Lelang"]);
     }
     public function tambah_pemenang_lelang()
     {
@@ -395,13 +395,13 @@ class Admin extends CI_Controller
         $this->session->userdata("role_id") != 1 && redirect("admin");
         $this->load->model('Userdata_model', 'data');
         $data['data'] = $this->data->getUser();
-        $this->loadAsset(["path" => "admin/user/user", "data" => $data]);
+        $this->loadAsset(["path" => "admin/user/user", "data" => $data, "title" => "User"]);
     }
     public function datapuJalan()
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJalan();
-        $this->loadAsset(["path" => "admin/datapu/jalan/jalan", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/jalan/jalan", "data" => $data, "title" => "Data PU Jalan"]);
     }
     function tambahdataJalan()
     {
@@ -447,7 +447,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataJembatan();
-        $this->loadAsset(["path" => "admin/datapu/jembatan/jembatan", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/jembatan/jembatan", "data" => $data, "title" => "Data PU Jembatan"]);
         // $this->loadAsset(["path" => "admin/datapu/jalan", "data" => $data]);
     }
     public function tambahdataJembatan()
@@ -489,7 +489,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataEmbung();
-        $this->loadAsset(["path" => "admin/datapu/embung/embung", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/embung/embung", "data" => $data , "title" => "Data PU Embung"]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/embung');
     }
@@ -535,7 +535,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSumurBor();
-        $this->loadAsset(["path" => "admin/datapu/sumur-bor/sumur-bor", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/sumur-bor/sumur-bor", "data" => $data, "title" => "Data PU Sumur Bor"]);
     }
     public function tambahdataSumurBor()
     {
@@ -577,7 +577,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataBlackSpot();
-        $this->loadAsset(["path" => "admin/datapu/black-spot/black-spot", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/black-spot/black-spot", "data" => $data, "title" => "Data PU Black Spot"]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/black-spot');
     }
@@ -622,7 +622,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataSpam();
-        $this->loadAsset(["path" => "admin/datapu/spam/spam", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/spam/spam", "data" => $data, "title" => "Data PU Spam"]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/spam');
     }
@@ -664,7 +664,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataDanau();
-        $this->loadAsset(["path" => "admin/datapu/potensi-danau/potensi-danau", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/potensi-danau/potensi-danau", "data" => $data, "title" => "Data PU Potensi Danau"]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-danau');
     }
@@ -712,7 +712,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataRawa();
-        $this->loadAsset(["path" => "admin/datapu/potensi-rawa/potensi-rawa", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/potensi-rawa/potensi-rawa", "data" => $data, "title" => "Data PU Potensi Rawa"]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-rawa');
     }
@@ -760,7 +760,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Datapu_model', 'data');
         $data['data'] = $this->data->getDataPotensiSumurBor();
-        $this->loadAsset(["path" => "admin/datapu/potensi-sumur-bor/potensi-sumur-bor", "data" => $data]);
+        $this->loadAsset(["path" => "admin/datapu/potensi-sumur-bor/potensi-sumur-bor", "data" => $data, "title" => "Data PU Potensi Sumur Bor"]);
         // $this->load->view('admin/header');
         // $this->load->view('admin/datapu/potensi-sumur-bor');
     }
@@ -955,7 +955,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('Jabatan_model', 'data');
         $data['data'] = $this->data->getJabatan();
-        $this->loadAsset(["path" => "admin/jabatan/jabatan", "data" => $data]);
+        $this->loadAsset(["path" => "admin/jabatan/jabatan", "data" => $data, "title" => "Jabatan"]);
     }
     public function Tambah_jabatan()
     {
@@ -989,7 +989,7 @@ class Admin extends CI_Controller
     {
         $this->load->model('File_model', 'data');
         $data['data'] = $this->data->getfileList();
-        $this->loadAsset(["path" => "admin/download/download", "data" => $data]);
+        $this->loadAsset(["path" => "admin/download/download", "data" => $data, "title" => "Files"]);
     }
 
     public function edit_file() {

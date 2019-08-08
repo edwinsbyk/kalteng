@@ -83,10 +83,10 @@ class Home extends CI_Controller
         if (!$slug) {
             $data["data"] = $this->Berita_model->get_list_berita_for_visitor($page, $limit, $search);
             $data["limit"] = $limit;
-            $this->inject_resources(["path" => 'home/berita', "data" => $data]);
+            $this->inject_resources(["path" => 'home/berita', "data" => $data, "title" => "Berita"]);
         } else {
             $data["detail"] = $this->Berita_model->getDetailBerita($slug)[0];
-            $this->inject_resources(["path" => 'home/baca', "data" => $data]);
+            $this->inject_resources(["path" => 'home/baca', "data" => $data, "title" => "Berita"]);
         }
     }
 
@@ -94,7 +94,7 @@ class Home extends CI_Controller
     {
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getDataRUP();
-        $this->inject_resources(["path" => 'pengumuman/rup', "data" => $data]);
+        $this->inject_resources(["path" => 'pengumuman/rup', "data" => $data, "title" => "Pengumuman RUP"]);
     }
     public function datapujalan()
     {
@@ -163,19 +163,19 @@ class Home extends CI_Controller
     {
         $this->load->model('File_model', 'file');
         $data['data'] = $this->file->getFileList();
-        $this->inject_resources(["path" => "home/download", "data" => $data]);
+        $this->inject_resources(["path" => "home/download", "data" => $data, "title" => "Download"]);
     }
     public function pengumumanlelang()
     {
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getPengumumanLelang();
-        $this->inject_resources(["path" => 'pengumuman/pengumumanlelang', "data" => $data]);
+        $this->inject_resources(["path" => 'pengumuman/pengumumanlelang', "data" => $data, "title" => "Pengumuman Lelang"]);
     }
     public function pengumumanpemenanglelang()
     {
         $this->load->model('Pengumuman_model', 'data');
         $data['data'] = $this->data->getPemenangLelang();
-        $this->inject_resources(["path" => 'pengumuman/pemenanglelang', "data" => $data]);
+        $this->inject_resources(["path" => 'pengumuman/pemenanglelang', "data" => $data, "title" => "Pemenang Lelang"]);
     }
 
     public function artikel($slug = null)
@@ -189,10 +189,10 @@ class Home extends CI_Controller
         if (!$slug) {
             $data["data"] = $this->ArtikelModel->get_list_artikel_for_visitor($page, $limit, $search);
             $data["limit"] = $limit;
-            $this->inject_resources(["path" => 'home/artikel', "data" => $data]);
+            $this->inject_resources(["path" => 'home/artikel', "data" => $data, "title" => "Artikel"]);
         } else {
             $data["detail"] = $this->ArtikelModel->get_detail_artikel($slug)[0];
-            $this->inject_resources(["path" => 'home/baca', "data" => $data]);
+            $this->inject_resources(["path" => 'home/baca', "data" => $data, "title" => "Artikel"]);
         }
     }
 
@@ -207,10 +207,10 @@ class Home extends CI_Controller
         if (!$slug) {
             $data["data"] = $this->Agenda_model->get_list_agenda_for_visitor($page, $limit, $search);
             $data["limit"] = $limit;
-            $this->inject_resources(["path" => 'home/agenda', "data" => $data]);
+            $this->inject_resources(["path" => 'home/agenda', "data" => $data, "title" => "Agenda"]);
         } else {
             $data["data"] = $this->Agenda_model->get_detail_agenda($slug)[0];
-            $this->inject_resources(["path" => array('templates/berita_header', 'agendademo/index'), "data" => $data]);
+            $this->inject_resources(["path" => array('templates/berita_header', 'agendademo/index'), "data" => $data, "title" => "Agenda"]);
         }
     }
 
@@ -218,6 +218,6 @@ class Home extends CI_Controller
     {
         $this->load->model("Testimoni_model");
         $data["data"] = $this->Testimoni_model->get_list_testimoni_for_visitor();
-        $this->inject_resources(["path" => 'home/testimoni', "data" => $data]);
+        $this->inject_resources(["path" => 'home/testimoni', "data" => $data, "title" => "Testimoni"]);
     }
 }
