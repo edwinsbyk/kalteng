@@ -17,8 +17,7 @@ class Admin extends CI_Controller
             "list_css_plugins" => array(
                 'assets/admin/css/font-face.css',
                 'assets/admin/css/style.css',
-                'assets/admin/vendor/font-awesome-4.7/css/font-awesome.min.css',
-                'assets/admin/vendor/font-awesome-5/css/fontawesome-all.min.css',
+                'assets/vendor/fontawesome-free/css/all.min.css',
                 'assets/admin/vendor/mdi-font/css/material-design-iconic-font.min.css',
                 'assets/admin/vendor/bootstrap-4.1/bootstrap.min.css',
                 'assets/admin/vendor/animsition/animsition.min.css',
@@ -156,7 +155,7 @@ class Admin extends CI_Controller
             "judul" => $this->input->post("judul_artikel"),
             "isi" => $this->input->post("isi_artikel"),
             "tanggal" => date("Y/m/d H:i:s"),
-            "image" => $this->input->post("image"),
+            
             "slug" => $t,
             "iduser" => $this->session->userdata("user_id")
         );
@@ -199,7 +198,7 @@ class Admin extends CI_Controller
             "isi"                 => $this->input->post("isi_agenda"),
             "tanggal_mulai"       => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_mulai"))->format("Y/m/d H:i"),
             "tanggal_selesai"     => DateTime::createFromFormat("d/m/Y H:i", $this->input->post("tanggal_selesai"))->format("Y/m/d H:i"),
-            "image"               => $this->input->post("image"),
+           
             "slug"                => $t,
             "iduser"              => $this->session->userdata("user_id")
         );
@@ -347,7 +346,7 @@ class Admin extends CI_Controller
             'isi'       => $this->input->post("isi-berita"),
             'slug'      => $t,
             'tanggal'   => date("Y/m/d H:i:s"),
-            'image'     => $this->input->post("image"),
+            
             "iduser"    => $this->session->userdata("user_id")
         );
         $this->load->model("Berita_model");
@@ -992,6 +991,18 @@ class Admin extends CI_Controller
         $data['data'] = $this->data->getfileList();
         $this->loadAsset(["path" => "admin/download/download", "data" => $data]);
     }
+
+    public function edit_file() {
+        $this->load->model("File_model");
+        $data = array(
+            "keterangan"    => $this->input->post("keterangan"),
+            "publik"        => $this->input->post("public_mode") == "on" ? 1 : 0,
+        );
+        $this->File_model->update_data($data, $this->input->post("id_file")) 
+            ? throw_flash_redirect("Berhasil update data", "success", "admin/download") 
+            : throw_flash_redirect("Tidak dapat mengupdate data", "danger", "admin/download");
+    }
+
     public function edituser()
     {
         $this->load->model('Userdata_model', 'data');

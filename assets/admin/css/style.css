@@ -4,7 +4,10 @@
     background-color: white;
     padding: 25px;
     border-radius: 8px;
-    margin-bottom: 24px;
+}
+
+.switch-label {
+    background: grey!important;
 }
 
 .item-artikel {
